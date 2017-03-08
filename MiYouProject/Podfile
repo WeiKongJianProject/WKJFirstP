@@ -23,8 +23,20 @@ target 'MiYouProject' do
   pod 'MLeaksFinder', '~> 0.2'
   pod 'YYKit', '~> 1.0'
   pod 'BSUIKit', '~> 1.0'
-  pod 'Masonry', '~> 1.0'
   pod 'Mantle', '~> 2.1'
   pod 'FMDB', '~> 2.6'
-
+  pod 'SDWebImage', '~> 4.0'
+  pod 'Base64nl', '~> 1.2'
+  pod 'GONMarkupParser', '~> 0.7'
+  pod 'Masonry', '~> 1.0'
+  pod 'MJRefresh', '~> 3.1'
+  pod 'MBProgressHUD', '~> 1.0'
+  pod 'Bugly', '~> 2.4'
+  pod 'WMPageController', '~> 2.2'
+  pod 'MJExtension', '~> 3.0'
+  pod 'IQKeyboardManager', '~> 4.0'
+  pod 'MGSwipeTableCell', '~> 1.5'
+  
+  
+  
 end

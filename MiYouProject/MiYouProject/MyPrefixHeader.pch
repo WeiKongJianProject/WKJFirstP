@@ -1,0 +1,17 @@
+//
+//  MyPrefixHeader.pch
+//  MiYouProject
+//
+//  Created by wkj on 2017/3/8.
+//  Copyright © 2017年 junhong. All rights reserved.
+//
+
+#ifndef MyPrefixHeader_pch
+#define MyPrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "ZLBaseViewController.h"
+
+#endif /* MyPrefixHeader_pch */
