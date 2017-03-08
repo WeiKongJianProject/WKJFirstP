@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09154F20FBB06ABB3AFF2AB2 /* libPods-MiYouProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B941D8C5EEFA7355B25A6EDD /* libPods-MiYouProject.a */; };
+		6FCA9D73080A2E830F25396C /* libPods-MiYouProjectUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA82579BD57626DE9B888C7 /* libPods-MiYouProjectUITests.a */; };
 		732BC86A1E6FD17400B8B1BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC8691E6FD17400B8B1BD /* main.m */; };
 		732BC86D1E6FD17400B8B1BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC86C1E6FD17400B8B1BD /* AppDelegate.m */; };
 		732BC8701E6FD17400B8B1BD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC86F1E6FD17400B8B1BD /* ViewController.m */; };
@@ -16,6 +18,9 @@
 		732BC87B1E6FD17400B8B1BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 732BC8791E6FD17400B8B1BD /* LaunchScreen.storyboard */; };
 		732BC8861E6FD17500B8B1BD /* MiYouProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC8851E6FD17500B8B1BD /* MiYouProjectTests.m */; };
 		732BC8911E6FD17500B8B1BD /* MiYouProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC8901E6FD17500B8B1BD /* MiYouProjectUITests.m */; };
+		73EB3E991E6FD47600CA8B5D /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73EB3E981E6FD47600CA8B5D /* libsqlite3.0.tbd */; };
+		73EB3E9B1E6FD48200CA8B5D /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73EB3E9A1E6FD48200CA8B5D /* libsqlite3.tbd */; };
+		90283D55B137DCBD8E847A7E /* libPods-MiYouProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C385CB495FC6D255934A7A8 /* libPods-MiYouProjectTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C385CB495FC6D255934A7A8 /* libPods-MiYouProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MiYouProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FA0EB7A34A969BE28FC4932 /* Pods-MiYouProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiYouProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiYouProjectUITests/Pods-MiYouProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		732BC8651E6FD17400B8B1BD /* MiYouProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiYouProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		732BC8691E6FD17400B8B1BD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		732BC86B1E6FD17400B8B1BD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -53,6 +60,15 @@
 		732BC88C1E6FD17500B8B1BD /* MiYouProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiYouProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		732BC8901E6FD17500B8B1BD /* MiYouProjectUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiYouProjectUITests.m; sourceTree = "<group>"; };
 		732BC8921E6FD17500B8B1BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73EB3E981E6FD47600CA8B5D /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		73EB3E9A1E6FD48200CA8B5D /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		ABA82579BD57626DE9B888C7 /* libPods-MiYouProjectUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MiYouProjectUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B941D8C5EEFA7355B25A6EDD /* libPods-MiYouProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MiYouProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C96CAE7EF2E4E9477C04B021 /* Pods-MiYouProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiYouProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiYouProject/Pods-MiYouProject.debug.xcconfig"; sourceTree = "<group>"; };
+		D188F06DE47739FC8A709CA1 /* Pods-MiYouProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiYouProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiYouProject/Pods-MiYouProject.release.xcconfig"; sourceTree = "<group>"; };
+		EBC41CDB31935478BF1370F2 /* Pods-MiYouProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiYouProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiYouProjectUITests/Pods-MiYouProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EDC847902434E8CFCFC3AEB6 /* Pods-MiYouProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiYouProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiYouProjectTests/Pods-MiYouProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		F86D3DBC8B62DF579920DD2A /* Pods-MiYouProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiYouProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiYouProjectTests/Pods-MiYouProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +76,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73EB3E9B1E6FD48200CA8B5D /* libsqlite3.tbd in Frameworks */,
+				73EB3E991E6FD47600CA8B5D /* libsqlite3.0.tbd in Frameworks */,
+				09154F20FBB06ABB3AFF2AB2 /* libPods-MiYouProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90283D55B137DCBD8E847A7E /* libPods-MiYouProjectTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,12 +94,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FCA9D73080A2E830F25396C /* libPods-MiYouProjectUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D3354C620478839F6FED82A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				73EB3E9A1E6FD48200CA8B5D /* libsqlite3.tbd */,
+				73EB3E981E6FD47600CA8B5D /* libsqlite3.0.tbd */,
+				B941D8C5EEFA7355B25A6EDD /* libPods-MiYouProject.a */,
+				1C385CB495FC6D255934A7A8 /* libPods-MiYouProjectTests.a */,
+				ABA82579BD57626DE9B888C7 /* libPods-MiYouProjectUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		24127584CABD822157338FA1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C96CAE7EF2E4E9477C04B021 /* Pods-MiYouProject.debug.xcconfig */,
+				D188F06DE47739FC8A709CA1 /* Pods-MiYouProject.release.xcconfig */,
+				F86D3DBC8B62DF579920DD2A /* Pods-MiYouProjectTests.debug.xcconfig */,
+				EDC847902434E8CFCFC3AEB6 /* Pods-MiYouProjectTests.release.xcconfig */,
+				1FA0EB7A34A969BE28FC4932 /* Pods-MiYouProjectUITests.debug.xcconfig */,
+				EBC41CDB31935478BF1370F2 /* Pods-MiYouProjectUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		732BC85C1E6FD17400B8B1BD = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +133,8 @@
 				732BC8841E6FD17500B8B1BD /* MiYouProjectTests */,
 				732BC88F1E6FD17500B8B1BD /* MiYouProjectUITests */,
 				732BC8661E6FD17400B8B1BD /* Products */,
+				24127584CABD822157338FA1 /* Pods */,
+				1D3354C620478839F6FED82A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,9 +198,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 732BC8951E6FD17500B8B1BD /* Build configuration list for PBXNativeTarget "MiYouProject" */;
 			buildPhases = (
+				49671BA3B2BE1C8EBD37740E /* [CP] Check Pods Manifest.lock */,
 				732BC8611E6FD17400B8B1BD /* Sources */,
 				732BC8621E6FD17400B8B1BD /* Frameworks */,
 				732BC8631E6FD17400B8B1BD /* Resources */,
+				ECB5C8EBE64DA3607BD1C00F /* [CP] Embed Pods Frameworks */,
+				D319FA8CA58334D6306DFE09 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +218,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 732BC8981E6FD17500B8B1BD /* Build configuration list for PBXNativeTarget "MiYouProjectTests" */;
 			buildPhases = (
+				051A74BFFB21FBAC32596B61 /* [CP] Check Pods Manifest.lock */,
 				732BC87D1E6FD17500B8B1BD /* Sources */,
 				732BC87E1E6FD17500B8B1BD /* Frameworks */,
 				732BC87F1E6FD17500B8B1BD /* Resources */,
+				B5E41F65220E385B0D38B7B2 /* [CP] Embed Pods Frameworks */,
+				7DA587C463CC688E2C83607A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -185,9 +239,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 732BC89B1E6FD17500B8B1BD /* Build configuration list for PBXNativeTarget "MiYouProjectUITests" */;
 			buildPhases = (
+				82A54C9E191A9739DDC08C1B /* [CP] Check Pods Manifest.lock */,
 				732BC8881E6FD17500B8B1BD /* Sources */,
 				732BC8891E6FD17500B8B1BD /* Frameworks */,
 				732BC88A1E6FD17500B8B1BD /* Resources */,
+				414C779C88B4223BB00CB4B6 /* [CP] Embed Pods Frameworks */,
+				0FE75A49E001E40D43B817D6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -273,6 +330,144 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		051A74BFFB21FBAC32596B61 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		0FE75A49E001E40D43B817D6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MiYouProjectUITests/Pods-MiYouProjectUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		414C779C88B4223BB00CB4B6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MiYouProjectUITests/Pods-MiYouProjectUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		49671BA3B2BE1C8EBD37740E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7DA587C463CC688E2C83607A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MiYouProjectTests/Pods-MiYouProjectTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		82A54C9E191A9739DDC08C1B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B5E41F65220E385B0D38B7B2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MiYouProjectTests/Pods-MiYouProjectTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D319FA8CA58334D6306DFE09 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MiYouProject/Pods-MiYouProject-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ECB5C8EBE64DA3607BD1C00F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MiYouProject/Pods-MiYouProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		732BC8611E6FD17400B8B1BD /* Sources */ = {
@@ -427,6 +622,7 @@
 		};
 		732BC8961E6FD17500B8B1BD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C96CAE7EF2E4E9477C04B021 /* Pods-MiYouProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 39QNYYYY23;
@@ -439,6 +635,7 @@
 		};
 		732BC8971E6FD17500B8B1BD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D188F06DE47739FC8A709CA1 /* Pods-MiYouProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 39QNYYYY23;
@@ -451,6 +648,7 @@
 		};
 		732BC8991E6FD17500B8B1BD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F86D3DBC8B62DF579920DD2A /* Pods-MiYouProjectTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 39QNYYYY23;
@@ -464,6 +662,7 @@
 		};
 		732BC89A1E6FD17500B8B1BD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDC847902434E8CFCFC3AEB6 /* Pods-MiYouProjectTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 39QNYYYY23;
@@ -477,6 +676,7 @@
 		};
 		732BC89C1E6FD17500B8B1BD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1FA0EB7A34A969BE28FC4932 /* Pods-MiYouProjectUITests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 39QNYYYY23;
 				INFOPLIST_FILE = MiYouProjectUITests/Info.plist;
@@ -489,6 +689,7 @@
 		};
 		732BC89D1E6FD17500B8B1BD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBC41CDB31935478BF1370F2 /* Pods-MiYouProjectUITests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 39QNYYYY23;
 				INFOPLIST_FILE = MiYouProjectUITests/Info.plist;
@@ -518,6 +719,7 @@
 				732BC8971E6FD17500B8B1BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		732BC8981E6FD17500B8B1BD /* Build configuration list for PBXNativeTarget "MiYouProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +728,7 @@
 				732BC89A1E6FD17500B8B1BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		732BC89B1E6FD17500B8B1BD /* Build configuration list for PBXNativeTarget "MiYouProjectUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +737,7 @@
 				732BC89D1E6FD17500B8B1BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
