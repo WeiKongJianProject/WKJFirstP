@@ -13,8 +13,15 @@
 #import "ZLSecondAFNetworking.h"
 #import <FMDB.h>
 #import "FMDB+ZL.h"
-#import "UIColor+HeinQi.h"
+#import "ViewPagerController.h"
+#import "ZLLabelCustom.h"
 
-@interface FirstViewController : ZLBaseViewController
+#import "SearchViewController.h"
 
+@interface FirstViewController : ViewPagerController<ViewPagerDataSource,ViewPagerDelegate>
+
+@property (strong, nonatomic) NSMutableArray * itemsTitlesARR;
+
+@property (strong, nonatomic) NSMutableArray* labelARR;
+@property (strong, nonatomic) ZLLabelCustom * currentLabel;
 @end

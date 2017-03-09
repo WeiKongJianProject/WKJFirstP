@@ -113,6 +113,10 @@
 		73EB3FD81E6FE29F00CA8B5D /* NSDatezlModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EB3FD71E6FE29F00CA8B5D /* NSDatezlModel.m */; };
 		73EB3FDB1E6FE2CE00CA8B5D /* NSString+URLZL.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EB3FDA1E6FE2CE00CA8B5D /* NSString+URLZL.m */; };
 		73EB3FDF1E70000F00CA8B5D /* ViewPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EB3FDE1E70000F00CA8B5D /* ViewPagerController.m */; };
+		73EB3FE61E70FB1E00CA8B5D /* UIColor+ColorZL.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EB3FE51E70FB1E00CA8B5D /* UIColor+ColorZL.m */; };
+		73EB43091E71313100CA8B5D /* ZLLabelCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EB43081E71313100CA8B5D /* ZLLabelCustom.m */; };
+		73EB430D1E713D5A00CA8B5D /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EB430B1E713D5A00CA8B5D /* SearchViewController.m */; };
+		73EB430E1E713D5A00CA8B5D /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73EB430C1E713D5A00CA8B5D /* SearchViewController.xib */; };
 		90283D55B137DCBD8E847A7E /* libPods-MiYouProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C385CB495FC6D255934A7A8 /* libPods-MiYouProjectTests.a */; };
 /* End PBXBuildFile section */
 
@@ -312,6 +316,13 @@
 		73EB3FDA1E6FE2CE00CA8B5D /* NSString+URLZL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLZL.m"; sourceTree = "<group>"; };
 		73EB3FDD1E70000F00CA8B5D /* ViewPagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPagerController.h; sourceTree = "<group>"; };
 		73EB3FDE1E70000F00CA8B5D /* ViewPagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPagerController.m; sourceTree = "<group>"; };
+		73EB3FE41E70FB1E00CA8B5D /* UIColor+ColorZL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ColorZL.h"; sourceTree = "<group>"; };
+		73EB3FE51E70FB1E00CA8B5D /* UIColor+ColorZL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ColorZL.m"; sourceTree = "<group>"; };
+		73EB43071E71313100CA8B5D /* ZLLabelCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLLabelCustom.h; sourceTree = "<group>"; };
+		73EB43081E71313100CA8B5D /* ZLLabelCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLLabelCustom.m; sourceTree = "<group>"; };
+		73EB430A1E713D5A00CA8B5D /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		73EB430B1E713D5A00CA8B5D /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		73EB430C1E713D5A00CA8B5D /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		ABA82579BD57626DE9B888C7 /* libPods-MiYouProjectUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MiYouProjectUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B941D8C5EEFA7355B25A6EDD /* libPods-MiYouProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MiYouProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C96CAE7EF2E4E9477C04B021 /* Pods-MiYouProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiYouProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiYouProject/Pods-MiYouProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -486,6 +497,9 @@
 			children = (
 				73EB3EA51E6FD7DB00CA8B5D /* FirstViewController.h */,
 				73EB3EA61E6FD7DB00CA8B5D /* FirstViewController.m */,
+				73EB430A1E713D5A00CA8B5D /* SearchViewController.h */,
+				73EB430B1E713D5A00CA8B5D /* SearchViewController.m */,
+				73EB430C1E713D5A00CA8B5D /* SearchViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -502,6 +516,8 @@
 		73EB3EAA1E6FD7DB00CA8B5D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				73EB43071E71313100CA8B5D /* ZLLabelCustom.h */,
+				73EB43081E71313100CA8B5D /* ZLLabelCustom.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -801,6 +817,7 @@
 		73EB3F241E6FDEE400CA8B5D /* zhou */ = {
 			isa = PBXGroup;
 			children = (
+				73EB3FE31E70FAE900CA8B5D /* ColorZL */,
 				73EB3F251E6FDEE400CA8B5D /* AnimationZL */,
 				73EB3F401E6FDEE400CA8B5D /* app_bg.jpg */,
 				73EB3F411E6FDEE400CA8B5D /* CommonHeader.h */,
@@ -819,7 +836,7 @@
 				73EB3F771E6FDEE400CA8B5D /* UIButton+Badge */,
 				73EB3F781E6FDEE400CA8B5D /* wangluo */,
 				73EB3F7B1E6FDEE400CA8B5D /* xiaLacaiDan */,
-				73EB3F7E1E6FDEE400CA8B5D /* ZhengZe */,
+				73EB3F7E1E6FDEE400CA8B5D /* ZhengZeZL */,
 			);
 			path = zhou;
 			sourceTree = "<group>";
@@ -1021,12 +1038,13 @@
 			path = xiaLacaiDan;
 			sourceTree = "<group>";
 		};
-		73EB3F7E1E6FDEE400CA8B5D /* ZhengZe */ = {
+		73EB3F7E1E6FDEE400CA8B5D /* ZhengZeZL */ = {
 			isa = PBXGroup;
 			children = (
 				73EB3F7F1E6FDEE400CA8B5D /* ZhengZePanDuan.h */,
 				73EB3F801E6FDEE400CA8B5D /* ZhengZePanDuan.m */,
 			);
+			name = ZhengZeZL;
 			path = ZhengZe;
 			sourceTree = "<group>";
 		};
@@ -1046,6 +1064,15 @@
 				73EB3FDE1E70000F00CA8B5D /* ViewPagerController.m */,
 			);
 			path = ICViewPager;
+			sourceTree = "<group>";
+		};
+		73EB3FE31E70FAE900CA8B5D /* ColorZL */ = {
+			isa = PBXGroup;
+			children = (
+				73EB3FE41E70FB1E00CA8B5D /* UIColor+ColorZL.h */,
+				73EB3FE51E70FB1E00CA8B5D /* UIColor+ColorZL.m */,
+			);
+			path = ColorZL;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1186,6 +1213,7 @@
 				73EB3F9C1E6FDEE400CA8B5D /* 0004.png in Resources */,
 				732BC87B1E6FD17400B8B1BD /* LaunchScreen.storyboard in Resources */,
 				73EB3FB31E6FDEE400CA8B5D /* Loading004.png in Resources */,
+				73EB430E1E713D5A00CA8B5D /* SearchViewController.xib in Resources */,
 				73EB3FCC1E6FDEE400CA8B5D /* page.png in Resources */,
 				73EB3FA01E6FDEE400CA8B5D /* zhoulu.gif in Resources */,
 				73EB3FBA1E6FDEE400CA8B5D /* MLAnimationViewController.xib in Resources */,
@@ -1368,11 +1396,14 @@
 				73EB3EDA1E6FD7DB00CA8B5D /* UploadParam.m in Sources */,
 				73EB3ED71E6FD7DB00CA8B5D /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				73EB3EDB1E6FD7DB00CA8B5D /* ZLAFNetworking.m in Sources */,
+				73EB3FE61E70FB1E00CA8B5D /* UIColor+ColorZL.m in Sources */,
 				73EB3FC01E6FDEE400CA8B5D /* NewFeatureModel.m in Sources */,
 				73EB3FC61E6FDEE400CA8B5D /* GCDGroup.m in Sources */,
+				73EB430D1E713D5A00CA8B5D /* SearchViewController.m in Sources */,
 				73EB3FCE1E6FDEE400CA8B5D /* UIView+MJAlertView.m in Sources */,
 				73EB3F931E6FDEE400CA8B5D /* KZPhotoManager.m in Sources */,
 				73EB3FBB1E6FDEE400CA8B5D /* YYAnimationIndicator.m in Sources */,
+				73EB43091E71313100CA8B5D /* ZLLabelCustom.m in Sources */,
 				73EB3FCB1E6FDEE400CA8B5D /* iCarousel.m in Sources */,
 				73EB3ED51E6FD7DB00CA8B5D /* SearchHistoryModel.m in Sources */,
 				73EB3FD01E6FDEE400CA8B5D /* NavTopCommonImage.m in Sources */,

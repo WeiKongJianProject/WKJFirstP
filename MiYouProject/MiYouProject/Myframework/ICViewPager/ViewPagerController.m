@@ -8,10 +8,6 @@
 
 #import "ViewPagerController.h"
 
-
-
-
-#import "HFSUtility.h"
 #import "CommonHeader.h"
 
 #define kDefaultTabHeight 40.0 // Default tab height
@@ -30,10 +26,12 @@
 #define kDefaultIndicatorColor [UIColor colorWithRed:178.0/255.0 green:203.0/255.0 blue:57.0/255.0 alpha:0.75]
 
 
-#define kDefaultTabsViewBackgroundColor [HFSUtility hexStringToColor:Main_beijingGray_BackgroundColor]
+#define kDefaultTabsViewBackgroundColor [UIColor colorWithRed:234.0/255.0 green:234.0/255.0 blue:234.0/255.0 alpha:0.75]
 //[UIColor colorWithRed:234.0/255.0 green:234.0/255.0 blue:234.0/255.0 alpha:0.75]
-#define kDefaultContentViewBackgroundColor [HFSUtility hexStringToColor:Main_beijingGray_BackgroundColor]
+//[HFSUtility hexStringToColor:Main_beijingGray_BackgroundColor]
+#define kDefaultContentViewBackgroundColor [UIColor colorWithRed:248.0/255.0 green:248.0/255.0 blue:248.0/255.0 alpha:0.75]
 //[UIColor colorWithRed:248.0/255.0 green:248.0/255.0 blue:248.0/255.0 alpha:0.75]
+//[HFSUtility hexStringToColor:Main_beijingGray_BackgroundColor]
 
 
 // TabView for tabs, that provides un/selected state indicators
@@ -159,16 +157,16 @@
     frame = _tabsView.frame;
     frame.origin.x = 0.0;
 
-    frame.origin.y = self.tabLocation ? 64.0 : self.view.frame.size.height - self.tabHeight;
+    frame.origin.y = self.tabLocation ? 20.0 : self.view.frame.size.height - self.tabHeight;
 
-    frame.size.width = self.view.bounds.size.width;
+    frame.size.width = self.view.bounds.size.width-80;
     frame.size.height = self.tabHeight;
     _tabsView.frame = frame;
     
     frame = _contentView.frame;
     frame.origin.x = 0.0;
 
-    frame.origin.y = self.tabLocation ? self.tabHeight+64.0 : 0.0+64.0;
+    frame.origin.y = self.tabLocation ? self.tabHeight+20.0 : 0.0+64.0;
 
     frame.size.width = self.view.bounds.size.width;
     frame.size.height = self.view.frame.size.height - self.tabHeight;

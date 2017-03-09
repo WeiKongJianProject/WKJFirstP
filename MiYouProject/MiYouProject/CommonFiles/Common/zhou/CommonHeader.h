@@ -41,12 +41,6 @@
 #define SIZE_WIDTH [UIScreen mainScreen].bounds.size.width
 #define SIZE_HEIGHT [UIScreen mainScreen].bounds.size.height
 
-//申请招标界面的
-#define APPLYBACGROUND_MIDDLE_FRAME  CGRectMake(0,0,SIZE_WIDTH,SIZE_HEIGHT)
-#define APPLYBACGROUND_RIGHT_FRAME CGRectMake(SIZE_WIDTH,0,SIZE_WIDTH,SIZE_HEIGHT)
-#define APPLYBACGROUND_LEFT_FRAME  CGRectMake(-30,0,SIZE_WIDTH,SIZE_HEIGHT)
-#define APPLYBACGROUND_TOP_FRAME CGRectMake(0,-170,SIZE_WIDTH,SIZE_HEIGHT)
-
 #define HTTP_COMMON @"http://192.168.1.117:1008/"
 
 #define UMENG_APPKEY @"566fdf2fe0f55a4475001e3f"
@@ -86,7 +80,7 @@
 #import "Masonry.h"
 
 //ae835d
-#define Main_BackgroundColor @"ae835d"
+#define Main_BackgroundColor @"f9bf34"
 //bab6b7
 #define Main_grayBackgroundColor @"bab6b7"
 //浅灰
@@ -132,4 +126,7 @@
 
 #import "UIImageView+ZLWebPsetImage.h"
 #import "UIButton+ZLWebPSetImage.h"
+
+#define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+
 #endif

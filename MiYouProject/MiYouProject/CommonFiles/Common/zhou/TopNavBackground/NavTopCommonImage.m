@@ -16,7 +16,7 @@
     if (self) {
         self.userInteractionEnabled = YES;
         
-        self.frame = CGRectMake(0, 0, SIZE_WIDTH, 64);
+        self.frame = CGRectMake(0, 0, SIZE_WIDTH, 60);
         /*
         UIImageView * navBackImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SIZE_WIDTH, 64)];
         //navBackImage.backgroundColor = [self makeColorWithHue:44 withSaturation:0.0 withbrightness:0.96 withAlpha:1.0];
@@ -25,7 +25,7 @@
         */
         //self.backgroundColor = [CustomeColorObject makeColorWithHue:46 withSaturation:1 withbrightness:1 withAlpha:1.0f];
         
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor colorWithhex16stringToColor:Main_BackgroundColor];
         //self.image = [UIImage imageNamed:@"navBackground@2x.png"];
         
         /*
