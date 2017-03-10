@@ -18,6 +18,9 @@
 		732BC87B1E6FD17400B8B1BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 732BC8791E6FD17400B8B1BD /* LaunchScreen.storyboard */; };
 		732BC8861E6FD17500B8B1BD /* MiYouProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC8851E6FD17500B8B1BD /* MiYouProjectTests.m */; };
 		732BC8911E6FD17500B8B1BD /* MiYouProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC8901E6FD17500B8B1BD /* MiYouProjectUITests.m */; };
+		736557361E728F5800284C11 /* ReMenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736557351E728F5800284C11 /* ReMenView.xib */; };
+		7365573A1E729C4B00284C11 /* DianYingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */; };
+		7365573B1E729C4B00284C11 /* DianYingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736557391E729C4B00284C11 /* DianYingCollectionViewCell.xib */; };
 		73EB3E991E6FD47600CA8B5D /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73EB3E981E6FD47600CA8B5D /* libsqlite3.0.tbd */; };
 		73EB3E9B1E6FD48200CA8B5D /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73EB3E9A1E6FD48200CA8B5D /* libsqlite3.tbd */; };
 		73EB3ED21E6FD7DB00CA8B5D /* ZLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EB3E9F1E6FD7DB00CA8B5D /* ZLBaseViewController.m */; };
@@ -117,6 +120,13 @@
 		73EB43091E71313100CA8B5D /* ZLLabelCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EB43081E71313100CA8B5D /* ZLLabelCustom.m */; };
 		73EB430D1E713D5A00CA8B5D /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EB430B1E713D5A00CA8B5D /* SearchViewController.m */; };
 		73EB430E1E713D5A00CA8B5D /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73EB430C1E713D5A00CA8B5D /* SearchViewController.xib */; };
+		73EB43121E7240EE00CA8B5D /* NSObject+XWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EB43111E7240EE00CA8B5D /* NSObject+XWAdd.m */; };
+		73EB43161E7241A400CA8B5D /* DianShiQiangCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EB43141E7241A400CA8B5D /* DianShiQiangCollectionCell.m */; };
+		73EB43171E7241A400CA8B5D /* DianShiQiangCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73EB43151E7241A400CA8B5D /* DianShiQiangCollectionCell.xib */; };
+		73EB431B1E7241F200CA8B5D /* DianShiQiangViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EB43191E7241F200CA8B5D /* DianShiQiangViewController.m */; };
+		73EB431C1E7241F200CA8B5D /* DianShiQiangViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73EB431A1E7241F200CA8B5D /* DianShiQiangViewController.xib */; };
+		73EB43201E727E6F00CA8B5D /* FirstSubViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EB431E1E727E6F00CA8B5D /* FirstSubViewViewController.m */; };
+		73EB43211E727E6F00CA8B5D /* FirstSubViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73EB431F1E727E6F00CA8B5D /* FirstSubViewViewController.xib */; };
 		90283D55B137DCBD8E847A7E /* libPods-MiYouProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C385CB495FC6D255934A7A8 /* libPods-MiYouProjectTests.a */; };
 /* End PBXBuildFile section */
 
@@ -157,6 +167,10 @@
 		732BC88C1E6FD17500B8B1BD /* MiYouProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiYouProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		732BC8901E6FD17500B8B1BD /* MiYouProjectUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiYouProjectUITests.m; sourceTree = "<group>"; };
 		732BC8921E6FD17500B8B1BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		736557351E728F5800284C11 /* ReMenView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReMenView.xib; sourceTree = "<group>"; };
+		736557371E729C4B00284C11 /* DianYingCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianYingCollectionViewCell.h; sourceTree = "<group>"; };
+		736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianYingCollectionViewCell.m; sourceTree = "<group>"; };
+		736557391E729C4B00284C11 /* DianYingCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DianYingCollectionViewCell.xib; sourceTree = "<group>"; };
 		73EB3E981E6FD47600CA8B5D /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		73EB3E9A1E6FD48200CA8B5D /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		73EB3E9C1E6FD60600CA8B5D /* MyPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPrefixHeader.pch; sourceTree = "<group>"; };
@@ -323,6 +337,17 @@
 		73EB430A1E713D5A00CA8B5D /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		73EB430B1E713D5A00CA8B5D /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		73EB430C1E713D5A00CA8B5D /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		73EB43101E7240EE00CA8B5D /* NSObject+XWAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+XWAdd.h"; sourceTree = "<group>"; };
+		73EB43111E7240EE00CA8B5D /* NSObject+XWAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+XWAdd.m"; sourceTree = "<group>"; };
+		73EB43131E7241A400CA8B5D /* DianShiQiangCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianShiQiangCollectionCell.h; sourceTree = "<group>"; };
+		73EB43141E7241A400CA8B5D /* DianShiQiangCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianShiQiangCollectionCell.m; sourceTree = "<group>"; };
+		73EB43151E7241A400CA8B5D /* DianShiQiangCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DianShiQiangCollectionCell.xib; sourceTree = "<group>"; };
+		73EB43181E7241F200CA8B5D /* DianShiQiangViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianShiQiangViewController.h; sourceTree = "<group>"; };
+		73EB43191E7241F200CA8B5D /* DianShiQiangViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianShiQiangViewController.m; sourceTree = "<group>"; };
+		73EB431A1E7241F200CA8B5D /* DianShiQiangViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DianShiQiangViewController.xib; sourceTree = "<group>"; };
+		73EB431D1E727E6F00CA8B5D /* FirstSubViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstSubViewViewController.h; sourceTree = "<group>"; };
+		73EB431E1E727E6F00CA8B5D /* FirstSubViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstSubViewViewController.m; sourceTree = "<group>"; };
+		73EB431F1E727E6F00CA8B5D /* FirstSubViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstSubViewViewController.xib; sourceTree = "<group>"; };
 		ABA82579BD57626DE9B888C7 /* libPods-MiYouProjectUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MiYouProjectUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B941D8C5EEFA7355B25A6EDD /* libPods-MiYouProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MiYouProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C96CAE7EF2E4E9477C04B021 /* Pods-MiYouProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiYouProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiYouProject/Pods-MiYouProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -500,6 +525,12 @@
 				73EB430A1E713D5A00CA8B5D /* SearchViewController.h */,
 				73EB430B1E713D5A00CA8B5D /* SearchViewController.m */,
 				73EB430C1E713D5A00CA8B5D /* SearchViewController.xib */,
+				73EB43181E7241F200CA8B5D /* DianShiQiangViewController.h */,
+				73EB43191E7241F200CA8B5D /* DianShiQiangViewController.m */,
+				73EB431A1E7241F200CA8B5D /* DianShiQiangViewController.xib */,
+				73EB431D1E727E6F00CA8B5D /* FirstSubViewViewController.h */,
+				73EB431E1E727E6F00CA8B5D /* FirstSubViewViewController.m */,
+				73EB431F1E727E6F00CA8B5D /* FirstSubViewViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -518,6 +549,13 @@
 			children = (
 				73EB43071E71313100CA8B5D /* ZLLabelCustom.h */,
 				73EB43081E71313100CA8B5D /* ZLLabelCustom.m */,
+				73EB43131E7241A400CA8B5D /* DianShiQiangCollectionCell.h */,
+				73EB43141E7241A400CA8B5D /* DianShiQiangCollectionCell.m */,
+				73EB43151E7241A400CA8B5D /* DianShiQiangCollectionCell.xib */,
+				736557351E728F5800284C11 /* ReMenView.xib */,
+				736557371E729C4B00284C11 /* DianYingCollectionViewCell.h */,
+				736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */,
+				736557391E729C4B00284C11 /* DianYingCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -589,6 +627,7 @@
 		73EB3EB31E6FD7DB00CA8B5D /* Myframework */ = {
 			isa = PBXGroup;
 			children = (
+				73EB430F1E7240EE00CA8B5D /* KVO&Notification */,
 				73EB3FDC1E70000F00CA8B5D /* ICViewPager */,
 				73EB3EB41E6FD7DB00CA8B5D /* Category */,
 				73EB3EB71E6FD7DB00CA8B5D /* FDFullscreenPopGesture */,
@@ -1075,6 +1114,15 @@
 			path = ColorZL;
 			sourceTree = "<group>";
 		};
+		73EB430F1E7240EE00CA8B5D /* KVO&Notification */ = {
+			isa = PBXGroup;
+			children = (
+				73EB43101E7240EE00CA8B5D /* NSObject+XWAdd.h */,
+				73EB43111E7240EE00CA8B5D /* NSObject+XWAdd.m */,
+			);
+			path = "KVO&Notification";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1193,7 +1241,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				736557361E728F5800284C11 /* ReMenView.xib in Resources */,
 				73EB3FB41E6FDEE400CA8B5D /* Loading005.png in Resources */,
+				73EB43171E7241A400CA8B5D /* DianShiQiangCollectionCell.xib in Resources */,
 				73EB3F9E1E6FDEE400CA8B5D /* 0006.png in Resources */,
 				73EB3FA11E6FDEE400CA8B5D /* zhoululu.webp in Resources */,
 				73EB3FB21E6FDEE400CA8B5D /* Loading003.png in Resources */,
@@ -1229,7 +1279,10 @@
 				732BC8731E6FD17400B8B1BD /* Main.storyboard in Resources */,
 				73EB3FAA1E6FDEE400CA8B5D /* Loading0014.png in Resources */,
 				73EB3FCD1E6FDEE400CA8B5D /* placeholder.png in Resources */,
+				7365573B1E729C4B00284C11 /* DianYingCollectionViewCell.xib in Resources */,
+				73EB43211E727E6F00CA8B5D /* FirstSubViewViewController.xib in Resources */,
 				73EB3FB61E6FDEE400CA8B5D /* Loading007.png in Resources */,
+				73EB431C1E7241F200CA8B5D /* DianShiQiangViewController.xib in Resources */,
 				73EB3FB11E6FDEE400CA8B5D /* Loading0020.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1399,11 +1452,13 @@
 				73EB3FE61E70FB1E00CA8B5D /* UIColor+ColorZL.m in Sources */,
 				73EB3FC01E6FDEE400CA8B5D /* NewFeatureModel.m in Sources */,
 				73EB3FC61E6FDEE400CA8B5D /* GCDGroup.m in Sources */,
+				7365573A1E729C4B00284C11 /* DianYingCollectionViewCell.m in Sources */,
 				73EB430D1E713D5A00CA8B5D /* SearchViewController.m in Sources */,
 				73EB3FCE1E6FDEE400CA8B5D /* UIView+MJAlertView.m in Sources */,
 				73EB3F931E6FDEE400CA8B5D /* KZPhotoManager.m in Sources */,
 				73EB3FBB1E6FDEE400CA8B5D /* YYAnimationIndicator.m in Sources */,
 				73EB43091E71313100CA8B5D /* ZLLabelCustom.m in Sources */,
+				73EB43201E727E6F00CA8B5D /* FirstSubViewViewController.m in Sources */,
 				73EB3FCB1E6FDEE400CA8B5D /* iCarousel.m in Sources */,
 				73EB3ED51E6FD7DB00CA8B5D /* SearchHistoryModel.m in Sources */,
 				73EB3FD01E6FDEE400CA8B5D /* NavTopCommonImage.m in Sources */,
@@ -1424,6 +1479,7 @@
 				73EB3F981E6FDEE400CA8B5D /* UIImageView+ZLWebPsetImage.m in Sources */,
 				73EB3F901E6FDEE400CA8B5D /* HFSApplicationContext.m in Sources */,
 				73EB3FC91E6FDEE400CA8B5D /* GCDTimer.m in Sources */,
+				73EB43161E7241A400CA8B5D /* DianShiQiangCollectionCell.m in Sources */,
 				73EB3FC21E6FDEE400CA8B5D /* NewFeatureScrollView.m in Sources */,
 				73EB3FDB1E6FE2CE00CA8B5D /* NSString+URLZL.m in Sources */,
 				73EB3EDE1E6FD7DB00CA8B5D /* ThirdViewController.m in Sources */,
@@ -1442,12 +1498,14 @@
 				73EB3F971E6FDEE400CA8B5D /* UIButton+ZLWebPSetImage.m in Sources */,
 				73EB3FD41E6FDEE400CA8B5D /* ZLPageControl.m in Sources */,
 				73EB3FA31E6FDEE400CA8B5D /* RSAEncryptor.m in Sources */,
+				73EB43121E7240EE00CA8B5D /* NSObject+XWAdd.m in Sources */,
 				732BC86A1E6FD17400B8B1BD /* main.m in Sources */,
 				73EB3EDC1E6FD7DB00CA8B5D /* ZLSecondAFNetworking.m in Sources */,
 				73EB3EE11E6FD97300CA8B5D /* FourViewController.m in Sources */,
 				73EB3ED31E6FD7DB00CA8B5D /* TestMTLModel.m in Sources */,
 				73EB3FD11E6FDEE400CA8B5D /* Reachability.m in Sources */,
 				73EB3EDD1E6FD7DB00CA8B5D /* SecondViewController.m in Sources */,
+				73EB431B1E7241F200CA8B5D /* DianShiQiangViewController.m in Sources */,
 				73EB3FBF1E6FDEE400CA8B5D /* CoreNewFeatureVC.m in Sources */,
 				73EB3ED81E6FD7DB00CA8B5D /* KSNavigationController.m in Sources */,
 				73EB3F861E6FDEE400CA8B5D /* UIBarButtonItem+Badge.m in Sources */,

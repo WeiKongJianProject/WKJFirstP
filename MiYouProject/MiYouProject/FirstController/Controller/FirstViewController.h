@@ -17,6 +17,8 @@
 #import "ZLLabelCustom.h"
 
 #import "SearchViewController.h"
+#import "DianShiQiangViewController.h"
+#import "FirstSubViewViewController.h"
 
 @interface FirstViewController : ViewPagerController<ViewPagerDataSource,ViewPagerDelegate>
 

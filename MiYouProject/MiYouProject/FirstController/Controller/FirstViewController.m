@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.labelARR = [[NSMutableArray alloc]init];
     //self.title = @"首页";
     //设置 tabbar 图标颜色
@@ -29,7 +30,7 @@
     self.tabBarController.tabBar.tintColor = [UIColor colorWithhex16stringToColor:Main_BackgroundColor];
     self.view.backgroundColor = [UIColor colorWithhex16stringToColor:Main_BackgroundColor];
     
-    [self.itemsTitlesARR addObjectsFromArray:@[@"标题 一",@"标题二",@"标题三",@"标题四",@"标题五",@"标题五",@"标题五"]];
+    [self.itemsTitlesARR addObjectsFromArray:@[@"推荐",@"热门",@"美女",@"电影",@"标题五",@"标题五",@"标题五"]];
     //设置 ViewPagerController 代理
     
     self.dataSource = self;
@@ -62,6 +63,10 @@
     
     
     [self createSearchButton];
+    
+    
+
+    
 }
 //创建 搜索 和菜单按钮
 - (void)createSearchButton{
@@ -102,6 +107,11 @@
 }
 - (void)caiDanBtnButtonAction:(UIButton *)sender{
     NSLog(@"点击了菜单按钮");
+    
+    DianShiQiangViewController * dianshiVC = [[DianShiQiangViewController alloc]init];
+    
+    [self.navigationController pushViewController:dianshiVC animated:YES];
+    
 }
 
 //懒加载
@@ -153,6 +163,7 @@
     //[self.navigationItem setTitle:@"首页"];
     //self.navigationController.navigationBar.topItem.title=@"BS LZ";
 }
+
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
     //[self.navigationController setNavigationBarHidden:NO];
@@ -199,8 +210,8 @@
 }
 //每个Tab对应的控制器
 - (UIViewController *)viewPager:(ViewPagerController *)viewPager contentViewControllerForTabAtIndex:(NSUInteger)index{
-    UIViewController *vCtrl = [[UIViewController alloc]init];
-    vCtrl.view.backgroundColor = [UIColor yellowColor];
+    FirstSubViewViewController *vCtrl = [[FirstSubViewViewController alloc]init];
+    vCtrl.view.backgroundColor = [UIColor whiteColor];
     if (index == 2) {
         vCtrl.view.backgroundColor = [UIColor redColor];
     }

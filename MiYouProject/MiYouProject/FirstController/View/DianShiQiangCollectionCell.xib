@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="dianShiQiangCellId" reuseIdentifier="dianShiQiangCellId" id="gTV-IL-0wX" customClass="DianShiQiangCollectionCell">
+            <rect key="frame" x="0.0" y="0.0" width="234" height="147"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="234" height="147"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电影" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZF-m0-4fQ">
+                        <rect key="frame" x="99.5" y="73.5" width="35" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nc2-io-eMX">
+                        <rect key="frame" x="102" y="38.5" width="30" height="30"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sousuozhou" translatesAutoresizingMaskIntoConstraints="NO" id="B5k-QI-zi2">
+                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="9BJ-AO-E6Z"/>
+                            <constraint firstAttribute="width" constant="30" id="Jxz-Ca-f9z"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="rZF-m0-4fQ" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" constant="10" id="BxP-rC-Q9O"/>
+                <constraint firstItem="nc2-io-eMX" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="OES-HT-Uag"/>
+                <constraint firstItem="nc2-io-eMX" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" constant="-20" id="Zrv-U9-Qrg"/>
+                <constraint firstItem="rZF-m0-4fQ" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="gna-hF-BQj"/>
+            </constraints>
+            <size key="customSize" width="234" height="147"/>
+            <point key="canvasLocation" x="117" y="100.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="sousuozhou" width="22" height="22"/>
+    </resources>
+</document>
