@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		09154F20FBB06ABB3AFF2AB2 /* libPods-MiYouProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B941D8C5EEFA7355B25A6EDD /* libPods-MiYouProject.a */; };
+		18AEC4521E759451004BD503 /* ZLCollectionGirdVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AEC4511E759451004BD503 /* ZLCollectionGirdVIew.m */; };
 		6FCA9D73080A2E830F25396C /* libPods-MiYouProjectUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA82579BD57626DE9B888C7 /* libPods-MiYouProjectUITests.a */; };
 		732BC86A1E6FD17400B8B1BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC8691E6FD17400B8B1BD /* main.m */; };
 		732BC86D1E6FD17400B8B1BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC86C1E6FD17400B8B1BD /* AppDelegate.m */; };
@@ -148,6 +149,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18AEC4501E759451004BD503 /* ZLCollectionGirdVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLCollectionGirdVIew.h; sourceTree = "<group>"; };
+		18AEC4511E759451004BD503 /* ZLCollectionGirdVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLCollectionGirdVIew.m; sourceTree = "<group>"; };
 		1C385CB495FC6D255934A7A8 /* libPods-MiYouProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MiYouProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FA0EB7A34A969BE28FC4932 /* Pods-MiYouProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiYouProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiYouProjectUITests/Pods-MiYouProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		732BC8651E6FD17400B8B1BD /* MiYouProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiYouProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -389,6 +392,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18AEC44F1E7593FA004BD503 /* ZLCollectionViewGird */ = {
+			isa = PBXGroup;
+			children = (
+				18AEC4501E759451004BD503 /* ZLCollectionGirdVIew.h */,
+				18AEC4511E759451004BD503 /* ZLCollectionGirdVIew.m */,
+			);
+			path = ZLCollectionViewGird;
+			sourceTree = "<group>";
+		};
 		1D3354C620478839F6FED82A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -627,6 +639,7 @@
 		73EB3EB31E6FD7DB00CA8B5D /* Myframework */ = {
 			isa = PBXGroup;
 			children = (
+				18AEC44F1E7593FA004BD503 /* ZLCollectionViewGird */,
 				73EB430F1E7240EE00CA8B5D /* KVO&Notification */,
 				73EB3FDC1E70000F00CA8B5D /* ICViewPager */,
 				73EB3EB41E6FD7DB00CA8B5D /* Category */,
@@ -1450,6 +1463,7 @@
 				73EB3ED71E6FD7DB00CA8B5D /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				73EB3EDB1E6FD7DB00CA8B5D /* ZLAFNetworking.m in Sources */,
 				73EB3FE61E70FB1E00CA8B5D /* UIColor+ColorZL.m in Sources */,
+				18AEC4521E759451004BD503 /* ZLCollectionGirdVIew.m in Sources */,
 				73EB3FC01E6FDEE400CA8B5D /* NewFeatureModel.m in Sources */,
 				73EB3FC61E6FDEE400CA8B5D /* GCDGroup.m in Sources */,
 				7365573A1E729C4B00284C11 /* DianYingCollectionViewCell.m in Sources */,
