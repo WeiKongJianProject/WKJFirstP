@@ -64,8 +64,29 @@
     
     [self createSearchButton];
     
-    
-
+    __weak typeof(self) weakSelf = self;
+    [self xw_addNotificationForName:TIAOZHUAN_NOTICFICATION block:^(NSNotification * _Nonnull notification) {
+        NSLog(@"执行了跳转方法");
+        NSDictionary * dic = notification.userInfo;
+        NSString * useString = [dic objectForKey:@"index"];
+        if ([useString isEqualToString:@"0"]) {
+            [weakSelf setActiveTabIndex:0];
+        }
+        else if([useString isEqualToString:@"1"]){
+            [weakSelf setActiveTabIndex:1];
+        }
+        else if ([useString isEqualToString:@"2"]){
+            [weakSelf.tabBarController setSelectedIndex:1];
+        }else if ([useString isEqualToString:@"3"]){
+            [weakSelf.tabBarController setSelectedIndex:2];
+        }else if ([useString isEqualToString:@"4"]){
+            [weakSelf setActiveTabIndex:3];
+        }else if ([useString isEqualToString:@"5"]){
+            [weakSelf setActiveTabIndex:4];
+        }
+        
+        
+    }];
     
 }
 //创建 搜索 和菜单按钮
@@ -86,13 +107,13 @@
     
     UIButton * searchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [searchBtn setFrame:CGRectMake(SIZE_WIDTH-75, 20, 30, 30)];
-    [searchBtn setTitle:@"搜索" forState:UIControlStateNormal];
+    [searchBtn setBackgroundImage:[UIImage imageNamed:@"shouyefangdajing"] forState:UIControlStateNormal];
     [searchBtn addTarget:self action:@selector(searchButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:searchBtn];
     
     UIButton * caiDanBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [caiDanBtn setFrame:CGRectMake(SIZE_WIDTH-40, 20, 30, 30)];
-    [caiDanBtn setTitle:@"搜索" forState:UIControlStateNormal];
+    [caiDanBtn setBackgroundImage:[UIImage imageNamed:@"shouyecaidanlan"] forState:UIControlStateNormal];
     [caiDanBtn addTarget:self action:@selector(caiDanBtnButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:caiDanBtn];
 
@@ -111,7 +132,7 @@
     DianShiQiangViewController * dianshiVC = [[DianShiQiangViewController alloc]init];
     
     [self.navigationController pushViewController:dianshiVC animated:YES];
-    
+   
 }
 
 //懒加载

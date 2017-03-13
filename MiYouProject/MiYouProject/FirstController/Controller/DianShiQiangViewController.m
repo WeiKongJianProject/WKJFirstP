@@ -23,9 +23,28 @@
     [self.navigationController setNavigationBarHidden:NO];
     self.title = @"电视墙";
     
+    [self.imageNameARR addObjectsFromArray:@[@"dianshiqiangtuijian",@"diansqiangremeng",@"dianshiqiangzuashi",@"dianshiqiangmeinv",@"dianshiqiangdianying",@"dianshiqiangdongman"]];
+    
+    [self.nameLabelARR addObjectsFromArray:@[@"推荐",@"热门",@"VIP",@"美女",@"电影",@"动漫"]];
     //设置CollectionView
     [self settingCollectionView];
 }
+//懒加载
+- (NSMutableArray *)imageNameARR{
+
+    if (!_imageNameARR) {
+        _imageNameARR  = [[NSMutableArray alloc]init];
+    }
+    return _imageNameARR;
+}
+- (NSMutableArray *)nameLabelARR{
+
+    if (!_nameLabelARR) {
+        _nameLabelARR = [[NSMutableArray alloc]init];
+    }
+    return _nameLabelARR;
+}
+
 
 //设置CollectionView
 - (void)settingCollectionView{
@@ -73,6 +92,35 @@
 
     static NSString * cellId = @"dianShiQiangCellId";
     DianShiQiangCollectionCell *cell = (DianShiQiangCollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+
+    switch (indexPath.row) {
+        case 0:
+            [cell.imageView setImage:[UIImage imageNamed:self.imageNameARR[0]]];
+            cell.nameLabel.text = self.nameLabelARR[0];
+            break;
+        case 1:
+            [cell.imageView setImage:[UIImage imageNamed:self.imageNameARR[1]]];
+            cell.nameLabel.text = self.nameLabelARR[1];
+            break;
+        case 2:
+            [cell.imageView setImage:[UIImage imageNamed:self.imageNameARR[2]]];
+            cell.nameLabel.text = self.nameLabelARR[2];
+            break;
+        case 3:
+            [cell.imageView setImage:[UIImage imageNamed:self.imageNameARR[3]]];
+            cell.nameLabel.text = self.nameLabelARR[3];
+            break;
+        case 4:
+            [cell.imageView setImage:[UIImage imageNamed:self.imageNameARR[4]]];
+            cell.nameLabel.text = self.nameLabelARR[4];
+            break;
+        case 5:
+            [cell.imageView setImage:[UIImage imageNamed:self.imageNameARR[5]]];
+            cell.nameLabel.text = self.nameLabelARR[5];
+            break;
+        default:
+            break;
+    }
     /*
     UIImage * JHimage = self.dataSourceArray[indexPath.row];
     //    UIImage * JHImage = [UIImage imageNamed:imageNamed];
@@ -121,7 +169,49 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    NSLog(@"---------------------");
+    switch (indexPath.row) {
+        case 0:{
+            [self xw_postNotificationWithName:TIAOZHUAN_NOTICFICATION userInfo:@{@"index":@"0"}];
+             [self.navigationController popViewControllerAnimated:YES];
+            }
+            break;
+        case 1:{
+            [self xw_postNotificationWithName:TIAOZHUAN_NOTICFICATION userInfo:@{@"index":@"1"}];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+            break;
+        case 2:{
+            NSLog(@"点击了第三个视图");
+            //首页
+            //UITabBarController *rootViewController = (UITabBarController *)((AppDelegate *)[UIApplication sharedApplication].delegate).window.rootViewController;
+           //UINavigationController * naVC = (UINavigationController *)((AppDelegate *)[UIApplication sharedApplication].delegate).window.rootViewController;
+            [self xw_postNotificationWithName:TIAOZHUAN_NOTICFICATION userInfo:@{@"index":@"2"}];
+            [self.navigationController popViewControllerAnimated:NO];
+            
+        }
+            break;
+        case 3:{
+
+            [self xw_postNotificationWithName:TIAOZHUAN_NOTICFICATION userInfo:@{@"index":@"3"}];
+            [self.navigationController popViewControllerAnimated:NO];
+            
+        }
+            break;
+        case 4:
+        {
+            [self xw_postNotificationWithName:TIAOZHUAN_NOTICFICATION userInfo:@{@"index":@"4"}];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+            break;
+        case 5:
+        {
+            [self xw_postNotificationWithName:TIAOZHUAN_NOTICFICATION userInfo:@{@"index":@"5"}];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark  设置CollectionViewCell是否可以被点击

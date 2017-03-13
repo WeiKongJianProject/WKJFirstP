@@ -64,7 +64,7 @@ typedef NS_ENUM(NSUInteger, ViewPagerComponent) {
 #pragma mark Methods
 // Reload all tabs and contents
 - (void)reloadData;
-
+- (void)setActiveTabIndex:(NSUInteger)activeTabIndex;
 @end
 
 #pragma mark dataSource
@@ -102,5 +102,7 @@ typedef NS_ENUM(NSUInteger, ViewPagerComponent) {
  * and indicator will change its own color.
  */
 - (UIColor *)viewPager:(ViewPagerController *)viewPager colorForComponent:(ViewPagerComponent)component withDefault:(UIColor *)color;
+
+
 
 @end

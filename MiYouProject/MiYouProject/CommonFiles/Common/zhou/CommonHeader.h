@@ -82,7 +82,7 @@
 //ae835d
 #define Main_BackgroundColor @"f9bf34"
 //bab6b7
-#define Main_grayBackgroundColor @"bab6b7"
+#define Main_grayBackgroundColor @"f0eff5"
 //浅灰
 #define Main_lightGrayBackgroundColor @"999999"
 //深灰
@@ -123,6 +123,8 @@
 #define PlaceholderImage_Name           @"icon_default"
 #define Index3Button_LEFT_NOTICIFICATION    @"Index3Button_LEFT_NOTICIFICATION"
 #define Index3Button_RIGHT_NOTICIFICATION   @"Index3Button_RIGHT_NOTICIFICATION"
+
+#define TIAOZHUAN_NOTICFICATION   @"tiaozhuan_noticfication"
 
 #import "UIImageView+ZLWebPsetImage.h"
 #import "UIButton+ZLWebPSetImage.h"

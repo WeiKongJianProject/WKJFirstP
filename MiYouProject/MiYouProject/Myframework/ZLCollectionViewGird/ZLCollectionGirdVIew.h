@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class GNColGridView;
+@class ZLCollectionGirdVIew;
 
 //用collectionView实现
 
@@ -15,16 +15,16 @@
 
 @required
 //每行的高度
-- (CGFloat)heightForRowInGridView:(GNColGridView *)gridView;
+- (CGFloat)heightForRowInGridView:(ZLCollectionGirdVIew *)gridView;
 //gridView列的数量
-- (NSInteger)numberOfColumsInGridView:(GNColGridView *)gridView;
+- (NSInteger)numberOfColumsInGridView:(ZLCollectionGirdVIew *)gridView;
 //gridView中item总量
-- (NSInteger)totolNumberOfGridView:(GNColGridView *)gridView;
+- (NSInteger)totolNumberOfGridView:(ZLCollectionGirdVIew *)gridView;
 //返回每个item
-- (UIButton *)gridView:(GNColGridView *)gridView gridAtIndex:(NSInteger)index;
+- (UIButton *)gridView:(ZLCollectionGirdVIew *)gridView gridAtIndex:(NSInteger)index;
 @optional
 //item点击事件
-- (void)gridView:(GNColGridView *)gridView onItemClick:(NSInteger)index;
+- (void)gridView:(ZLCollectionGirdVIew *)gridView onItemClick:(NSInteger)index;
 
 @end
 @interface ZLCollectionGirdVIew : UIView

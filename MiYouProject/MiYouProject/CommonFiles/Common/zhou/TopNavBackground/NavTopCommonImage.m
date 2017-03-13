@@ -68,7 +68,7 @@
         //[backBtn setBackgroundColor:[UIColor redColor]];
         [backBtn addTarget:self action:@selector(backBtnAction:) forControlEvents:UIControlEventTouchUpInside];
         //[backBtn setBackgroundImage:[UIImage imageNamed:@"Left_Arrow"] forState:UIControlStateNormal];
-        [backBtn setImage:[UIImage imageNamed:@"backzhoulu"] forState:UIControlStateNormal];
+        [backBtn setImage:[UIImage imageNamed:@"baisedajiantou"] forState:UIControlStateNormal];
         backBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 18);
         [self addSubview:backBtn];
     }

@@ -8,6 +8,9 @@
 
 #import "FirstSubViewViewController.h"
 
+#define Collection_item_Width (SIZE_WIDTH-30)/2.0
+#define Collection_item_Height (SIZE_WIDTH-30)/2.0 * 330.0/425.0
+
 @interface FirstSubViewViewController (){
 
     BOOL _Tend;
@@ -15,6 +18,7 @@
     CGFloat _index_1_height;
     CGFloat _index_2_height;
     CGFloat _index_3_height;
+    
 }
 
 @end
@@ -24,26 +28,63 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _index_0_height = 315.0/560.0*SIZE_WIDTH;
+    _index_1_height = 40.0f;
+    
+    self.view.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
     // Do any additional setup after loading the view from its nib.
     self.lunXianImageARR = [[NSMutableArray alloc]init];
+    self.dianYingCollectionARR = [[NSMutableArray alloc]init];
+    [self.dianYingCollectionARR addObjectsFromArray:@[@"01",@"02",@"03",@"04",@"05",@"06",@"07",@"08"]];
+    //设置背景  ScrollView
+    self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SIZE_WIDTH, SIZE_HEIGHT-49.0-60) style:UITableViewStylePlain];
+    self.tableview.delegate = self;
+    self.tableview.dataSource = self;
+    self.tableview.showsVerticalScrollIndicator = NO;
+    self.tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.view addSubview:self.tableview];
+    
+    
+    //下拉刷新设置
+    self.tableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(xiaLaShuaXin)];
+    //自动改变 透明度
+    self.tableview.mj_header.automaticallyChangeAlpha = YES;
+    [self.tableview.mj_header beginRefreshing];
+    
+    //上拉刷新
+    self.tableview.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(shangLaShuaXin)];
+    
+    
+
+    
+    
     [self.lunXianImageARR addObjectsFromArray:@[@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489137038151&di=f8359be9591004374d8585189541c241&imgtype=0&src=http%3A%2F%2Fpic.365j.com%2Farticle%2Fimage%2F201702%2F23%2F6084932905.jpg",@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489137038151&di=a486e7d292f3ea0fbd1d6039e2c337c6&imgtype=0&src=http%3A%2F%2Fimg3.cache.netease.com%2Fent%2F2014%2F7%2F22%2F201407221029266b582.jpg",@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489137038151&di=4c58da342c002a67215c2824e2e0ecfb&imgtype=0&src=http%3A%2F%2Fwww.qulishi.com%2Fuploads%2Fnews%2F201603%2F1456823338865420.png"]];
     
-    [self loadTopLunXianView];
+    //[self loadTopLunXianView];
     [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(handleSchedule) userInfo:nil repeats:YES];
     
-    [self loadRemenView];
-    [self loadDianYingCollectionView];
+    //[self loadRemenView];
+    //[self loadDianYingCollectionView];
     
 }
+#pragma mark 下拉刷新
+- (void)xiaLaShuaXin{
+    NSLog(@"下拉刷新");
+    [self.tableview.mj_header endRefreshing];
+
+}
+- (void)shangLaShuaXin{
+    NSLog(@"上拉刷新");
+
+    [self.tableview.mj_footer endRefreshing];
+}
+#pragma end mark
+
 
 - (void)loadTopLunXianView{
     //560/315
     
     self.lunXianBackgroundView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SIZE_WIDTH, 315.0/560.0*SIZE_WIDTH)];
     self.lunXianBackgroundView.backgroundColor = [UIColor whiteColor];
-    
-    [self.scrollViewBack addSubview:self.lunXianBackgroundView];
-    
     
     self.lunXianScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, SIZE_WIDTH, 315.0/560.0*SIZE_WIDTH)];
     self.lunXianScrollView.delegate = self;
@@ -98,15 +139,15 @@
 - (void)loadRemenView{
 
     UIView * remenView = (UIView *)[[NSBundle mainBundle] loadNibNamed:@"ReMenView" owner:nil options:nil][0];
-    
+    remenView.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
     //[remenView setFrame:CGRectMake(0, _index_0_height, SIZE_WIDTH, 40)];
-    [self.scrollViewBack addSubview:remenView];
+    [self.tableview addSubview:remenView];
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapReMenViewAction:)];
     [tap setNumberOfTapsRequired:1];
     [remenView addGestureRecognizer:tap];
     
     [remenView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(self.scrollViewBack);
+        make.width.equalTo(self.tableview);
         make.height.mas_equalTo(40);
         make.top.equalTo(self.lunXianBackgroundView.mas_bottom);
         make.left.with.right.mas_equalTo(0);
@@ -125,7 +166,7 @@
     //设置布局方向为垂直流布局
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     //设置每个item的大小为
-    layout.itemSize = CGSizeMake((SIZE_WIDTH-30)/2.0, (SIZE_WIDTH-30)/2.0 * 330.0/425.0);
+    layout.itemSize = CGSizeMake(Collection_item_Width, Collection_item_Height);
     //item距离四周的位置（上左下右）
     layout.sectionInset = UIEdgeInsetsMake(0, 10, 0, 10);
     //item 行与行的距离
@@ -134,12 +175,14 @@
     layout.minimumInteritemSpacing = 10;
     
     
-    self.dianYingCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, _index_0_height+45, SIZE_WIDTH, SIZE_HEIGHT) collectionViewLayout:layout];
+    self.dianYingCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SIZE_WIDTH, (Collection_item_Height+10) * ((self.dianYingCollectionARR.count+1) / 2)) collectionViewLayout:layout];
     //self.backCollectionView = [[UICollectionView alloc]initWithFrame:nil collectionViewLayout:layout];
     //self.dianYingCollectionView.collectionViewLayout = layout;
     self.dianYingCollectionView.delegate = self;
     self.dianYingCollectionView.dataSource = self;
-    self.dianYingCollectionView.backgroundColor = [UIColor whiteColor];
+    self.dianYingCollectionView.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
+
+    self.dianYingCollectionView.scrollEnabled = NO;
     //注册item类型
     
     //[self.backCollectionView registerClass:[DianShiQiangCollectionCell class] forCellWithReuseIdentifier:@"dianShiQiangCellId"];
@@ -148,13 +191,13 @@
     // [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerId];
     // 注册脚部视图
     // [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:footerId];
-    [self.scrollViewBack addSubview:self.dianYingCollectionView];
+    //[self.tableview addSubview:self.dianYingCollectionView];
 
 }
 #pragma mark CollectionView  的  dataSource方法
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
-    return 6;
+    return self.dianYingCollectionARR.count;
 }
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
@@ -226,6 +269,7 @@
 #pragma mark ScrollViewDelegate 方法
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
 
+    NSLog(@"执行了scrollViewDidScroll方法");
     if (scrollView == self.lunXianScrollView) {
         NSInteger i = scrollView.contentOffset.x/scrollView.frame.size.width + 1;
         self.lunXianPageControl.currentPage = i - 1;
@@ -262,6 +306,95 @@
     
 }
 #pragma end mark
+
+#pragma mark TableViewDelegate 代理方法开始
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+
+    return 3;
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    CGFloat height = 0.0f;
+    if (indexPath.row == 0) {
+        height = _index_0_height;
+    }
+    else if(indexPath.row == 1){
+        height = _index_1_height;
+    }
+    else if(indexPath.row ==2 ){
+    
+        height =  (Collection_item_Height+10) * ((self.dianYingCollectionARR.count+1) / 2);
+    }
+    return height;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+
+    return 0.0f;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    static NSString * cellID = @"tableviewCellID";
+    UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    cell.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
+    
+    switch (indexPath.row) {
+        case 0:
+            [self loadTopLunXianView];
+            [cell addSubview:self.lunXianBackgroundView];
+            break;
+        case 1:{
+            UIView * remenView = (UIView *)[[NSBundle mainBundle] loadNibNamed:@"ReMenView" owner:nil options:nil][0];
+            
+//            //[remenView setFrame:CGRectMake(0, _index_0_height, SIZE_WIDTH, 40)];
+//            [self.tableview addSubview:remenView];
+//            UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapReMenViewAction:)];
+//            [tap setNumberOfTapsRequired:1];
+//            [remenView addGestureRecognizer:tap];
+            [cell addSubview:remenView];
+            [remenView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.width.equalTo(cell);
+                make.height.mas_equalTo(40);
+                make.top.mas_equalTo(0);
+                make.left.with.right.mas_equalTo(0);
+            }];
+        }
+            break;
+        case 2:
+            
+            [self loadDianYingCollectionView];
+            [cell addSubview:self.dianYingCollectionView];
+            
+            break;
+        default:
+            break;
+    }
+    
+    
+
+    return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    if (indexPath.row == 1) {
+        NSLog(@"点击了热门电影");
+    }
+    
+}
+
+#pragma end mark
+
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -145,8 +145,9 @@
         view = [_delegate gridView:self gridAtIndex:indexPath.row];
         view.tag = indexPath.row;
         [view addTarget:self action:@selector(onItemClick:) forControlEvents:UIControlEventTouchUpInside];
-        view.centerX = cell.width / 2;
-        view.centerY = cell.height / 2;
+        [view setCenter:CGPointMake(cell.frame.size.width / 2, cell.frame.size.height / 2)];
+//        view.center.x = cell.frame.size.width / 2;
+//        view.center.y = cell.frame.size.height / 2;
         [cell.contentView addSubview:view];
     }
     return cell;
@@ -186,7 +187,8 @@
     NSInteger row = [self totolNumber] / [self numberOfColums] + (([self totolNumber] % [self numberOfColums]) > 0 ? 1: 0);
     CGFloat width = SCREEN_WIDTH;
     CGFloat height = self.height * row;
-    _collectionView.height = height;
+    [_collectionView setContentSize:CGSizeMake(SCREEN_WIDTH, height)];
+    //_collectionView.frame.size.height = height;
     [_collectionView reloadData];
 }
 

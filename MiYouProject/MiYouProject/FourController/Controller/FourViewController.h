@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PersonHederTableViewCell.h"
+@interface FourViewController : ZLBaseViewController<UITableViewDelegate,UITableViewDataSource>
 
-@interface FourViewController : ZLBaseViewController
+@property (strong, nonatomic) UITableView * tableView;
+
 
 @end

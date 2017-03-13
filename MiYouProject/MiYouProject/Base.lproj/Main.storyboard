@@ -56,7 +56,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="VIP" image="VIPicon_n" selectedImage="VIPicon" id="aDO-VY-P2K"/>
+                    <tabBarItem key="tabBarItem" title="VIP" image="VIPbuliang" selectedImage="VIPliang" id="aDO-VY-P2K"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0bX-pu-FHC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -75,7 +75,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="我的" id="j7W-4v-YZ6"/>
+                    <tabBarItem key="tabBarItem" title="我的" image="wodebuliang" selectedImage="wodeliang" id="j7W-4v-YZ6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5M5-Hx-yX3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -94,7 +94,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="私房" id="RN8-nb-wJb"/>
+                    <tabBarItem key="tabBarItem" title="私房" image="sifangbuliang" selectedImage="sifangliang" id="RN8-nb-wJb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xsF-by-px4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -113,7 +113,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="首页" id="eGO-bJ-4NI"/>
+                    <tabBarItem key="tabBarItem" title="首页" image="shouyebuliang" selectedImage="shouyeliang" id="eGO-bJ-4NI"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Io2-Eh-2sK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -142,8 +142,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="VIPicon" width="24" height="24"/>
-        <image name="VIPicon_n" width="24" height="24"/>
+        <image name="VIPbuliang" width="27" height="27"/>
+        <image name="VIPliang" width="27" height="27"/>
+        <image name="shouyebuliang" width="27" height="27"/>
+        <image name="shouyeliang" width="27" height="27"/>
+        <image name="sifangbuliang" width="27" height="27"/>
+        <image name="sifangliang" width="27" height="27"/>
+        <image name="wodebuliang" width="27" height="27"/>
+        <image name="wodeliang" width="27" height="27"/>
     </resources>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
 </document>

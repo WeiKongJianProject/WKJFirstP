@@ -46,6 +46,10 @@
                 <constraint firstItem="rZF-m0-4fQ" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="gna-hF-BQj"/>
             </constraints>
             <size key="customSize" width="234" height="147"/>
+            <connections>
+                <outlet property="imageView" destination="B5k-QI-zi2" id="FLr-gs-58s"/>
+                <outlet property="nameLabel" destination="rZF-m0-4fQ" id="vis-7N-YUP"/>
+            </connections>
             <point key="canvasLocation" x="117" y="100.5"/>
         </collectionViewCell>
     </objects>

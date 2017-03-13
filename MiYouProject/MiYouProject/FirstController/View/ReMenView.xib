@@ -33,11 +33,11 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.98075765371322632" green="0.82061165571212769" blue="0.10312005132436752" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="backzhoulu" translatesAutoresizingMaskIntoConstraints="NO" id="1p9-K9-sS6">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="gengduojiantou" translatesAutoresizingMaskIntoConstraints="NO" id="1p9-K9-sS6">
                     <rect key="frame" x="335" y="10" width="24" height="21"/>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.94117647058823528" green="0.93725490196078431" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
             <accessibility key="accessibilityConfiguration">
                 <bool key="isElement" value="YES"/>
             </accessibility>
@@ -56,6 +56,6 @@
         </view>
     </objects>
     <resources>
-        <image name="backzhoulu" width="16" height="16"/>
+        <image name="gengduojiantou" width="12" height="12"/>
     </resources>
 </document>
