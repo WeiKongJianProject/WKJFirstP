@@ -13,6 +13,11 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    NSLog(@"执行了awakeFromNib");
+    //设置圆角
+    self.headerImageVIew.layer.cornerRadius = self.headerImageVIew.frame.size.width / 2;
+    //将多余的部分切掉
+    self.headerImageVIew.layer.masksToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

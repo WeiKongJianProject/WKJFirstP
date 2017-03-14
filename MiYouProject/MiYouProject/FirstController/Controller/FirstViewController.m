@@ -233,9 +233,7 @@
 - (UIViewController *)viewPager:(ViewPagerController *)viewPager contentViewControllerForTabAtIndex:(NSUInteger)index{
     FirstSubViewViewController *vCtrl = [[FirstSubViewViewController alloc]init];
     vCtrl.view.backgroundColor = [UIColor whiteColor];
-    if (index == 2) {
-        vCtrl.view.backgroundColor = [UIColor redColor];
-    }
+
     //[vCtrl setPViewCtrl:self];
     return vCtrl;
 

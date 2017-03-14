@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "PersonHederTableViewCell.h"
+#import "ButtonsTableViewCell.h"
+#import "ThirdTeQuanTableViewCell.h"
+#import "MyYuEViewController.h"
+#import "SettingViewController.h"
+
 @interface FourViewController : ZLBaseViewController<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong, nonatomic) UITableView * tableView;

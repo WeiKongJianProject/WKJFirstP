@@ -12,6 +12,18 @@
 		6FCA9D73080A2E830F25396C /* libPods-MiYouProjectUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA82579BD57626DE9B888C7 /* libPods-MiYouProjectUITests.a */; };
 		730D384C1E7697A600EE4692 /* PersonHederTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 730D384A1E7697A600EE4692 /* PersonHederTableViewCell.m */; };
 		730D384D1E7697A600EE4692 /* PersonHederTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730D384B1E7697A600EE4692 /* PersonHederTableViewCell.xib */; };
+		730D38511E7787EE00EE4692 /* ButtonsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 730D384F1E7787EE00EE4692 /* ButtonsTableViewCell.m */; };
+		730D38521E7787EE00EE4692 /* ButtonsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730D38501E7787EE00EE4692 /* ButtonsTableViewCell.xib */; };
+		730D38561E7795FA00EE4692 /* ThirdTeQuanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 730D38541E7795FA00EE4692 /* ThirdTeQuanTableViewCell.m */; };
+		730D38571E7795FA00EE4692 /* ThirdTeQuanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730D38551E7795FA00EE4692 /* ThirdTeQuanTableViewCell.xib */; };
+		730D385B1E77CDCB00EE4692 /* MyYuEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 730D38591E77CDCB00EE4692 /* MyYuEViewController.m */; };
+		730D385C1E77CDCB00EE4692 /* MyYuEViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730D385A1E77CDCB00EE4692 /* MyYuEViewController.xib */; };
+		730D38601E77D8FF00EE4692 /* SettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 730D385E1E77D8FF00EE4692 /* SettingTableViewCell.m */; };
+		730D38611E77D8FF00EE4692 /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730D385F1E77D8FF00EE4692 /* SettingTableViewCell.xib */; };
+		730D38651E77DC2D00EE4692 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 730D38631E77DC2D00EE4692 /* SettingViewController.m */; };
+		730D38661E77DC2D00EE4692 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730D38641E77DC2D00EE4692 /* SettingViewController.xib */; };
+		730D386A1E77E1FD00EE4692 /* PersonInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 730D38681E77E1FD00EE4692 /* PersonInfoViewController.m */; };
+		730D386B1E77E1FD00EE4692 /* PersonInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730D38691E77E1FD00EE4692 /* PersonInfoViewController.xib */; };
 		732BC86A1E6FD17400B8B1BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC8691E6FD17400B8B1BD /* main.m */; };
 		732BC86D1E6FD17400B8B1BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC86C1E6FD17400B8B1BD /* AppDelegate.m */; };
 		732BC8701E6FD17400B8B1BD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC86F1E6FD17400B8B1BD /* ViewController.m */; };
@@ -158,6 +170,24 @@
 		730D38491E7697A600EE4692 /* PersonHederTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonHederTableViewCell.h; path = MiYouProject/FirstController/View/PersonHederTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		730D384A1E7697A600EE4692 /* PersonHederTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonHederTableViewCell.m; path = MiYouProject/FirstController/View/PersonHederTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		730D384B1E7697A600EE4692 /* PersonHederTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PersonHederTableViewCell.xib; path = MiYouProject/FirstController/View/PersonHederTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		730D384E1E7787EE00EE4692 /* ButtonsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ButtonsTableViewCell.h; path = MiYouProject/FirstController/View/ButtonsTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		730D384F1E7787EE00EE4692 /* ButtonsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ButtonsTableViewCell.m; path = MiYouProject/FirstController/View/ButtonsTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		730D38501E7787EE00EE4692 /* ButtonsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ButtonsTableViewCell.xib; path = MiYouProject/FirstController/View/ButtonsTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		730D38531E7795FA00EE4692 /* ThirdTeQuanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThirdTeQuanTableViewCell.h; path = MiYouProject/FirstController/View/ThirdTeQuanTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		730D38541E7795FA00EE4692 /* ThirdTeQuanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThirdTeQuanTableViewCell.m; path = MiYouProject/FirstController/View/ThirdTeQuanTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		730D38551E7795FA00EE4692 /* ThirdTeQuanTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ThirdTeQuanTableViewCell.xib; path = MiYouProject/FirstController/View/ThirdTeQuanTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		730D38581E77CDCB00EE4692 /* MyYuEViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyYuEViewController.h; sourceTree = "<group>"; };
+		730D38591E77CDCB00EE4692 /* MyYuEViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyYuEViewController.m; sourceTree = "<group>"; };
+		730D385A1E77CDCB00EE4692 /* MyYuEViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyYuEViewController.xib; sourceTree = "<group>"; };
+		730D385D1E77D8FF00EE4692 /* SettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingTableViewCell.h; path = MiYouProject/FourController/Controller/SettingTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		730D385E1E77D8FF00EE4692 /* SettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingTableViewCell.m; path = MiYouProject/FourController/Controller/SettingTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		730D385F1E77D8FF00EE4692 /* SettingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingTableViewCell.xib; path = MiYouProject/FourController/Controller/SettingTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		730D38621E77DC2D00EE4692 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		730D38631E77DC2D00EE4692 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		730D38641E77DC2D00EE4692 /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		730D38671E77E1FD00EE4692 /* PersonInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfoViewController.h; sourceTree = "<group>"; };
+		730D38681E77E1FD00EE4692 /* PersonInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonInfoViewController.m; sourceTree = "<group>"; };
+		730D38691E77E1FD00EE4692 /* PersonInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonInfoViewController.xib; sourceTree = "<group>"; };
 		732BC8651E6FD17400B8B1BD /* MiYouProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiYouProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		732BC8691E6FD17400B8B1BD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		732BC86B1E6FD17400B8B1BD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -623,6 +653,15 @@
 			children = (
 				73EB3EDF1E6FD97300CA8B5D /* FourViewController.h */,
 				73EB3EE01E6FD97300CA8B5D /* FourViewController.m */,
+				730D38581E77CDCB00EE4692 /* MyYuEViewController.h */,
+				730D38591E77CDCB00EE4692 /* MyYuEViewController.m */,
+				730D385A1E77CDCB00EE4692 /* MyYuEViewController.xib */,
+				730D38621E77DC2D00EE4692 /* SettingViewController.h */,
+				730D38631E77DC2D00EE4692 /* SettingViewController.m */,
+				730D38641E77DC2D00EE4692 /* SettingViewController.xib */,
+				730D38671E77E1FD00EE4692 /* PersonInfoViewController.h */,
+				730D38681E77E1FD00EE4692 /* PersonInfoViewController.m */,
+				730D38691E77E1FD00EE4692 /* PersonInfoViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -640,6 +679,15 @@
 				730D38491E7697A600EE4692 /* PersonHederTableViewCell.h */,
 				730D384A1E7697A600EE4692 /* PersonHederTableViewCell.m */,
 				730D384B1E7697A600EE4692 /* PersonHederTableViewCell.xib */,
+				730D384E1E7787EE00EE4692 /* ButtonsTableViewCell.h */,
+				730D384F1E7787EE00EE4692 /* ButtonsTableViewCell.m */,
+				730D38501E7787EE00EE4692 /* ButtonsTableViewCell.xib */,
+				730D38531E7795FA00EE4692 /* ThirdTeQuanTableViewCell.h */,
+				730D38541E7795FA00EE4692 /* ThirdTeQuanTableViewCell.m */,
+				730D38551E7795FA00EE4692 /* ThirdTeQuanTableViewCell.xib */,
+				730D385D1E77D8FF00EE4692 /* SettingTableViewCell.h */,
+				730D385E1E77D8FF00EE4692 /* SettingTableViewCell.m */,
+				730D385F1E77D8FF00EE4692 /* SettingTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1288,6 +1336,7 @@
 				73EB3FCC1E6FDEE400CA8B5D /* page.png in Resources */,
 				73EB3FA01E6FDEE400CA8B5D /* zhoulu.gif in Resources */,
 				73EB3FBA1E6FDEE400CA8B5D /* MLAnimationViewController.xib in Resources */,
+				730D38611E77D8FF00EE4692 /* SettingTableViewCell.xib in Resources */,
 				73EB3F9A1E6FDEE400CA8B5D /* 0002.png in Resources */,
 				73EB3FB71E6FDEE400CA8B5D /* Loading008.png in Resources */,
 				732BC8781E6FD17400B8B1BD /* Assets.xcassets in Resources */,
@@ -1296,16 +1345,21 @@
 				73EB3FBC1E6FDEE400CA8B5D /* app_bg.jpg in Resources */,
 				73EB3FA51E6FDEE400CA8B5D /* Loading001.png in Resources */,
 				73EB3FAD1E6FDEE400CA8B5D /* Loading0017.png in Resources */,
+				730D38521E7787EE00EE4692 /* ButtonsTableViewCell.xib in Resources */,
 				73EB3FA91E6FDEE400CA8B5D /* Loading0013.png in Resources */,
 				732BC8731E6FD17400B8B1BD /* Main.storyboard in Resources */,
 				73EB3FAA1E6FDEE400CA8B5D /* Loading0014.png in Resources */,
 				73EB3FCD1E6FDEE400CA8B5D /* placeholder.png in Resources */,
 				7365573B1E729C4B00284C11 /* DianYingCollectionViewCell.xib in Resources */,
+				730D385C1E77CDCB00EE4692 /* MyYuEViewController.xib in Resources */,
+				730D38661E77DC2D00EE4692 /* SettingViewController.xib in Resources */,
 				730D384D1E7697A600EE4692 /* PersonHederTableViewCell.xib in Resources */,
 				73EB43211E727E6F00CA8B5D /* FirstSubViewViewController.xib in Resources */,
 				73EB3FB61E6FDEE400CA8B5D /* Loading007.png in Resources */,
 				73EB431C1E7241F200CA8B5D /* DianShiQiangViewController.xib in Resources */,
+				730D386B1E77E1FD00EE4692 /* PersonInfoViewController.xib in Resources */,
 				73EB3FB11E6FDEE400CA8B5D /* Loading0020.png in Resources */,
+				730D38571E7795FA00EE4692 /* ThirdTeQuanTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1488,13 +1542,16 @@
 				73EB3FD01E6FDEE400CA8B5D /* NavTopCommonImage.m in Sources */,
 				73EB3F8D1E6FDEE400CA8B5D /* UIView+HeinQi.m in Sources */,
 				73EB3FA21E6FDEE400CA8B5D /* RSA.m in Sources */,
+				730D385B1E77CDCB00EE4692 /* MyYuEViewController.m in Sources */,
 				73EB3FDF1E70000F00CA8B5D /* ViewPagerController.m in Sources */,
 				73EB3FBD1E6FDEE400CA8B5D /* UIApplication+Extend.m in Sources */,
 				73EB3F891E6FDEE400CA8B5D /* UIColor+HeinQi.m in Sources */,
 				73EB3ED91E6FD7DB00CA8B5D /* FMDB+ZL.m in Sources */,
 				73EB3FD21E6FDEE400CA8B5D /* PulldownMenu.m in Sources */,
 				73EB3F851E6FDEE400CA8B5D /* NSValueTransformer+HeinQi.m in Sources */,
+				730D38651E77DC2D00EE4692 /* SettingViewController.m in Sources */,
 				732BC8701E6FD17400B8B1BD /* ViewController.m in Sources */,
+				730D38511E7787EE00EE4692 /* ButtonsTableViewCell.m in Sources */,
 				73EB3F881E6FDEE400CA8B5D /* UIButton+HeinQi.m in Sources */,
 				73EB3ED61E6FD7DB00CA8B5D /* UIColor+KSString.m in Sources */,
 				73EB3F951E6FDEE400CA8B5D /* UIImage+WebP.m in Sources */,
@@ -1508,13 +1565,16 @@
 				73EB3FDB1E6FE2CE00CA8B5D /* NSString+URLZL.m in Sources */,
 				73EB3EDE1E6FD7DB00CA8B5D /* ThirdViewController.m in Sources */,
 				73EB3FC41E6FDEE400CA8B5D /* CustomeColorObject.m in Sources */,
+				730D386A1E77E1FD00EE4692 /* PersonInfoViewController.m in Sources */,
 				73EB3FC11E6FDEE400CA8B5D /* NewFeatureImageV.m in Sources */,
 				73EB3FC71E6FDEE400CA8B5D /* GCDQueue.m in Sources */,
+				730D38561E7795FA00EE4692 /* ThirdTeQuanTableViewCell.m in Sources */,
 				73EB3FBE1E6FDEE400CA8B5D /* UIView+NFLayout.m in Sources */,
 				73EB3F8A1E6FDEE400CA8B5D /* UIImage+HeinQi.m in Sources */,
 				732BC86D1E6FD17400B8B1BD /* AppDelegate.m in Sources */,
 				73EB3FC31E6FDEE400CA8B5D /* CustomButton.m in Sources */,
 				73EB3FD81E6FE29F00CA8B5D /* NSDatezlModel.m in Sources */,
+				730D38601E77D8FF00EE4692 /* SettingTableViewCell.m in Sources */,
 				73EB3ED41E6FD7DB00CA8B5D /* FirstViewController.m in Sources */,
 				73EB3FC81E6FDEE400CA8B5D /* GCDSemaphore.m in Sources */,
 				73EB3F8C1E6FDEE400CA8B5D /* UIView+BlankPage.m in Sources */,
