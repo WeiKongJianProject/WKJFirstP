@@ -7,7 +7,7 @@
 //
 
 #import "ZLBaseViewController.h"
-
+#import "PersonTableViewCell.h"
 @interface PersonInfoViewController : ZLBaseViewController<UITableViewDelegate,UITableViewDataSource>
-
+@property (strong, nonatomic) UITableView * tableView;
 @end

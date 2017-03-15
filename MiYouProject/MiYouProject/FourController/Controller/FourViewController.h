@@ -12,6 +12,9 @@
 #import "ThirdTeQuanTableViewCell.h"
 #import "MyYuEViewController.h"
 #import "SettingViewController.h"
+#import "PersonInfoViewController.h"
+#import "XiaoXiViewController.h"
+#import "ChongZhiViewController.h"
 
 @interface FourViewController : ZLBaseViewController<UITableViewDelegate,UITableViewDataSource>
 

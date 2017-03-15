@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="xiaoXiCellID" id="KGk-i7-Jjw" customClass="XiaoXiTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kaitongVIP" translatesAutoresizingMaskIntoConstraints="NO" id="PmD-98-t3G">
+                        <rect key="frame" x="20" y="30" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="IS1-20-yMq"/>
+                            <constraint firstAttribute="height" constant="40" id="poI-7H-FQy"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5y0-bP-6Au">
+                        <rect key="frame" x="68" y="15" width="297" height="36"/>
+                        <string key="text">本站文章除注明转载外，均为本站原创或编译。欢迎任何形式的转载，但请务必注明出处，尊重他人劳动共创开源社区。
+</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017/03/15  02:02" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDB-nE-uxg">
+                        <rect key="frame" x="274" y="80" width="81" height="11"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yuT-1g-s8J">
+                        <rect key="frame" x="10" y="97" width="355" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="PZr-L4-wr8"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="PmD-98-t3G" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2h1-rG-ehQ"/>
+                    <constraint firstAttribute="bottom" secondItem="oDB-nE-uxg" secondAttribute="bottom" constant="8" id="AF4-Jz-RIR"/>
+                    <constraint firstAttribute="trailing" secondItem="5y0-bP-6Au" secondAttribute="trailing" constant="10" id="MAk-4e-CQR"/>
+                    <constraint firstItem="PmD-98-t3G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="fJl-wd-ZH0"/>
+                    <constraint firstItem="5y0-bP-6Au" firstAttribute="leading" secondItem="PmD-98-t3G" secondAttribute="trailing" constant="8" id="hpa-S7-i2F"/>
+                    <constraint firstAttribute="trailing" secondItem="yuT-1g-s8J" secondAttribute="trailing" constant="10" id="qWg-V1-lUv"/>
+                    <constraint firstAttribute="bottom" secondItem="yuT-1g-s8J" secondAttribute="bottom" constant="1" id="ud3-DW-svg"/>
+                    <constraint firstItem="5y0-bP-6Au" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="wvU-Xc-LMZ"/>
+                    <constraint firstItem="yuT-1g-s8J" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="xK6-Q8-SO8"/>
+                    <constraint firstAttribute="trailing" secondItem="oDB-nE-uxg" secondAttribute="trailing" constant="20" id="yWY-3r-Peq"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="leftImageView" destination="PmD-98-t3G" id="mMG-BO-302"/>
+                <outlet property="timeLabel" destination="oDB-nE-uxg" id="bZ9-uh-yaL"/>
+                <outlet property="xiaoXiSubTitleLabel" destination="5y0-bP-6Au" id="hHs-go-8aq"/>
+            </connections>
+            <point key="canvasLocation" x="24.5" y="52"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="kaitongVIP" width="20" height="20"/>
+    </resources>
+</document>

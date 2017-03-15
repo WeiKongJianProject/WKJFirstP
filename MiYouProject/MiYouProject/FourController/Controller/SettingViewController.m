@@ -77,6 +77,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.title = @"设置";
 }
 
 - (void)viewDidDisappear:(BOOL)animated{

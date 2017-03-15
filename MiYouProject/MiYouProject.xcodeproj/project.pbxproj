@@ -24,6 +24,18 @@
 		730D38661E77DC2D00EE4692 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730D38641E77DC2D00EE4692 /* SettingViewController.xib */; };
 		730D386A1E77E1FD00EE4692 /* PersonInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 730D38681E77E1FD00EE4692 /* PersonInfoViewController.m */; };
 		730D386B1E77E1FD00EE4692 /* PersonInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730D38691E77E1FD00EE4692 /* PersonInfoViewController.xib */; };
+		730D386F1E78C4F000EE4692 /* PersonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 730D386D1E78C4F000EE4692 /* PersonTableViewCell.m */; };
+		730D38701E78C4F000EE4692 /* PersonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730D386E1E78C4F000EE4692 /* PersonTableViewCell.xib */; };
+		730D38741E78D8B800EE4692 /* XiaoXiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 730D38721E78D8B800EE4692 /* XiaoXiTableViewCell.m */; };
+		730D38751E78D8B800EE4692 /* XiaoXiTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730D38731E78D8B800EE4692 /* XiaoXiTableViewCell.xib */; };
+		730D38791E78DF0B00EE4692 /* XiaoXiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 730D38771E78DF0B00EE4692 /* XiaoXiViewController.m */; };
+		730D387A1E78DF0B00EE4692 /* XiaoXiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730D38781E78DF0B00EE4692 /* XiaoXiViewController.xib */; };
+		730D387E1E790F1C00EE4692 /* ChongZhiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 730D387C1E790F1C00EE4692 /* ChongZhiViewController.m */; };
+		730D387F1E790F1C00EE4692 /* ChongZhiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730D387D1E790F1C00EE4692 /* ChongZhiViewController.xib */; };
+		730D38821E79243A00EE4692 /* UBChongZhiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 730D38811E79243A00EE4692 /* UBChongZhiView.m */; };
+		730D38851E79244C00EE4692 /* VIPChongZhiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 730D38841E79244C00EE4692 /* VIPChongZhiView.m */; };
+		730D38871E79246400EE4692 /* UBChongZhiView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730D38861E79246400EE4692 /* UBChongZhiView.xib */; };
+		730D38891E79247E00EE4692 /* VIPChongZhiView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730D38881E79247E00EE4692 /* VIPChongZhiView.xib */; };
 		732BC86A1E6FD17400B8B1BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC8691E6FD17400B8B1BD /* main.m */; };
 		732BC86D1E6FD17400B8B1BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC86C1E6FD17400B8B1BD /* AppDelegate.m */; };
 		732BC8701E6FD17400B8B1BD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC86F1E6FD17400B8B1BD /* ViewController.m */; };
@@ -188,6 +200,24 @@
 		730D38671E77E1FD00EE4692 /* PersonInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfoViewController.h; sourceTree = "<group>"; };
 		730D38681E77E1FD00EE4692 /* PersonInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonInfoViewController.m; sourceTree = "<group>"; };
 		730D38691E77E1FD00EE4692 /* PersonInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonInfoViewController.xib; sourceTree = "<group>"; };
+		730D386C1E78C4F000EE4692 /* PersonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonTableViewCell.h; path = MiYouProject/FourController/Controller/PersonTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		730D386D1E78C4F000EE4692 /* PersonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonTableViewCell.m; path = MiYouProject/FourController/Controller/PersonTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		730D386E1E78C4F000EE4692 /* PersonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PersonTableViewCell.xib; path = MiYouProject/FourController/Controller/PersonTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		730D38711E78D8B800EE4692 /* XiaoXiTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XiaoXiTableViewCell.h; path = MiYouProject/FourController/Controller/XiaoXiTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		730D38721E78D8B800EE4692 /* XiaoXiTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XiaoXiTableViewCell.m; path = MiYouProject/FourController/Controller/XiaoXiTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		730D38731E78D8B800EE4692 /* XiaoXiTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = XiaoXiTableViewCell.xib; path = MiYouProject/FourController/Controller/XiaoXiTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		730D38761E78DF0B00EE4692 /* XiaoXiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XiaoXiViewController.h; sourceTree = "<group>"; };
+		730D38771E78DF0B00EE4692 /* XiaoXiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XiaoXiViewController.m; sourceTree = "<group>"; };
+		730D38781E78DF0B00EE4692 /* XiaoXiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XiaoXiViewController.xib; sourceTree = "<group>"; };
+		730D387B1E790F1C00EE4692 /* ChongZhiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChongZhiViewController.h; sourceTree = "<group>"; };
+		730D387C1E790F1C00EE4692 /* ChongZhiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChongZhiViewController.m; sourceTree = "<group>"; };
+		730D387D1E790F1C00EE4692 /* ChongZhiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChongZhiViewController.xib; sourceTree = "<group>"; };
+		730D38801E79243A00EE4692 /* UBChongZhiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBChongZhiView.h; path = MiYouProject/FourController/Controller/UBChongZhiView.h; sourceTree = SOURCE_ROOT; };
+		730D38811E79243A00EE4692 /* UBChongZhiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBChongZhiView.m; path = MiYouProject/FourController/Controller/UBChongZhiView.m; sourceTree = SOURCE_ROOT; };
+		730D38831E79244C00EE4692 /* VIPChongZhiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VIPChongZhiView.h; path = MiYouProject/FourController/Controller/VIPChongZhiView.h; sourceTree = SOURCE_ROOT; };
+		730D38841E79244C00EE4692 /* VIPChongZhiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VIPChongZhiView.m; path = MiYouProject/FourController/Controller/VIPChongZhiView.m; sourceTree = SOURCE_ROOT; };
+		730D38861E79246400EE4692 /* UBChongZhiView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UBChongZhiView.xib; path = MiYouProject/FourController/Controller/UBChongZhiView.xib; sourceTree = SOURCE_ROOT; };
+		730D38881E79247E00EE4692 /* VIPChongZhiView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VIPChongZhiView.xib; path = MiYouProject/FourController/Controller/VIPChongZhiView.xib; sourceTree = SOURCE_ROOT; };
 		732BC8651E6FD17400B8B1BD /* MiYouProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiYouProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		732BC8691E6FD17400B8B1BD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		732BC86B1E6FD17400B8B1BD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -662,6 +692,12 @@
 				730D38671E77E1FD00EE4692 /* PersonInfoViewController.h */,
 				730D38681E77E1FD00EE4692 /* PersonInfoViewController.m */,
 				730D38691E77E1FD00EE4692 /* PersonInfoViewController.xib */,
+				730D38761E78DF0B00EE4692 /* XiaoXiViewController.h */,
+				730D38771E78DF0B00EE4692 /* XiaoXiViewController.m */,
+				730D38781E78DF0B00EE4692 /* XiaoXiViewController.xib */,
+				730D387B1E790F1C00EE4692 /* ChongZhiViewController.h */,
+				730D387C1E790F1C00EE4692 /* ChongZhiViewController.m */,
+				730D387D1E790F1C00EE4692 /* ChongZhiViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -688,6 +724,18 @@
 				730D385D1E77D8FF00EE4692 /* SettingTableViewCell.h */,
 				730D385E1E77D8FF00EE4692 /* SettingTableViewCell.m */,
 				730D385F1E77D8FF00EE4692 /* SettingTableViewCell.xib */,
+				730D386C1E78C4F000EE4692 /* PersonTableViewCell.h */,
+				730D386D1E78C4F000EE4692 /* PersonTableViewCell.m */,
+				730D386E1E78C4F000EE4692 /* PersonTableViewCell.xib */,
+				730D38711E78D8B800EE4692 /* XiaoXiTableViewCell.h */,
+				730D38721E78D8B800EE4692 /* XiaoXiTableViewCell.m */,
+				730D38731E78D8B800EE4692 /* XiaoXiTableViewCell.xib */,
+				730D38801E79243A00EE4692 /* UBChongZhiView.h */,
+				730D38811E79243A00EE4692 /* UBChongZhiView.m */,
+				730D38861E79246400EE4692 /* UBChongZhiView.xib */,
+				730D38831E79244C00EE4692 /* VIPChongZhiView.h */,
+				730D38841E79244C00EE4692 /* VIPChongZhiView.m */,
+				730D38881E79247E00EE4692 /* VIPChongZhiView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1310,6 +1358,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				730D387F1E790F1C00EE4692 /* ChongZhiViewController.xib in Resources */,
 				736557361E728F5800284C11 /* ReMenView.xib in Resources */,
 				73EB3FB41E6FDEE400CA8B5D /* Loading005.png in Resources */,
 				73EB43171E7241A400CA8B5D /* DianShiQiangCollectionCell.xib in Resources */,
@@ -1333,6 +1382,7 @@
 				732BC87B1E6FD17400B8B1BD /* LaunchScreen.storyboard in Resources */,
 				73EB3FB31E6FDEE400CA8B5D /* Loading004.png in Resources */,
 				73EB430E1E713D5A00CA8B5D /* SearchViewController.xib in Resources */,
+				730D38701E78C4F000EE4692 /* PersonTableViewCell.xib in Resources */,
 				73EB3FCC1E6FDEE400CA8B5D /* page.png in Resources */,
 				73EB3FA01E6FDEE400CA8B5D /* zhoulu.gif in Resources */,
 				73EB3FBA1E6FDEE400CA8B5D /* MLAnimationViewController.xib in Resources */,
@@ -1350,14 +1400,18 @@
 				732BC8731E6FD17400B8B1BD /* Main.storyboard in Resources */,
 				73EB3FAA1E6FDEE400CA8B5D /* Loading0014.png in Resources */,
 				73EB3FCD1E6FDEE400CA8B5D /* placeholder.png in Resources */,
+				730D38871E79246400EE4692 /* UBChongZhiView.xib in Resources */,
 				7365573B1E729C4B00284C11 /* DianYingCollectionViewCell.xib in Resources */,
 				730D385C1E77CDCB00EE4692 /* MyYuEViewController.xib in Resources */,
 				730D38661E77DC2D00EE4692 /* SettingViewController.xib in Resources */,
 				730D384D1E7697A600EE4692 /* PersonHederTableViewCell.xib in Resources */,
 				73EB43211E727E6F00CA8B5D /* FirstSubViewViewController.xib in Resources */,
+				730D38891E79247E00EE4692 /* VIPChongZhiView.xib in Resources */,
 				73EB3FB61E6FDEE400CA8B5D /* Loading007.png in Resources */,
+				730D387A1E78DF0B00EE4692 /* XiaoXiViewController.xib in Resources */,
 				73EB431C1E7241F200CA8B5D /* DianShiQiangViewController.xib in Resources */,
 				730D386B1E77E1FD00EE4692 /* PersonInfoViewController.xib in Resources */,
+				730D38751E78D8B800EE4692 /* XiaoXiTableViewCell.xib in Resources */,
 				73EB3FB11E6FDEE400CA8B5D /* Loading0020.png in Resources */,
 				730D38571E7795FA00EE4692 /* ThirdTeQuanTableViewCell.xib in Resources */,
 			);
@@ -1554,6 +1608,7 @@
 				730D38511E7787EE00EE4692 /* ButtonsTableViewCell.m in Sources */,
 				73EB3F881E6FDEE400CA8B5D /* UIButton+HeinQi.m in Sources */,
 				73EB3ED61E6FD7DB00CA8B5D /* UIColor+KSString.m in Sources */,
+				730D387E1E790F1C00EE4692 /* ChongZhiViewController.m in Sources */,
 				73EB3F951E6FDEE400CA8B5D /* UIImage+WebP.m in Sources */,
 				73EB3FB91E6FDEE400CA8B5D /* MLAnimationViewController.m in Sources */,
 				73EB3FD31E6FDEE400CA8B5D /* ZhengZePanDuan.m in Sources */,
@@ -1572,9 +1627,12 @@
 				73EB3FBE1E6FDEE400CA8B5D /* UIView+NFLayout.m in Sources */,
 				73EB3F8A1E6FDEE400CA8B5D /* UIImage+HeinQi.m in Sources */,
 				732BC86D1E6FD17400B8B1BD /* AppDelegate.m in Sources */,
+				730D38821E79243A00EE4692 /* UBChongZhiView.m in Sources */,
+				730D38791E78DF0B00EE4692 /* XiaoXiViewController.m in Sources */,
 				73EB3FC31E6FDEE400CA8B5D /* CustomButton.m in Sources */,
 				73EB3FD81E6FE29F00CA8B5D /* NSDatezlModel.m in Sources */,
 				730D38601E77D8FF00EE4692 /* SettingTableViewCell.m in Sources */,
+				730D38741E78D8B800EE4692 /* XiaoXiTableViewCell.m in Sources */,
 				73EB3ED41E6FD7DB00CA8B5D /* FirstViewController.m in Sources */,
 				73EB3FC81E6FDEE400CA8B5D /* GCDSemaphore.m in Sources */,
 				73EB3F8C1E6FDEE400CA8B5D /* UIView+BlankPage.m in Sources */,
@@ -1583,7 +1641,9 @@
 				73EB3FD41E6FDEE400CA8B5D /* ZLPageControl.m in Sources */,
 				73EB3FA31E6FDEE400CA8B5D /* RSAEncryptor.m in Sources */,
 				73EB43121E7240EE00CA8B5D /* NSObject+XWAdd.m in Sources */,
+				730D38851E79244C00EE4692 /* VIPChongZhiView.m in Sources */,
 				732BC86A1E6FD17400B8B1BD /* main.m in Sources */,
+				730D386F1E78C4F000EE4692 /* PersonTableViewCell.m in Sources */,
 				73EB3EDC1E6FD7DB00CA8B5D /* ZLSecondAFNetworking.m in Sources */,
 				73EB3EE11E6FD97300CA8B5D /* FourViewController.m in Sources */,
 				73EB3ED31E6FD7DB00CA8B5D /* TestMTLModel.m in Sources */,

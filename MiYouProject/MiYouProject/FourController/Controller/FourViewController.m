@@ -178,7 +178,8 @@
         [self.navigationController pushViewController:yuEVC animated:YES];
     }
     if (indexPath.row == 0) {
-        
+        PersonInfoViewController * vc = [[PersonInfoViewController alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
     if (indexPath.row == 4) {
         
@@ -195,12 +196,21 @@
 //三个按钮组的执行方法
 - (void)firstButtonAction:(UIControl *)sender{
     NSLog(@"执行了消息按钮");
+    XiaoXiViewController * vc = [[XiaoXiViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 - (void)secondButtonAction:(UIControl *)sender{
     NSLog(@"执行了充值UB按钮");
+    ChongZhiViewController * VC = [[ChongZhiViewController alloc]init];
+    VC.UB_or_VIP = UB_ChongZhi;
+    [self.navigationController pushViewController:VC animated:YES];
 }
 - (void)thirdButtonAction:(UIControl *)sender{
     NSLog(@"执行了VIP按钮");
+    ChongZhiViewController * VC = [[ChongZhiViewController alloc]init];
+    VC.UB_or_VIP = VIP_ChongZhi;
+    [self.navigationController pushViewController:VC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

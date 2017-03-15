@@ -19,6 +19,11 @@
 			<key>orderHint</key>
 			<integer>13</integer>
 		</dict>
+		<key>DZNSegmentedControl.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>25</integer>
+		</dict>
 		<key>FBRetainCycleDetector.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -237,6 +242,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>9E14769DDF355647EDDDA2F15324CFB4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A316B54C67E947D23CECD230FA5BFAEF</key>
 		<dict>
 			<key>primary</key>
@@ -253,6 +263,11 @@
 			<true/>
 		</dict>
 		<key>ADBB5F2BA25BFE08C5FE86E383FEA0C9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AF7178601ADEA78FB3610F498C16B603</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -288,6 +303,21 @@
 			<true/>
 		</dict>
 		<key>D73EC48BF6745C40F34B9B8CCDE749EC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DAD06D5F4C906E7C1D4734E02FF4F2AE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E2676BA6D1FF3E70118B80F4A284FFCE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E6D7EEDB629AE0F70FCC9D86BADA783C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
