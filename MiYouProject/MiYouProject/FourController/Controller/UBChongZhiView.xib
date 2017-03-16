@@ -349,20 +349,8 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5002U币" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sju-mB-xMh">
-                            <rect key="frame" x="315" y="13" width="51" height="15"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开通VIP获取更多特权" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gr-6a-NfZ">
-                            <rect key="frame" x="188" y="13" width="117" height="15"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123456789" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZB-ON-ZYB">
-                            <rect key="frame" x="76.5" y="13" width="66" height="15"/>
+                            <rect key="frame" x="238" y="13" width="117" height="15"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -372,13 +360,9 @@
                     <constraints>
                         <constraint firstItem="1gr-6a-NfZ" firstAttribute="centerY" secondItem="9Al-wZ-t8g" secondAttribute="centerY" id="4a8-ea-ZEx"/>
                         <constraint firstAttribute="height" constant="40" id="Av5-2T-TF2"/>
-                        <constraint firstItem="Sju-mB-xMh" firstAttribute="leading" secondItem="1gr-6a-NfZ" secondAttribute="trailing" constant="10" id="TJe-Hz-jGf"/>
                         <constraint firstItem="7ba-w9-23n" firstAttribute="leading" secondItem="9Al-wZ-t8g" secondAttribute="leading" constant="15" id="Vwv-aJ-lPP"/>
-                        <constraint firstItem="kZB-ON-ZYB" firstAttribute="leading" secondItem="7ba-w9-23n" secondAttribute="trailing" constant="12" id="cnD-4U-Rsd"/>
-                        <constraint firstItem="Sju-mB-xMh" firstAttribute="centerY" secondItem="9Al-wZ-t8g" secondAttribute="centerY" id="rj1-l2-o8n"/>
-                        <constraint firstAttribute="trailing" secondItem="Sju-mB-xMh" secondAttribute="trailing" constant="9" id="rwd-GK-dbe"/>
+                        <constraint firstAttribute="trailing" secondItem="1gr-6a-NfZ" secondAttribute="trailing" constant="20" id="g98-aA-5Vd"/>
                         <constraint firstItem="7ba-w9-23n" firstAttribute="centerY" secondItem="9Al-wZ-t8g" secondAttribute="centerY" id="twi-Bf-xwO"/>
-                        <constraint firstItem="kZB-ON-ZYB" firstAttribute="centerY" secondItem="9Al-wZ-t8g" secondAttribute="centerY" id="y0t-BK-S9V"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIP特权" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5N-5T-dlK">
@@ -507,7 +491,7 @@
                             <rect key="frame" x="16" y="8" width="26" height="26"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="U币的作用和介绍" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="si4-Il-7wa">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VIP的作用和介绍" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="si4-Il-7wa">
                             <rect key="frame" x="52" y="11" width="142" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -539,7 +523,7 @@
                                 <constraint firstAttribute="width" constant="26" id="iMY-rW-xVu"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="已充值U币的用户" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ns7-5u-2VE">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="已充值VIP的用户" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ns7-5u-2VE">
                             <rect key="frame" x="53" y="3" width="144" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>

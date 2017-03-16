@@ -27,7 +27,23 @@
     UIBarButtonItem * leftBtnItem = [[UIBarButtonItem alloc]initWithCustomView:leftBtn];
     //self.navigationItem.leftBarButtonItem = leftBtnItem;
     // Do any additional setup after loading the view.
+    
+    self.webView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 0, SIZE_WIDTH, SIZE_HEIGHT)];
+    self.webView.navigationDelegate = self;
+    [self.view addSubview:self.webView];
+    
+    NSURL * url = [NSURL URLWithString:@"http://api4.cn360du.com:88/"];
+    NSURLRequest * request = [NSURLRequest requestWithURL:url];
+    [self.webView loadRequest:request];
+    
 }
+
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
+
+    NSLog(@"网页加载成功");
+}
+
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     //[self.navigationController setNavigationBarHidden:YES];

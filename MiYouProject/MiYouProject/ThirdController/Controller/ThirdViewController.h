@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
+@interface ThirdViewController : ZLBaseViewController<WKUIDelegate,WKNavigationDelegate>
 
-@interface ThirdViewController : ZLBaseViewController
+@property (strong, nonatomic) WKWebView* webView;
 
 @end

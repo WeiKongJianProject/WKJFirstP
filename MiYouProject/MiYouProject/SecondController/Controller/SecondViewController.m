@@ -22,11 +22,55 @@
     [btn setFrame:CGRectMake(100, 100, 100, 100)];
     [btn setTitle:@"继续测试" forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn];
-    // Do any additional setup after loading the view.
-   
+    //[self.view addSubview:btn];
+    [self videoBoFang];
+    [self videlXiaZai];
+    
+}
+//视频播放
+- (void)videoBoFang{
+    //视频播放  功能
+    HcdCacheVideoPlayer *play = [HcdCacheVideoPlayer sharedInstance];
+    UIView *videoView = [[UIView alloc] init];
+    videoView.frame = CGRectMake(0, 64, SIZE_WIDTH, SIZE_WIDTH * 0.5625);
+    [self.view addSubview:videoView];
+    
+    //沙盒路径
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString  *fullPath = [NSString stringWithFormat:@"%@/%@", documentsDirectory, @"test.mp4"];
+    NSLog(@"文件的路径为：%@",fullPath);
+    NSURL *url = [NSURL URLWithString:@"http://baobab.wdjcdn.com/14564977406580.mp4"];//您要播放的url地址
+    NSURL * url2 = [NSURL fileURLWithPath:fullPath];
+    // /Users/wkj/Library/Developer/CoreSimulator/Devices/F9E33A67-3C43-4C6C-B8E7-4CB258372E96/data/Containers/Data/Application/0327319C-C49D-4C27-A03D-95F768A51854/Documents/test.mp4
+    [play playWithUrl:url
+             showView:videoView
+         andSuperView:self.view
+            withCache:YES];
+    double  tt = [HcdCacheVideoPlayer allVideoCacheSize];
+    NSLog(@"缓存视频的大小:%lf",tt);
 
 }
+//视频下载
+- (void)videlXiaZai{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSLog(@"沙盒路径：%@",documentsDirectory);
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    NSString  *fullPath = [NSString stringWithFormat:@"%@/%@", documentsDirectory, @"test.mp4"];
+    NSURL *url = [NSURL URLWithString:@"http://baobab.wdjcdn.com/14564977406580.mp4"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSURLSessionDownloadTask *task =
+    [manager downloadTaskWithRequest:request
+                            progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+                                return [NSURL fileURLWithPath:fullPath];
+                            }
+                   completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+                       
+                   }];
+    [task resume];
+}
+
 - (void)btnAction:(UIButton *)sender{
     ThirdViewController * thirdVC = [[ThirdViewController alloc]init];
     

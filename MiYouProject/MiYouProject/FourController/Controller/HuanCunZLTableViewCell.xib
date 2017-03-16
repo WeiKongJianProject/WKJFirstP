@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HuanCunZlCellID" id="KGk-i7-Jjw" customClass="HuanCunZLTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_default" translatesAutoresizingMaskIntoConstraints="NO" id="ezp-bc-oqP">
+                        <rect key="frame" x="10" y="7" width="90" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="KoS-Vh-aBu"/>
+                            <constraint firstAttribute="width" constant="90" id="NRu-SL-L4n"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="好看的视频" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zxs-Le-Rs0">
+                        <rect key="frame" x="108" y="13" width="66.5" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="剩余60:59未看" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKe-TV-92R">
+                        <rect key="frame" x="292" y="50" width="70" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1889M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRe-ZI-yLM">
+                        <rect key="frame" x="108" y="34" width="42" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ofb-cu-M1K" customClass="ZLButtons">
+                        <rect key="frame" x="-10" y="25" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="PsW-G1-K3C"/>
+                            <constraint firstAttribute="height" constant="25" id="u5H-KC-1Xf"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="huancunbaise"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="QRe-ZI-yLM" firstAttribute="top" secondItem="Zxs-Le-Rs0" secondAttribute="bottom" constant="5" id="3GL-aT-wsm"/>
+                    <constraint firstItem="QRe-ZI-yLM" firstAttribute="leading" secondItem="ezp-bc-oqP" secondAttribute="trailing" constant="8" id="OjQ-8X-ld2"/>
+                    <constraint firstItem="Ofb-cu-M1K" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="XEf-zv-wtf"/>
+                    <constraint firstAttribute="trailing" secondItem="IKe-TV-92R" secondAttribute="trailing" constant="13" id="XHx-FE-zxw"/>
+                    <constraint firstItem="Zxs-Le-Rs0" firstAttribute="leading" secondItem="ezp-bc-oqP" secondAttribute="trailing" constant="8" id="YBI-RB-iqL"/>
+                    <constraint firstItem="Zxs-Le-Rs0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="afQ-N1-NuB"/>
+                    <constraint firstAttribute="bottom" secondItem="IKe-TV-92R" secondAttribute="bottom" constant="12" id="jff-WQ-WEA"/>
+                    <constraint firstItem="Ofb-cu-M1K" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="-10" id="nZn-6C-WHC"/>
+                    <constraint firstItem="ezp-bc-oqP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="psY-xd-RKV"/>
+                    <constraint firstItem="ezp-bc-oqP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="qp0-6Z-GLM"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="leftButton" destination="Ofb-cu-M1K" id="Af2-qT-sKh"/>
+                <outlet property="leftImageView" destination="ezp-bc-oqP" id="sww-sm-KVx"/>
+                <outlet property="shengYuLabel" destination="IKe-TV-92R" id="ofX-h1-rcq"/>
+                <outlet property="videoNameLabel" destination="Zxs-Le-Rs0" id="cMZ-Kq-ZOK"/>
+                <outlet property="videoSizeLabel" destination="QRe-ZI-yLM" id="LR9-gP-OB1"/>
+            </connections>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="huancunbaise" width="25" height="25"/>
+        <image name="icon_default" width="256" height="256"/>
+    </resources>
+</document>

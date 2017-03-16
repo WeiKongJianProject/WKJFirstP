@@ -15,6 +15,8 @@
 #import "PersonInfoViewController.h"
 #import "XiaoXiViewController.h"
 #import "ChongZhiViewController.h"
+#import "HuanCunCenterViewController.h"
+
 
 @interface FourViewController : ZLBaseViewController<UITableViewDelegate,UITableViewDataSource>
 

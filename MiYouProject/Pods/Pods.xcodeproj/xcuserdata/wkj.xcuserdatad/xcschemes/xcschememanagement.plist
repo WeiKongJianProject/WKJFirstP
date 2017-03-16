@@ -39,6 +39,11 @@
 			<key>orderHint</key>
 			<integer>14</integer>
 		</dict>
+		<key>HcdCachePlayer.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>26</integer>
+		</dict>
 		<key>IQKeyboardManager.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -137,6 +142,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>03B779CDE5A5B8D8832096D1350E7C07</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>04CF549EBEEE7BC87AEAE35397184D94</key>
 		<dict>
 			<key>primary</key>
@@ -152,12 +162,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>12B7AB4E69099FEE40286E1DEFE7042E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2111975792EDF9239C4E5443D074D4C3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>21EA59F2CDD501903E3FAEE3FFCF9006</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2F165BA734B749B0239E33734EADBE30</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -197,6 +217,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>831147363CD8C62558D0E355F1C0722E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8642CC820CE8C5B88C113D7F47AF4BC3</key>
 		<dict>
 			<key>primary</key>
@@ -228,6 +253,11 @@
 			<true/>
 		</dict>
 		<key>9BF65A5C908C97E5602B82D5BCD33DB5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9CCF5791E9948BD1B9D9C4EEB6963D65</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -283,6 +313,11 @@
 			<true/>
 		</dict>
 		<key>B1FCC76C4AE35B30351D54AF18A3A39E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B9F1EAC3E6B9782CA80B94C74673A4B9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

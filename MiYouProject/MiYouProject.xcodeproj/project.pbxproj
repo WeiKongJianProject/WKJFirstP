@@ -48,6 +48,14 @@
 		736557361E728F5800284C11 /* ReMenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736557351E728F5800284C11 /* ReMenView.xib */; };
 		7365573A1E729C4B00284C11 /* DianYingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */; };
 		7365573B1E729C4B00284C11 /* DianYingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736557391E729C4B00284C11 /* DianYingCollectionViewCell.xib */; };
+		73E7DA4A1E7A6C2700371E33 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73E7DA491E7A6C2700371E33 /* MobileCoreServices.framework */; };
+		73E7DA4C1E7A6C3000371E33 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73E7DA4B1E7A6C3000371E33 /* AVFoundation.framework */; };
+		73E7DA4E1E7A6C3A00371E33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73E7DA4D1E7A6C3A00371E33 /* Foundation.framework */; };
+		73E7DA521E7A78A200371E33 /* HuanCunCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E7DA501E7A78A200371E33 /* HuanCunCenterViewController.m */; };
+		73E7DA531E7A78A200371E33 /* HuanCunCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73E7DA511E7A78A200371E33 /* HuanCunCenterViewController.xib */; };
+		73E7DA571E7A7C7F00371E33 /* HuanCunZLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E7DA551E7A7C7F00371E33 /* HuanCunZLTableViewCell.m */; };
+		73E7DA581E7A7C7F00371E33 /* HuanCunZLTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73E7DA561E7A7C7F00371E33 /* HuanCunZLTableViewCell.xib */; };
+		73E7DA5B1E7A8C5D00371E33 /* ZLButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E7DA5A1E7A8C5D00371E33 /* ZLButtons.m */; };
 		73EB3E991E6FD47600CA8B5D /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73EB3E981E6FD47600CA8B5D /* libsqlite3.0.tbd */; };
 		73EB3E9B1E6FD48200CA8B5D /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73EB3E9A1E6FD48200CA8B5D /* libsqlite3.tbd */; };
 		73EB3ED21E6FD7DB00CA8B5D /* ZLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EB3E9F1E6FD7DB00CA8B5D /* ZLBaseViewController.m */; };
@@ -239,6 +247,17 @@
 		736557371E729C4B00284C11 /* DianYingCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianYingCollectionViewCell.h; sourceTree = "<group>"; };
 		736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianYingCollectionViewCell.m; sourceTree = "<group>"; };
 		736557391E729C4B00284C11 /* DianYingCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DianYingCollectionViewCell.xib; sourceTree = "<group>"; };
+		73E7DA491E7A6C2700371E33 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		73E7DA4B1E7A6C3000371E33 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		73E7DA4D1E7A6C3A00371E33 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		73E7DA4F1E7A78A200371E33 /* HuanCunCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HuanCunCenterViewController.h; sourceTree = "<group>"; };
+		73E7DA501E7A78A200371E33 /* HuanCunCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HuanCunCenterViewController.m; sourceTree = "<group>"; };
+		73E7DA511E7A78A200371E33 /* HuanCunCenterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HuanCunCenterViewController.xib; sourceTree = "<group>"; };
+		73E7DA541E7A7C7F00371E33 /* HuanCunZLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HuanCunZLTableViewCell.h; path = MiYouProject/FourController/Controller/HuanCunZLTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		73E7DA551E7A7C7F00371E33 /* HuanCunZLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HuanCunZLTableViewCell.m; path = MiYouProject/FourController/Controller/HuanCunZLTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		73E7DA561E7A7C7F00371E33 /* HuanCunZLTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HuanCunZLTableViewCell.xib; path = MiYouProject/FourController/Controller/HuanCunZLTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		73E7DA591E7A8C5D00371E33 /* ZLButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZLButtons.h; path = MiYouProject/FourController/Controller/ZLButtons.h; sourceTree = SOURCE_ROOT; };
+		73E7DA5A1E7A8C5D00371E33 /* ZLButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZLButtons.m; path = MiYouProject/FourController/Controller/ZLButtons.m; sourceTree = SOURCE_ROOT; };
 		73EB3E981E6FD47600CA8B5D /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		73EB3E9A1E6FD48200CA8B5D /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		73EB3E9C1E6FD60600CA8B5D /* MyPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPrefixHeader.pch; sourceTree = "<group>"; };
@@ -430,6 +449,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73E7DA4E1E7A6C3A00371E33 /* Foundation.framework in Frameworks */,
+				73E7DA4C1E7A6C3000371E33 /* AVFoundation.framework in Frameworks */,
+				73E7DA4A1E7A6C2700371E33 /* MobileCoreServices.framework in Frameworks */,
 				73EB3F961E6FDEE400CA8B5D /* WebP.framework in Frameworks */,
 				73EB3FCF1E6FDEE400CA8B5D /* libPaymentControl.a in Frameworks */,
 				73EB3E9B1E6FD48200CA8B5D /* libsqlite3.tbd in Frameworks */,
@@ -469,6 +491,9 @@
 		1D3354C620478839F6FED82A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				73E7DA4D1E7A6C3A00371E33 /* Foundation.framework */,
+				73E7DA4B1E7A6C3000371E33 /* AVFoundation.framework */,
+				73E7DA491E7A6C2700371E33 /* MobileCoreServices.framework */,
 				73EB3E9A1E6FD48200CA8B5D /* libsqlite3.tbd */,
 				73EB3E981E6FD47600CA8B5D /* libsqlite3.0.tbd */,
 				B941D8C5EEFA7355B25A6EDD /* libPods-MiYouProject.a */,
@@ -698,6 +723,9 @@
 				730D387B1E790F1C00EE4692 /* ChongZhiViewController.h */,
 				730D387C1E790F1C00EE4692 /* ChongZhiViewController.m */,
 				730D387D1E790F1C00EE4692 /* ChongZhiViewController.xib */,
+				73E7DA4F1E7A78A200371E33 /* HuanCunCenterViewController.h */,
+				73E7DA501E7A78A200371E33 /* HuanCunCenterViewController.m */,
+				73E7DA511E7A78A200371E33 /* HuanCunCenterViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -705,6 +733,8 @@
 		73EB3EB11E6FD7DB00CA8B5D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				73E7DA591E7A8C5D00371E33 /* ZLButtons.h */,
+				73E7DA5A1E7A8C5D00371E33 /* ZLButtons.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -736,6 +766,9 @@
 				730D38831E79244C00EE4692 /* VIPChongZhiView.h */,
 				730D38841E79244C00EE4692 /* VIPChongZhiView.m */,
 				730D38881E79247E00EE4692 /* VIPChongZhiView.xib */,
+				73E7DA541E7A7C7F00371E33 /* HuanCunZLTableViewCell.h */,
+				73E7DA551E7A7C7F00371E33 /* HuanCunZLTableViewCell.m */,
+				73E7DA561E7A7C7F00371E33 /* HuanCunZLTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1366,6 +1399,7 @@
 				73EB3FA11E6FDEE400CA8B5D /* zhoululu.webp in Resources */,
 				73EB3FB21E6FDEE400CA8B5D /* Loading003.png in Resources */,
 				73EB3F9D1E6FDEE400CA8B5D /* 0005.png in Resources */,
+				73E7DA531E7A78A200371E33 /* HuanCunCenterViewController.xib in Resources */,
 				73EB3FA81E6FDEE400CA8B5D /* Loading0012.png in Resources */,
 				73EB3FB51E6FDEE400CA8B5D /* Loading006.png in Resources */,
 				73EB3FA61E6FDEE400CA8B5D /* Loading0010.png in Resources */,
@@ -1405,6 +1439,7 @@
 				730D385C1E77CDCB00EE4692 /* MyYuEViewController.xib in Resources */,
 				730D38661E77DC2D00EE4692 /* SettingViewController.xib in Resources */,
 				730D384D1E7697A600EE4692 /* PersonHederTableViewCell.xib in Resources */,
+				73E7DA581E7A7C7F00371E33 /* HuanCunZLTableViewCell.xib in Resources */,
 				73EB43211E727E6F00CA8B5D /* FirstSubViewViewController.xib in Resources */,
 				730D38891E79247E00EE4692 /* VIPChongZhiView.xib in Resources */,
 				73EB3FB61E6FDEE400CA8B5D /* Loading007.png in Resources */,
@@ -1592,6 +1627,7 @@
 				73EB43091E71313100CA8B5D /* ZLLabelCustom.m in Sources */,
 				73EB43201E727E6F00CA8B5D /* FirstSubViewViewController.m in Sources */,
 				73EB3FCB1E6FDEE400CA8B5D /* iCarousel.m in Sources */,
+				73E7DA571E7A7C7F00371E33 /* HuanCunZLTableViewCell.m in Sources */,
 				73EB3ED51E6FD7DB00CA8B5D /* SearchHistoryModel.m in Sources */,
 				73EB3FD01E6FDEE400CA8B5D /* NavTopCommonImage.m in Sources */,
 				73EB3F8D1E6FDEE400CA8B5D /* UIView+HeinQi.m in Sources */,
@@ -1602,6 +1638,7 @@
 				73EB3F891E6FDEE400CA8B5D /* UIColor+HeinQi.m in Sources */,
 				73EB3ED91E6FD7DB00CA8B5D /* FMDB+ZL.m in Sources */,
 				73EB3FD21E6FDEE400CA8B5D /* PulldownMenu.m in Sources */,
+				73E7DA521E7A78A200371E33 /* HuanCunCenterViewController.m in Sources */,
 				73EB3F851E6FDEE400CA8B5D /* NSValueTransformer+HeinQi.m in Sources */,
 				730D38651E77DC2D00EE4692 /* SettingViewController.m in Sources */,
 				732BC8701E6FD17400B8B1BD /* ViewController.m in Sources */,
@@ -1631,6 +1668,7 @@
 				730D38791E78DF0B00EE4692 /* XiaoXiViewController.m in Sources */,
 				73EB3FC31E6FDEE400CA8B5D /* CustomButton.m in Sources */,
 				73EB3FD81E6FE29F00CA8B5D /* NSDatezlModel.m in Sources */,
+				73E7DA5B1E7A8C5D00371E33 /* ZLButtons.m in Sources */,
 				730D38601E77D8FF00EE4692 /* SettingTableViewCell.m in Sources */,
 				730D38741E78D8B800EE4692 /* XiaoXiTableViewCell.m in Sources */,
 				73EB3ED41E6FD7DB00CA8B5D /* FirstViewController.m in Sources */,

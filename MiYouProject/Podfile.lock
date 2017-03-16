@@ -24,6 +24,8 @@ PODS:
   - FMDB/standard (2.6.2)
   - GONMarkupParser (0.7.2):
     - NSString+Color
+  - HcdCachePlayer (1.0.0):
+    - Masonry (~> 1.0.1)
   - IQKeyboardManager (4.0.8)
   - Mantle (2.1.0):
     - Mantle/extobjc (= 2.1.0)
@@ -52,6 +54,7 @@ DEPENDENCIES:
   - DZNSegmentedControl (~> 1.3)
   - FMDB (~> 2.6)
   - GONMarkupParser (~> 0.7)
+  - HcdCachePlayer (~> 1.0)
   - IQKeyboardManager (~> 4.0)
   - Mantle (~> 2.1)
   - Masonry (~> 1.0)
@@ -73,6 +76,7 @@ SPEC CHECKSUMS:
   FBRetainCycleDetector: f0c7b290bf48ae77f6ae060843ce34ae341781eb
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   GONMarkupParser: fb4052cc4d7af41853552c704755b2bdc95fd205
+  HcdCachePlayer: 52497ecbf7c98b28f8222c48e999dabb4976f56e
   IQKeyboardManager: 1a8189fa153bf09044355ee0ad36826f6767e7f7
   Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
@@ -86,6 +90,6 @@ SPEC CHECKSUMS:
   WMPageController: 181bcc9b1fb7c9c3466bff66012552953a547d28
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 918fed8f7d9a49f79fc7458e3522ce4c75a67828
+PODFILE CHECKSUM: 43849cc91585b8f6b80b88ad0ae85dd0f2ce76ed
 
 COCOAPODS: 1.2.0

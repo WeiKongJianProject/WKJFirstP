@@ -182,7 +182,8 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
     if (indexPath.row == 4) {
-        
+        HuanCunCenterViewController * vc = [[HuanCunCenterViewController alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
     if (indexPath.row == 5) {
         SettingViewController * setVC = [[SettingViewController alloc]init];

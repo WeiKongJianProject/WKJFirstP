@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ThirdViewController.h"
+#import <HcdCacheVideoPlayer.h>
+#import <AFNetworking.h>
+
 @interface SecondViewController : ZLBaseViewController
 
 @end
