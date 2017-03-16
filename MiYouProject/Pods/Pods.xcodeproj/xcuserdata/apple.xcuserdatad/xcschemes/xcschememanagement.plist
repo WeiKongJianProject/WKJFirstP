@@ -19,6 +19,11 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>DZNSegmentedControl.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>22</integer>
+		</dict>
 		<key>FBRetainCycleDetector.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -33,6 +38,11 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>6</integer>
+		</dict>
+		<key>HcdCachePlayer.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>23</integer>
 		</dict>
 		<key>IQKeyboardManager.xcscheme</key>
 		<dict>
@@ -112,12 +122,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>03B779CDE5A5B8D8832096D1350E7C07</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>04CF549EBEEE7BC87AEAE35397184D94</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>12508E41E208F01D446C64CECAEE16FA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>12B7AB4E69099FEE40286E1DEFE7042E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2F165BA734B749B0239E33734EADBE30</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -133,6 +158,11 @@
 			<true/>
 		</dict>
 		<key>586F2DFA9BDCC6675C2546793A69E5CC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>831147363CD8C62558D0E355F1C0722E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -162,6 +192,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>9CCF5791E9948BD1B9D9C4EEB6963D65</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9DC8D9E02903E93BD0B2FEC9D846EA20</key>
 		<dict>
 			<key>primary</key>
@@ -187,6 +222,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>B9F1EAC3E6B9782CA80B94C74673A4B9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>BBC4DE98F41B26E0D0B82FCF6D68EFB6</key>
 		<dict>
 			<key>primary</key>
@@ -203,6 +243,11 @@
 			<true/>
 		</dict>
 		<key>D73EC48BF6745C40F34B9B8CCDE749EC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E2676BA6D1FF3E70118B80F4A284FFCE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

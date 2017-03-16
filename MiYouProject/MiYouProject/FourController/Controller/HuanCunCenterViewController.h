@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic) NSMutableArray * videoARR;
 @property (strong, nonatomic) NSMutableArray * selectButtonARR;
+@property (strong, nonatomic) NSMutableArray * buttonsZongARR;
 @property (strong, nonatomic) UITableView * tableview;
 
 @end

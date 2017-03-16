@@ -10,4 +10,6 @@
 
 @interface ZLButtons : UIButton
 
+@property (assign, nonatomic) NSInteger row;
+
 @end

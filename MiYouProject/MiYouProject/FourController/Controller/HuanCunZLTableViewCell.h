@@ -15,7 +15,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *videoSizeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *shengYuLabel;
 
-@property (strong, nonatomic) IBOutlet ZLButtons *leftButton;
-
+@property (strong, nonatomic) ZLButtons * leftButton02;
 
 @end

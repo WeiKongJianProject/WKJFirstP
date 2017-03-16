@@ -15,11 +15,20 @@
     // Initialization code
     self.shengYuLabel.hidden = YES;
     
-    [self.leftButton setBackgroundImage:[UIImage imageNamed:@"huancunbaise"] forState:UIControlStateNormal];
-    [self.leftButton setBackgroundImage:[UIImage imageNamed:@"huancunhonggou"] forState:UIControlStateSelected];
+//    [self.leftButton setBackgroundImage:[UIImage imageNamed:@"huancunbaise"] forState:UIControlStateNormal];
+//    [self.leftButton setBackgroundImage:[UIImage imageNamed:@"huancunhonggou"] forState:UIControlStateSelected];
 
-      [self.leftButton addTarget:self action:@selector(leftButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    //[self.leftButton addTarget:self action:@selector(leftButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.leftButton02 = [ZLButtons buttonWithType:UIButtonTypeCustom];
+    [self.leftButton02 setBackgroundImage:[UIImage imageNamed:@"huancunbaise"] forState:UIControlStateNormal];
+    [self.leftButton02 setBackgroundImage:[UIImage imageNamed:@"huancunhonggou"] forState:UIControlStateSelected];
+    //self.leftButton02.selected = YES;
+    [self.leftButton02 setFrame:CGRectMake(10, 25, 26, 26)];
+    //self.leftButton02.hidden = YES;
+    [self addSubview:self.leftButton02];
 }
+
 //左侧选择按钮执行方法
 - (void)leftButtonAction:(UIButton *)sender{
     NSLog(@"点击了左侧按钮");
