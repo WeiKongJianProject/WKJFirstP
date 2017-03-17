@@ -269,7 +269,7 @@
 #pragma mark ScrollViewDelegate 方法
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
 
-    NSLog(@"执行了scrollViewDidScroll方法");
+    //NSLog(@"执行了scrollViewDidScroll方法");
     if (scrollView == self.lunXianScrollView) {
         NSInteger i = scrollView.contentOffset.x/scrollView.frame.size.width + 1;
         self.lunXianPageControl.currentPage = i - 1;

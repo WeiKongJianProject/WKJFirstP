@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HuanCunFooterView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c8e-WN-tiK">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="smp-K8-7ZV"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jb8-qI-Hog">
+                    <rect key="frame" x="0.0" y="1" width="187" height="63"/>
+                    <state key="normal" title="全选">
+                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rw0-q5-5Dt">
+                    <rect key="frame" x="188" y="1" width="187" height="63"/>
+                    <state key="normal" title="删除">
+                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </state>
+                </button>
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vh5-t5-waE">
+                    <rect key="frame" x="187" y="13" width="1" height="38"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="1" id="cYt-jZ-Vgh"/>
+                        <constraint firstAttribute="height" constant="38" id="fK9-DT-5gX"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vh5-t5-waE" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="CDc-cV-Sn0"/>
+                <constraint firstItem="rw0-q5-5Dt" firstAttribute="width" secondItem="Jb8-qI-Hog" secondAttribute="width" id="FMq-sQ-ykX"/>
+                <constraint firstItem="Jb8-qI-Hog" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="NNo-lK-tcg"/>
+                <constraint firstItem="c8e-WN-tiK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Obd-8m-vqz"/>
+                <constraint firstAttribute="bottom" secondItem="Jb8-qI-Hog" secondAttribute="bottom" id="Ou4-Jf-WgX"/>
+                <constraint firstAttribute="bottom" secondItem="rw0-q5-5Dt" secondAttribute="bottom" id="VHb-bY-ouL"/>
+                <constraint firstItem="rw0-q5-5Dt" firstAttribute="height" secondItem="Jb8-qI-Hog" secondAttribute="height" id="Y5H-9l-di8"/>
+                <constraint firstAttribute="trailing" secondItem="c8e-WN-tiK" secondAttribute="trailing" id="f9T-bO-d2W"/>
+                <constraint firstItem="vh5-t5-waE" firstAttribute="leading" secondItem="Jb8-qI-Hog" secondAttribute="trailing" id="faZ-BK-eHJ"/>
+                <constraint firstItem="rw0-q5-5Dt" firstAttribute="leading" secondItem="vh5-t5-waE" secondAttribute="trailing" id="qcC-aw-AxW"/>
+                <constraint firstItem="vh5-t5-waE" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="tU8-BK-ZnJ"/>
+                <constraint firstAttribute="trailing" secondItem="rw0-q5-5Dt" secondAttribute="trailing" id="toF-sq-T7p"/>
+                <constraint firstItem="c8e-WN-tiK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="vyz-4l-byK"/>
+                <constraint firstItem="rw0-q5-5Dt" firstAttribute="top" secondItem="c8e-WN-tiK" secondAttribute="bottom" id="xjK-MV-OGd"/>
+                <constraint firstItem="Jb8-qI-Hog" firstAttribute="top" secondItem="c8e-WN-tiK" secondAttribute="bottom" id="xku-fa-2d5"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="deleteButton" destination="rw0-q5-5Dt" id="QN6-dH-W1P"/>
+                <outlet property="quanXuanButton" destination="Jb8-qI-Hog" id="Rq6-gp-tMa"/>
+            </connections>
+            <point key="canvasLocation" x="24.5" y="53"/>
+        </view>
+    </objects>
+</document>

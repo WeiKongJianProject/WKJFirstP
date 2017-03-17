@@ -9,11 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "HuanCunZLTableViewCell.h"
 #import "ZLButtons.h"
+#import "HuanCunFooterView.h"
+#import "VideoModelZL.h"
+#import "PlayerZLViewController.h"
 @interface HuanCunCenterViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong, nonatomic) NSMutableArray * videoARR;
 @property (strong, nonatomic) NSMutableArray * selectButtonARR;
 @property (strong, nonatomic) NSMutableArray * buttonsZongARR;
 @property (strong, nonatomic) UITableView * tableview;
-
+@property (strong, nonatomic) HuanCunFooterView * footView;
+@property (strong, nonatomic) UIBarButtonItem * rightButton;
 @end

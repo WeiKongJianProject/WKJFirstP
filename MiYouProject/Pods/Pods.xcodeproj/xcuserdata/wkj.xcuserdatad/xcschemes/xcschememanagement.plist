@@ -29,6 +29,11 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>FDFullscreenPopGesture.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>27</integer>
+		</dict>
 		<key>FMDB.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -119,6 +124,11 @@
 			<key>orderHint</key>
 			<integer>22</integer>
 		</dict>
+		<key>WHCNetWorkKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>28</integer>
+		</dict>
 		<key>WMPageController.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -134,6 +144,11 @@
 			<key>orderHint</key>
 			<integer>11</integer>
 		</dict>
+		<key>ZFPlayer.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>29</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -147,7 +162,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>04BFA473B2B1818F226492E4977EB2F3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>04CF549EBEEE7BC87AEAE35397184D94</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0AB45285EFAA52644D0CBD931F8F3A66</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0DA7882CCF6DE212EBE97AA6B338B5D9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -192,6 +222,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>37358DA0129367643FDAB27E7C409ECE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3A6684F175DC8F1A0FF711EF6091A1E9</key>
 		<dict>
 			<key>primary</key>
@@ -212,7 +247,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>6065EC8A468B6A25AC8CD17DB1E3C65E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>652C7A0FE1A92715FEC59169147F0DAE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>794C6F5010B06AD5DF15EDFB28D04D96</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -277,6 +322,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A192755715C198F715A9F81DE798552D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A316B54C67E947D23CECD230FA5BFAEF</key>
 		<dict>
 			<key>primary</key>
@@ -293,6 +343,11 @@
 			<true/>
 		</dict>
 		<key>ADBB5F2BA25BFE08C5FE86E383FEA0C9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ADD35FBED941C7CFE8E25944C90B16CA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -327,6 +382,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>BD3CC4879AC147111D4E8E8934A1E905</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C344194A7FB4755AA5F25A820AC87B47</key>
 		<dict>
 			<key>primary</key>
@@ -337,12 +397,37 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>D131C88AE07F7F1FAFE0A3EABEE20D97</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D4F8B3E6A5AE837F7CB7BE41B8A6BF4F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D5EAA3AD317037B499388D851DFACF31</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D73EC48BF6745C40F34B9B8CCDE749EC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>DAD06D5F4C906E7C1D4734E02FF4F2AE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DAE5FA929C16D6D731C144DB5FF31E3E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E09AE83CBA0D5BCFB79D2E547CAF9871</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -363,6 +448,21 @@
 			<true/>
 		</dict>
 		<key>EB3B52565CABC6E46C1357615234459A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ED8C761036B0D58EB5370F2C9EDB8762</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EE366E1E6962F82E6AEC8AE66FA66CBF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EFC5F654B70441C06E691B83E52F76A8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

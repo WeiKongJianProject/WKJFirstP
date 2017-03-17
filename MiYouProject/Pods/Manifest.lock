@@ -45,6 +45,8 @@ PODS:
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
+  - ZFPlayer (2.1.3):
+    - Masonry
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
@@ -66,6 +68,7 @@ DEPENDENCIES:
   - SDWebImage (~> 4.0)
   - WMPageController (~> 2.2)
   - YYKit (~> 1.0)
+  - ZFPlayer (~> 2.1)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -89,7 +92,8 @@ SPEC CHECKSUMS:
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   WMPageController: 181bcc9b1fb7c9c3466bff66012552953a547d28
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
+  ZFPlayer: 8dc82b4508fbba4ee59d0304c52e30f8b3390244
 
-PODFILE CHECKSUM: 43849cc91585b8f6b80b88ad0ae85dd0f2ce76ed
+PODFILE CHECKSUM: a06e7cf094608dc7612d539b8c14b0677d56956a
 
 COCOAPODS: 1.2.0
