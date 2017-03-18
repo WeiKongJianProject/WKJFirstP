@@ -119,6 +119,11 @@
 			<key>orderHint</key>
 			<integer>21</integer>
 		</dict>
+		<key>ZFPlayer.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>24</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -127,7 +132,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>04BFA473B2B1818F226492E4977EB2F3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>04CF549EBEEE7BC87AEAE35397184D94</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0DA7882CCF6DE212EBE97AA6B338B5D9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -158,6 +173,11 @@
 			<true/>
 		</dict>
 		<key>586F2DFA9BDCC6675C2546793A69E5CC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6065EC8A468B6A25AC8CD17DB1E3C65E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -242,6 +262,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>D5EAA3AD317037B499388D851DFACF31</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D73EC48BF6745C40F34B9B8CCDE749EC</key>
 		<dict>
 			<key>primary</key>
@@ -253,6 +278,11 @@
 			<true/>
 		</dict>
 		<key>E8E70DDBA6EDB29707DD3A0F2948425C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EFC5F654B70441C06E691B83E52F76A8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

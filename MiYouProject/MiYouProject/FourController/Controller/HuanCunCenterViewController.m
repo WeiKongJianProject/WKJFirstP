@@ -190,7 +190,13 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //NSLog(@"点击了cell");
+    NSString * filePath = [[NSFileManagerZL pathDocument] stringByAppendingPathComponent:@"test.mp4"];
+    PlayerZLViewController * vc = [[PlayerZLViewController alloc]init];
+    NSURL * url = [NSURL fileURLWithPath:filePath];
+    vc.url = url;
     
+    [self.navigationController pushViewController:vc animated:YES];
+
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self settingPlayer];
     // Do any additional setup after loading the view from its nib.
 }
 - (void)settingPlayer{
@@ -27,7 +28,7 @@
     ZFPlayerModel *playerModel = [[ZFPlayerModel alloc] init];
     // playerView的父视图
     playerModel.fatherView = self.view;
-    playerModel.videoURL = [NSURL URLWithString:@""];
+    playerModel.videoURL = self.url;
     playerModel.title = @"你好";
 
     [self.playerView playerControlView:controlView playerModel:playerModel];
@@ -35,7 +36,18 @@
     self.playerView.delegate = self;
     // 自动播放
     [self.playerView autoPlayTheVideo];
+    // 设置视频的填充模式，内部设置默认（ZFPlayerLayerGravityResizeAspect：等比例填充，直到一个维度到达区域边界）
+    self.playerView.playerLayerGravity = ZFPlayerLayerGravityResizeAspect;
     
+}
+
+- (void)zf_playerBackAction{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -12,5 +12,5 @@
 
 @property (assign, nonatomic) BOOL isBenDi;
 @property (strong, nonatomic) IBOutlet ZFPlayerView *playerView;
-
+@property (strong, nonatomic) NSURL * url;
 @end
