@@ -109,6 +109,11 @@
 			<key>orderHint</key>
 			<integer>19</integer>
 		</dict>
+		<key>WHCNetWorkKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>25</integer>
+		</dict>
 		<key>WMPageController.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -157,6 +162,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>1A211D52DA6C0DE80498131517188C61</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2AAAEAF27628621D252CAA8AB77DD250</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2F165BA734B749B0239E33734EADBE30</key>
 		<dict>
 			<key>primary</key>
@@ -168,6 +183,21 @@
 			<true/>
 		</dict>
 		<key>43AFBF4F2CD231A7499E3B7813A16837</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4623FD9166C259BCC86507EED91EBF8F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4E4489593D52E0983D02866AEF2C6330</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>51A18D88C30CF8B463DE04BB8BF2D9B8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -268,6 +298,11 @@
 			<true/>
 		</dict>
 		<key>D73EC48BF6745C40F34B9B8CCDE749EC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DCE62165C24076667FA9D9E34F34B474</key>
 		<dict>
 			<key>primary</key>
 			<true/>

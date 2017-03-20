@@ -9,7 +9,7 @@
 #import "DianYingSubViewController.h"
 
 #define Collection_item_Width (SIZE_WIDTH-40)/3.0
-#define Collection_item_Height (SIZE_WIDTH-40)/3.0 * 225.0/386.0
+#define Collection_item_Height (SIZE_WIDTH-40)/3.0 * 386.0/225.0
 
 @interface DianYingSubViewController (){
 
@@ -27,18 +27,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //[self loadtopView];
+    self.collectionARR = [[NSMutableArray alloc]init];
+    [self.collectionARR addObjectsFromArray:@[@"01",@"02",@"03",@"04",@"05",@"06",@"07",@"08"]];
     _isZhanKai = NO;
     _index_0_height = 155.0f;
     _index_1_height = 85.0f;
-    _index_2_height = 300.0f;
+    _index_2_height = (Collection_item_Height+10) * ((self.collectionARR.count+2) / 3);
+    NSLog(@"CollectionView高度为：%g,每一个iTem高度和宽度为：%g+++%g",_index_2_height,Collection_item_Height,Collection_item_Width);
+
     
     self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,SIZE_WIDTH, SIZE_HEIGHT-60) style:UITableViewStylePlain];
     self.tableview.delegate = self;
     self.tableview.dataSource = self;
     self.tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableview];
-    
-    //self.tableview registerNib:[UINib alloc] forCellReuseIdentifier:<#(nonnull NSString *)#>
     
 }
 
@@ -113,6 +115,7 @@
             }
             
             [self setZLCollectionView:cell1.thirdCollectionView];
+            
             cell1.selectionStyle = UITableViewCellSelectionStyleNone;
             cell = cell1;
         }
@@ -143,9 +146,60 @@
     //item 列与列的距离
     layout.minimumInteritemSpacing = 10;
     
+    [collectionView setCollectionViewLayout:layout];
+    collectionView.delegate = self;
+    collectionView.dataSource = self;
+    collectionView.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
+    
+    collectionView.scrollEnabled = NO;
+    //注册item类型
+    
+    //[self.backCollectionView registerClass:[DianShiQiangCollectionCell class] forCellWithReuseIdentifier:@"dianShiQiangCellId"];
+    [collectionView registerNib:[UINib nibWithNibName:@"DianYingSubCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"DianYingSubCollectionCellID"];
+
+}
+#pragma mark CollectionView  的  dataSource方法
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return self.collectionARR.count;
+}
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString * cellId = @"DianYingSubCollectionCellID";
+    DianYingSubCollectionViewCell *cell = (DianYingSubCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+    /*
+     UIImage * JHimage = self.dataSourceArray[indexPath.row];
+     //    UIImage * JHImage = [UIImage imageNamed:imageNamed];
+     cell.myImgView.image = JHimage;
+     cell.close.hidden = self.isDelItem;
+     cell.delegate = self;
+     //    cell.backgroundColor = arcColor;
+     */
+    return cell;
+    
+    
     
 }
 
+#pragma end mark
+#pragma mark  点击CollectionView触发事件
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+//    if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:)]) {
+//        [self.delegate firstSubVC:self withType:0 withName:@"电影" withKey:@"关键字"];
+//    }
+    
+}
+
+#pragma mark  设置CollectionViewCell是否可以被点击
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+#pragma end mark
 
 #pragma end mark
 

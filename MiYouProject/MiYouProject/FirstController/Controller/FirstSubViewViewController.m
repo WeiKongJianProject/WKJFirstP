@@ -196,7 +196,6 @@
 }
 #pragma mark CollectionView  的  dataSource方法
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    
     return self.dianYingCollectionARR.count;
 }
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
