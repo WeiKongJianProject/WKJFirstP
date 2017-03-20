@@ -16,10 +16,52 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    ///开启网络状况的监听
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reachabilityChanged:)
+                                                 name:kReachabilityChangedNotification
+                                               object:nil];
+    self.reach = [Reachability reachabilityWithHostName:@"www.baidu.com"];
+    [self.reach startNotifier]; //开始监听，会启动一个run loop
     // Override point for customization after application launch.
     return YES;
 }
+//通知
+-(void)reachabilityChanged:(NSNotification*)note {
+    Reachability * reach = [note object];
+    NSParameterAssert([reach isKindOfClass: [Reachability class]]);
+    NetworkStatus status = [reach currentReachabilityStatus];
+    
+    if (status == NotReachable) {
+        //        [self.window toastMid:@"网络已断开"];
+        [[NSNotificationCenter defaultCenter]postNotificationName:ReachabilityChangedNotification object:NotReachable];
+        
+    }else if(status == ReachableViaWWAN){
+        //        [self.window toastMid:@"移动网络"];
+        
+    }else if(status == ReachableViaWiFi){
+        //        [self.window toastMid:@"WIfi网络"];
+        //        NSLog(@"Notification Says WIfi网络 wifinet");
+    }
+    
+}
 
+- (NetworkStatus)currentReachabilityStatus {
+    
+    AppDelegate *appDlg = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSParameterAssert([appDlg.reach isKindOfClass: [Reachability class]]);
+    NetworkStatus status = [appDlg.reach currentReachabilityStatus];
+    
+    return status;
+}
+
+
+- (void)dealloc {
+    // 删除通知对象
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

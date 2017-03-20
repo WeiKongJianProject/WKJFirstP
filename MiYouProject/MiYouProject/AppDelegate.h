@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "Reachability.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -15,8 +16,12 @@
 
 @property (readonly, strong) NSPersistentContainer *persistentContainer;
 
+@property (strong, nonatomic) Reachability *reach;
+
 - (void)saveContext;
 
+
+- (NetworkStatus)currentReachabilityStatus;
 
 @end
 

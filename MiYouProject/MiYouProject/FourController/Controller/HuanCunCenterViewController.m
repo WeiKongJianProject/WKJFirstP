@@ -193,7 +193,10 @@
     NSString * filePath = [[NSFileManagerZL pathDocument] stringByAppendingPathComponent:@"test.mp4"];
     PlayerZLViewController * vc = [[PlayerZLViewController alloc]init];
     NSURL * url = [NSURL fileURLWithPath:filePath];
-    vc.url = url;
+    //http://us.sinaimg.cn/003opPNzjx06YJT4qI4o05040100QgCe0k01.mp4
+    NSURL * url2 = [NSURL URLWithString:@"http://us.sinaimg.cn/003opPNzjx06YJT4qI4o05040100QgCe0k01.mp4"];
+    vc.url = url2;
+    vc.name = @"鸡毛飞上天";
     
     [self.navigationController pushViewController:vc animated:YES];
 

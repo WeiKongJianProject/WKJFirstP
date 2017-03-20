@@ -1,0 +1,1 @@
+../../../WHCNetWorkKit/WHCNetWorkKit/NSURLConnection/WHC_HttpManager.h

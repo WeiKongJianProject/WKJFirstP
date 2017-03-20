@@ -16,6 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self childViewControllerForStatusBarStyle];
+    [self childViewControllerForStatusBarHidden];
     //设置手势代理
     self.interactivePopGestureRecognizer.delegate = self;
     //设置NavigationBar
@@ -60,6 +62,14 @@
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
     return self.childViewControllers.count > 1;
+}
+
+- (UIViewController *)childViewControllerForStatusBarStyle{
+    return self.topViewController;
+}
+- (UIViewController *)childViewControllerForStatusBarHidden{
+
+    return self.topViewController;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -23,10 +23,11 @@
     [btn setTitle:@"继续测试" forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
     //[self.view addSubview:btn];
-    [self videoBoFang];
+    //[self videoBoFang];
     [self videlXiaZai];
     
 }
+/*
 //视频播放
 - (void)videoBoFang{
     //视频播放  功能
@@ -51,6 +52,7 @@
     NSLog(@"缓存视频的大小:%lf",tt);
 
 }
+*/
 //视频下载
 - (void)videlXiaZai{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);

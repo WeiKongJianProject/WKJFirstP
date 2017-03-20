@@ -8,10 +8,15 @@
 
 #import "ZLBaseViewController.h"
 
-@interface SearchViewController : ZLBaseViewController<UISearchBarDelegate,UITextFieldDelegate>
+@interface SearchViewController : ZLBaseViewController<UISearchBarDelegate,UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
 
 
 @property (strong, nonatomic) UISearchBar * searchBar;
 @property (strong, nonatomic) UITextField * searchTextField;
+@property (strong, nonatomic) UIView * headerView;
+@property (strong, nonatomic) UITableView * tableview;
+@property (strong, nonatomic) NSMutableArray * lishiARR;
+
+
 
 @end

@@ -62,6 +62,18 @@
 		73E7DA671E7BAFF400371E33 /* VideoModelZL.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E7DA661E7BAFF400371E33 /* VideoModelZL.m */; };
 		73E7DA6B1E7BE08D00371E33 /* PlayerZLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E7DA691E7BE08D00371E33 /* PlayerZLViewController.m */; };
 		73E7DA6C1E7BE08D00371E33 /* PlayerZLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73E7DA6A1E7BE08D00371E33 /* PlayerZLViewController.xib */; };
+		73E7DA6F1E7F740600371E33 /* DownloadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E7DA6E1E7F740600371E33 /* DownloadModel.m */; };
+		73E7DA721E7F743300371E33 /* WHC_DownloadObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E7DA711E7F743300371E33 /* WHC_DownloadObject.m */; };
+		73E7DA7C1E7F778900371E33 /* UIScrollView+WHC_PullRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E7DA751E7F778900371E33 /* UIScrollView+WHC_PullRefresh.m */; };
+		73E7DA7D1E7F778900371E33 /* UIView+WHC_Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E7DA771E7F778900371E33 /* UIView+WHC_Loading.m */; };
+		73E7DA7E1E7F778900371E33 /* UIView+WHC_Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E7DA791E7F778900371E33 /* UIView+WHC_Toast.m */; };
+		73E7DA7F1E7F778900371E33 /* UIView+WHC_ViewProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E7DA7B1E7F778900371E33 /* UIView+WHC_ViewProperty.m */; };
+		73E7DA831E7FB75800371E33 /* DianYingSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E7DA811E7FB75800371E33 /* DianYingSubViewController.m */; };
+		73E7DA841E7FB75800371E33 /* DianYingSubViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73E7DA821E7FB75800371E33 /* DianYingSubViewController.xib */; };
+		73E7DA881E7FBD2700371E33 /* DianYingSubTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E7DA861E7FBD2700371E33 /* DianYingSubTableViewCell.m */; };
+		73E7DA891E7FBD2700371E33 /* DianYingSubTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73E7DA871E7FBD2700371E33 /* DianYingSubTableViewCell.xib */; };
+		73E7DA8D1E7FBEC100371E33 /* DianYingSubCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E7DA8B1E7FBEC100371E33 /* DianYingSubCollectionViewCell.m */; };
+		73E7DA8E1E7FBEC100371E33 /* DianYingSubCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73E7DA8C1E7FBEC100371E33 /* DianYingSubCollectionViewCell.xib */; };
 		73EB3E991E6FD47600CA8B5D /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73EB3E981E6FD47600CA8B5D /* libsqlite3.0.tbd */; };
 		73EB3E9B1E6FD48200CA8B5D /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73EB3E9A1E6FD48200CA8B5D /* libsqlite3.tbd */; };
 		73EB3ED21E6FD7DB00CA8B5D /* ZLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EB3E9F1E6FD7DB00CA8B5D /* ZLBaseViewController.m */; };
@@ -150,7 +162,6 @@
 		73EB3FCE1E6FDEE400CA8B5D /* UIView+MJAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EB3F6C1E6FDEE400CA8B5D /* UIView+MJAlertView.m */; };
 		73EB3FCF1E6FDEE400CA8B5D /* libPaymentControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73EB3F721E6FDEE400CA8B5D /* libPaymentControl.a */; };
 		73EB3FD01E6FDEE400CA8B5D /* NavTopCommonImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EB3F761E6FDEE400CA8B5D /* NavTopCommonImage.m */; };
-		73EB3FD11E6FDEE400CA8B5D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EB3F7A1E6FDEE400CA8B5D /* Reachability.m */; };
 		73EB3FD21E6FDEE400CA8B5D /* PulldownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EB3F7D1E6FDEE400CA8B5D /* PulldownMenu.m */; };
 		73EB3FD31E6FDEE400CA8B5D /* ZhengZePanDuan.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EB3F801E6FDEE400CA8B5D /* ZhengZePanDuan.m */; };
 		73EB3FD41E6FDEE400CA8B5D /* ZLPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EB3F821E6FDEE400CA8B5D /* ZLPageControl.m */; };
@@ -274,6 +285,27 @@
 		73E7DA681E7BE08D00371E33 /* PlayerZLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerZLViewController.h; sourceTree = "<group>"; };
 		73E7DA691E7BE08D00371E33 /* PlayerZLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerZLViewController.m; sourceTree = "<group>"; };
 		73E7DA6A1E7BE08D00371E33 /* PlayerZLViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerZLViewController.xib; sourceTree = "<group>"; };
+		73E7DA6D1E7F740600371E33 /* DownloadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DownloadModel.h; path = MiYouProject/Myframework/ZLNSFileManager/DownloadModel.h; sourceTree = SOURCE_ROOT; };
+		73E7DA6E1E7F740600371E33 /* DownloadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DownloadModel.m; path = MiYouProject/Myframework/ZLNSFileManager/DownloadModel.m; sourceTree = SOURCE_ROOT; };
+		73E7DA701E7F743300371E33 /* WHC_DownloadObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHC_DownloadObject.h; path = MiYouProject/Myframework/ZLNSFileManager/WHC_DownloadObject.h; sourceTree = SOURCE_ROOT; };
+		73E7DA711E7F743300371E33 /* WHC_DownloadObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHC_DownloadObject.m; path = MiYouProject/Myframework/ZLNSFileManager/WHC_DownloadObject.m; sourceTree = SOURCE_ROOT; };
+		73E7DA741E7F778900371E33 /* UIScrollView+WHC_PullRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+WHC_PullRefresh.h"; sourceTree = "<group>"; };
+		73E7DA751E7F778900371E33 /* UIScrollView+WHC_PullRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+WHC_PullRefresh.m"; sourceTree = "<group>"; };
+		73E7DA761E7F778900371E33 /* UIView+WHC_Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WHC_Loading.h"; sourceTree = "<group>"; };
+		73E7DA771E7F778900371E33 /* UIView+WHC_Loading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WHC_Loading.m"; sourceTree = "<group>"; };
+		73E7DA781E7F778900371E33 /* UIView+WHC_Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WHC_Toast.h"; sourceTree = "<group>"; };
+		73E7DA791E7F778900371E33 /* UIView+WHC_Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WHC_Toast.m"; sourceTree = "<group>"; };
+		73E7DA7A1E7F778900371E33 /* UIView+WHC_ViewProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WHC_ViewProperty.h"; sourceTree = "<group>"; };
+		73E7DA7B1E7F778900371E33 /* UIView+WHC_ViewProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WHC_ViewProperty.m"; sourceTree = "<group>"; };
+		73E7DA801E7FB75800371E33 /* DianYingSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianYingSubViewController.h; sourceTree = "<group>"; };
+		73E7DA811E7FB75800371E33 /* DianYingSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianYingSubViewController.m; sourceTree = "<group>"; };
+		73E7DA821E7FB75800371E33 /* DianYingSubViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DianYingSubViewController.xib; sourceTree = "<group>"; };
+		73E7DA851E7FBD2700371E33 /* DianYingSubTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianYingSubTableViewCell.h; sourceTree = "<group>"; };
+		73E7DA861E7FBD2700371E33 /* DianYingSubTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianYingSubTableViewCell.m; sourceTree = "<group>"; };
+		73E7DA871E7FBD2700371E33 /* DianYingSubTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DianYingSubTableViewCell.xib; sourceTree = "<group>"; };
+		73E7DA8A1E7FBEC100371E33 /* DianYingSubCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianYingSubCollectionViewCell.h; sourceTree = "<group>"; };
+		73E7DA8B1E7FBEC100371E33 /* DianYingSubCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianYingSubCollectionViewCell.m; sourceTree = "<group>"; };
+		73E7DA8C1E7FBEC100371E33 /* DianYingSubCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DianYingSubCollectionViewCell.xib; sourceTree = "<group>"; };
 		73EB3E981E6FD47600CA8B5D /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		73EB3E9A1E6FD48200CA8B5D /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		73EB3E9C1E6FD60600CA8B5D /* MyPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPrefixHeader.pch; sourceTree = "<group>"; };
@@ -419,8 +451,6 @@
 		73EB3F731E6FDEE400CA8B5D /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		73EB3F751E6FDEE400CA8B5D /* NavTopCommonImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavTopCommonImage.h; sourceTree = "<group>"; };
 		73EB3F761E6FDEE400CA8B5D /* NavTopCommonImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavTopCommonImage.m; sourceTree = "<group>"; };
-		73EB3F791E6FDEE400CA8B5D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		73EB3F7A1E6FDEE400CA8B5D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		73EB3F7C1E6FDEE400CA8B5D /* PulldownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulldownMenu.h; sourceTree = "<group>"; };
 		73EB3F7D1E6FDEE400CA8B5D /* PulldownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PulldownMenu.m; sourceTree = "<group>"; };
 		73EB3F7F1E6FDEE400CA8B5D /* ZhengZePanDuan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhengZePanDuan.h; sourceTree = "<group>"; };
@@ -614,9 +644,25 @@
 			path = ZLNSFileManager;
 			sourceTree = "<group>";
 		};
+		73E7DA731E7F778900371E33 /* UIUnitCore */ = {
+			isa = PBXGroup;
+			children = (
+				73E7DA741E7F778900371E33 /* UIScrollView+WHC_PullRefresh.h */,
+				73E7DA751E7F778900371E33 /* UIScrollView+WHC_PullRefresh.m */,
+				73E7DA761E7F778900371E33 /* UIView+WHC_Loading.h */,
+				73E7DA771E7F778900371E33 /* UIView+WHC_Loading.m */,
+				73E7DA781E7F778900371E33 /* UIView+WHC_Toast.h */,
+				73E7DA791E7F778900371E33 /* UIView+WHC_Toast.m */,
+				73E7DA7A1E7F778900371E33 /* UIView+WHC_ViewProperty.h */,
+				73E7DA7B1E7F778900371E33 /* UIView+WHC_ViewProperty.m */,
+			);
+			path = UIUnitCore;
+			sourceTree = "<group>";
+		};
 		73EB3E9D1E6FD7DB00CA8B5D /* CommonFiles */ = {
 			isa = PBXGroup;
 			children = (
+				73E7DA731E7F778900371E33 /* UIUnitCore */,
 				73EB3EE21E6FDEE400CA8B5D /* Common */,
 				73EB3E9E1E6FD7DB00CA8B5D /* ZLBaseViewController.h */,
 				73EB3E9F1E6FD7DB00CA8B5D /* ZLBaseViewController.m */,
@@ -658,6 +704,9 @@
 				73EB431D1E727E6F00CA8B5D /* FirstSubViewViewController.h */,
 				73EB431E1E727E6F00CA8B5D /* FirstSubViewViewController.m */,
 				73EB431F1E727E6F00CA8B5D /* FirstSubViewViewController.xib */,
+				73E7DA801E7FB75800371E33 /* DianYingSubViewController.h */,
+				73E7DA811E7FB75800371E33 /* DianYingSubViewController.m */,
+				73E7DA821E7FB75800371E33 /* DianYingSubViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -683,6 +732,12 @@
 				736557371E729C4B00284C11 /* DianYingCollectionViewCell.h */,
 				736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */,
 				736557391E729C4B00284C11 /* DianYingCollectionViewCell.xib */,
+				73E7DA851E7FBD2700371E33 /* DianYingSubTableViewCell.h */,
+				73E7DA861E7FBD2700371E33 /* DianYingSubTableViewCell.m */,
+				73E7DA871E7FBD2700371E33 /* DianYingSubTableViewCell.xib */,
+				73E7DA8A1E7FBEC100371E33 /* DianYingSubCollectionViewCell.h */,
+				73E7DA8B1E7FBEC100371E33 /* DianYingSubCollectionViewCell.m */,
+				73E7DA8C1E7FBEC100371E33 /* DianYingSubCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -761,6 +816,10 @@
 		73EB3EB11E6FD7DB00CA8B5D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				73E7DA701E7F743300371E33 /* WHC_DownloadObject.h */,
+				73E7DA711E7F743300371E33 /* WHC_DownloadObject.m */,
+				73E7DA6D1E7F740600371E33 /* DownloadModel.h */,
+				73E7DA6E1E7F740600371E33 /* DownloadModel.m */,
 				73E7DA591E7A8C5D00371E33 /* ZLButtons.h */,
 				73E7DA5A1E7A8C5D00371E33 /* ZLButtons.m */,
 				73E7DA651E7BAFF400371E33 /* VideoModelZL.h */,
@@ -1246,8 +1305,6 @@
 		73EB3F781E6FDEE400CA8B5D /* wangluo */ = {
 			isa = PBXGroup;
 			children = (
-				73EB3F791E6FDEE400CA8B5D /* Reachability.h */,
-				73EB3F7A1E6FDEE400CA8B5D /* Reachability.m */,
 			);
 			path = wangluo;
 			sourceTree = "<group>";
@@ -1479,6 +1536,7 @@
 				7365573B1E729C4B00284C11 /* DianYingCollectionViewCell.xib in Resources */,
 				730D385C1E77CDCB00EE4692 /* MyYuEViewController.xib in Resources */,
 				730D38661E77DC2D00EE4692 /* SettingViewController.xib in Resources */,
+				73E7DA841E7FB75800371E33 /* DianYingSubViewController.xib in Resources */,
 				730D384D1E7697A600EE4692 /* PersonHederTableViewCell.xib in Resources */,
 				73E7DA581E7A7C7F00371E33 /* HuanCunZLTableViewCell.xib in Resources */,
 				73EB43211E727E6F00CA8B5D /* FirstSubViewViewController.xib in Resources */,
@@ -1490,6 +1548,8 @@
 				730D38751E78D8B800EE4692 /* XiaoXiTableViewCell.xib in Resources */,
 				73EB3FB11E6FDEE400CA8B5D /* Loading0020.png in Resources */,
 				730D38571E7795FA00EE4692 /* ThirdTeQuanTableViewCell.xib in Resources */,
+				73E7DA8E1E7FBEC100371E33 /* DianYingSubCollectionViewCell.xib in Resources */,
+				73E7DA891E7FBD2700371E33 /* DianYingSubTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1652,7 +1712,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73E7DA6F1E7F740600371E33 /* DownloadModel.m in Sources */,
 				73EB3EDA1E6FD7DB00CA8B5D /* UploadParam.m in Sources */,
+				73E7DA8D1E7FBEC100371E33 /* DianYingSubCollectionViewCell.m in Sources */,
 				73EB3ED71E6FD7DB00CA8B5D /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				73EB3EDB1E6FD7DB00CA8B5D /* ZLAFNetworking.m in Sources */,
 				73EB3FE61E70FB1E00CA8B5D /* UIColor+ColorZL.m in Sources */,
@@ -1669,6 +1731,7 @@
 				73EB43091E71313100CA8B5D /* ZLLabelCustom.m in Sources */,
 				73EB43201E727E6F00CA8B5D /* FirstSubViewViewController.m in Sources */,
 				73EB3FCB1E6FDEE400CA8B5D /* iCarousel.m in Sources */,
+				73E7DA7E1E7F778900371E33 /* UIView+WHC_Toast.m in Sources */,
 				73E7DA571E7A7C7F00371E33 /* HuanCunZLTableViewCell.m in Sources */,
 				73EB3ED51E6FD7DB00CA8B5D /* SearchHistoryModel.m in Sources */,
 				73EB3FD01E6FDEE400CA8B5D /* NavTopCommonImage.m in Sources */,
@@ -1687,6 +1750,7 @@
 				730D38511E7787EE00EE4692 /* ButtonsTableViewCell.m in Sources */,
 				73EB3F881E6FDEE400CA8B5D /* UIButton+HeinQi.m in Sources */,
 				73EB3ED61E6FD7DB00CA8B5D /* UIColor+KSString.m in Sources */,
+				73E7DA7D1E7F778900371E33 /* UIView+WHC_Loading.m in Sources */,
 				730D387E1E790F1C00EE4692 /* ChongZhiViewController.m in Sources */,
 				73EB3F951E6FDEE400CA8B5D /* UIImage+WebP.m in Sources */,
 				73EB3FB91E6FDEE400CA8B5D /* MLAnimationViewController.m in Sources */,
@@ -1699,6 +1763,7 @@
 				73EB3FDB1E6FE2CE00CA8B5D /* NSString+URLZL.m in Sources */,
 				73EB3EDE1E6FD7DB00CA8B5D /* ThirdViewController.m in Sources */,
 				73EB3FC41E6FDEE400CA8B5D /* CustomeColorObject.m in Sources */,
+				73E7DA831E7FB75800371E33 /* DianYingSubViewController.m in Sources */,
 				730D386A1E77E1FD00EE4692 /* PersonInfoViewController.m in Sources */,
 				73EB3FC11E6FDEE400CA8B5D /* NewFeatureImageV.m in Sources */,
 				73EB3FC71E6FDEE400CA8B5D /* GCDQueue.m in Sources */,
@@ -1714,6 +1779,7 @@
 				730D38601E77D8FF00EE4692 /* SettingTableViewCell.m in Sources */,
 				730D38741E78D8B800EE4692 /* XiaoXiTableViewCell.m in Sources */,
 				73EB3ED41E6FD7DB00CA8B5D /* FirstViewController.m in Sources */,
+				73E7DA721E7F743300371E33 /* WHC_DownloadObject.m in Sources */,
 				73EB3FC81E6FDEE400CA8B5D /* GCDSemaphore.m in Sources */,
 				73E7DA671E7BAFF400371E33 /* VideoModelZL.m in Sources */,
 				73EB3F8C1E6FDEE400CA8B5D /* UIView+BlankPage.m in Sources */,
@@ -1723,19 +1789,21 @@
 				73EB3FA31E6FDEE400CA8B5D /* RSAEncryptor.m in Sources */,
 				73EB43121E7240EE00CA8B5D /* NSObject+XWAdd.m in Sources */,
 				730D38851E79244C00EE4692 /* VIPChongZhiView.m in Sources */,
+				73E7DA881E7FBD2700371E33 /* DianYingSubTableViewCell.m in Sources */,
 				732BC86A1E6FD17400B8B1BD /* main.m in Sources */,
 				730D386F1E78C4F000EE4692 /* PersonTableViewCell.m in Sources */,
 				73EB3EDC1E6FD7DB00CA8B5D /* ZLSecondAFNetworking.m in Sources */,
 				73EB3EE11E6FD97300CA8B5D /* FourViewController.m in Sources */,
 				73EB3ED31E6FD7DB00CA8B5D /* TestMTLModel.m in Sources */,
-				73EB3FD11E6FDEE400CA8B5D /* Reachability.m in Sources */,
 				73EB3EDD1E6FD7DB00CA8B5D /* SecondViewController.m in Sources */,
 				73EB431B1E7241F200CA8B5D /* DianShiQiangViewController.m in Sources */,
 				73EB3FBF1E6FDEE400CA8B5D /* CoreNewFeatureVC.m in Sources */,
 				73E7DA641E7B78A800371E33 /* NSFileManagerZL.m in Sources */,
 				73EB3ED81E6FD7DB00CA8B5D /* KSNavigationController.m in Sources */,
+				73E7DA7C1E7F778900371E33 /* UIScrollView+WHC_PullRefresh.m in Sources */,
 				73EB3F861E6FDEE400CA8B5D /* UIBarButtonItem+Badge.m in Sources */,
 				732BC8761E6FD17400B8B1BD /* MiYouProject.xcdatamodeld in Sources */,
+				73E7DA7F1E7F778900371E33 /* UIView+WHC_ViewProperty.m in Sources */,
 				73EB3F841E6FDEE400CA8B5D /* NSString+GONMarkup.m in Sources */,
 				73EB3F871E6FDEE400CA8B5D /* UIButton+Badge.m in Sources */,
 				73EB3FC51E6FDEE400CA8B5D /* GCD.m in Sources */,

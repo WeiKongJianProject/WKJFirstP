@@ -36,8 +36,9 @@
         [self addSubview:backBtn];
         */
         
-        self.tittleLabel = [[UILabel alloc]initWithFrame:CGRectMake( (SIZE_WIDTH-100)/2, 30, 100, 30)];
+        self.tittleLabel = [[UILabel alloc]initWithFrame:CGRectMake( (SIZE_WIDTH-100)/2, 24, 100, 30)];
         self.tittleLabel.text = title;
+        self.tittleLabel.textColor = [UIColor whiteColor];
         self.tittleLabel.font = [UIFont fontWithName:EN_FONT size:17.0f];
         self.tittleLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:self.tittleLabel];

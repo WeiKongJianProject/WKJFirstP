@@ -19,6 +19,15 @@
 #import <MJRefresh.h>
 #import "NSObject+XWAdd.h"
 #import "NSFileManagerZL.h"
+#import "AppDelegate.h"
+#import "WHCNetWorkKit.h"
+/*Release模式下  禁止NSLog*/
+#ifdef __OPTIMIZE__
+# define NSLog(...) {}
+#else
+# define NSLog(...) NSLog(__VA_ARGS__)
+#endif
 
-
+#define ApplicationDelegate (AppDelegate *)[[UIApplication sharedApplication] delegate]
+#define ReachabilityChangedNotification @"ReachabilityChangedNotification"
 #endif /* MyPrefixHeader_pch */

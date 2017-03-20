@@ -8,6 +8,7 @@
 
 #import "SearchViewController.h"
 
+#define SEARCH_KEY  @"sousuoLishi"
 @interface SearchViewController ()
 
 @end
@@ -16,16 +17,86 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //
+    self.lishiARR = [[NSMutableArray alloc]init];
+    [self readShuJuFromUserDefault];
     
-    //
-    // Do any additional setup after loading the view from its nib.
+    [self loadTopSearchView];
+    [self registerForKeyboardNotifications];
+    self.headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 60, SIZE_WIDTH, 40)];
+    [self.view addSubview:self.headerView];
+    UILabel * souLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 5, 150, 30)];
+    souLabel.text = @"搜索历史";
+    [self.headerView addSubview:souLabel];
+    UIButton * deleteButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [deleteButton setBackgroundImage:[UIImage imageNamed:@"sousuolajixiang"] forState:UIControlStateNormal];
+    [deleteButton setFrame:CGRectMake(SIZE_WIDTH-60, 7, 27, 27)];
+    [deleteButton addTarget:self action:@selector(deleteButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.headerView addSubview:deleteButton];
+    
+    self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 100, SIZE_WIDTH, SIZE_HEIGHT-100) style:UITableViewStylePlain];
+    self.tableview.delegate = self;
+    self.tableview.dataSource = self;
+    
+    [self.view addSubview:self.tableview];
 }
+- (void)readShuJuFromUserDefault{
+
+    NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
+    [self.lishiARR addObjectsFromArray:[userDefault arrayForKey:SEARCH_KEY]];
+    
+}
+
+
+- (void)deleteButtonAction:(UIButton *)sender{
+    [self.lishiARR removeAllObjects];
+    [self.tableview reloadData];
+}
+#pragma mark tableView  代理方法
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.lishiARR.count;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 40.0f;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString * cellID = @"lishiTableViewCellID";
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    }
+    
+    NSString * key = self.lishiARR[indexPath.row];
+    
+    cell.textLabel.text = key;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+   
+    
+    NSString  * key = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+     NSLog(@"点击了++++++%@",key);
+}
+//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+//    return YES;
+//}
+//- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    return UITableViewCellEditingStyleDelete;
+//}
+//- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    return @"删除";
+//}
+//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+//
+//    
+//}
+#pragma end mark
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
-    [self loadTopSearchView];
-    [self registerForKeyboardNotifications];
+
 }
 - (void)loadTopSearchView{
     __weak typeof(self) weakSelf = self;
@@ -154,7 +225,7 @@
 
     NSLog(@"调用了Return方法");
     [self.searchTextField resignFirstResponder];
-    
+    [self startSearch];
     return YES;
 }
 
@@ -172,7 +243,34 @@
 
     NSLog(@"点击了搜索按钮");
     [self.searchTextField resignFirstResponder];
+    [self startSearch];
+}
 
+- (void)startSearch{
+    NSLog(@"开始搜索的文字为：%@",self.searchTextField.text);
+    NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
+    [self.lishiARR addObject:self.searchTextField.text];
+//    NSMutableArray *searTXT = [[NSMutableArray alloc] init];
+//    if (self.lishiARR) {
+//        searTXT = [self.lishiARR mutableCopy];
+//    }
+//    [searTXT addObject:self.searchTextField.text];
+    /*
+     //归档
+     NSData *data = [NSKeyedArchiver archivedDataWithRootObject: person];
+     //  存储
+     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+     [userDefaults setObject: person forKey:@"person"];
+     读取代码如下：
+     
+     NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
+     //  读取数据
+     NSdData *data = [userDefaults objectForKey:@"person"];
+     //  反归档
+     Person *person = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+     
+     */
+    [userDefault setObject:self.lishiARR forKey:SEARCH_KEY];
 }
 
 - (void)didReceiveMemoryWarning {

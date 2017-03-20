@@ -20,7 +20,9 @@
 #import "DianShiQiangViewController.h"
 #import "FirstSubViewViewController.h"
 
-@interface FirstViewController : ViewPagerController<ViewPagerDataSource,ViewPagerDelegate>
+#import "DianYingSubViewController.h"
+
+@interface FirstViewController : ViewPagerController<ViewPagerDataSource,ViewPagerDelegate,FirstSubViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray * itemsTitlesARR;
 

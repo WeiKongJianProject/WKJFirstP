@@ -254,8 +254,10 @@
 #pragma mark  点击CollectionView触发事件
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    NSLog(@"---------------------");
+    if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:)]) {
+        [self.delegate firstSubVC:self withType:0 withName:@"电影" withKey:@"关键字"];
+    }
+
 }
 
 #pragma mark  设置CollectionViewCell是否可以被点击

@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+   
     self.labelARR = [[NSMutableArray alloc]init];
     //self.title = @"首页";
     //设置 tabbar 图标颜色
@@ -117,7 +117,7 @@
     [caiDanBtn addTarget:self action:@selector(caiDanBtnButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:caiDanBtn];
 
-
+    
 }
 //搜索 按钮 执行方法
 - (void)searchButtonAction:(UIButton *)sender{
@@ -233,7 +233,7 @@
 - (UIViewController *)viewPager:(ViewPagerController *)viewPager contentViewControllerForTabAtIndex:(NSUInteger)index{
     FirstSubViewViewController *vCtrl = [[FirstSubViewViewController alloc]init];
     vCtrl.view.backgroundColor = [UIColor whiteColor];
-
+    vCtrl.delegate = self;
     //[vCtrl setPViewCtrl:self];
     return vCtrl;
 
@@ -305,6 +305,17 @@
 //    }
 //    return _labelARR;
 //}
+
+
+#pragma mark FirstSubDelegate 代理方法
+- (void)firstSubVC:(FirstSubViewViewController *)viewC withType:(NSInteger)typeInt withName:(NSString *)name withKey:(NSString *)key{
+
+    DianYingSubViewController * vc = [[DianYingSubViewController alloc]init];
+    vc.title = @"电影";
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma end mark
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

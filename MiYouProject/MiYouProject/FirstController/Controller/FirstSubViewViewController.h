@@ -12,6 +12,12 @@
 #import <SDWebImage/UIButton+WebCache.h>
 #import "DianYingCollectionViewCell.h"
 
+@class FirstSubViewViewController;
+@protocol FirstSubViewDelegate <NSObject>
+
+- (void)firstSubVC:(FirstSubViewViewController *)viewC withType:(NSInteger) typeInt withName:(NSString *)name withKey:(NSString *)key;
+
+@end
 
 @interface FirstSubViewViewController : UIViewController<UIScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) UIView * lunXianBackgroundView;
@@ -21,6 +27,6 @@
 @property (strong, nonatomic) NSMutableArray * dianYingCollectionARR;
 @property (strong, nonatomic) UICollectionView * dianYingCollectionView;
 @property (strong, nonatomic) UITableView * tableview;
-
+@property (weak, nonatomic) id<FirstSubViewDelegate> delegate;
 
 @end
