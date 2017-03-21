@@ -85,28 +85,15 @@
 }
 
 - (void)btnAction:(UIButton *)sender{
-    // Here we need to pass a full frame
-    CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] init];
-    
-    // Add some custom content to the alert view
-    [alertView setContainerView:[self createDemoView]];
-    
-    // Modify the parameters
-    //[alertView setButtonTitles:[NSMutableArray arrayWithObjects:@"Close1", @"Close2", @"Close3", nil]];
-    [alertView setButtonTitles:nil];
-    [alertView setDelegate:self];
-    
-    // You may use a Block, rather than a delegate.
-    [alertView setOnButtonTouchUpInside:^(CustomIOSAlertView *alertView, int buttonIndex) {
-        NSLog(@"Block: Button at position %d is clicked on alertView %d.", buttonIndex, (int)[alertView tag]);
-        [alertView close];
-    }];
-    
-    [alertView setUseMotionEffects:true];
-    
-    // And launch the dialog
-    [alertView show];
 
+    AlertViewCustomZL * alertView = [[AlertViewCustomZL alloc]init];
+    [alertView showCustomAlertView];
+    [alertView cancelBlockAction:^(BOOL success) {
+        [alertView hideCustomeAlertView];
+    }];
+    [alertView okButtonBlockAction:^(BOOL success) {
+        [alertView hideCustomeAlertView];
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -117,68 +104,6 @@
      self.tabBarController.navigationItem.title = @"正解";
 }
 #pragma mark 自定义AlertController 代理方法
-//自定义弹出框
-- (void)customIOS7dialogButtonTouchUpInside: (CustomIOSAlertView *)alertView clickedButtonAtIndex: (NSInteger)buttonIndex
-{
-    NSLog(@"Delegate: Button at position %d is clicked on alertView %d.", (int)buttonIndex, (int)[alertView tag]);
-    [alertView close];
-}
-
-- (UIView *)createDemoView
-{
-//    UIView *demoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 225, 125)];
-//    demoView.backgroundColor = [UIColor whiteColor];
-//    UILabel * label = [[UILabel alloc]init];
-//    label.text = @"观看会员视频需要开通VIP";
-//    label.textColor = [UIColor colorWithhex16stringToColor:Main_BackgroundColor];
-//    [demoView addSubview:label];
-//    [label mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.centerX.equalTo(demoView);
-//        make.centerY.mas_equalTo(demoView.mas_centerY).offset(-20.0f);
-//    }];
-//    UIView * spView = [[UIView alloc]init];
-//    spView.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
-//    [demoView addSubview:spView];
-//    [spView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.right.mas_equalTo(demoView);
-//        make.height.equalTo(@1.0);
-//        make.centerY.mas_equalTo(demoView.mas_centerY).offset(10.0f);
-//    }];
-//    
-//    
-//    UIButton * cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [cancelButton setTitle:@"取消" forState:UIControlStateNormal];
-//    [cancelButton addTarget:self action:@selector(cancelButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-//    [demoView addSubview:cancelButton];
-//
-//    
-//    UIButton * okButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [okButton setTitle:@"马上开通" forState:UIControlStateNormal];
-//    [okButton addTarget:self action:@selector(OKButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-//    [demoView addSubview:okButton];
-//    
-//    [cancelButton mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.width.equalTo(okButton);
-//        make.height.equalTo(okButton);
-//    }];
-//    [okButton mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.width.equalTo(cancelButton);
-//        make.height.equalTo(cancelButton);
-//    }];
-//    //    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 270, 180)];
-////    [imageView setImage:[UIImage imageNamed:@"demo"]];
-////    [demoView addSubview:imageView];
-    
-    UIAlertViewZL * demoView = (UIAlertViewZL *)[[NSBundle mainBundle]loadNibNamed:@"UIAlertVIewZL" owner:self options:nil][0];
-    
-    return demoView;
-}
-- (void)cancelButtonAction:(UIButton *)sender{
-    NSLog(@"点击了取消按钮");
-}
-- (void)OKButtonAction:(UIButton *)sender{
-    NSLog(@"点击了确定按钮");
-}
 
 
 #pragma end mark

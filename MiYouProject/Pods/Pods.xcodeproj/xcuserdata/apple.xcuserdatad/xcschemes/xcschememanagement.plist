@@ -19,6 +19,11 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>CustomIOSAlertView.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>26</integer>
+		</dict>
 		<key>DZNSegmentedControl.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -132,6 +137,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>01A027B661373CB6D86EA67511129A9B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>03B779CDE5A5B8D8832096D1350E7C07</key>
 		<dict>
 			<key>primary</key>
@@ -143,6 +153,11 @@
 			<true/>
 		</dict>
 		<key>04CF549EBEEE7BC87AEAE35397184D94</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0B00ED22DD184B72D88F724902DE6C52</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -187,6 +202,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>4465A734E3D5C5004592DFC84400006E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4623FD9166C259BCC86507EED91EBF8F</key>
 		<dict>
 			<key>primary</key>
@@ -208,6 +228,11 @@
 			<true/>
 		</dict>
 		<key>6065EC8A468B6A25AC8CD17DB1E3C65E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6301481AF1F846FBA7E18167AFDDD884</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -272,6 +297,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>B19900BE9B2110476D09186791AA41AD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B4EB8A11A1B61BA3DA106F65516C7AAE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B9F1EAC3E6B9782CA80B94C74673A4B9</key>
 		<dict>
 			<key>primary</key>
@@ -288,6 +323,11 @@
 			<true/>
 		</dict>
 		<key>C66AA902E7FCB855ABD0F361D8468E32</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CA0D8BB4C55308A0482DC60F13EC13A1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

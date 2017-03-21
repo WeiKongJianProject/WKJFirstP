@@ -16,8 +16,9 @@
 //#import "UIView+HeinQi.h"
 //#import "UIView+NFLayout.h"
 #import "UIView+BlankPage.h"
-#import "UIAlertViewZL.h"
 
+
+#import "AlertViewCustomZL.h"
 
 @interface SecondViewController : ZLBaseViewController<CustomIOSAlertViewDelegate>
 

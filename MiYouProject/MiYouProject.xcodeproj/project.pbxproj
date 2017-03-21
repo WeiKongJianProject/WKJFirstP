@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		09154F20FBB06ABB3AFF2AB2 /* libPods-MiYouProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B941D8C5EEFA7355B25A6EDD /* libPods-MiYouProject.a */; };
+		187EE4A11E8166F900825054 /* AlertViewCustomZL.m in Sources */ = {isa = PBXBuildFile; fileRef = 187EE4A01E8166F900825054 /* AlertViewCustomZL.m */; };
 		18AEC4521E759451004BD503 /* ZLCollectionGirdVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AEC4511E759451004BD503 /* ZLCollectionGirdVIew.m */; };
 		6FCA9D73080A2E830F25396C /* libPods-MiYouProjectUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA82579BD57626DE9B888C7 /* libPods-MiYouProjectUITests.a */; };
 		730D384C1E7697A600EE4692 /* PersonHederTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 730D384A1E7697A600EE4692 /* PersonHederTableViewCell.m */; };
@@ -205,6 +206,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		187EE49F1E8166F900825054 /* AlertViewCustomZL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewCustomZL.h; sourceTree = "<group>"; };
+		187EE4A01E8166F900825054 /* AlertViewCustomZL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewCustomZL.m; sourceTree = "<group>"; };
 		18AEC4501E759451004BD503 /* ZLCollectionGirdVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLCollectionGirdVIew.h; sourceTree = "<group>"; };
 		18AEC4511E759451004BD503 /* ZLCollectionGirdVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLCollectionGirdVIew.m; sourceTree = "<group>"; };
 		1C385CB495FC6D255934A7A8 /* libPods-MiYouProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MiYouProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1277,6 +1280,8 @@
 			children = (
 				73EB3F6B1E6FDEE400CA8B5D /* UIView+MJAlertView.h */,
 				73EB3F6C1E6FDEE400CA8B5D /* UIView+MJAlertView.m */,
+				187EE49F1E8166F900825054 /* AlertViewCustomZL.h */,
+				187EE4A01E8166F900825054 /* AlertViewCustomZL.m */,
 				73C3470A1E8125A800BBBDBE /* UIAlertViewZL.h */,
 				73C3470B1E8125A800BBBDBE /* UIAlertViewZL.m */,
 				73C3470D1E8125B900BBBDBE /* UIAlertVIewZL.xib */,
@@ -1809,6 +1814,7 @@
 				730D38791E78DF0B00EE4692 /* XiaoXiViewController.m in Sources */,
 				73EB3FC31E6FDEE400CA8B5D /* CustomButton.m in Sources */,
 				73EB3FD81E6FE29F00CA8B5D /* NSDatezlModel.m in Sources */,
+				187EE4A11E8166F900825054 /* AlertViewCustomZL.m in Sources */,
 				73C3470C1E8125A800BBBDBE /* UIAlertViewZL.m in Sources */,
 				73E7DA5B1E7A8C5D00371E33 /* ZLButtons.m in Sources */,
 				730D38601E77D8FF00EE4692 /* SettingTableViewCell.m in Sources */,
