@@ -17,6 +17,7 @@ PODS:
   - Base64nl (1.2)
   - BSUIKit (1.0.0)
   - Bugly (2.4.6)
+  - CustomIOSAlertView (0.9.5)
   - DZNSegmentedControl (1.3.3)
   - FBRetainCycleDetector (0.1.3)
   - FMDB (2.6.2):
@@ -65,6 +66,7 @@ DEPENDENCIES:
   - Base64nl (~> 1.2)
   - BSUIKit (~> 1.0)
   - Bugly (~> 2.4)
+  - CustomIOSAlertView (~> 0.9)
   - DZNSegmentedControl (~> 1.3)
   - FMDB (~> 2.6)
   - GONMarkupParser (~> 0.7)
@@ -87,6 +89,7 @@ SPEC CHECKSUMS:
   Base64nl: a497bdcd1c01ea793d36b399016195a8713c0e95
   BSUIKit: cf7f01f209ba0a6e3d7a03318e54e73d6980fe09
   Bugly: 7756e72c59387b0d490f46e83ab458ae94ee7fba
+  CustomIOSAlertView: cc4fa8e36219be3fd5ebcd40789f5b4aaae0f38e
   DZNSegmentedControl: ecc2f31c5581cce10c4d766ea4bd2d0781814c1f
   FBRetainCycleDetector: f0c7b290bf48ae77f6ae060843ce34ae341781eb
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
@@ -106,6 +109,6 @@ SPEC CHECKSUMS:
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   ZFPlayer: 8dc82b4508fbba4ee59d0304c52e30f8b3390244
 
-PODFILE CHECKSUM: f6091de41426e6205cfc25131213c05e561c4508
+PODFILE CHECKSUM: c06326696c71e8015edacdf3493c8898f2438b72
 
 COCOAPODS: 1.2.0

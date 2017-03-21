@@ -39,5 +39,5 @@ target 'MiYouProject' do
   pod 'DZNSegmentedControl', '~> 1.3'
   pod 'ZFPlayer', '~> 2.1'
   pod 'WHCNetWorkKit', '~> 0.0'
-
+  pod 'CustomIOSAlertView', '~> 0.9'
 end

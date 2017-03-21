@@ -5,13 +5,18 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11762"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerZLViewController">
             <connections>
+                <outlet property="backGroundView" destination="yWc-lb-GAZ" id="vIU-IF-2PD"/>
                 <outlet property="playerView" destination="Wpc-RK-fNz" id="daf-KZ-bc6"/>
+                <outlet property="tableView" destination="2Hz-Nj-1xf" id="l5O-rm-mwB"/>
+                <outlet property="textField" destination="kbc-C3-c1X" id="G0D-lV-hbi"/>
+                <outlet property="tiJiaoButton" destination="w7f-4x-eqU" id="9GT-gz-w0I"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,18 +25,70 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yWc-lb-GAZ">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="207"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="yWc-lb-GAZ" secondAttribute="height" multiplier="125:69" id="oWp-Oy-M7r"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Hz-Nj-1xf">
+                    <rect key="frame" x="0.0" y="207" width="375" height="420"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2qA-Sg-agW">
+                    <rect key="frame" x="0.0" y="627" width="375" height="40"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="说说你的看法" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kbc-C3-c1X">
+                            <rect key="frame" x="8" y="5" width="297" height="30"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7f-4x-eqU">
+                            <rect key="frame" x="320" y="0.0" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="0nn-wm-Wf8"/>
+                                <constraint firstAttribute="height" constant="40" id="8pN-cy-UYI"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="shuoshuonidekanfaanniu"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="kbc-C3-c1X" secondAttribute="bottom" constant="5" id="07k-g9-Lty"/>
+                        <constraint firstItem="w7f-4x-eqU" firstAttribute="leading" secondItem="kbc-C3-c1X" secondAttribute="trailing" constant="15" id="F68-P8-3F6"/>
+                        <constraint firstAttribute="bottom" secondItem="w7f-4x-eqU" secondAttribute="bottom" id="Fqq-ZJ-Ybq"/>
+                        <constraint firstAttribute="trailing" secondItem="w7f-4x-eqU" secondAttribute="trailing" constant="15" id="H8b-ZF-to6"/>
+                        <constraint firstItem="kbc-C3-c1X" firstAttribute="top" secondItem="2qA-Sg-agW" secondAttribute="top" constant="5" id="Mkx-qb-HVe"/>
+                        <constraint firstItem="kbc-C3-c1X" firstAttribute="leading" secondItem="2qA-Sg-agW" secondAttribute="leading" constant="8" id="eI7-1n-DHh"/>
+                        <constraint firstAttribute="height" constant="40" id="ncX-rz-jQk"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wpc-RK-fNz" customClass="ZFPlayerView">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Wpc-RK-fNz" secondAttribute="bottom" id="DUi-zk-PBY"/>
+                <constraint firstAttribute="bottom" secondItem="2qA-Sg-agW" secondAttribute="bottom" id="0X3-Qv-q4u"/>
+                <constraint firstItem="2Hz-Nj-1xf" firstAttribute="top" secondItem="yWc-lb-GAZ" secondAttribute="bottom" id="46y-x3-oJB"/>
+                <constraint firstAttribute="bottom" secondItem="Wpc-RK-fNz" secondAttribute="bottom" id="9kt-Jp-2tP"/>
+                <constraint firstAttribute="trailing" secondItem="2qA-Sg-agW" secondAttribute="trailing" id="KyR-O8-1N3"/>
+                <constraint firstAttribute="trailing" secondItem="2Hz-Nj-1xf" secondAttribute="trailing" id="X3v-0o-0v7"/>
+                <constraint firstItem="yWc-lb-GAZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Z6S-ct-BiW"/>
                 <constraint firstItem="Wpc-RK-fNz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="cBa-ND-1jc"/>
+                <constraint firstAttribute="bottom" secondItem="2Hz-Nj-1xf" secondAttribute="bottom" constant="40" id="fgy-oe-wgA"/>
+                <constraint firstItem="2qA-Sg-agW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hpZ-hW-10i"/>
+                <constraint firstItem="2Hz-Nj-1xf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="k3I-L1-8ev"/>
+                <constraint firstAttribute="trailing" secondItem="yWc-lb-GAZ" secondAttribute="trailing" id="mMQ-M9-Nq7"/>
                 <constraint firstItem="Wpc-RK-fNz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rrn-Xm-ni3"/>
+                <constraint firstItem="yWc-lb-GAZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="tFs-YB-Ldi"/>
                 <constraint firstAttribute="trailing" secondItem="Wpc-RK-fNz" secondAttribute="trailing" id="uEn-Xj-e7s"/>
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="shuoshuonidekanfaanniu" width="47" height="47"/>
+    </resources>
 </document>

@@ -36,7 +36,7 @@
     NSLog(@"CollectionView高度为：%g,每一个iTem高度和宽度为：%g+++%g",_index_2_height,Collection_item_Height,Collection_item_Width);
 
     
-    self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,SIZE_WIDTH, SIZE_HEIGHT-60) style:UITableViewStylePlain];
+    self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,SIZE_WIDTH, SIZE_HEIGHT) style:UITableViewStylePlain];
     self.tableview.delegate = self;
     self.tableview.dataSource = self;
     self.tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -64,7 +64,7 @@
         
     }
     else{
-        height = _index_2_height;
+        height = _index_2_height+30.0f;
     }
     return height;
 }
@@ -79,7 +79,7 @@
                 cell0 = (DianYingSubTableViewCell *)[[NSBundle mainBundle] loadNibNamed:@"DianYingSubTableViewCell" owner:self options:nil][0];
                 //[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
             }
-            
+            [cell0.PlayButton addTarget:self action:@selector(playButtonAction:) forControlEvents:UIControlEventTouchUpInside];
             cell0.selectionStyle = UITableViewCellSelectionStyleNone;
             cell = cell0;
         }
@@ -215,7 +215,7 @@
     }
     
 }
-
+//自定义Label高度
 -(CGFloat)textHeight:(NSString *)string{
     //传字符串返回高度
     CGRect rect =[string boundingRectWithSize:CGSizeMake(SIZE_WIDTH-20, 9999) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.0]} context:nil];//计算字符串所占的矩形区域的大小
@@ -231,6 +231,24 @@
     }];
     [self.view addSubview:image];
 }
+
+
+#pragma mark PlayButtonAction
+
+- (void)playButtonAction:(UIButton *)sender{
+    
+    NSString * filePath = [[NSFileManagerZL pathDocument] stringByAppendingPathComponent:@"test.mp4"];
+    PlayerZLViewController * vc = [[PlayerZLViewController alloc]init];
+    NSURL * url = [NSURL fileURLWithPath:filePath];
+    //http://us.sinaimg.cn/003opPNzjx06YJT4qI4o05040100QgCe0k01.mp4
+    NSURL * url2 = [NSURL URLWithString:@"http://v.cctv.com/flash/mp4video6/TMS/2011/01/05/cf752b1c12ce452b3040cab2f90bc265_h264818000nero_aac32-1.mp4"];
+    vc.url = url2;
+    vc.name = @"鸡毛飞上天";
+    
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma end mark
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *caiNiLikeButton;
 @property (weak, nonatomic) IBOutlet UIButton *tongZhuYanButton;
 @property (weak, nonatomic) IBOutlet UIButton *tongDaoButton;
+@property (weak, nonatomic) IBOutlet UIButton *PlayButton;
 
 
 @end

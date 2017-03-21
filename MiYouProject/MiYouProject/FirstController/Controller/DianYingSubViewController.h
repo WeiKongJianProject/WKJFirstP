@@ -11,6 +11,8 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SDWebImage/UIButton+WebCache.h>
 #import "DianYingSubCollectionViewCell.h"
+#import "PlayerZLViewController.h"
+
 @interface DianYingSubViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (strong, nonatomic) UITableView * tableview;

@@ -79,6 +79,9 @@
                     <constraint firstItem="uMX-1s-xqE" firstAttribute="top" secondItem="sRl-u8-hO0" secondAttribute="bottom" constant="8" id="zd4-N1-0Ho"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="PlayButton" destination="uMX-1s-xqE" id="pjp-6T-uhV"/>
+            </connections>
             <point key="canvasLocation" x="-238.5" y="-82.5"/>
         </tableViewCell>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DianYingSubCellSecondCellID" rowHeight="107" id="uSH-jg-mT3" customClass="DianYingSubTableViewCell">
@@ -107,7 +110,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMI-UE-D6l">
                         <rect key="frame" x="10" y="39" width="355" height="158"/>
-                        <mutableString key="text">objc[57077]: Class PLBuildVersion is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/PrivateFrameworks/AssetsLibraryServices.framework/AssetsLibraryServices (0x116de9998) and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices (0x116b68880). One of the two will be used. Which one is undefined.</mutableString>
+                        <string key="text">objc[57077]: Class PLBuildVersion is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/PrivateFrameworks/AssetsLibraryServices.framework/AssetsLibraryServices (0x116de9998) and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices (0x116b68880). One of the two will be used. Which one is undefined.</string>
                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -143,7 +146,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="422"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pEU-2V-c42" id="Qdt-eX-eDH">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="422"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="421"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aq0-Of-fIE">

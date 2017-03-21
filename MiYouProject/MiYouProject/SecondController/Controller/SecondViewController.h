@@ -10,6 +10,15 @@
 #import "ThirdViewController.h"
 #import <AFNetworking.h>
 
-@interface SecondViewController : ZLBaseViewController
+//#import "UIView+WHC_Toast.h"
+//#import "UIView+WHC_Loading.h"
+//#import "UIView+WHC_ViewProperty.h"
+//#import "UIView+HeinQi.h"
+//#import "UIView+NFLayout.h"
+#import "UIView+BlankPage.h"
+#import "UIAlertViewZL.h"
+
+
+@interface SecondViewController : ZLBaseViewController<CustomIOSAlertViewDelegate>
 
 @end

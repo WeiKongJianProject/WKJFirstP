@@ -11,7 +11,9 @@
 #import "DownloadModel.h"
 #import "WHCNetWorkKit.h"
 #import "UIView+WHC_Toast.h"
-@interface PlayerZLViewController : UIViewController<ZFPlayerDelegate,ZFPlayerControlViewDelagate>
+#import "PlayVideoTableViewCell.h"
+
+@interface PlayerZLViewController : UIViewController<ZFPlayerDelegate,ZFPlayerControlViewDelagate,UITableViewDelegate,UITableViewDataSource>
 
 @property (assign, nonatomic) BOOL isBenDi;
 @property (strong, nonatomic) IBOutlet ZFPlayerView *playerView;
@@ -19,4 +21,12 @@
 @property (strong, nonatomic) NSString * name;
 /** 离开页面时候是否在播放 */
 @property (nonatomic, assign) BOOL isPlaying;
+
+@property (weak, nonatomic) IBOutlet UIView *backGroundView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+
+@property (weak, nonatomic) IBOutlet UIButton *tiJiaoButton;
+
+
 @end

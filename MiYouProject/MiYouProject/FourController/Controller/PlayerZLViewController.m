@@ -8,10 +8,16 @@
 //
 
 #import "PlayerZLViewController.h"
+#define Collection_item_Width (SIZE_WIDTH-40)/3.0
+#define Collection_item_Height (SIZE_WIDTH-40)/3.0 * 386.0/225.0
 
 @interface PlayerZLViewController (){
 
-    
+    CGFloat  _index_0_height;
+    CGFloat _index_0_height_zhanKai;
+    CGFloat _index_1_height;
+    CGFloat _index_2_height;
+    BOOL _isZhanKai;
     
 }
 
@@ -22,8 +28,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self settingPlayer];
+    [self settingTableView];
+    [self.tiJiaoButton addTarget:self action:@selector(tiJiaoButtonAction:) forControlEvents:UIControlEventTouchUpInside];
 }
-
+- (void)tiJiaoButtonAction:(UIButton *)sender{
+    [self.textField resignFirstResponder];
+    self.textField.text = @"";
+    [MBManager showBriefAlert:@"您的评论需要后台审核"];
+    
+}
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     if (toInterfaceOrientation == UIInterfaceOrientationPortrait) {
@@ -48,7 +61,6 @@
 - (void)dealloc{
     NSLog(@"什么类释放了：%@",self.class);
     //[self.playerView cancelAutoFadeOutControlBar];
-
 }
 - (void)settingPlayer{
    
@@ -57,7 +69,7 @@
     // 初始化播放模型
     ZFPlayerModel *playerModel = [[ZFPlayerModel alloc] init];
     // playerView的父视图
-    playerModel.fatherView = self.view;
+    playerModel.fatherView = self.backGroundView;
     playerModel.videoURL = self.url;
     playerModel.title = self.name;
      //从xx秒开始播放
@@ -78,6 +90,99 @@
     self.playerView.hasDownload = YES;
 
 }
+
+- (void)settingTableView{
+    
+    _index_0_height = SIZE_WIDTH*(240.0/375.0);
+    _isZhanKai = NO;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
+}
+#pragma mark TableView代理方法
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 2;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    CGFloat height = 0.0f;
+    if (indexPath.row == 0) {
+        
+        if (_isZhanKai == NO) {
+            height = _index_0_height;
+        }
+        else{
+            //height = _index_0_height
+            height = _index_0_height_zhanKai;
+        }
+    }
+    else if (indexPath.row == 1){
+            height = 35.0;
+    }
+
+    return height;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell * cell = nil;
+    switch (indexPath.row) {
+        case 0:{
+            static NSString * cellID = @"PlayTableviewCellID";
+            PlayVideoTableViewCell * cell0 = [tableView dequeueReusableCellWithIdentifier:cellID];
+            if (!cell0) {
+                cell0 = (PlayVideoTableViewCell *)[[NSBundle mainBundle] loadNibNamed:@"PlayVideoTableViewCell" owner:self options:nil][0];
+                //[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+            }
+            
+            [cell0.moreButton addTarget:self action:@selector(moreButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+            
+            _index_0_height_zhanKai = [self textHeight:cell0.jianJieLabel.text] - 15 + _index_0_height ;
+            if (_isZhanKai == NO) {
+                //NSLog(@"行数为：%ld",cell0.jianJieLabel.numberOfLines);
+                cell0.jianJieLabel.numberOfLines = 1;
+            }
+            else{
+                cell0.jianJieLabel.numberOfLines = 0;
+            }
+            
+            cell0.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell = cell0;
+        }
+            break;
+        case 1:{
+            static NSString * cellID = @"PlayTableviewCellID02";
+            UITableViewCell * cell1 = [tableView dequeueReusableCellWithIdentifier:cellID];
+            if (!cell1) {
+                //cell0 = (PlayVideoTableViewCell *)[[NSBundle mainBundle] loadNibNamed:@"PlayVideoTableViewCell" owner:self options:nil][0];
+                 cell1 = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+            }
+            cell1.textLabel.text = @"暂时没有评论";
+            cell1.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
+            cell = cell1;
+        }
+            break;
+        default:
+            break;
+    }
+    
+    return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+- (void)moreButtonAction:(UIButton *)sender{
+    NSLog(@"展开");
+    if (_isZhanKai == YES) {
+        _isZhanKai = NO;
+        [self.tableView reloadData];
+    }
+    else{
+        _isZhanKai = YES;
+        [self.tableView reloadData];
+    }
+    
+}
+#pragma end mark
 
 #pragma mark ZFPlayerDelegate方法
 //返回按钮执行方法  代理
@@ -203,7 +308,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+//自定义Label高度
+-(CGFloat)textHeight:(NSString *)string{
+    //传字符串返回高度
+    CGRect rect =[string boundingRectWithSize:CGSizeMake(SIZE_WIDTH-69, 9999) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.0]} context:nil];//计算字符串所占的矩形区域的大小
+    return rect.size.height;//返回高度
+}
 /*
 #pragma mark - Navigation
 

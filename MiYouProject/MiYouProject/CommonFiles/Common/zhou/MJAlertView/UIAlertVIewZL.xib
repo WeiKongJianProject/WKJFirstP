@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="UIAlertViewZL">
+            <rect key="frame" x="0.0" y="0.0" width="250" height="125"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="需要开通VIP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flo-9h-8jr">
+                    <rect key="frame" x="83" y="18" width="84.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.99607843139999996" green="0.76470588240000004" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z5A-Eo-F6E">
+                    <rect key="frame" x="5" y="62" width="240" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="tow-eC-Kfg"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cn-cy-uGG">
+                    <rect key="frame" x="30" y="84" width="71" height="25"/>
+                    <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="9gD-0M-INf"/>
+                        <constraint firstAttribute="width" constant="71" id="Ogp-xF-6MI"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="取消">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBu-3v-syF">
+                    <rect key="frame" x="149" y="84" width="71" height="25"/>
+                    <color key="backgroundColor" red="0.99607843139999996" green="0.76470588240000004" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="TMf-TW-atU"/>
+                        <constraint firstAttribute="width" constant="71" id="mDk-Ag-eRg"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="开通会员">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="qBu-3v-syF" secondAttribute="trailing" constant="30" id="31Y-nC-L8p"/>
+                <constraint firstItem="flo-9h-8jr" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="45d-FA-bYb"/>
+                <constraint firstItem="7cn-cy-uGG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="A5I-WM-4jb"/>
+                <constraint firstAttribute="trailing" secondItem="Z5A-Eo-F6E" secondAttribute="trailing" constant="5" id="CAi-aM-BNa"/>
+                <constraint firstAttribute="bottom" secondItem="7cn-cy-uGG" secondAttribute="bottom" constant="16" id="RhC-9E-vVz"/>
+                <constraint firstItem="Z5A-Eo-F6E" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ntg-nm-shD"/>
+                <constraint firstItem="Z5A-Eo-F6E" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="ogq-Ca-cZW"/>
+                <constraint firstAttribute="bottom" secondItem="qBu-3v-syF" secondAttribute="bottom" constant="16" id="vOo-MO-bw6"/>
+                <constraint firstItem="flo-9h-8jr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="18" id="yCW-s2-Q4B"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="cancelButton" destination="7cn-cy-uGG" id="1fb-bj-wvY"/>
+                <outlet property="okButton" destination="qBu-3v-syF" id="ALM-l6-hO8"/>
+                <outlet property="titleLabel" destination="flo-9h-8jr" id="HSS-xi-Idp"/>
+            </connections>
+            <point key="canvasLocation" x="24" y="-213.5"/>
+        </view>
+    </objects>
+</document>

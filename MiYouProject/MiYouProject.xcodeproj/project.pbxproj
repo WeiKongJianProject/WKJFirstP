@@ -48,6 +48,9 @@
 		736557361E728F5800284C11 /* ReMenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736557351E728F5800284C11 /* ReMenView.xib */; };
 		7365573A1E729C4B00284C11 /* DianYingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */; };
 		7365573B1E729C4B00284C11 /* DianYingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736557391E729C4B00284C11 /* DianYingCollectionViewCell.xib */; };
+		73C347091E80FCF800BBBDBE /* MBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C347081E80FCF700BBBDBE /* MBManager.m */; };
+		73C3470C1E8125A800BBBDBE /* UIAlertViewZL.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C3470B1E8125A800BBBDBE /* UIAlertViewZL.m */; };
+		73C3470E1E8125B900BBBDBE /* UIAlertVIewZL.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73C3470D1E8125B900BBBDBE /* UIAlertVIewZL.xib */; };
 		73E7DA4A1E7A6C2700371E33 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73E7DA491E7A6C2700371E33 /* MobileCoreServices.framework */; };
 		73E7DA4C1E7A6C3000371E33 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73E7DA4B1E7A6C3000371E33 /* AVFoundation.framework */; };
 		73E7DA4E1E7A6C3A00371E33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73E7DA4D1E7A6C3A00371E33 /* Foundation.framework */; };
@@ -74,6 +77,8 @@
 		73E7DA891E7FBD2700371E33 /* DianYingSubTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73E7DA871E7FBD2700371E33 /* DianYingSubTableViewCell.xib */; };
 		73E7DA8D1E7FBEC100371E33 /* DianYingSubCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E7DA8B1E7FBEC100371E33 /* DianYingSubCollectionViewCell.m */; };
 		73E7DA8E1E7FBEC100371E33 /* DianYingSubCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73E7DA8C1E7FBEC100371E33 /* DianYingSubCollectionViewCell.xib */; };
+		73E7DA921E80BF7C00371E33 /* PlayVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E7DA901E80BF7C00371E33 /* PlayVideoTableViewCell.m */; };
+		73E7DA931E80BF7C00371E33 /* PlayVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73E7DA911E80BF7C00371E33 /* PlayVideoTableViewCell.xib */; };
 		73EB3E991E6FD47600CA8B5D /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73EB3E981E6FD47600CA8B5D /* libsqlite3.0.tbd */; };
 		73EB3E9B1E6FD48200CA8B5D /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73EB3E9A1E6FD48200CA8B5D /* libsqlite3.tbd */; };
 		73EB3ED21E6FD7DB00CA8B5D /* ZLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EB3E9F1E6FD7DB00CA8B5D /* ZLBaseViewController.m */; };
@@ -264,6 +269,11 @@
 		736557371E729C4B00284C11 /* DianYingCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianYingCollectionViewCell.h; sourceTree = "<group>"; };
 		736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianYingCollectionViewCell.m; sourceTree = "<group>"; };
 		736557391E729C4B00284C11 /* DianYingCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DianYingCollectionViewCell.xib; sourceTree = "<group>"; };
+		73C347071E80FCF700BBBDBE /* MBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBManager.h; sourceTree = "<group>"; };
+		73C347081E80FCF700BBBDBE /* MBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBManager.m; sourceTree = "<group>"; };
+		73C3470A1E8125A800BBBDBE /* UIAlertViewZL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertViewZL.h; sourceTree = "<group>"; };
+		73C3470B1E8125A800BBBDBE /* UIAlertViewZL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAlertViewZL.m; sourceTree = "<group>"; };
+		73C3470D1E8125B900BBBDBE /* UIAlertVIewZL.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIAlertVIewZL.xib; sourceTree = "<group>"; };
 		73E7DA491E7A6C2700371E33 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		73E7DA4B1E7A6C3000371E33 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		73E7DA4D1E7A6C3A00371E33 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -306,6 +316,9 @@
 		73E7DA8A1E7FBEC100371E33 /* DianYingSubCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianYingSubCollectionViewCell.h; sourceTree = "<group>"; };
 		73E7DA8B1E7FBEC100371E33 /* DianYingSubCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianYingSubCollectionViewCell.m; sourceTree = "<group>"; };
 		73E7DA8C1E7FBEC100371E33 /* DianYingSubCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DianYingSubCollectionViewCell.xib; sourceTree = "<group>"; };
+		73E7DA8F1E80BF7C00371E33 /* PlayVideoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayVideoTableViewCell.h; path = MiYouProject/FirstController/View/PlayVideoTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		73E7DA901E80BF7C00371E33 /* PlayVideoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayVideoTableViewCell.m; path = MiYouProject/FirstController/View/PlayVideoTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		73E7DA911E80BF7C00371E33 /* PlayVideoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlayVideoTableViewCell.xib; path = MiYouProject/FirstController/View/PlayVideoTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		73EB3E981E6FD47600CA8B5D /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		73EB3E9A1E6FD48200CA8B5D /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		73EB3E9C1E6FD60600CA8B5D /* MyPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPrefixHeader.pch; sourceTree = "<group>"; };
@@ -635,6 +648,16 @@
 			path = MiYouProjectUITests;
 			sourceTree = "<group>";
 		};
+		73C347061E80FCF700BBBDBE /* MBProgressHUDZL */ = {
+			isa = PBXGroup;
+			children = (
+				73C347071E80FCF700BBBDBE /* MBManager.h */,
+				73C347081E80FCF700BBBDBE /* MBManager.m */,
+			);
+			name = MBProgressHUDZL;
+			path = zhou/MBProgressHUDZL;
+			sourceTree = "<group>";
+		};
 		73E7DA611E7B787E00371E33 /* ZLNSFileManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -861,6 +884,9 @@
 				73E7DA5C1E7B6F0C00371E33 /* HuanCunFooterView.h */,
 				73E7DA5D1E7B6F0C00371E33 /* HuanCunFooterView.m */,
 				73E7DA5F1E7B6F2200371E33 /* HuanCunFooterView.xib */,
+				73E7DA8F1E80BF7C00371E33 /* PlayVideoTableViewCell.h */,
+				73E7DA901E80BF7C00371E33 /* PlayVideoTableViewCell.m */,
+				73E7DA911E80BF7C00371E33 /* PlayVideoTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -991,6 +1017,7 @@
 		73EB3EE21E6FDEE400CA8B5D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				73C347061E80FCF700BBBDBE /* MBProgressHUDZL */,
 				73EB3FD91E6FE2CE00CA8B5D /* NSString+URLZL.h */,
 				73EB3FDA1E6FE2CE00CA8B5D /* NSString+URLZL.m */,
 				73EB3FD51E6FE29F00CA8B5D /* NSDateModels */,
@@ -1250,6 +1277,9 @@
 			children = (
 				73EB3F6B1E6FDEE400CA8B5D /* UIView+MJAlertView.h */,
 				73EB3F6C1E6FDEE400CA8B5D /* UIView+MJAlertView.m */,
+				73C3470A1E8125A800BBBDBE /* UIAlertViewZL.h */,
+				73C3470B1E8125A800BBBDBE /* UIAlertViewZL.m */,
+				73C3470D1E8125B900BBBDBE /* UIAlertVIewZL.xib */,
 			);
 			path = MJAlertView;
 			sourceTree = "<group>";
@@ -1514,6 +1544,7 @@
 				73EB430E1E713D5A00CA8B5D /* SearchViewController.xib in Resources */,
 				73E7DA6C1E7BE08D00371E33 /* PlayerZLViewController.xib in Resources */,
 				730D38701E78C4F000EE4692 /* PersonTableViewCell.xib in Resources */,
+				73E7DA931E80BF7C00371E33 /* PlayVideoTableViewCell.xib in Resources */,
 				73E7DA601E7B6F2200371E33 /* HuanCunFooterView.xib in Resources */,
 				73EB3FCC1E6FDEE400CA8B5D /* page.png in Resources */,
 				73EB3FA01E6FDEE400CA8B5D /* zhoulu.gif in Resources */,
@@ -1547,6 +1578,7 @@
 				730D386B1E77E1FD00EE4692 /* PersonInfoViewController.xib in Resources */,
 				730D38751E78D8B800EE4692 /* XiaoXiTableViewCell.xib in Resources */,
 				73EB3FB11E6FDEE400CA8B5D /* Loading0020.png in Resources */,
+				73C3470E1E8125B900BBBDBE /* UIAlertVIewZL.xib in Resources */,
 				730D38571E7795FA00EE4692 /* ThirdTeQuanTableViewCell.xib in Resources */,
 				73E7DA8E1E7FBEC100371E33 /* DianYingSubCollectionViewCell.xib in Resources */,
 				73E7DA891E7FBD2700371E33 /* DianYingSubTableViewCell.xib in Resources */,
@@ -1721,8 +1753,10 @@
 				730D384C1E7697A600EE4692 /* PersonHederTableViewCell.m in Sources */,
 				18AEC4521E759451004BD503 /* ZLCollectionGirdVIew.m in Sources */,
 				73EB3FC01E6FDEE400CA8B5D /* NewFeatureModel.m in Sources */,
+				73E7DA921E80BF7C00371E33 /* PlayVideoTableViewCell.m in Sources */,
 				73EB3FC61E6FDEE400CA8B5D /* GCDGroup.m in Sources */,
 				7365573A1E729C4B00284C11 /* DianYingCollectionViewCell.m in Sources */,
+				73C347091E80FCF800BBBDBE /* MBManager.m in Sources */,
 				73EB430D1E713D5A00CA8B5D /* SearchViewController.m in Sources */,
 				73EB3FCE1E6FDEE400CA8B5D /* UIView+MJAlertView.m in Sources */,
 				73EB3F931E6FDEE400CA8B5D /* KZPhotoManager.m in Sources */,
@@ -1775,6 +1809,7 @@
 				730D38791E78DF0B00EE4692 /* XiaoXiViewController.m in Sources */,
 				73EB3FC31E6FDEE400CA8B5D /* CustomButton.m in Sources */,
 				73EB3FD81E6FE29F00CA8B5D /* NSDatezlModel.m in Sources */,
+				73C3470C1E8125A800BBBDBE /* UIAlertViewZL.m in Sources */,
 				73E7DA5B1E7A8C5D00371E33 /* ZLButtons.m in Sources */,
 				730D38601E77D8FF00EE4692 /* SettingTableViewCell.m in Sources */,
 				730D38741E78D8B800EE4692 /* XiaoXiTableViewCell.m in Sources */,
