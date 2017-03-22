@@ -114,6 +114,11 @@
 			<key>orderHint</key>
 			<integer>19</integer>
 		</dict>
+		<key>VOSegmentedControl.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>27</integer>
+		</dict>
 		<key>WHCNetWorkKit.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -197,6 +202,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>42D192021FF08E734F6CE23589F081DA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>43AFBF4F2CD231A7499E3B7813A16837</key>
 		<dict>
 			<key>primary</key>
@@ -237,6 +247,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>696E6E5B818866BFA99C059A1817C79D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>77E5E36AF655D32D6C060F25451A3D3C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>831147363CD8C62558D0E355F1C0722E</key>
 		<dict>
 			<key>primary</key>
@@ -253,6 +273,11 @@
 			<true/>
 		</dict>
 		<key>8E2F85A9EA167EFA71B3DCB5DF170059</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>90888C8DF0288BD418BF48664BBE7FED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -278,6 +303,11 @@
 			<true/>
 		</dict>
 		<key>9E033EDB5EC0819481B0546434FA577B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9FD4228442BD74DE502BCABE7C1E37E8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -322,6 +352,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>C39D79614F25E82D45E5FA01428FFDA8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C66AA902E7FCB855ABD0F361D8468E32</key>
 		<dict>
 			<key>primary</key>
@@ -358,6 +393,11 @@
 			<true/>
 		</dict>
 		<key>EFC5F654B70441C06E691B83E52F76A8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F22A5922B9C5B87BF6382A9F84AE3984</key>
 		<dict>
 			<key>primary</key>
 			<true/>

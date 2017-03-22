@@ -106,8 +106,14 @@
 - (void)getShuJuFromAFNetworking{
     [MBManager showLoadingInView:self.view];
     __weak typeof(self) weakSelf = self;
-    NSString * url = [NSString stringWithFormat:@"%@&action=index&cate=999",URL_Common_ios];
     
+    NSString * url = nil;
+    if ([self isFirstOpen] == YES) {
+        url = [NSString stringWithFormat:@"%@&action=index&cate=999",URL_Common_ios];
+    }
+    else{
+        url = [NSString stringWithFormat:@"%@&action=index&cate=999",URL_Common_ios];
+    }
     [[NSUserDefaults standardUserDefaults] objectForKey:@""];
     
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
@@ -405,6 +411,21 @@
 
 }
 
+#pragma end mark
+
+#pragma mark 是否是第一次登录
+- (BOOL)isFirstOpen{
+    BOOL isFirst;
+    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:IS_FIRST_OPEN];
+    if (str != nil && ![str isEqualToString:@""] && ![str isKindOfClass:[NSNull class]]) {
+        isFirst = NO;
+    }else{
+        isFirst = YES;
+        [[NSUserDefaults standardUserDefaults] setObject:@"user" forKey:IS_FIRST_OPEN];
+    }
+    
+    return isFirst;
+}
 #pragma end mark
 
 - (void)didReceiveMemoryWarning {
