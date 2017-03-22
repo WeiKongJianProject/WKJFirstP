@@ -12,6 +12,12 @@
 #import <SDWebImage/UIButton+WebCache.h>
 #import "DianYingCollectionViewCell.h"
 
+#import "HOmeBannerMTLModel.h"
+#import "VideoListMTLModel.h"
+
+#import "ZLSecondAFNetworking.h"
+
+
 @class FirstSubViewViewController;
 @protocol FirstSubViewDelegate <NSObject>
 
@@ -28,5 +34,8 @@
 @property (strong, nonatomic) UICollectionView * dianYingCollectionView;
 @property (strong, nonatomic) UITableView * tableview;
 @property (weak, nonatomic) id<FirstSubViewDelegate> delegate;
+
+//@property (strong, nonatomic) NSMutableArray * bannerARR;
+//@property (strong, nonatomic) NSMutableArray * listARR;
 
 @end

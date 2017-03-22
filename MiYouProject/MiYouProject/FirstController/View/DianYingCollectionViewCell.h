@@ -13,6 +13,8 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *minImageView;
 @property (strong, nonatomic) IBOutlet UILabel *dianYingNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UIButton *boFangBtn;
 
 
 @end

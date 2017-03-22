@@ -54,6 +54,18 @@
     UIAlertViewZL * demoView = (UIAlertViewZL *)[[NSBundle mainBundle]loadNibNamed:@"UIAlertVIewZL" owner:self options:nil][0];
     [demoView.cancelButton addTarget:self action:@selector(cancelButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [demoView.okButton addTarget:self action:@selector(OKButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    if (self.titleName != nil && ![self.titleName isEqualToString:@""]) {
+        demoView.titleLabel.text = self.titleName;
+    }
+    if (self.cancelBtnTitle != nil && ![self.cancelBtnTitle isEqualToString:@""]) {
+        [demoView.cancelButton setTitle:self.cancelBtnTitle forState:UIControlStateNormal];
+    }
+    if (self.okBtnTitle != nil && ![self.okBtnTitle isEqualToString:@""]) {
+        [demoView.okButton setTitle:self.okBtnTitle forState:UIControlStateNormal];
+    }
+    
+    
     return demoView;
 }
 - (void)cancelButtonAction:(UIButton *)sender{

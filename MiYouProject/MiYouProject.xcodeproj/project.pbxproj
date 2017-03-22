@@ -52,6 +52,12 @@
 		73C347091E80FCF800BBBDBE /* MBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C347081E80FCF700BBBDBE /* MBManager.m */; };
 		73C3470C1E8125A800BBBDBE /* UIAlertViewZL.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C3470B1E8125A800BBBDBE /* UIAlertViewZL.m */; };
 		73C3470E1E8125B900BBBDBE /* UIAlertVIewZL.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73C3470D1E8125B900BBBDBE /* UIAlertVIewZL.xib */; };
+		73C347121E8211CD00BBBDBE /* ShaiXuanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C347101E8211CD00BBBDBE /* ShaiXuanViewController.m */; };
+		73C347131E8211CD00BBBDBE /* ShaiXuanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73C347111E8211CD00BBBDBE /* ShaiXuanViewController.xib */; };
+		73C347171E8245E200BBBDBE /* HOmeBannerMTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C347161E8245E200BBBDBE /* HOmeBannerMTLModel.m */; };
+		73C3471A1E82495500BBBDBE /* CateListMTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C347191E82495500BBBDBE /* CateListMTLModel.m */; };
+		73C3471D1E8249E200BBBDBE /* MemberMTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C3471C1E8249E200BBBDBE /* MemberMTLModel.m */; };
+		73C347201E824AE300BBBDBE /* VideoListMTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C3471F1E824AE300BBBDBE /* VideoListMTLModel.m */; };
 		73E7DA4A1E7A6C2700371E33 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73E7DA491E7A6C2700371E33 /* MobileCoreServices.framework */; };
 		73E7DA4C1E7A6C3000371E33 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73E7DA4B1E7A6C3000371E33 /* AVFoundation.framework */; };
 		73E7DA4E1E7A6C3A00371E33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73E7DA4D1E7A6C3A00371E33 /* Foundation.framework */; };
@@ -277,6 +283,18 @@
 		73C3470A1E8125A800BBBDBE /* UIAlertViewZL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertViewZL.h; sourceTree = "<group>"; };
 		73C3470B1E8125A800BBBDBE /* UIAlertViewZL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAlertViewZL.m; sourceTree = "<group>"; };
 		73C3470D1E8125B900BBBDBE /* UIAlertVIewZL.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIAlertVIewZL.xib; sourceTree = "<group>"; };
+		73C3470F1E8211CD00BBBDBE /* ShaiXuanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaiXuanViewController.h; sourceTree = "<group>"; };
+		73C347101E8211CD00BBBDBE /* ShaiXuanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShaiXuanViewController.m; sourceTree = "<group>"; };
+		73C347111E8211CD00BBBDBE /* ShaiXuanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShaiXuanViewController.xib; sourceTree = "<group>"; };
+		73C347141E82445200BBBDBE /* URLZLHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLZLHeader.h; sourceTree = "<group>"; };
+		73C347151E8245E200BBBDBE /* HOmeBannerMTLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HOmeBannerMTLModel.h; sourceTree = "<group>"; };
+		73C347161E8245E200BBBDBE /* HOmeBannerMTLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HOmeBannerMTLModel.m; sourceTree = "<group>"; };
+		73C347181E82495500BBBDBE /* CateListMTLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CateListMTLModel.h; sourceTree = "<group>"; };
+		73C347191E82495500BBBDBE /* CateListMTLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CateListMTLModel.m; sourceTree = "<group>"; };
+		73C3471B1E8249E200BBBDBE /* MemberMTLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberMTLModel.h; sourceTree = "<group>"; };
+		73C3471C1E8249E200BBBDBE /* MemberMTLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberMTLModel.m; sourceTree = "<group>"; };
+		73C3471E1E824AE300BBBDBE /* VideoListMTLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoListMTLModel.h; sourceTree = "<group>"; };
+		73C3471F1E824AE300BBBDBE /* VideoListMTLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoListMTLModel.m; sourceTree = "<group>"; };
 		73E7DA491E7A6C2700371E33 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		73E7DA4B1E7A6C3000371E33 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		73E7DA4D1E7A6C3A00371E33 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -693,6 +711,7 @@
 				73EB3E9E1E6FD7DB00CA8B5D /* ZLBaseViewController.h */,
 				73EB3E9F1E6FD7DB00CA8B5D /* ZLBaseViewController.m */,
 				73EB3EA01E6FD7DB00CA8B5D /* ZLMTLModel */,
+				73C347141E82445200BBBDBE /* URLZLHeader.h */,
 			);
 			path = CommonFiles;
 			sourceTree = "<group>";
@@ -733,6 +752,9 @@
 				73E7DA801E7FB75800371E33 /* DianYingSubViewController.h */,
 				73E7DA811E7FB75800371E33 /* DianYingSubViewController.m */,
 				73E7DA821E7FB75800371E33 /* DianYingSubViewController.xib */,
+				73C3470F1E8211CD00BBBDBE /* ShaiXuanViewController.h */,
+				73C347101E8211CD00BBBDBE /* ShaiXuanViewController.m */,
+				73C347111E8211CD00BBBDBE /* ShaiXuanViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -742,6 +764,14 @@
 			children = (
 				73EB3EA81E6FD7DB00CA8B5D /* SearchHistoryModel.h */,
 				73EB3EA91E6FD7DB00CA8B5D /* SearchHistoryModel.m */,
+				73C347151E8245E200BBBDBE /* HOmeBannerMTLModel.h */,
+				73C347161E8245E200BBBDBE /* HOmeBannerMTLModel.m */,
+				73C347181E82495500BBBDBE /* CateListMTLModel.h */,
+				73C347191E82495500BBBDBE /* CateListMTLModel.m */,
+				73C3471B1E8249E200BBBDBE /* MemberMTLModel.h */,
+				73C3471C1E8249E200BBBDBE /* MemberMTLModel.m */,
+				73C3471E1E824AE300BBBDBE /* VideoListMTLModel.h */,
+				73C3471F1E824AE300BBBDBE /* VideoListMTLModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1581,6 +1611,7 @@
 				730D387A1E78DF0B00EE4692 /* XiaoXiViewController.xib in Resources */,
 				73EB431C1E7241F200CA8B5D /* DianShiQiangViewController.xib in Resources */,
 				730D386B1E77E1FD00EE4692 /* PersonInfoViewController.xib in Resources */,
+				73C347131E8211CD00BBBDBE /* ShaiXuanViewController.xib in Resources */,
 				730D38751E78D8B800EE4692 /* XiaoXiTableViewCell.xib in Resources */,
 				73EB3FB11E6FDEE400CA8B5D /* Loading0020.png in Resources */,
 				73C3470E1E8125B900BBBDBE /* UIAlertVIewZL.xib in Resources */,
@@ -1754,11 +1785,13 @@
 				73E7DA8D1E7FBEC100371E33 /* DianYingSubCollectionViewCell.m in Sources */,
 				73EB3ED71E6FD7DB00CA8B5D /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				73EB3EDB1E6FD7DB00CA8B5D /* ZLAFNetworking.m in Sources */,
+				73C347121E8211CD00BBBDBE /* ShaiXuanViewController.m in Sources */,
 				73EB3FE61E70FB1E00CA8B5D /* UIColor+ColorZL.m in Sources */,
 				730D384C1E7697A600EE4692 /* PersonHederTableViewCell.m in Sources */,
 				18AEC4521E759451004BD503 /* ZLCollectionGirdVIew.m in Sources */,
 				73EB3FC01E6FDEE400CA8B5D /* NewFeatureModel.m in Sources */,
 				73E7DA921E80BF7C00371E33 /* PlayVideoTableViewCell.m in Sources */,
+				73C3471D1E8249E200BBBDBE /* MemberMTLModel.m in Sources */,
 				73EB3FC61E6FDEE400CA8B5D /* GCDGroup.m in Sources */,
 				7365573A1E729C4B00284C11 /* DianYingCollectionViewCell.m in Sources */,
 				73C347091E80FCF800BBBDBE /* MBManager.m in Sources */,
@@ -1824,6 +1857,7 @@
 				73EB3FC81E6FDEE400CA8B5D /* GCDSemaphore.m in Sources */,
 				73E7DA671E7BAFF400371E33 /* VideoModelZL.m in Sources */,
 				73EB3F8C1E6FDEE400CA8B5D /* UIView+BlankPage.m in Sources */,
+				73C347171E8245E200BBBDBE /* HOmeBannerMTLModel.m in Sources */,
 				73EB3F8B1E6FDEE400CA8B5D /* UILabel+HeinQi.m in Sources */,
 				73EB3F971E6FDEE400CA8B5D /* UIButton+ZLWebPSetImage.m in Sources */,
 				73EB3FD41E6FDEE400CA8B5D /* ZLPageControl.m in Sources */,
@@ -1839,9 +1873,11 @@
 				73EB3EDD1E6FD7DB00CA8B5D /* SecondViewController.m in Sources */,
 				73EB431B1E7241F200CA8B5D /* DianShiQiangViewController.m in Sources */,
 				73EB3FBF1E6FDEE400CA8B5D /* CoreNewFeatureVC.m in Sources */,
+				73C3471A1E82495500BBBDBE /* CateListMTLModel.m in Sources */,
 				73E7DA641E7B78A800371E33 /* NSFileManagerZL.m in Sources */,
 				73EB3ED81E6FD7DB00CA8B5D /* KSNavigationController.m in Sources */,
 				73E7DA7C1E7F778900371E33 /* UIScrollView+WHC_PullRefresh.m in Sources */,
+				73C347201E824AE300BBBDBE /* VideoListMTLModel.m in Sources */,
 				73EB3F861E6FDEE400CA8B5D /* UIBarButtonItem+Badge.m in Sources */,
 				732BC8761E6FD17400B8B1BD /* MiYouProject.xcdatamodeld in Sources */,
 				73E7DA7F1E7F778900371E33 /* UIView+WHC_ViewProperty.m in Sources */,

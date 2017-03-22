@@ -40,6 +40,7 @@ PODS:
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
+  - VOSegmentedControl (1.0.0)
   - WHCNetWorkKit (0.0.3):
     - WHCNetWorkKit/NSURLConnection (= 0.0.3)
     - WHCNetWorkKit/NSURLSession (= 0.0.3)
@@ -79,6 +80,7 @@ DEPENDENCIES:
   - MJRefresh (~> 3.1)
   - MLeaksFinder (~> 0.2)
   - SDWebImage (~> 4.0)
+  - VOSegmentedControl (~> 1.0)
   - WHCNetWorkKit (~> 0.0)
   - WMPageController (~> 2.2)
   - YYKit (~> 1.0)
@@ -104,11 +106,12 @@ SPEC CHECKSUMS:
   MLeaksFinder: 0850e2f2abc7227adc4d4e2d1992b431264eb4d5
   NSString+Color: ea9e33d498d634adf56766c606c9128822094473
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  VOSegmentedControl: 74ad423ab2f7c9ff9ffd872eae408d4532ddb7fa
   WHCNetWorkKit: 169c27c8b8008e8f8d679277929777083a2379b9
   WMPageController: 181bcc9b1fb7c9c3466bff66012552953a547d28
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   ZFPlayer: 8dc82b4508fbba4ee59d0304c52e30f8b3390244
 
-PODFILE CHECKSUM: c06326696c71e8015edacdf3493c8898f2438b72
+PODFILE CHECKSUM: 116c6cf071ca9c0e773658313caeec9e4d47eafe
 
 COCOAPODS: 1.2.0

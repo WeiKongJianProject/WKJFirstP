@@ -24,7 +24,7 @@
 #import "WHCNetWorkKit.h"
 #import "MBManager.h"
 #import <CustomIOSAlertView.h>
-
+#import "URLZLHeader.h"
 /*Release模式下  禁止NSLog*/
 #ifdef __OPTIMIZE__
 # define NSLog(...) {}

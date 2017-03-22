@@ -18,6 +18,10 @@ typedef void(^OKButtonBlock)(BOOL success);
 @property (copy, nonatomic) CancelBlock cancelBlock;
 @property (copy, nonatomic) OKButtonBlock okButtonBlock;
 
+@property (strong, nonatomic) NSString * titleName;
+@property (strong, nonatomic) NSString * cancelBtnTitle;
+@property (strong, nonatomic) NSString * okBtnTitle;
+
 - (void)cancelBlockAction:(CancelBlock )block;
 - (void)okButtonBlockAction:(OKButtonBlock )block;
 - (void)showCustomAlertView;

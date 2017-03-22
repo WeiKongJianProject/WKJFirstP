@@ -87,7 +87,11 @@
 - (void)btnAction:(UIButton *)sender{
 
     AlertViewCustomZL * alertView = [[AlertViewCustomZL alloc]init];
-    [alertView showCustomAlertView];
+   
+    alertView.titleName = @"需要支付1999U";
+    alertView.cancelBtnTitle = @"取消";
+    alertView.okBtnTitle = @"支付";
+     [alertView showCustomAlertView];
     [alertView cancelBlockAction:^(BOOL success) {
         [alertView hideCustomeAlertView];
     }];

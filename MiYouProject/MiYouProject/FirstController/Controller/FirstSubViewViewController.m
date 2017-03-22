@@ -27,14 +27,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     _index_0_height = 315.0/560.0*SIZE_WIDTH;
     _index_1_height = 40.0f;
     
     self.view.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
     // Do any additional setup after loading the view from its nib.
-    self.lunXianImageARR = [[NSMutableArray alloc]init];
-    self.dianYingCollectionARR = [[NSMutableArray alloc]init];
-    [self.dianYingCollectionARR addObjectsFromArray:@[@"01",@"02",@"03",@"04",@"05",@"06",@"07",@"08"]];
+    //self.lunXianImageARR = [[NSMutableArray alloc]init];
+    //self.dianYingCollectionARR = [[NSMutableArray alloc]init];
+    //[self.dianYingCollectionARR addObjectsFromArray:@[@"01",@"02",@"03",@"04",@"05",@"06",@"07",@"08"]];
     //设置背景  ScrollView
     self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SIZE_WIDTH, SIZE_HEIGHT-49.0-60) style:UITableViewStylePlain];
     self.tableview.delegate = self;
@@ -57,7 +59,7 @@
 
     
     
-    [self.lunXianImageARR addObjectsFromArray:@[@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489137038151&di=f8359be9591004374d8585189541c241&imgtype=0&src=http%3A%2F%2Fpic.365j.com%2Farticle%2Fimage%2F201702%2F23%2F6084932905.jpg",@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489137038151&di=a486e7d292f3ea0fbd1d6039e2c337c6&imgtype=0&src=http%3A%2F%2Fimg3.cache.netease.com%2Fent%2F2014%2F7%2F22%2F201407221029266b582.jpg",@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489137038151&di=4c58da342c002a67215c2824e2e0ecfb&imgtype=0&src=http%3A%2F%2Fwww.qulishi.com%2Fuploads%2Fnews%2F201603%2F1456823338865420.png"]];
+    //[self.lunXianImageARR addObjectsFromArray:@[@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489137038151&di=f8359be9591004374d8585189541c241&imgtype=0&src=http%3A%2F%2Fpic.365j.com%2Farticle%2Fimage%2F201702%2F23%2F6084932905.jpg",@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489137038151&di=a486e7d292f3ea0fbd1d6039e2c337c6&imgtype=0&src=http%3A%2F%2Fimg3.cache.netease.com%2Fent%2F2014%2F7%2F22%2F201407221029266b582.jpg",@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489137038151&di=4c58da342c002a67215c2824e2e0ecfb&imgtype=0&src=http%3A%2F%2Fwww.qulishi.com%2Fuploads%2Fnews%2F201603%2F1456823338865420.png"]];
     
     //[self loadTopLunXianView];
     [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(handleSchedule) userInfo:nil repeats:YES];
@@ -117,15 +119,16 @@
 //        if ([urlStr hasSuffix:@"webp"]) {
 //            [imageview setZLWebPImageWithURLStr:urlStr withPlaceHolderImage:PLACEHOLDER_IMAGE];
 //        } else {
-            [imageview sd_setImageWithURL:[NSURL URLWithString:self.lunXianImageARR[i]] placeholderImage:[UIImage imageNamed:@"icon_default"]];
+            HOmeBannerMTLModel * bannerModel = self.lunXianImageARR[i];
+            [imageview sd_setImageWithURL:[NSURL URLWithString:bannerModel.pic] placeholderImage:[UIImage imageNamed:@"icon_default"]];
 //        }
         //NSLog(@"imageview == %@",imageview.sd_imageURL);
         
         // imageview.contentMode = UIViewContentModeScaleAspectFit;
         imageview.tag = i;
         imageview.userInteractionEnabled = YES;
-        //UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(photoTapped:)];
-        //[imageview addGestureRecognizer:singleTap];
+        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(photoTapped:)];
+        [imageview addGestureRecognizer:singleTap];
         [self.lunXianScrollView addSubview:imageview];
     }
     self.lunXianScrollView.contentSize = CGSizeMake(imageScrollViewWidth*self.lunXianImageARR.count, 0);
@@ -135,6 +138,15 @@
     self.lunXianPageControl.currentPageIndicatorTintColor = [UIColor redColor];
 
 }
+- (void)photoTapped:(UITapGestureRecognizer *)sender{
+    NSLog(@"点击了第几张:%ld",sender.view.tag);
+    HOmeBannerMTLModel * bannerModel = self.lunXianImageARR[sender.view.tag];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:)]) {
+        [self.delegate firstSubVC:self withType:2 withName:bannerModel.name withKey:bannerModel.video];
+    }
+    
+}
+
 //加载热门导航条
 - (void)loadRemenView{
 
@@ -214,6 +226,26 @@
      cell.delegate = self;
      //    cell.backgroundColor = arcColor;
      */
+    VideoListMTLModel * vModel = [self.dianYingCollectionARR objectAtIndex:indexPath.row];
+    cell.dianYingNameLabel.text = vModel.name;
+/*
+ 时间戳转化
+ */
+//    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+//    [formatter setDateStyle:NSDateFormatterMediumStyle];
+//    [formatter setTimeStyle:NSDateFormatterShortStyle];
+//    [formatter setDateFormat:@"HHMMss"];//@"yyyy-MM-dd-HHMMss"
+//    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[vModel.duration intValue]];
+//    NSString* dateString = [formatter stringFromDate:date];
+    int zongTime = [vModel.duration intValue];
+    int m,s;
+    m = zongTime/60;
+    s = zongTime-60;
+    
+    NSString * timeString = [NSString stringWithFormat:@"%d:%d",m,s];
+    
+    
+    cell.timeLabel.text = timeString;
     return cell;
     
     
@@ -253,8 +285,10 @@
 #pragma mark  点击CollectionView触发事件
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    VideoListMTLModel * model = [self.dianYingCollectionARR objectAtIndex:indexPath.row];
+    
     if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:)]) {
-        [self.delegate firstSubVC:self withType:0 withName:@"电影" withKey:@"关键字"];
+        [self.delegate firstSubVC:self withType:2 withName:model.name withKey:model.video];
     }
 
 }
@@ -387,14 +421,31 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
     if (indexPath.row == 1) {
-        NSLog(@"点击了热门电影");
+        if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:)]) {
+            [self.delegate firstSubVC:self withType:1 withName:@"更多" withKey:@"关键字"];
+        }
     }
     
 }
 
 #pragma end mark
 
+#pragma mark 懒加载
+- (NSMutableArray *)dianYingCollectionARR{
 
+    if (!_dianYingCollectionARR) {
+        _dianYingCollectionARR = [[NSMutableArray alloc]init];
+    }
+    return _dianYingCollectionARR;
+}
+- (NSMutableArray *)lunXianImageARR{
+    if (!_lunXianImageARR) {
+        _lunXianImageARR = [[NSMutableArray alloc]init];
+    }
+    return _lunXianImageARR;
+}
+
+#pragma end mark
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -17,7 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
+    
+    
     self.labelARR = [[NSMutableArray alloc]init];
+    self.bannerARR = [[NSMutableArray alloc]init];
+    self.listARR = [[NSMutableArray alloc]init];
     //self.title = @"首页";
     //设置 tabbar 图标颜色
     for (UITabBarItem *item in self.tabBarController.tabBar.items) {
@@ -27,15 +31,24 @@
         
         //item.title
     }
+    
+    for (int i = 0; i<5; i++) {
+        CateListMTLModel * model = [[CateListMTLModel alloc]init];
+        model.name = @"热门";
+        model.id = @1;
+        [self.itemsTitlesARR addObject:model];
+    }
+    //请求数据
+    [self getShuJuFromAFNetworking];
+    
     self.tabBarController.tabBar.tintColor = [UIColor colorWithhex16stringToColor:Main_BackgroundColor];
     self.view.backgroundColor = [UIColor colorWithhex16stringToColor:Main_BackgroundColor];
     
-    [self.itemsTitlesARR addObjectsFromArray:@[@"推荐",@"热门",@"美女",@"电影",@"标题五",@"标题五",@"标题五"]];
     //设置 ViewPagerController 代理
     
     self.dataSource = self;
     self.delegate = self;
-    [self reloadData];
+    //[self reloadData];
     
     
     
@@ -89,6 +102,53 @@
     }];
     
 }
+//网络请求  数据 标题
+- (void)getShuJuFromAFNetworking{
+    [MBManager showLoadingInView:self.view];
+    __weak typeof(self) weakSelf = self;
+    NSString * url = [NSString stringWithFormat:@"%@&action=index&cate=999",URL_Common_ios];
+    
+    [[NSUserDefaults standardUserDefaults] objectForKey:@""];
+    
+    [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
+        
+        [MBManager hideAlert];
+        
+        NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        
+        NSArray * bannerARR = [dic objectForKey:@"banner"];
+        NSArray  * cateListARR = [dic objectForKey:@"catelist"];
+        NSDictionary * memberDic = [dic objectForKey:@"member"];
+        NSArray * listARR = [dic objectForKey:@"list"];
+        NSString * result = [dic objectForKey:@"result"];
+        NSLog(@"数据加载：%@++++++%@++++",result,dic);
+        if ([result isEqualToString:@"success"]) {
+            NSArray * arr1 = [MTLJSONAdapter modelsOfClass:[CateListMTLModel class] fromJSONArray:cateListARR error:nil];
+            //self.itemsTitlesARR = arr1;
+            [weakSelf.itemsTitlesARR removeAllObjects];
+            [weakSelf.itemsTitlesARR addObjectsFromArray:arr1];
+            
+            NSArray * arr2 = [MTLJSONAdapter modelsOfClass:[HOmeBannerMTLModel class] fromJSONArray:bannerARR error:nil];
+            [weakSelf.bannerARR removeAllObjects];
+            [weakSelf.bannerARR addObjectsFromArray:arr2];
+            
+            NSArray * arr3 = [MTLJSONAdapter modelsOfClass:[VideoListMTLModel class] fromJSONArray:listARR error:nil];
+            NSLog(@"加载电影列表的个数：%ld",arr3.count);
+            [weakSelf.listARR removeAllObjects];
+            [weakSelf.listARR addObjectsFromArray:arr3];
+            
+            weakSelf.memberInfo = [MTLJSONAdapter modelOfClass:[MemberMTLModel class] fromJSONDictionary:memberDic error:nil];
+            
+            [weakSelf reloadData];
+        }
+    } failure:^(NSError *error) {
+        [MBManager hideAlert];
+        [MBManager showBriefAlert:@"数据加载失败"];
+    }];
+    
+}
+
+
 //创建 搜索 和菜单按钮
 - (void)createSearchButton{
     
@@ -198,7 +258,7 @@
 }
 //类别-0 类别-1 添加
 - (UIView *)viewPager:(ViewPagerController *)viewPager viewForTabAtIndex:(NSUInteger)index{
-    NSString *item = [self.itemsTitlesARR objectAtIndex:index];
+    CateListMTLModel *itemModel = [self.itemsTitlesARR objectAtIndex:index];
     
 //    UILabel *label = [UILabel new];
 //    label.backgroundColor = [UIColor clearColor];
@@ -214,8 +274,8 @@
     ZLLabelCustom * label = [ZLLabelCustom new];
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont systemFontOfSize:15.0];
-    NSString * titleStr = [self.itemsTitlesARR objectAtIndex:index];
-    label.text = titleStr;
+    //NSString * titleStr = [self.itemsTitlesARR objectAtIndex:index];
+    label.text = itemModel.name;
     //label.text = [NSString stringWithFormat:@"全球购%ld", index];
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = [UIColor colorWithhex16stringToColor:@"606060"];
@@ -235,6 +295,13 @@
     vCtrl.view.backgroundColor = [UIColor whiteColor];
     vCtrl.delegate = self;
     //[vCtrl setPViewCtrl:self];
+    if (index == 0) {
+        vCtrl.dianYingCollectionARR = self.listARR;
+        NSLog(@"电影列表的个数dianYingCollectionARR.count:%ld",vCtrl.dianYingCollectionARR.count);
+        vCtrl.lunXianImageARR = self.bannerARR;
+    }
+    
+    
     return vCtrl;
 
 }
@@ -309,10 +376,33 @@
 
 #pragma mark FirstSubDelegate 代理方法
 - (void)firstSubVC:(FirstSubViewViewController *)viewC withType:(NSInteger)typeInt withName:(NSString *)name withKey:(NSString *)key{
+    
+    switch (typeInt) {
+        case 0:{
+            DianYingSubViewController * vc = [[DianYingSubViewController alloc]init];
+            vc.title = @"电影";
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case 1:{
+            ShaiXuanViewController * vc = [[ShaiXuanViewController alloc]init];
+            vc.title = @"列表";
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case 2:{
+            PlayerZLViewController * vc = [[PlayerZLViewController alloc]init];
+            vc.name = name;
+            NSURL * url = [NSURL URLWithString:key];
+            vc.url = url;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        default:
+            break;
+    }
+    
 
-    DianYingSubViewController * vc = [[DianYingSubViewController alloc]init];
-    vc.title = @"电影";
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma end mark

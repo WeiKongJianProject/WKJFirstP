@@ -21,11 +21,23 @@
 #import "FirstSubViewViewController.h"
 
 #import "DianYingSubViewController.h"
+#import "ShaiXuanViewController.h"
+
+#import "HOmeBannerMTLModel.h"
+#import "CateListMTLModel.h"
+#import "MemberMTLModel.h"
+#import "VideoListMTLModel.h"
 
 @interface FirstViewController : ViewPagerController<ViewPagerDataSource,ViewPagerDelegate,FirstSubViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray * itemsTitlesARR;
+@property (strong, nonatomic) NSMutableArray * bannerARR;
+@property (strong, nonatomic) NSMutableArray * listARR;
+
+@property (strong, nonatomic) MemberMTLModel * memberInfo;
 
 @property (strong, nonatomic) NSMutableArray* labelARR;
 @property (strong, nonatomic) ZLLabelCustom * currentLabel;
+
+
 @end
