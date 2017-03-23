@@ -19,6 +19,10 @@
 
 
 @class FirstSubViewViewController;
+
+
+static int _currentPage;
+
 @protocol FirstSubViewDelegate <NSObject>
 
 - (void)firstSubVC:(FirstSubViewViewController *)viewC withType:(NSInteger) typeInt withName:(NSString *)name withKey:(NSString *)key;
@@ -34,6 +38,10 @@
 @property (strong, nonatomic) UICollectionView * dianYingCollectionView;
 @property (strong, nonatomic) UITableView * tableview;
 @property (weak, nonatomic) id<FirstSubViewDelegate> delegate;
+
+@property (assign, nonatomic) int id;
+
+
 
 //@property (strong, nonatomic) NSMutableArray * bannerARR;
 //@property (strong, nonatomic) NSMutableArray * listARR;

@@ -109,12 +109,12 @@
     
     NSString * url = nil;
     if ([self isFirstOpen] == YES) {
-        url = [NSString stringWithFormat:@"%@&action=index&cate=999",URL_Common_ios];
+        url = [NSString stringWithFormat:@"%@&action=index&cate=999&page=1&fresh=1",URL_Common_ios];
     }
     else{
         url = [NSString stringWithFormat:@"%@&action=index&cate=999",URL_Common_ios];
     }
-    [[NSUserDefaults standardUserDefaults] objectForKey:@""];
+
     
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
         
@@ -143,7 +143,10 @@
             [weakSelf.listARR removeAllObjects];
             [weakSelf.listARR addObjectsFromArray:arr3];
             
-            weakSelf.memberInfo = [MTLJSONAdapter modelOfClass:[MemberMTLModel class] fromJSONDictionary:memberDic error:nil];
+            if (memberDic != nil && ![memberDic isKindOfClass:[NSNull class]]) {
+                weakSelf.memberInfo = [MTLJSONAdapter modelOfClass:[MemberMTLModel class] fromJSONDictionary:memberDic error:nil];
+                [[NSUserDefaults standardUserDefaults] setObject:memberDic forKey:MEMBER_INFO_DIC];
+            }
             
             [weakSelf reloadData];
         }
@@ -303,10 +306,11 @@
     //[vCtrl setPViewCtrl:self];
     if (index == 0) {
         vCtrl.dianYingCollectionARR = self.listARR;
-        NSLog(@"电影列表的个数dianYingCollectionARR.count:%ld",vCtrl.dianYingCollectionARR.count);
+        //NSLog(@"电影列表的个数dianYingCollectionARR.count:%ld",vCtrl.dianYingCollectionARR.count);
         vCtrl.lunXianImageARR = self.bannerARR;
     }
-    
+    CateListMTLModel *itemModel = [self.itemsTitlesARR objectAtIndex:index];
+    vCtrl.id = [itemModel.id intValue];
     
     return vCtrl;
 

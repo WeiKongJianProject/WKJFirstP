@@ -12,7 +12,7 @@
 #define Collection_item_Height (SIZE_WIDTH-30)/2.0 * 330.0/425.0
 
 @interface FirstSubViewViewController (){
-
+    
     BOOL _Tend;
     CGFloat _index_0_height;
     CGFloat _index_1_height;
@@ -28,6 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _currentPage = 1;//当前页面
     
     _index_0_height = 315.0/560.0*SIZE_WIDTH;
     _index_1_height = 40.0f;
@@ -44,42 +45,89 @@
     self.tableview.showsVerticalScrollIndicator = NO;
     self.tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableview];
-    
-    
     //下拉刷新设置
     self.tableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(xiaLaShuaXin)];
     //自动改变 透明度
     self.tableview.mj_header.automaticallyChangeAlpha = YES;
     [self.tableview.mj_header beginRefreshing];
-    
     //上拉刷新
     self.tableview.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(shangLaShuaXin)];
-    
-    
-
-    
-    
     //[self.lunXianImageARR addObjectsFromArray:@[@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489137038151&di=f8359be9591004374d8585189541c241&imgtype=0&src=http%3A%2F%2Fpic.365j.com%2Farticle%2Fimage%2F201702%2F23%2F6084932905.jpg",@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489137038151&di=a486e7d292f3ea0fbd1d6039e2c337c6&imgtype=0&src=http%3A%2F%2Fimg3.cache.netease.com%2Fent%2F2014%2F7%2F22%2F201407221029266b582.jpg",@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489137038151&di=4c58da342c002a67215c2824e2e0ecfb&imgtype=0&src=http%3A%2F%2Fwww.qulishi.com%2Fuploads%2Fnews%2F201603%2F1456823338865420.png"]];
-    
     //[self loadTopLunXianView];
     [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(handleSchedule) userInfo:nil repeats:YES];
-    
     //[self loadRemenView];
     //[self loadDianYingCollectionView];
-    
 }
 #pragma mark 下拉刷新
 - (void)xiaLaShuaXin{
     NSLog(@"下拉刷新");
-    [self.tableview.mj_header endRefreshing];
-
+    _currentPage = 1;
+    [self.lunXianImageARR removeAllObjects];
+    [self.dianYingCollectionARR removeAllObjects];
+    [self startAFnetWorkingWithCateID:self.id withPage:_currentPage];
 }
 - (void)shangLaShuaXin{
     NSLog(@"上拉刷新");
-
-    [self.tableview.mj_footer endRefreshing];
+    _currentPage++;
+    [self startAFnetWorkingWithCateID:self.id withPage:_currentPage];
 }
 #pragma end mark
+
+- (void)startAFnetWorkingWithCateID:(int)currenID withPage:(int) currentPage {
+
+    [MBManager showLoadingInView:self.view];
+    __weak typeof(self) weakSelf = self;
+    
+    
+    NSString * url = [NSString stringWithFormat:@"%@&action=index&cate=%d&page=%d",URL_Common_ios,currenID,currentPage];
+
+    [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
+        
+        [MBManager hideAlert];
+        
+        NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        
+        NSArray * bannerARR = [dic objectForKey:@"banner"];
+//        NSArray  * cateListARR = [dic objectForKey:@"catelist"];
+//        NSDictionary * memberDic = [dic objectForKey:@"member"];
+        NSArray * listARR = [dic objectForKey:@"list"];
+        NSString * result = [dic objectForKey:@"result"];
+        NSLog(@"数据加载：%@++++++%@++++",result,dic);
+        if ([result isEqualToString:@"success"]) {
+//            NSArray * arr1 = [MTLJSONAdapter modelsOfClass:[CateListMTLModel class] fromJSONArray:cateListARR error:nil];
+//            //self.itemsTitlesARR = arr1;
+//            [weakSelf.itemsTitlesARR removeAllObjects];
+//            [weakSelf.itemsTitlesARR addObjectsFromArray:arr1];
+            if (_currentPage == 1) {
+                NSArray * arr2 = [MTLJSONAdapter modelsOfClass:[HOmeBannerMTLModel class] fromJSONArray:bannerARR error:nil];
+                [weakSelf.lunXianImageARR removeAllObjects];
+                [weakSelf.lunXianImageARR addObjectsFromArray:arr2];
+            }
+
+            
+            
+            NSArray * arr3 = [MTLJSONAdapter modelsOfClass:[VideoListMTLModel class] fromJSONArray:listARR error:nil];
+            NSLog(@"加载电影列表的个数：%ld",arr3.count);
+            //[weakSelf.dianYingCollectionARR removeAllObjects];
+            [weakSelf.dianYingCollectionARR addObjectsFromArray:arr3];
+            
+//            if (memberDic != nil && ![memberDic isKindOfClass:[NSNull class]]) {
+//                weakSelf.memberInfo = [MTLJSONAdapter modelOfClass:[MemberMTLModel class] fromJSONDictionary:memberDic error:nil];
+//                [[NSUserDefaults standardUserDefaults] setObject:memberDic forKey:MEMBER_INFO_DIC];
+//            }
+            [self.tableview.mj_header endRefreshing];
+            [self.tableview.mj_footer endRefreshing];
+            [weakSelf.tableview reloadData];
+            
+        }
+    } failure:^(NSError *error) {
+        [self.tableview.mj_header endRefreshing];
+        [self.tableview.mj_footer endRefreshing];
+        [MBManager hideAlert];
+        [MBManager showBriefAlert:@"数据加载失败"];
+    }];
+
+}
 
 
 - (void)loadTopLunXianView{
@@ -98,14 +146,14 @@
     self.lunXianScrollView.pagingEnabled = YES;
     
     [self.lunXianBackgroundView addSubview:self.lunXianScrollView];
-
+    
     self.lunXianPageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(SIZE_WIDTH-100, 315.0/560.0*SIZE_WIDTH-20, 80, 20)];
     self.lunXianPageControl.userInteractionEnabled = YES;
     
     [self.lunXianBackgroundView addSubview:self.lunXianPageControl];
     
     [self loadLunXianImage];
-
+    
     
 }
 //加载 沦陷图片
@@ -116,12 +164,12 @@
         UIImageView *imageview =[[UIImageView alloc]initWithFrame:CGRectMake(imageScrollViewWidth*i, 0, imageScrollViewWidth,imageScrollViewHeight)];
         //NSString * urlStr = self.lunXianImageARR[i][@"imgurl"];
         
-//        if ([urlStr hasSuffix:@"webp"]) {
-//            [imageview setZLWebPImageWithURLStr:urlStr withPlaceHolderImage:PLACEHOLDER_IMAGE];
-//        } else {
-            HOmeBannerMTLModel * bannerModel = self.lunXianImageARR[i];
-            [imageview sd_setImageWithURL:[NSURL URLWithString:bannerModel.pic] placeholderImage:[UIImage imageNamed:@"icon_default"]];
-//        }
+        //        if ([urlStr hasSuffix:@"webp"]) {
+        //            [imageview setZLWebPImageWithURLStr:urlStr withPlaceHolderImage:PLACEHOLDER_IMAGE];
+        //        } else {
+        HOmeBannerMTLModel * bannerModel = self.lunXianImageARR[i];
+        [imageview sd_setImageWithURL:[NSURL URLWithString:bannerModel.pic] placeholderImage:[UIImage imageNamed:@"icon_default"]];
+        //        }
         //NSLog(@"imageview == %@",imageview.sd_imageURL);
         
         // imageview.contentMode = UIViewContentModeScaleAspectFit;
@@ -136,20 +184,41 @@
     self.lunXianPageControl.numberOfPages = self.lunXianImageARR.count;
     self.lunXianPageControl.tintColor = [UIColor whiteColor];
     self.lunXianPageControl.currentPageIndicatorTintColor = [UIColor redColor];
-
+    
 }
 - (void)photoTapped:(UITapGestureRecognizer *)sender{
     NSLog(@"点击了第几张:%ld",sender.view.tag);
     HOmeBannerMTLModel * bannerModel = self.lunXianImageARR[sender.view.tag];
-    if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:)]) {
-        [self.delegate firstSubVC:self withType:2 withName:bannerModel.name withKey:bannerModel.video];
+    NSString * isVIP = [[NSUserDefaults standardUserDefaults] objectForKey:IS_MEMBER_VIP];
+    NSString * 
+    
+    if ([isVIP isEqualToString:@"1"]) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:)]) {
+            NSString * keyID = [NSString stringWithFormat:@"%d",[bannerModel.id intValue]];
+            [self.delegate firstSubVC:self withType:2 withName:bannerModel.name withKey:keyID];
+        }
     }
+    else{
+        AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
+        alertZL.titleName = @"需要开通VIP才能观看";
+        alertZL.cancelBtnTitle = @"取消";
+        alertZL.okBtnTitle = @"开通";
+        [alertZL cancelBlockAction:^(BOOL success) {
+            [alertZL hideCustomeAlertView];
+        }];
+        [alertZL okButtonBlockAction:^(BOOL success) {
+            NSLog(@"点击了去支付按钮");
+        }];
+        [alertZL showCustomAlertView];
+    }
+    
+
     
 }
 
 //加载热门导航条
 - (void)loadRemenView{
-
+    
     UIView * remenView = (UIView *)[[NSBundle mainBundle] loadNibNamed:@"ReMenView" owner:nil options:nil][0];
     remenView.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
     //[remenView setFrame:CGRectMake(0, _index_0_height, SIZE_WIDTH, 40)];
@@ -168,11 +237,11 @@
 }
 - (void)tapReMenViewAction:(UITapGestureRecognizer *)sender{
     NSLog(@"点击了热门");
-
+    
 }
 //创建电影列表
 - (void)loadDianYingCollectionView{
-
+    
     //创建一个Layout布局
     UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc]init];
     //设置布局方向为垂直流布局
@@ -193,7 +262,7 @@
     self.dianYingCollectionView.delegate = self;
     self.dianYingCollectionView.dataSource = self;
     self.dianYingCollectionView.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
-
+    
     self.dianYingCollectionView.scrollEnabled = NO;
     //注册item类型
     
@@ -204,7 +273,7 @@
     // 注册脚部视图
     // [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:footerId];
     //[self.tableview addSubview:self.dianYingCollectionView];
-
+    
 }
 #pragma mark CollectionView  的  dataSource方法
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -228,15 +297,15 @@
      */
     VideoListMTLModel * vModel = [self.dianYingCollectionARR objectAtIndex:indexPath.row];
     cell.dianYingNameLabel.text = vModel.name;
-/*
- 时间戳转化
- */
-//    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-//    [formatter setDateStyle:NSDateFormatterMediumStyle];
-//    [formatter setTimeStyle:NSDateFormatterShortStyle];
-//    [formatter setDateFormat:@"HHMMss"];//@"yyyy-MM-dd-HHMMss"
-//    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[vModel.duration intValue]];
-//    NSString* dateString = [formatter stringFromDate:date];
+    /*
+     时间戳转化
+     */
+    //    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    //    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    //    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    //    [formatter setDateFormat:@"HHMMss"];//@"yyyy-MM-dd-HHMMss"
+    //    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[vModel.duration intValue]];
+    //    NSString* dateString = [formatter stringFromDate:date];
     int zongTime = [vModel.duration intValue];
     int m,s;
     m = zongTime/60;
@@ -287,10 +356,10 @@
 {
     VideoListMTLModel * model = [self.dianYingCollectionARR objectAtIndex:indexPath.row];
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:)]) {
-        [self.delegate firstSubVC:self withType:2 withName:model.name withKey:model.video];
-    }
-
+//    if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:)]) {
+//        [self.delegate firstSubVC:self withType:2 withName:model.name withKey:model.video];
+//    }
+    
 }
 
 #pragma mark  设置CollectionViewCell是否可以被点击
@@ -303,7 +372,7 @@
 
 #pragma mark ScrollViewDelegate 方法
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-
+    
     //NSLog(@"执行了scrollViewDidScroll方法");
     if (scrollView == self.lunXianScrollView) {
         NSInteger i = scrollView.contentOffset.x/scrollView.frame.size.width + 1;
@@ -321,7 +390,7 @@
         [self.lunXianScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
         
         self.lunXianPageControl.currentPage=0;
-
+        
         
     }else{
         
@@ -345,7 +414,7 @@
 #pragma mark TableViewDelegate 代理方法开始
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-
+    
     return 3;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -360,20 +429,20 @@
         height = _index_1_height;
     }
     else if(indexPath.row ==2 ){
-    
+        
         height =  (Collection_item_Height+10) * ((self.dianYingCollectionARR.count+1) / 2);
     }
     return height;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-
+    
     return 0.0f;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-
+    
     static NSString * cellID = @"tableviewCellID";
     UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
     if (!cell) {
@@ -390,11 +459,11 @@
         case 1:{
             UIView * remenView = (UIView *)[[NSBundle mainBundle] loadNibNamed:@"ReMenView" owner:nil options:nil][0];
             
-//            //[remenView setFrame:CGRectMake(0, _index_0_height, SIZE_WIDTH, 40)];
-//            [self.tableview addSubview:remenView];
-//            UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapReMenViewAction:)];
-//            [tap setNumberOfTapsRequired:1];
-//            [remenView addGestureRecognizer:tap];
+            //            //[remenView setFrame:CGRectMake(0, _index_0_height, SIZE_WIDTH, 40)];
+            //            [self.tableview addSubview:remenView];
+            //            UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapReMenViewAction:)];
+            //            [tap setNumberOfTapsRequired:1];
+            //            [remenView addGestureRecognizer:tap];
             [cell addSubview:remenView];
             [remenView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.width.equalTo(cell);
@@ -415,24 +484,22 @@
     }
     
     
-
+    
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-
     if (indexPath.row == 1) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:)]) {
             [self.delegate firstSubVC:self withType:1 withName:@"更多" withKey:@"关键字"];
         }
     }
-    
 }
 
 #pragma end mark
 
 #pragma mark 懒加载
 - (NSMutableArray *)dianYingCollectionARR{
-
+    
     if (!_dianYingCollectionARR) {
         _dianYingCollectionARR = [[NSMutableArray alloc]init];
     }
@@ -453,13 +520,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

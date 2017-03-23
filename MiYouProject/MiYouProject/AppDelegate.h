@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "Reachability.h"
+#import "CoreNewFeatureVC.h"
+#import "KSNavigationController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

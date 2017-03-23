@@ -14,7 +14,6 @@
 @property (strong, nonatomic) NSString * name;
 @property (strong, nonatomic) NSNumber * duration;
 @property (strong, nonatomic) NSString * pic;
-@property (strong, nonatomic) NSString * video;
-@property (strong, nonatomic) NSString * trial;
+@property (strong, nonatomic) NSNumber * vip;
 
 @end

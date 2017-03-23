@@ -25,6 +25,7 @@
 #import "MBManager.h"
 #import <CustomIOSAlertView.h>
 #import "URLZLHeader.h"
+#import "AlertViewCustomZL.h"
 /*Release模式下  禁止NSLog*/
 #ifdef __OPTIMIZE__
 # define NSLog(...) {}

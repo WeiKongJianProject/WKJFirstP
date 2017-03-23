@@ -25,6 +25,53 @@
     self.reach = [Reachability reachabilityWithHostName:@"www.baidu.com"];
     [self.reach startNotifier]; //开始监听，会启动一个run loop
     // Override point for customization after application launch.
+    
+    //网络请求缓存
+    NSURLCache *URLCache = [[NSURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024
+                                                         diskCapacity:20 * 1024 * 1024
+                                                             diskPath:nil];
+    [NSURLCache setSharedURLCache:URLCache];
+    
+    //创建RootViewController
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    KSNavigationController * rootVC = [storyboard instantiateViewControllerWithIdentifier:@"RootNavID"];
+    
+    //判断是否需要显示：（内部已经考虑版本及本地版本缓存）
+    BOOL canShow = [CoreNewFeatureVC canShowNewFeature];
+    
+    //测试代码，正式版本应该删除
+    //canShow = YES;
+    
+    if(canShow){
+        
+        NewFeatureModel *m1 = [NewFeatureModel model:[UIImage imageNamed:@"kj01.jpg"]];
+        
+        NewFeatureModel *m2 = [NewFeatureModel model:[UIImage imageNamed:@"kj02.jpg"]];
+        
+        NewFeatureModel *m3 = [NewFeatureModel model:[UIImage imageNamed:@"kj03.jpg"]];
+
+        self.window.rootViewController = [CoreNewFeatureVC newFeatureVCWithModels:@[m1,m2,m3] enterBlock:^{
+            
+            NSLog(@"进入主页面");
+            
+            self.window.rootViewController = rootVC;
+            //[self autoLogin];
+            
+        }];
+    }else{
+        
+        
+//        MLAnimationViewController * vcs = [[MLAnimationViewController alloc]init];
+//        [vcs animationBlockAction:^(BOOL success) {
+//            
+//            self.window.rootViewController = rootVC;
+//            //[self autoLogin];
+//        }];
+        self.window.rootViewController = rootVC;
+        
+    }
+    
+    
     return YES;
 }
 //通知

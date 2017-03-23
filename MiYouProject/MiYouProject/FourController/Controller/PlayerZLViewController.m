@@ -66,6 +66,7 @@
    
     // 初始化控制层view(可自定义)
     ZFPlayerControlView *controlView = [[ZFPlayerControlView alloc] init];
+    
     // 初始化播放模型
     ZFPlayerModel *playerModel = [[ZFPlayerModel alloc] init];
     // playerView的父视图

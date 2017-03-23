@@ -24,8 +24,7 @@
              @"name":@"name",
              @"subname":@"subname",
              @"pic":@"pic",
-             @"video":@"video",
-             @"trial":@"trial"
+             @"vip":@"vip"
              };
 }
 

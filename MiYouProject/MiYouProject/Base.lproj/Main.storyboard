@@ -25,12 +25,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1105" y="749"/>
+            <point key="canvasLocation" x="-1433" y="776"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cho-cf-SuL">
             <objects>
-                <navigationController id="oKj-2N-pT8" customClass="KSNavigationController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RootNavID" id="oKj-2N-pT8" customClass="KSNavigationController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="x5B-aJ-CFp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

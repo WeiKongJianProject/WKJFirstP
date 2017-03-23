@@ -18,6 +18,7 @@
 @property (assign, nonatomic) BOOL isBenDi;
 @property (strong, nonatomic) IBOutlet ZFPlayerView *playerView;
 @property (strong, nonatomic) NSURL * url;
+@property (assign, nonatomic) int videoId;
 @property (strong, nonatomic) NSString * name;
 /** 离开页面时候是否在播放 */
 @property (nonatomic, assign) BOOL isPlaying;
