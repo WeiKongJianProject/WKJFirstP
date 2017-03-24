@@ -58,6 +58,15 @@
 		73C3471A1E82495500BBBDBE /* CateListMTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C347191E82495500BBBDBE /* CateListMTLModel.m */; };
 		73C3471D1E8249E200BBBDBE /* MemberMTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C3471C1E8249E200BBBDBE /* MemberMTLModel.m */; };
 		73C347201E824AE300BBBDBE /* VideoListMTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C3471F1E824AE300BBBDBE /* VideoListMTLModel.m */; };
+		73C347231E84C34500BBBDBE /* ReMenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C347221E84C34500BBBDBE /* ReMenView.m */; };
+		73C3472F1E84E96600BBBDBE /* AutoFitLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C347261E84E96600BBBDBE /* AutoFitLabelView.m */; };
+		73C347301E84E96600BBBDBE /* MSSAutoresizeLabelFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C347281E84E96600BBBDBE /* MSSAutoresizeLabelFlow.m */; };
+		73C347311E84E96600BBBDBE /* MSSAutoresizeLabelFlowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C3472A1E84E96600BBBDBE /* MSSAutoresizeLabelFlowCell.m */; };
+		73C347321E84E96600BBBDBE /* MSSAutoresizeLabelFlowConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C3472C1E84E96600BBBDBE /* MSSAutoresizeLabelFlowConfig.m */; };
+		73C347331E84E96600BBBDBE /* MSSAutoresizeLabelFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C3472E1E84E96600BBBDBE /* MSSAutoresizeLabelFlowLayout.m */; };
+		73C347391E84FC5A00BBBDBE /* SearchResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C347381E84FC5A00BBBDBE /* SearchResultModel.m */; };
+		73C3473C1E85196E00BBBDBE /* TypeListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C3473B1E85196E00BBBDBE /* TypeListModel.m */; };
+		73C3473F1E8519E200BBBDBE /* FilterListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C3473E1E8519E200BBBDBE /* FilterListModel.m */; };
 		73E7DA4A1E7A6C2700371E33 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73E7DA491E7A6C2700371E33 /* MobileCoreServices.framework */; };
 		73E7DA4C1E7A6C3000371E33 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73E7DA4B1E7A6C3000371E33 /* AVFoundation.framework */; };
 		73E7DA4E1E7A6C3A00371E33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73E7DA4D1E7A6C3A00371E33 /* Foundation.framework */; };
@@ -295,6 +304,24 @@
 		73C3471C1E8249E200BBBDBE /* MemberMTLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberMTLModel.m; sourceTree = "<group>"; };
 		73C3471E1E824AE300BBBDBE /* VideoListMTLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoListMTLModel.h; sourceTree = "<group>"; };
 		73C3471F1E824AE300BBBDBE /* VideoListMTLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoListMTLModel.m; sourceTree = "<group>"; };
+		73C347211E84C34500BBBDBE /* ReMenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReMenView.h; sourceTree = "<group>"; };
+		73C347221E84C34500BBBDBE /* ReMenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReMenView.m; sourceTree = "<group>"; };
+		73C347251E84E96600BBBDBE /* AutoFitLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoFitLabelView.h; sourceTree = "<group>"; };
+		73C347261E84E96600BBBDBE /* AutoFitLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoFitLabelView.m; sourceTree = "<group>"; };
+		73C347271E84E96600BBBDBE /* MSSAutoresizeLabelFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSAutoresizeLabelFlow.h; sourceTree = "<group>"; };
+		73C347281E84E96600BBBDBE /* MSSAutoresizeLabelFlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSAutoresizeLabelFlow.m; sourceTree = "<group>"; };
+		73C347291E84E96600BBBDBE /* MSSAutoresizeLabelFlowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSAutoresizeLabelFlowCell.h; sourceTree = "<group>"; };
+		73C3472A1E84E96600BBBDBE /* MSSAutoresizeLabelFlowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSAutoresizeLabelFlowCell.m; sourceTree = "<group>"; };
+		73C3472B1E84E96600BBBDBE /* MSSAutoresizeLabelFlowConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSAutoresizeLabelFlowConfig.h; sourceTree = "<group>"; };
+		73C3472C1E84E96600BBBDBE /* MSSAutoresizeLabelFlowConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSAutoresizeLabelFlowConfig.m; sourceTree = "<group>"; };
+		73C3472D1E84E96600BBBDBE /* MSSAutoresizeLabelFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSAutoresizeLabelFlowLayout.h; sourceTree = "<group>"; };
+		73C3472E1E84E96600BBBDBE /* MSSAutoresizeLabelFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSAutoresizeLabelFlowLayout.m; sourceTree = "<group>"; };
+		73C347371E84FC5A00BBBDBE /* SearchResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultModel.h; sourceTree = "<group>"; };
+		73C347381E84FC5A00BBBDBE /* SearchResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultModel.m; sourceTree = "<group>"; };
+		73C3473A1E85196E00BBBDBE /* TypeListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeListModel.h; sourceTree = "<group>"; };
+		73C3473B1E85196E00BBBDBE /* TypeListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeListModel.m; sourceTree = "<group>"; };
+		73C3473D1E8519E200BBBDBE /* FilterListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterListModel.h; sourceTree = "<group>"; };
+		73C3473E1E8519E200BBBDBE /* FilterListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterListModel.m; sourceTree = "<group>"; };
 		73E7DA491E7A6C2700371E33 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		73E7DA4B1E7A6C3000371E33 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		73E7DA4D1E7A6C3A00371E33 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -679,6 +706,23 @@
 			path = zhou/MBProgressHUDZL;
 			sourceTree = "<group>";
 		};
+		73C347241E84E96600BBBDBE /* AutoFitLabel */ = {
+			isa = PBXGroup;
+			children = (
+				73C347251E84E96600BBBDBE /* AutoFitLabelView.h */,
+				73C347261E84E96600BBBDBE /* AutoFitLabelView.m */,
+				73C347271E84E96600BBBDBE /* MSSAutoresizeLabelFlow.h */,
+				73C347281E84E96600BBBDBE /* MSSAutoresizeLabelFlow.m */,
+				73C347291E84E96600BBBDBE /* MSSAutoresizeLabelFlowCell.h */,
+				73C3472A1E84E96600BBBDBE /* MSSAutoresizeLabelFlowCell.m */,
+				73C3472B1E84E96600BBBDBE /* MSSAutoresizeLabelFlowConfig.h */,
+				73C3472C1E84E96600BBBDBE /* MSSAutoresizeLabelFlowConfig.m */,
+				73C3472D1E84E96600BBBDBE /* MSSAutoresizeLabelFlowLayout.h */,
+				73C3472E1E84E96600BBBDBE /* MSSAutoresizeLabelFlowLayout.m */,
+			);
+			path = AutoFitLabel;
+			sourceTree = "<group>";
+		};
 		73E7DA611E7B787E00371E33 /* ZLNSFileManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -772,6 +816,12 @@
 				73C3471C1E8249E200BBBDBE /* MemberMTLModel.m */,
 				73C3471E1E824AE300BBBDBE /* VideoListMTLModel.h */,
 				73C3471F1E824AE300BBBDBE /* VideoListMTLModel.m */,
+				73C347371E84FC5A00BBBDBE /* SearchResultModel.h */,
+				73C347381E84FC5A00BBBDBE /* SearchResultModel.m */,
+				73C3473A1E85196E00BBBDBE /* TypeListModel.h */,
+				73C3473B1E85196E00BBBDBE /* TypeListModel.m */,
+				73C3473D1E8519E200BBBDBE /* FilterListModel.h */,
+				73C3473E1E8519E200BBBDBE /* FilterListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -785,6 +835,8 @@
 				73EB43141E7241A400CA8B5D /* DianShiQiangCollectionCell.m */,
 				73EB43151E7241A400CA8B5D /* DianShiQiangCollectionCell.xib */,
 				736557351E728F5800284C11 /* ReMenView.xib */,
+				73C347211E84C34500BBBDBE /* ReMenView.h */,
+				73C347221E84C34500BBBDBE /* ReMenView.m */,
 				736557371E729C4B00284C11 /* DianYingCollectionViewCell.h */,
 				736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */,
 				736557391E729C4B00284C11 /* DianYingCollectionViewCell.xib */,
@@ -927,6 +979,7 @@
 		73EB3EB31E6FD7DB00CA8B5D /* Myframework */ = {
 			isa = PBXGroup;
 			children = (
+				73C347241E84E96600BBBDBE /* AutoFitLabel */,
 				73E7DA611E7B787E00371E33 /* ZLNSFileManager */,
 				18AEC44F1E7593FA004BD503 /* ZLCollectionViewGird */,
 				73EB430F1E7240EE00CA8B5D /* KVO&Notification */,
@@ -1791,6 +1844,7 @@
 				18AEC4521E759451004BD503 /* ZLCollectionGirdVIew.m in Sources */,
 				73EB3FC01E6FDEE400CA8B5D /* NewFeatureModel.m in Sources */,
 				73E7DA921E80BF7C00371E33 /* PlayVideoTableViewCell.m in Sources */,
+				73C347331E84E96600BBBDBE /* MSSAutoresizeLabelFlowLayout.m in Sources */,
 				73C3471D1E8249E200BBBDBE /* MemberMTLModel.m in Sources */,
 				73EB3FC61E6FDEE400CA8B5D /* GCDGroup.m in Sources */,
 				7365573A1E729C4B00284C11 /* DianYingCollectionViewCell.m in Sources */,
@@ -1813,9 +1867,11 @@
 				73EB3FDF1E70000F00CA8B5D /* ViewPagerController.m in Sources */,
 				73EB3FBD1E6FDEE400CA8B5D /* UIApplication+Extend.m in Sources */,
 				73EB3F891E6FDEE400CA8B5D /* UIColor+HeinQi.m in Sources */,
+				73C347301E84E96600BBBDBE /* MSSAutoresizeLabelFlow.m in Sources */,
 				73EB3ED91E6FD7DB00CA8B5D /* FMDB+ZL.m in Sources */,
 				73EB3FD21E6FDEE400CA8B5D /* PulldownMenu.m in Sources */,
 				73E7DA521E7A78A200371E33 /* HuanCunCenterViewController.m in Sources */,
+				73C347311E84E96600BBBDBE /* MSSAutoresizeLabelFlowCell.m in Sources */,
 				73EB3F851E6FDEE400CA8B5D /* NSValueTransformer+HeinQi.m in Sources */,
 				730D38651E77DC2D00EE4692 /* SettingViewController.m in Sources */,
 				732BC8701E6FD17400B8B1BD /* ViewController.m in Sources */,
@@ -1823,6 +1879,7 @@
 				73EB3F881E6FDEE400CA8B5D /* UIButton+HeinQi.m in Sources */,
 				73EB3ED61E6FD7DB00CA8B5D /* UIColor+KSString.m in Sources */,
 				73E7DA7D1E7F778900371E33 /* UIView+WHC_Loading.m in Sources */,
+				73C347391E84FC5A00BBBDBE /* SearchResultModel.m in Sources */,
 				730D387E1E790F1C00EE4692 /* ChongZhiViewController.m in Sources */,
 				73EB3F951E6FDEE400CA8B5D /* UIImage+WebP.m in Sources */,
 				73EB3FB91E6FDEE400CA8B5D /* MLAnimationViewController.m in Sources */,
@@ -1831,6 +1888,7 @@
 				73EB3F901E6FDEE400CA8B5D /* HFSApplicationContext.m in Sources */,
 				73EB3FC91E6FDEE400CA8B5D /* GCDTimer.m in Sources */,
 				73EB43161E7241A400CA8B5D /* DianShiQiangCollectionCell.m in Sources */,
+				73C347321E84E96600BBBDBE /* MSSAutoresizeLabelFlowConfig.m in Sources */,
 				73EB3FC21E6FDEE400CA8B5D /* NewFeatureScrollView.m in Sources */,
 				73EB3FDB1E6FE2CE00CA8B5D /* NSString+URLZL.m in Sources */,
 				73EB3EDE1E6FD7DB00CA8B5D /* ThirdViewController.m in Sources */,
@@ -1840,6 +1898,7 @@
 				73EB3FC11E6FDEE400CA8B5D /* NewFeatureImageV.m in Sources */,
 				73EB3FC71E6FDEE400CA8B5D /* GCDQueue.m in Sources */,
 				730D38561E7795FA00EE4692 /* ThirdTeQuanTableViewCell.m in Sources */,
+				73C347231E84C34500BBBDBE /* ReMenView.m in Sources */,
 				73EB3FBE1E6FDEE400CA8B5D /* UIView+NFLayout.m in Sources */,
 				73EB3F8A1E6FDEE400CA8B5D /* UIImage+HeinQi.m in Sources */,
 				732BC86D1E6FD17400B8B1BD /* AppDelegate.m in Sources */,
@@ -1851,6 +1910,7 @@
 				73C3470C1E8125A800BBBDBE /* UIAlertViewZL.m in Sources */,
 				73E7DA5B1E7A8C5D00371E33 /* ZLButtons.m in Sources */,
 				730D38601E77D8FF00EE4692 /* SettingTableViewCell.m in Sources */,
+				73C3473C1E85196E00BBBDBE /* TypeListModel.m in Sources */,
 				730D38741E78D8B800EE4692 /* XiaoXiTableViewCell.m in Sources */,
 				73EB3ED41E6FD7DB00CA8B5D /* FirstViewController.m in Sources */,
 				73E7DA721E7F743300371E33 /* WHC_DownloadObject.m in Sources */,
@@ -1877,6 +1937,7 @@
 				73E7DA641E7B78A800371E33 /* NSFileManagerZL.m in Sources */,
 				73EB3ED81E6FD7DB00CA8B5D /* KSNavigationController.m in Sources */,
 				73E7DA7C1E7F778900371E33 /* UIScrollView+WHC_PullRefresh.m in Sources */,
+				73C3472F1E84E96600BBBDBE /* AutoFitLabelView.m in Sources */,
 				73C347201E824AE300BBBDBE /* VideoListMTLModel.m in Sources */,
 				73EB3F861E6FDEE400CA8B5D /* UIBarButtonItem+Badge.m in Sources */,
 				732BC8761E6FD17400B8B1BD /* MiYouProject.xcdatamodeld in Sources */,
@@ -1887,6 +1948,7 @@
 				73EB3ED21E6FD7DB00CA8B5D /* ZLBaseViewController.m in Sources */,
 				73E7DA5E1E7B6F0C00371E33 /* HuanCunFooterView.m in Sources */,
 				73EB3F921E6FDEE400CA8B5D /* HQRSA.m in Sources */,
+				73C3473F1E8519E200BBBDBE /* FilterListModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

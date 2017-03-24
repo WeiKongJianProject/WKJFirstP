@@ -30,6 +30,26 @@
     [self setZLCollectionView:self.collectionView];
 }
 
+- (void)startAFNetworkingWith:(int)keyId{
+        
+        [MBManager showLoadingInView:self.view];
+        __weak typeof(self) weakSelf = self;
+        
+        //http://api4.cn360du.com:88/index.php?m=api-ios&action=lists&cate=999
+        NSString * url = [NSString stringWithFormat:@"%@&action=lists&cate=%d",URL_Common_ios,keyId];
+        
+        [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
+            [MBManager hideAlert];
+            NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        } failure:^(NSError *error) {
+//            [self.tableview.mj_header endRefreshing];
+//            [self.tableview.mj_footer endRefreshing];
+            [MBManager hideAlert];
+            [MBManager showBriefAlert:@"数据加载失败"];
+        }];
+
+}
+
 - (void)settingSegmentView{
     self.sgControl01 = [[VOSegmentedControl alloc] initWithSegments:@[@{VOSegmentText: @"精选"},
                                                                                   @{VOSegmentText: @"爱情"},

@@ -92,10 +92,10 @@
             [weakSelf.tabBarController setSelectedIndex:1];
         }else if ([useString isEqualToString:@"3"]){
             [weakSelf.tabBarController setSelectedIndex:2];
-        }else if ([useString isEqualToString:@"4"]){
-            [weakSelf setActiveTabIndex:3];
         }else if ([useString isEqualToString:@"5"]){
             [weakSelf setActiveTabIndex:4];
+        }else if ([useString isEqualToString:@"6"]){
+            [weakSelf setActiveTabIndex:5];
         }
         
         
@@ -115,7 +115,7 @@
         url = [NSString stringWithFormat:@"%@&action=index&cate=999",URL_Common_ios];
     }
 
-    
+    NSLog(@"第一次请求的链接：%@",url);
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
         
         [MBManager hideAlert];
@@ -311,7 +311,7 @@
     }
     CateListMTLModel *itemModel = [self.itemsTitlesARR objectAtIndex:index];
     vCtrl.id = [itemModel.id intValue];
-    
+    vCtrl.name = itemModel.name;
     return vCtrl;
 
 }
@@ -396,7 +396,8 @@
             break;
         case 1:{
             ShaiXuanViewController * vc = [[ShaiXuanViewController alloc]init];
-            vc.title = @"列表";
+            vc.title = name;
+            vc.id = [key intValue];
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;

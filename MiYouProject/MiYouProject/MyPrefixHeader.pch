@@ -26,13 +26,9 @@
 #import <CustomIOSAlertView.h>
 #import "URLZLHeader.h"
 #import "AlertViewCustomZL.h"
-/*Release模式下  禁止NSLog*/
-#ifdef __OPTIMIZE__
-# define NSLog(...) {}
-#else
-# define NSLog(...) NSLog(__VA_ARGS__)
-#endif
+#import "UIImageView+ZLWebPsetImage.h"
+#import "UIButton+ZLWebPSetImage.h"
 
-#define ApplicationDelegate (AppDelegate *)[[UIApplication sharedApplication] delegate]
-#define ReachabilityChangedNotification @"ReachabilityChangedNotification"
+
+
 #endif /* MyPrefixHeader_pch */

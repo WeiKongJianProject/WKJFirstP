@@ -436,7 +436,9 @@ typedef NS_ENUM(NSInteger, PanDirection){
 }
 
 - (void)createTimer {
+    /*zl修改20170324start*/
     __weak typeof(self) weakSelf = self;
+    NSInteger * gaiZong = 3600 + arc4random()%400;
     self.timeObserve = [self.player addPeriodicTimeObserverForInterval:CMTimeMakeWithSeconds(1, 1) queue:nil usingBlock:^(CMTime time){
         AVPlayerItem *currentItem = weakSelf.playerItem;
         NSArray *loadedRanges = currentItem.seekableTimeRanges;
@@ -444,9 +446,24 @@ typedef NS_ENUM(NSInteger, PanDirection){
             NSInteger currentTime = (NSInteger)CMTimeGetSeconds([currentItem currentTime]);
             CGFloat totalTime     = (CGFloat)currentItem.duration.value / currentItem.duration.timescale;
             CGFloat value         = CMTimeGetSeconds([currentItem currentTime]) / totalTime;
-            [weakSelf.controlView zf_playerCurrentTime:currentTime totalTime:totalTime sliderValue:value];
+            
+            
+            
+            [weakSelf.controlView zf_playerCurrentTime:0 totalTime:gaiZong sliderValue:0.0];
         }
     }];
+    /*zl修改20170324end*/
+//    __weak typeof(self) weakSelf = self;
+//    self.timeObserve = [self.player addPeriodicTimeObserverForInterval:CMTimeMakeWithSeconds(1, 1) queue:nil usingBlock:^(CMTime time){
+//        AVPlayerItem *currentItem = weakSelf.playerItem;
+//        NSArray *loadedRanges = currentItem.seekableTimeRanges;
+//        if (loadedRanges.count > 0 && currentItem.duration.timescale != 0) {
+//            NSInteger currentTime = (NSInteger)CMTimeGetSeconds([currentItem currentTime]);
+//            CGFloat totalTime     = (CGFloat)currentItem.duration.value / currentItem.duration.timescale;
+//            CGFloat value         = CMTimeGetSeconds([currentItem currentTime]) / totalTime;
+//            [weakSelf.controlView zf_playerCurrentTime:currentTime totalTime:totalTime sliderValue:value];
+//        }
+//    }];
 }
 
 /**
@@ -1423,6 +1440,9 @@ typedef NS_ENUM(NSInteger, PanDirection){
 }
 
 - (void)zf_controlView:(UIView *)controlView progressSliderValueChanged:(UISlider *)slider {
+    /*zl修改20170324start*/
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"KUAIJINNOTIFICATION" object:nil];
+    /*zl修改20170324end*/
     // 拖动改变视频播放进度
     if (self.player.currentItem.status == AVPlayerItemStatusReadyToPlay) {
         self.isDragged = YES;

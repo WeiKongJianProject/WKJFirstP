@@ -199,13 +199,13 @@
             break;
         case 4:
         {
-            [self xw_postNotificationWithName:TIAOZHUAN_NOTICFICATION userInfo:@{@"index":@"4"}];
+            [self xw_postNotificationWithName:TIAOZHUAN_NOTICFICATION userInfo:@{@"index":@"5"}];
             [self.navigationController popViewControllerAnimated:YES];
         }
             break;
         case 5:
         {
-            [self xw_postNotificationWithName:TIAOZHUAN_NOTICFICATION userInfo:@{@"index":@"5"}];
+            [self xw_postNotificationWithName:TIAOZHUAN_NOTICFICATION userInfo:@{@"index":@"6"}];
             [self.navigationController popViewControllerAnimated:YES];
         }
             break;

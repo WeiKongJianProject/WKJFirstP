@@ -16,7 +16,7 @@
 #import "VideoListMTLModel.h"
 
 #import "ZLSecondAFNetworking.h"
-
+#import "ReMenView.h"
 
 @class FirstSubViewViewController;
 
@@ -40,7 +40,7 @@ static int _currentPage;
 @property (weak, nonatomic) id<FirstSubViewDelegate> delegate;
 
 @property (assign, nonatomic) int id;
-
+@property (assign, nonatomic) NSString * name;
 
 
 //@property (strong, nonatomic) NSMutableArray * bannerARR;

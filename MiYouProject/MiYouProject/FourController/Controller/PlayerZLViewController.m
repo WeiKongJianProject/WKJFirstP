@@ -22,6 +22,7 @@
 }
 
 @end
+static int _isKuaiJinAction = 0;
 
 @implementation PlayerZLViewController
 
@@ -30,7 +31,42 @@
     [self settingPlayer];
     [self settingTableView];
     [self.tiJiaoButton addTarget:self action:@selector(tiJiaoButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    __weak typeof(self) weakSelf = self;
+    
+    [self xw_addNotificationForName:@"KUAIJINNOTIFICATION" block:^(NSNotification * _Nonnull notification) {
+        NSLog(@"执行了快进按钮");
+        NSString * isVIP = [[NSUserDefaults standardUserDefaults] objectForKey:IS_MEMBER_VIP];
+        if ([isVIP isEqualToString:@"1"]) {
+            
+            
+        }else{
+            if ( _isKuaiJinAction == 0) {
+                [weakSelf alertViewShow];
+                _isKuaiJinAction++;
+            }
+        }
+
+        
+    }];
 }
+- (void)alertViewShow{
+    AlertViewCustomZL  * alert = [[AlertViewCustomZL alloc]init];
+    
+    alert.titleName = @"需要开通VIP";
+    alert.cancelBtnTitle = @"取消";
+    alert.okBtnTitle = @"支付";
+    [alert showCustomAlertView];
+    [alert cancelBlockAction:^(BOOL success) {
+        _isKuaiJinAction = 0;
+        [alert hideCustomeAlertView];
+    }];
+    [alert okButtonBlockAction:^(BOOL success) {
+        _isKuaiJinAction = 0;
+    }];
+    [self.view addSubview:alert];
+}
+
+
 - (void)tiJiaoButtonAction:(UIButton *)sender{
     [self.textField resignFirstResponder];
     self.textField.text = @"";

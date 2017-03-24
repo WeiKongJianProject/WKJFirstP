@@ -7,7 +7,10 @@
 //
 
 #import "ZLBaseViewController.h"
-
+#import "MSSAutoresizeLabelFlow.h"
+#import "ZLSecondAFNetworking.h"
+#import "SearchResultModel.h"
+#import "PlayerZLViewController.h"
 @interface SearchViewController : ZLBaseViewController<UISearchBarDelegate,UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
 
 
@@ -16,7 +19,9 @@
 @property (strong, nonatomic) UIView * headerView;
 @property (strong, nonatomic) UITableView * tableview;
 @property (strong, nonatomic) NSMutableArray * lishiARR;
-
+@property (strong, nonatomic) NSMutableArray * resultARR;
+@property(nonatomic,strong)MSSAutoresizeLabelFlow *secondView;
+@property (assign, nonatomic) BOOL isHaveSearch;
 
 
 @end

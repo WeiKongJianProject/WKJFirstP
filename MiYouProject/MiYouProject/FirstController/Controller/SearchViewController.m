@@ -17,12 +17,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
     self.lishiARR = [[NSMutableArray alloc]init];
+    self.resultARR = [[NSMutableArray alloc]init];
     [self readShuJuFromUserDefault];
     
     [self loadTopSearchView];
     [self registerForKeyboardNotifications];
     self.headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 60, SIZE_WIDTH, 40)];
+    self.headerView.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
     [self.view addSubview:self.headerView];
     UILabel * souLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 5, 150, 30)];
     souLabel.text = @"搜索历史";
@@ -33,11 +36,26 @@
     [deleteButton addTarget:self action:@selector(deleteButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.headerView addSubview:deleteButton];
     
-    self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 100, SIZE_WIDTH, SIZE_HEIGHT-100) style:UITableViewStylePlain];
-    self.tableview.delegate = self;
-    self.tableview.dataSource = self;
     
-    [self.view addSubview:self.tableview];
+    if (self.lishiARR.count > 0) {
+        __weak typeof(self) weakSelf = self;
+        self.secondView = [[MSSAutoresizeLabelFlow alloc]initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 50) titles:self.lishiARR selectedHandler:^(NSUInteger index, NSString *title) {
+            NSLog(@"%@",title);
+            [weakSelf startAFNetworkingWithsearchKey:title];
+        }];
+        [self.view addSubview:self.secondView];
+        self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 150, SIZE_WIDTH, SIZE_HEIGHT-150) style:UITableViewStylePlain];
+        self.tableview.delegate = self;
+        self.tableview.dataSource = self;
+        self.tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
+        [self.view addSubview:self.tableview];
+    }else{
+        self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 100, SIZE_WIDTH, SIZE_HEIGHT-100) style:UITableViewStylePlain];
+        self.tableview.delegate = self;
+        self.tableview.dataSource = self;
+        self.tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
+        [self.view addSubview:self.tableview];
+    }
 }
 - (void)readShuJuFromUserDefault{
 
@@ -48,12 +66,26 @@
 
 
 - (void)deleteButtonAction:(UIButton *)sender{
-    [self.lishiARR removeAllObjects];
-    [self.tableview reloadData];
+    
+    if (self.lishiARR.count > 0) {
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:SEARCH_KEY];
+        [self.lishiARR removeAllObjects];
+        [self.secondView reloadAllWithTitles:self.lishiARR];
+        self.secondView.hidden = YES;
+        
+        [self.tableview mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.headerView.mas_bottom);
+            make.left.with.right.equalTo(self.view);
+            make.bottom.equalTo(self.view);
+        }];
+        
+        [self.tableview reloadData];
+    }
+
 }
 #pragma mark tableView  代理方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.lishiARR.count;
+    return self.resultARR.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 40.0f;
@@ -65,8 +97,8 @@
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
-    
-    NSString * key = self.lishiARR[indexPath.row];
+    SearchResultModel * model = self.resultARR[indexPath.row];
+    NSString * key = model.name;
     
     cell.textLabel.text = key;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -75,8 +107,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
    
     
-    NSString  * key = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
-     NSLog(@"点击了++++++%@",key);
+    //NSString  * key = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+    
+    SearchResultModel * model = [self.resultARR objectAtIndex:indexPath.row];
+    
+    PlayerZLViewController * vc = [[PlayerZLViewController alloc]init];
+    vc.videoId = [model.id intValue];
+    vc.name = model.name;
+    
+    [self.navigationController pushViewController:vc animated:YES];
+     NSLog(@"点击了++++++%@",model.name);
 }
 //- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
 //    return YES;
@@ -107,9 +147,7 @@
         [weakSelf.navigationController popViewControllerAnimated:YES];
     }];
     [self.view addSubview:topView];
-    
-    
-    
+
     //self.searchBar.delegate = self;
     
     //添加边框和提示
@@ -192,14 +230,9 @@
 
     
 }
-
-
-
-
-
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-
+    
 }
 - (void)registerForKeyboardNotifications
 {
@@ -271,12 +304,42 @@
      
      */
     [userDefault setObject:self.lishiARR forKey:SEARCH_KEY];
+    
+    [self startAFNetworkingWithsearchKey:self.searchTextField.text];
+    
 }
 
+- (void)startAFNetworkingWithsearchKey:(NSString *)string{
+    [MBManager showLoadingInView:self.view];
+    __weak typeof(self) weakSelf = self;
+    NSString * url = [NSString stringWithFormat:@"%@&action=search&keyword=%@",URL_Common_ios,string];
+    NSLog(@"请求的链接为：%@",url);
+    //NSString * codeString =  [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString * codeString = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];//去掉特殊字符
+    NSLog(@"编码后的搜索请求链接：%@",codeString);
+    //[str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]//去掉特殊字符
+    [[ZLSecondAFNetworking sharedInstance] getWithURLString:codeString parameters:nil success:^(id responseObject) {
+        NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"搜索结果：%@",dic);
+        
+        weakSelf.resultARR = [MTLJSONAdapter modelsOfClass:[SearchResultModel class] fromJSONArray:[dic objectForKey:@"list"] error:nil];
+        if (zlArrayIsEmpty(self.resultARR)) {
+            [MBManager showBriefAlert:@"没有搜索到相关结果"];
+        }
+        else{
+            [weakSelf.tableview reloadData];
+        }
+        [MBManager hideAlert];
+        
+    } failure:^(NSError *error) {
+        [MBManager hideAlert];
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation
