@@ -242,7 +242,7 @@
     NSURL * url = [NSURL fileURLWithPath:filePath];
     //http://us.sinaimg.cn/003opPNzjx06YJT4qI4o05040100QgCe0k01.mp4
     NSURL * url2 = [NSURL URLWithString:@"http://v.cctv.com/flash/mp4video6/TMS/2011/01/05/cf752b1c12ce452b3040cab2f90bc265_h264818000nero_aac32-1.mp4"];
-    NSURL * url3 = [NSURL URLWithString:@"http://k.youku.com/player/getFlvPath/sid/049016735492712b4bf6d_00/st/mp4/fileid/030020010058CA3A9FE19E011BA6A96195199E-571A-CA81-4C2E-E9092D4AD1A1?k=9d916bfc044f8744282c368b&hd=1&myp=0&ts=6110&ypremium=1&ymovie=1&sign=237ff3b86fb1c0dba9bc8355426f9706&ypp=0&ctype=12&ev=1&token=0539&oip=1967274199&ep=ciadGkiLUc0F4Srdjz8bNSiwInFbXP4J9h%2bHgdJjALshQJvOmk%2fYseixR4pCF%2fhrAyR3Ge3wotXmY0lhYfVEqBkQrD%2bgOPrkjfKW5dhaxJkCEh1HBsymtVSeRjP4"];
+    NSURL * url3 = [NSURL URLWithString:@"http://v6.365yg.com/video/m/220cf27050a3be74e439b8d21ea0f6aabb81144cad000027b83f3eadc1/?Expires=1490538675&AWSAccessKeyId=qh0h9TdcEMoS2oPj7aKX&Signature=%2FLOKJy1fhwVVKtIuu0VyC2MLQoA%3D"];
     vc.url = url3;
     vc.name = @"鸡毛飞上天";
     
