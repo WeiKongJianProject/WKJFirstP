@@ -127,7 +127,7 @@
         NSDictionary * memberDic = [dic objectForKey:@"member"];
         NSArray * listARR = [dic objectForKey:@"list"];
         NSString * result = [dic objectForKey:@"result"];
-        NSLog(@"数据加载：%@++++++%@++++",result,dic);
+        //NSLog(@"数据加载：%@++++++%@++++",result,dic);
         if ([result isEqualToString:@"success"]) {
             NSArray * arr1 = [MTLJSONAdapter modelsOfClass:[CateListMTLModel class] fromJSONArray:cateListARR error:nil];
             //self.itemsTitlesARR = arr1;
@@ -404,8 +404,9 @@
         case 2:{
             PlayerZLViewController * vc = [[PlayerZLViewController alloc]init];
             vc.name = name;
-            NSURL * url = [NSURL URLWithString:key];
-            vc.url = url;
+            //NSURL * url = [NSURL URLWithString:key];
+            //vc.url = url;
+            vc.id = [key intValue];
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;

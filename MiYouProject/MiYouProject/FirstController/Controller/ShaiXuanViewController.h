@@ -29,4 +29,14 @@
 
 @property (assign, nonatomic) int id;
 
+@property (strong, nonatomic) NSMutableArray * firstConARR;
+@property (strong, nonatomic) NSMutableArray * secondConARR;
+@property (strong, nonatomic) NSMutableArray * thirdConARR;
+@property (strong, nonatomic) NSMutableArray * fourConARR;
+@property (strong, nonatomic) FilterListModel * filterClassModel;
+@property (strong, nonatomic) FilterListModel * filterYearModel;
+
+@property (strong, nonatomic) UIButton * allButton01;
+@property (strong, nonatomic) UIButton * allButton02;
+
 @end

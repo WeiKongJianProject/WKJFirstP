@@ -28,7 +28,17 @@ static int _isKuaiJinAction = 0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self settingPlayer];
+    
+    if (self.isBenDi == YES) {
+        //本地视频
+        [self settingPlayer];
+    }else{
+    //网络视频
+       NSString * userMID = [[NSUserDefaults standardUserDefaults] objectForKey:IS_MEMBER_VIP];
+        [self startAFNetworkingWithID:self.id withUserMid:[userMID intValue]];
+    }
+    
+    
     [self settingTableView];
     [self.tiJiaoButton addTarget:self action:@selector(tiJiaoButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     __weak typeof(self) weakSelf = self;
@@ -49,6 +59,28 @@ static int _isKuaiJinAction = 0;
         
     }];
 }
+
+- (void)startAFNetworkingWithID:(int)keyID withUserMid:(int)mID{
+    [MBManager showLoadingInView:self.view];
+    __weak typeof(self) weakSelf = self;
+    NSString * urlstr = [NSString stringWithFormat:@"%@&action=play&id=%d&mid=%d",URL_Common_ios,keyID,mID];
+    NSLog(@"播放页请求的链接为：%@",urlstr);
+    [[ZLSecondAFNetworking sharedInstance]getWithURLString:urlstr parameters:nil success:^(id responseObject) {
+        NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        //[MTLJSONAdapter modelOfClass:[PlayVideoMTLModel class] fromJSONDictionary:dic error:nil];
+        weakSelf.playModel = (PlayVideoMTLModel *)[MTLJSONAdapter modelOfClass:[PlayVideoMTLModel class] fromJSONDictionary:dic error:nil];
+        //NSString * str = [dic objectForKey:@"actor"];
+        //NSLog(@"播放页请求的结果为：%@++++全部结果为：%@",weakSelf.playModel.pic,dic);
+        [weakSelf settingPlayer];//加载播放器
+        [MBManager hideAlert];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        [MBManager hideAlert];
+        [MBManager showBriefAlert:@"请求失败"];
+    }];
+
+}
+
 - (void)alertViewShow{
     AlertViewCustomZL  * alert = [[AlertViewCustomZL alloc]init];
     
@@ -107,8 +139,15 @@ static int _isKuaiJinAction = 0;
     ZFPlayerModel *playerModel = [[ZFPlayerModel alloc] init];
     // playerView的父视图
     playerModel.fatherView = self.backGroundView;
-    playerModel.videoURL = self.url;
-    playerModel.title = self.name;
+    if (self.isBenDi == YES) {
+        playerModel.videoURL = self.url;
+        playerModel.title = self.name;
+    }
+    else{
+        playerModel.videoURL = [NSURL URLWithString:self.playModel.video];
+        playerModel.title = self.playModel.name;
+    }
+
      //从xx秒开始播放
     //playerModel.seekTime = 10;
     //占位图
@@ -170,6 +209,13 @@ static int _isKuaiJinAction = 0;
                 cell0 = (PlayVideoTableViewCell *)[[NSBundle mainBundle] loadNibNamed:@"PlayVideoTableViewCell" owner:self options:nil][0];
                 //[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
             }
+            [cell0.smallImageView sd_setImageWithURL:[NSURL URLWithString:self.playModel.pic] placeholderImage:PLACEHOLDER_IMAGE];
+            cell0.videoName.text = self.playModel.name;
+            cell0.typeLabel.text = self.playModel.type;
+            cell0.zhuYanLabel.text = self.playModel.actor;
+            cell0.jianJieLabel.text = self.playModel.content;
+            
+            
             
             [cell0.moreButton addTarget:self action:@selector(moreButtonAction:) forControlEvents:UIControlEventTouchUpInside];
             

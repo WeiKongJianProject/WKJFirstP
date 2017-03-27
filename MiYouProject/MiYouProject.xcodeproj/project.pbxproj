@@ -49,6 +49,7 @@
 		736557361E728F5800284C11 /* ReMenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736557351E728F5800284C11 /* ReMenView.xib */; };
 		7365573A1E729C4B00284C11 /* DianYingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */; };
 		7365573B1E729C4B00284C11 /* DianYingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736557391E729C4B00284C11 /* DianYingCollectionViewCell.xib */; };
+		737B24BE1E88E9A9001421FF /* PlayVideoMTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 737B24BD1E88E9A9001421FF /* PlayVideoMTLModel.m */; };
 		73C347091E80FCF800BBBDBE /* MBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C347081E80FCF700BBBDBE /* MBManager.m */; };
 		73C3470C1E8125A800BBBDBE /* UIAlertViewZL.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C3470B1E8125A800BBBDBE /* UIAlertViewZL.m */; };
 		73C3470E1E8125B900BBBDBE /* UIAlertVIewZL.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73C3470D1E8125B900BBBDBE /* UIAlertVIewZL.xib */; };
@@ -287,6 +288,8 @@
 		736557371E729C4B00284C11 /* DianYingCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianYingCollectionViewCell.h; sourceTree = "<group>"; };
 		736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianYingCollectionViewCell.m; sourceTree = "<group>"; };
 		736557391E729C4B00284C11 /* DianYingCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DianYingCollectionViewCell.xib; sourceTree = "<group>"; };
+		737B24BC1E88E9A9001421FF /* PlayVideoMTLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayVideoMTLModel.h; path = MiYouProject/FirstController/Model/PlayVideoMTLModel.h; sourceTree = SOURCE_ROOT; };
+		737B24BD1E88E9A9001421FF /* PlayVideoMTLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayVideoMTLModel.m; path = MiYouProject/FirstController/Model/PlayVideoMTLModel.m; sourceTree = SOURCE_ROOT; };
 		73C347071E80FCF700BBBDBE /* MBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBManager.h; sourceTree = "<group>"; };
 		73C347081E80FCF700BBBDBE /* MBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBManager.m; sourceTree = "<group>"; };
 		73C3470A1E8125A800BBBDBE /* UIAlertViewZL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertViewZL.h; sourceTree = "<group>"; };
@@ -932,6 +935,8 @@
 				73E7DA5A1E7A8C5D00371E33 /* ZLButtons.m */,
 				73E7DA651E7BAFF400371E33 /* VideoModelZL.h */,
 				73E7DA661E7BAFF400371E33 /* VideoModelZL.m */,
+				737B24BC1E88E9A9001421FF /* PlayVideoMTLModel.h */,
+				737B24BD1E88E9A9001421FF /* PlayVideoMTLModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1849,6 +1854,7 @@
 				73EB3FC61E6FDEE400CA8B5D /* GCDGroup.m in Sources */,
 				7365573A1E729C4B00284C11 /* DianYingCollectionViewCell.m in Sources */,
 				73C347091E80FCF800BBBDBE /* MBManager.m in Sources */,
+				737B24BE1E88E9A9001421FF /* PlayVideoMTLModel.m in Sources */,
 				73EB430D1E713D5A00CA8B5D /* SearchViewController.m in Sources */,
 				73EB3FCE1E6FDEE400CA8B5D /* UIView+MJAlertView.m in Sources */,
 				73EB3F931E6FDEE400CA8B5D /* KZPhotoManager.m in Sources */,

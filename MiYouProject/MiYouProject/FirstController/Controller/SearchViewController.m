@@ -112,7 +112,7 @@
     SearchResultModel * model = [self.resultARR objectAtIndex:indexPath.row];
     
     PlayerZLViewController * vc = [[PlayerZLViewController alloc]init];
-    vc.videoId = [model.id intValue];
+    vc.id = [model.id intValue];
     vc.name = model.name;
     
     [self.navigationController pushViewController:vc animated:YES];

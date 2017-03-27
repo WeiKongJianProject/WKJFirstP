@@ -12,6 +12,8 @@
 #import "WHCNetWorkKit.h"
 #import "UIView+WHC_Toast.h"
 #import "PlayVideoTableViewCell.h"
+#import "ZLSecondAFNetworking.h"
+#import "PlayVideoMTLModel.h"
 
 @interface PlayerZLViewController : UIViewController<ZFPlayerDelegate,ZFPlayerControlViewDelagate,UITableViewDelegate,UITableViewDataSource>
 
@@ -29,5 +31,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *tiJiaoButton;
 
+@property (assign, nonatomic) int id;//影片ID
+@property (assign, nonatomic) int mid;//用户信息
+@property (strong, nonatomic) PlayVideoMTLModel * playModel;
 
 @end

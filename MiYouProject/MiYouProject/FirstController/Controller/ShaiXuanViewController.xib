@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Bp-5f-75N">
-                    <rect key="frame" x="0.0" y="60" width="375" height="145"/>
+                    <rect key="frame" x="0.0" y="60" width="375" height="135"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eeS-Qa-Tbg">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="38"/>
@@ -36,12 +36,12 @@
                     <constraints>
                         <constraint firstItem="eeS-Qa-Tbg" firstAttribute="top" secondItem="1Bp-5f-75N" secondAttribute="top" id="KHM-fL-nik"/>
                         <constraint firstItem="eeS-Qa-Tbg" firstAttribute="leading" secondItem="1Bp-5f-75N" secondAttribute="leading" id="QLA-sJ-VqQ"/>
-                        <constraint firstAttribute="height" constant="145" id="cMm-sZ-MGM"/>
+                        <constraint firstAttribute="height" constant="135" id="cMm-sZ-MGM"/>
                         <constraint firstAttribute="trailing" secondItem="eeS-Qa-Tbg" secondAttribute="trailing" id="nlN-fc-YN7"/>
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vWk-0E-Pqr">
-                    <rect key="frame" x="0.0" y="210" width="375" height="457"/>
+                    <rect key="frame" x="0.0" y="215" width="375" height="452"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UI5-Uh-BcV">
                         <size key="itemSize" width="50" height="50"/>
@@ -59,7 +59,7 @@
                 <constraint firstItem="1Bp-5f-75N" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kg9-fd-Jjm"/>
                 <constraint firstAttribute="trailing" secondItem="vWk-0E-Pqr" secondAttribute="trailing" id="pJN-lk-fgE"/>
                 <constraint firstItem="vWk-0E-Pqr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="w8P-xP-MC6"/>
-                <constraint firstItem="vWk-0E-Pqr" firstAttribute="top" secondItem="1Bp-5f-75N" secondAttribute="bottom" constant="5" id="y0d-iN-sHe"/>
+                <constraint firstItem="vWk-0E-Pqr" firstAttribute="top" secondItem="1Bp-5f-75N" secondAttribute="bottom" constant="20" id="y0d-iN-sHe"/>
             </constraints>
         </view>
     </objects>

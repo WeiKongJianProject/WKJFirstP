@@ -9,17 +9,45 @@
 #import <UIKit/UIKit.h>
 #import "ThirdViewController.h"
 #import <AFNetworking.h>
-
 //#import "UIView+WHC_Toast.h"
 //#import "UIView+WHC_Loading.h"
 //#import "UIView+WHC_ViewProperty.h"
 //#import "UIView+HeinQi.h"
 //#import "UIView+NFLayout.h"
 #import "UIView+BlankPage.h"
-
-
 #import "AlertViewCustomZL.h"
 
-@interface SecondViewController : ZLBaseViewController<CustomIOSAlertViewDelegate>
+#import "TestMTLModel.h"
+#import "ZLAFNetworking.h"
+#import "ZLSecondAFNetworking.h"
+#import <FMDB.h>
+#import "FMDB+ZL.h"
+#import "ViewPagerController.h"
+#import "ZLLabelCustom.h"
+
+#import "SearchViewController.h"
+#import "DianShiQiangViewController.h"
+#import "FirstSubViewViewController.h"
+
+#import "DianYingSubViewController.h"
+#import "ShaiXuanViewController.h"
+
+#import "HOmeBannerMTLModel.h"
+#import "CateListMTLModel.h"
+#import "MemberMTLModel.h"
+#import "VideoListMTLModel.h"
+
+
+
+@interface SecondViewController : ViewPagerController<CustomIOSAlertViewDelegate,ViewPagerDataSource,ViewPagerDelegate,FirstSubViewDelegate>
+
+@property (strong, nonatomic) NSMutableArray * itemsTitlesARR;
+@property (strong, nonatomic) NSMutableArray * bannerARR;
+@property (strong, nonatomic) NSMutableArray * listARR;
+
+@property (strong, nonatomic) MemberMTLModel * memberInfo;
+
+@property (strong, nonatomic) NSMutableArray* labelARR;
+@property (strong, nonatomic) ZLLabelCustom * currentLabel;
 
 @end
