@@ -75,7 +75,7 @@
     //    [self createFMDB];
     
     
-    [self createSearchButton];
+    //[self createSearchButton];
     
     __weak typeof(self) weakSelf = self;
     [self xw_addNotificationForName:TIAOZHUAN_NOTICFICATION block:^(NSNotification * _Nonnull notification) {
