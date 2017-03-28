@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YiJianViewController">
             <connections>
-                <outlet property="textVIew" destination="rDP-8Z-zdM" id="Tbx-92-Kxr"/>
+                <outlet property="textVIew" destination="WDy-ic-h1s" id="DSO-NB-nJg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,15 +20,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="输入您的意见" translatesAutoresizingMaskIntoConstraints="NO" id="rDP-8Z-zdM">
-                    <rect key="frame" x="20" y="80" width="335" height="128"/>
-                    <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="128" id="WwD-YJ-ge5"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCP-u1-dft">
                     <rect key="frame" x="20" y="228" width="335" height="30"/>
                     <color key="backgroundColor" red="0.99607843139999996" green="0.74901960779999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -42,15 +33,24 @@
                         <action selector="tiJiaoButton:" destination="-1" eventType="touchUpInside" id="yzv-wR-c3R"/>
                     </connections>
                 </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WDy-ic-h1s">
+                    <rect key="frame" x="20" y="80" width="335" height="128"/>
+                    <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="4MV-Ip-smm"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="wCP-u1-dft" secondAttribute="trailing" constant="20" id="5Sg-sx-At1"/>
                 <constraint firstItem="wCP-u1-dft" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="EtH-LG-hHk"/>
-                <constraint firstItem="wCP-u1-dft" firstAttribute="top" secondItem="rDP-8Z-zdM" secondAttribute="bottom" constant="20" id="IFG-iB-d9Q"/>
-                <constraint firstAttribute="trailing" secondItem="rDP-8Z-zdM" secondAttribute="trailing" constant="20" id="PvO-cV-LxA"/>
-                <constraint firstItem="rDP-8Z-zdM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="kiV-AQ-uzp"/>
-                <constraint firstItem="rDP-8Z-zdM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="x4F-0x-3ew"/>
+                <constraint firstItem="WDy-ic-h1s" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="J4o-z5-YpF"/>
+                <constraint firstItem="WDy-ic-h1s" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="Yzb-uc-u9p"/>
+                <constraint firstItem="wCP-u1-dft" firstAttribute="top" secondItem="WDy-ic-h1s" secondAttribute="bottom" constant="20" id="iVS-Wd-ddG"/>
+                <constraint firstAttribute="trailing" secondItem="WDy-ic-h1s" secondAttribute="trailing" constant="20" id="ybd-vD-1z7"/>
             </constraints>
         </view>
     </objects>

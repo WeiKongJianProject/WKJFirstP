@@ -27,12 +27,6 @@
     [self.womanButton addTarget:self action:@selector(womanButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.PhotoButton addTarget:self action:@selector(photoButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.videoButton addTarget:self action:@selector(videoButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-}
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    self.title = @"认证";
-    
-    
     NSString * isRenZhengString = [[NSUserDefaults standardUserDefaults] objectForKey:IS_RENZHENG_TIJIAO];
     if ([isRenZhengString isEqualToString:@"1"]) {
         [MBManager showPermanentAlert:@"提交成功，审核中..."];
@@ -43,7 +37,10 @@
         [rightBar setTintColor:[UIColor whiteColor]];
         self.navigationItem.rightBarButtonItem = rightBar;
     }
-    
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.title = @"认证";
 }
 
 - (void)manButtonAction:(UIButton *)sender{

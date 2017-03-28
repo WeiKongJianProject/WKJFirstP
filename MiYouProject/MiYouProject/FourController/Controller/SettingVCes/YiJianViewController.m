@@ -17,10 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"意见反馈";
+//    self.textVIew.textContainer.lineFragmentPadding = 0;
+//    self.textVIew.textContainerInset = UIEdgeInsetsZero;
     // Do any additional setup after loading the view from its nib.
 }
 - (IBAction)tiJiaoButton:(id)sender {
     self.textVIew.text = @"";
+    [self.textVIew resignFirstResponder];
     [MBManager showBriefAlert:@"提交成功"];
 }
 
