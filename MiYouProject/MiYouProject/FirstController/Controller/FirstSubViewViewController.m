@@ -194,7 +194,7 @@
     if ([bannerVIP isEqualToString:@"1"]) {
         if ([isVIP isEqualToString:@"1"]) {
             if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:)]) {
-                NSString * keyID = [NSString stringWithFormat:@"%d",[bannerModel.id intValue]];
+                NSString * keyID = [NSString stringWithFormat:@"%@",bannerModel.id];
                 [self.delegate firstSubVC:self withType:2 withName:bannerModel.name withKey:keyID];
             }
         }
@@ -215,7 +215,7 @@
     }else{
     
         if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:)]) {
-            NSString * keyID = [NSString stringWithFormat:@"%d",[bannerModel.id intValue]];
+            NSString * keyID = [NSString stringWithFormat:@"%@",bannerModel.id];
             [self.delegate firstSubVC:self withType:2 withName:bannerModel.name withKey:keyID];
         }
     }
@@ -368,7 +368,7 @@
     if ([modelVIP isEqualToString:@"1"]) {
         if ([isMemberVIP isEqualToString:@"1"]) {
             if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:)]) {
-                NSString * keyID = [NSString stringWithFormat:@"%d",[model.id intValue]];
+                NSString * keyID = [NSString stringWithFormat:@"%@",model.id];
                 [self.delegate firstSubVC:self withType:2 withName:model.name withKey:keyID];
             }
         }
@@ -387,7 +387,7 @@
         }
     }else{
         if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:)]) {
-            NSString * keyID = [NSString stringWithFormat:@"%d",[model.id intValue]];
+            NSString * keyID = [NSString stringWithFormat:@"%@",model.id];
             [self.delegate firstSubVC:self withType:2 withName:model.name withKey:keyID];
         }
     

@@ -8,6 +8,9 @@
 
 #import "ZLBaseViewController.h"
 #import "PersonTableViewCell.h"
+#import "KZPhotoManager.h"
+
 @interface PersonInfoViewController : ZLBaseViewController<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) UITableView * tableView;
+@property (strong, nonatomic) UIImageView * headImageView;
 @end

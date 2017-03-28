@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NbE-Q0-9CX">
-                        <rect key="frame" x="0.0" y="5" width="320" height="33.5"/>
+                        <rect key="frame" x="0.0" y="5" width="320" height="34"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wodequanxian" translatesAutoresizingMaskIntoConstraints="NO" id="L2t-Nc-ldf">
                                 <rect key="frame" x="12" y="2" width="24" height="30"/>
@@ -98,7 +98,7 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" red="0.94117647058823528" green="0.93725490196078431" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="NbE-Q0-9CX" secondAttribute="trailing" id="FUR-Zt-FOH"/>
                     <constraint firstItem="NbE-Q0-9CX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="d1m-gC-YNg"/>

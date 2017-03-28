@@ -10,7 +10,7 @@
 
 @interface HOmeBannerMTLModel : MTLModel<MTLJSONSerializing>
 
-@property (strong, nonatomic) NSNumber * id;
+@property (strong, nonatomic) NSString * id;
 @property (strong, nonatomic) NSString * name;
 @property (strong, nonatomic) NSString * subname;
 @property (strong, nonatomic) NSString * pic;

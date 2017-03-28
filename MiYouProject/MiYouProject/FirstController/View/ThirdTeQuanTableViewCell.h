@@ -20,4 +20,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *souHuButton;
 @property (strong, nonatomic) IBOutlet UIButton *youKuButton;
 
+@property (strong, nonatomic) NSMutableArray *VIPButtonARR;
+
 @end

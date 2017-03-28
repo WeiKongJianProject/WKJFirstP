@@ -14,7 +14,9 @@
 @property (strong, nonatomic) NSString * name;
 @property (strong, nonatomic) NSString * nickname;
 @property (strong, nonatomic) NSString * password;
-@property (strong, nonatomic) NSNumber * group;
+@property (strong, nonatomic) NSString * loginip;
 @property (strong, nonatomic) NSString * sex;
+@property (strong, nonatomic) NSNumber * vip;
+
 
 @end

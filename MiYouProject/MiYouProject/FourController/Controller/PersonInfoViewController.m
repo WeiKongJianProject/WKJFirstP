@@ -77,7 +77,7 @@
             cell.touXiangImageView.layer.masksToBounds = YES;
             
             [cell.touXiangImageView sd_setImageWithURL:[NSURL URLWithString:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489550112931&di=aaf8556b5dc99730709ee5341c1178ce&imgtype=0&src=http%3A%2F%2Fstar.yule.com.cn%2Fuploadfile%2F2014%2Fcng%2Fyintao%2Fyule0117.jpg"]];
-            
+            self.headImageView = cell.touXiangImageView;
         }
             break;
         case 1:
@@ -109,10 +109,18 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"点击了cell");
-    
+    [KZPhotoManager getImage:^(UIImage *image) {
+        [self updataImage:image];
+    } showIn:self AndActionTitle:@"选择照片"];
 }
 
 #pragma end mark
+- (void)updataImage:(UIImage *) image{
+    [self.headImageView setImage:image];
+    //[self.tableView reloadData];
+    [self xw_postNotificationWithName:HEAD_IMAGEVIEW_UPDATA_NOTIFICATION userInfo:@{@"head":image}];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UIControl *secondButtonCOntrol;
 
 @property (strong, nonatomic) IBOutlet UIControl *thirdButtonControl;
+
 @property (strong, nonatomic) IBOutlet UIImageView *xiaoXiImageVIew;
 
 @end

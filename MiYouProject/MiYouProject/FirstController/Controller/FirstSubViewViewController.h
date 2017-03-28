@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 //#import "ZLPageControl.h"
-#import <SDWebImage/UIImageView+WebCache.h>
-#import <SDWebImage/UIButton+WebCache.h>
+
 #import "DianYingCollectionViewCell.h"
 
 #import "HOmeBannerMTLModel.h"

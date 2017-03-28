@@ -9,7 +9,7 @@
 #import <Mantle/Mantle.h>
 
 @interface CateListMTLModel : MTLModel<MTLJSONSerializing>
-@property (strong, nonatomic) NSNumber * id;
+@property (strong, nonatomic) NSString * id;
 @property (strong, nonatomic) NSString * name;
 
 @end

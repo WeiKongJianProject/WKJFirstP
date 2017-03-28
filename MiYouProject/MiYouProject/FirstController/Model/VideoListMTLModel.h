@@ -10,10 +10,10 @@
 
 @interface VideoListMTLModel : MTLModel<MTLJSONSerializing>
 
-@property (strong, nonatomic) NSNumber * id;
+@property (strong, nonatomic) NSString * id;
 @property (strong, nonatomic) NSString * name;
 @property (strong, nonatomic) NSNumber * duration;
 @property (strong, nonatomic) NSString * pic;
 @property (strong, nonatomic) NSNumber * vip;
-
+@property (strong, nonatomic) NSString * subname;
 @end

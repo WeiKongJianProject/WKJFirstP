@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MianZeViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F8x-Md-E6z">
+                    <rect key="frame" x="132.5" y="120" width="110" height="110"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logozl" translatesAutoresizingMaskIntoConstraints="NO" id="6bk-BF-Smu">
+                            <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="6bk-BF-Smu" firstAttribute="top" secondItem="F8x-Md-E6z" secondAttribute="top" id="3cO-aR-Ba3"/>
+                        <constraint firstItem="6bk-BF-Smu" firstAttribute="leading" secondItem="F8x-Md-E6z" secondAttribute="leading" id="7VF-Z8-O7G"/>
+                        <constraint firstAttribute="height" constant="110" id="B9a-nl-jak"/>
+                        <constraint firstAttribute="bottom" secondItem="6bk-BF-Smu" secondAttribute="bottom" id="gRM-8B-zAV"/>
+                        <constraint firstAttribute="trailing" secondItem="6bk-BF-Smu" secondAttribute="trailing" id="pB7-qR-OPB"/>
+                        <constraint firstAttribute="width" constant="110" id="xJ5-Hr-ntc"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="迷优" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9T7-Ze-IPa">
+                    <rect key="frame" x="171.5" y="245" width="31" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="V1.0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msO-52-cqp">
+                    <rect key="frame" x="169" y="263" width="37" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="如有任何问题请联系我们  客服电话：400-0793-033   咨询时间：08:30-22:00   Copyright©2017" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9E-Es-vJF">
+                    <rect key="frame" x="103.5" y="584.5" width="169.5" height="62.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="F8x-Md-E6z" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4o8-8X-4gm"/>
+                <constraint firstItem="F8x-Md-E6z" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="120" id="Cdb-P7-TGs"/>
+                <constraint firstItem="msO-52-cqp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Exh-sJ-NdU"/>
+                <constraint firstItem="9T7-Ze-IPa" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="GsV-4E-Qdv"/>
+                <constraint firstItem="msO-52-cqp" firstAttribute="top" secondItem="9T7-Ze-IPa" secondAttribute="bottom" id="MQg-td-YYT"/>
+                <constraint firstAttribute="bottom" secondItem="Y9E-Es-vJF" secondAttribute="bottom" constant="20" id="mWj-mr-l3l"/>
+                <constraint firstItem="9T7-Ze-IPa" firstAttribute="top" secondItem="F8x-Md-E6z" secondAttribute="bottom" constant="15" id="qIB-26-zAJ"/>
+                <constraint firstItem="Y9E-Es-vJF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vgQ-Md-sAo"/>
+            </constraints>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="logozl" width="200" height="200"/>
+    </resources>
+</document>

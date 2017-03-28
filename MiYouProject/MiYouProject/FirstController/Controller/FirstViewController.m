@@ -114,7 +114,6 @@
     else{
         url = [NSString stringWithFormat:@"%@&action=index&cate=999",URL_Common_ios];
     }
-
     NSLog(@"第一次请求的链接：%@",url);
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
         

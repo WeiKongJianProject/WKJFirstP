@@ -13,6 +13,13 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    [self.VIPButtonARR addObjectsFromArray:@[self.youKuButton,self.souHuButton,self.tuDouButton,self.mangGuoButton,self.leShiButton,self.aiQiYiButton]];
+}
+- (NSMutableArray *)VIPButtonARR{
+    if (!_VIPButtonARR) {
+        _VIPButtonARR = [[NSMutableArray alloc]init];
+    }
+    return _VIPButtonARR;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

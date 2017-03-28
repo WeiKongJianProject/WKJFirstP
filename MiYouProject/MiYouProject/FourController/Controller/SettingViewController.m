@@ -48,7 +48,7 @@
             break;
         case 1:
             [cell.leftImageViews setImage:[UIImage imageNamed:@"mianzeshengming"]];
-            cell.nameLabel.text = @"免费声明";
+            cell.nameLabel.text = @"免责声明";
             break;
         case 2:
             [cell.leftImageViews setImage:[UIImage imageNamed:@"guanyuwomeng"]];
@@ -70,7 +70,35 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"点击了cell");
+    switch (indexPath.row) {
+        case 0:
+        {
+            RenZhengViewController * vc = [[RenZhengViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case 1:
+        {
+            AboutUSViewController * vc = [[AboutUSViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case 2:{
+            MianZeViewController * vc = [[MianZeViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            
+            break;
+        case 3:{
+            YiJianViewController * vc = [[YiJianViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
 
+            
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma end mark

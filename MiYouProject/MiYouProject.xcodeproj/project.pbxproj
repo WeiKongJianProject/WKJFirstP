@@ -50,6 +50,18 @@
 		7365573A1E729C4B00284C11 /* DianYingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */; };
 		7365573B1E729C4B00284C11 /* DianYingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736557391E729C4B00284C11 /* DianYingCollectionViewCell.xib */; };
 		737B24BE1E88E9A9001421FF /* PlayVideoMTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 737B24BD1E88E9A9001421FF /* PlayVideoMTLModel.m */; };
+		73A3B5FB1E89F7A900407957 /* UserInfoMTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3B5FA1E89F7A900407957 /* UserInfoMTLModel.m */; };
+		73A3B5FE1E89FA0E00407957 /* UserMessageMTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3B5FD1E89FA0E00407957 /* UserMessageMTLModel.m */; };
+		73A3B6031E8A2D8400407957 /* RenZhengViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3B6011E8A2D8400407957 /* RenZhengViewController.m */; };
+		73A3B6041E8A2D8400407957 /* RenZhengViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73A3B6021E8A2D8400407957 /* RenZhengViewController.xib */; };
+		73A3B6061E8A789F00407957 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73A3B6051E8A789F00407957 /* CoreMedia.framework */; };
+		73A3B6081E8A7B5600407957 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73A3B6071E8A7B5600407957 /* AVKit.framework */; };
+		73A3B60C1E8A808B00407957 /* MianZeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3B60A1E8A808B00407957 /* MianZeViewController.m */; };
+		73A3B60D1E8A808B00407957 /* MianZeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73A3B60B1E8A808B00407957 /* MianZeViewController.xib */; };
+		73A3B6111E8A857200407957 /* AboutUSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3B60F1E8A857200407957 /* AboutUSViewController.m */; };
+		73A3B6121E8A857200407957 /* AboutUSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73A3B6101E8A857200407957 /* AboutUSViewController.xib */; };
+		73A3B6161E8A86A600407957 /* YiJianViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3B6141E8A86A600407957 /* YiJianViewController.m */; };
+		73A3B6171E8A86A600407957 /* YiJianViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73A3B6151E8A86A600407957 /* YiJianViewController.xib */; };
 		73C347091E80FCF800BBBDBE /* MBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C347081E80FCF700BBBDBE /* MBManager.m */; };
 		73C3470C1E8125A800BBBDBE /* UIAlertViewZL.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C3470B1E8125A800BBBDBE /* UIAlertViewZL.m */; };
 		73C3470E1E8125B900BBBDBE /* UIAlertVIewZL.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73C3470D1E8125B900BBBDBE /* UIAlertVIewZL.xib */; };
@@ -290,6 +302,24 @@
 		736557391E729C4B00284C11 /* DianYingCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DianYingCollectionViewCell.xib; sourceTree = "<group>"; };
 		737B24BC1E88E9A9001421FF /* PlayVideoMTLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayVideoMTLModel.h; path = MiYouProject/FirstController/Model/PlayVideoMTLModel.h; sourceTree = SOURCE_ROOT; };
 		737B24BD1E88E9A9001421FF /* PlayVideoMTLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayVideoMTLModel.m; path = MiYouProject/FirstController/Model/PlayVideoMTLModel.m; sourceTree = SOURCE_ROOT; };
+		73A3B5F91E89F7A900407957 /* UserInfoMTLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoMTLModel.h; sourceTree = "<group>"; };
+		73A3B5FA1E89F7A900407957 /* UserInfoMTLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoMTLModel.m; sourceTree = "<group>"; };
+		73A3B5FC1E89FA0E00407957 /* UserMessageMTLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserMessageMTLModel.h; sourceTree = "<group>"; };
+		73A3B5FD1E89FA0E00407957 /* UserMessageMTLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserMessageMTLModel.m; sourceTree = "<group>"; };
+		73A3B6001E8A2D8400407957 /* RenZhengViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenZhengViewController.h; sourceTree = "<group>"; };
+		73A3B6011E8A2D8400407957 /* RenZhengViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenZhengViewController.m; sourceTree = "<group>"; };
+		73A3B6021E8A2D8400407957 /* RenZhengViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RenZhengViewController.xib; sourceTree = "<group>"; };
+		73A3B6051E8A789F00407957 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		73A3B6071E8A7B5600407957 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		73A3B6091E8A808B00407957 /* MianZeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MianZeViewController.h; sourceTree = "<group>"; };
+		73A3B60A1E8A808B00407957 /* MianZeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MianZeViewController.m; sourceTree = "<group>"; };
+		73A3B60B1E8A808B00407957 /* MianZeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MianZeViewController.xib; sourceTree = "<group>"; };
+		73A3B60E1E8A857200407957 /* AboutUSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUSViewController.h; sourceTree = "<group>"; };
+		73A3B60F1E8A857200407957 /* AboutUSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUSViewController.m; sourceTree = "<group>"; };
+		73A3B6101E8A857200407957 /* AboutUSViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutUSViewController.xib; sourceTree = "<group>"; };
+		73A3B6131E8A86A600407957 /* YiJianViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YiJianViewController.h; sourceTree = "<group>"; };
+		73A3B6141E8A86A600407957 /* YiJianViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YiJianViewController.m; sourceTree = "<group>"; };
+		73A3B6151E8A86A600407957 /* YiJianViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YiJianViewController.xib; sourceTree = "<group>"; };
 		73C347071E80FCF700BBBDBE /* MBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBManager.h; sourceTree = "<group>"; };
 		73C347081E80FCF700BBBDBE /* MBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBManager.m; sourceTree = "<group>"; };
 		73C3470A1E8125A800BBBDBE /* UIAlertViewZL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertViewZL.h; sourceTree = "<group>"; };
@@ -559,6 +589,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73A3B6081E8A7B5600407957 /* AVKit.framework in Frameworks */,
+				73A3B6061E8A789F00407957 /* CoreMedia.framework in Frameworks */,
 				73E7DA4E1E7A6C3A00371E33 /* Foundation.framework in Frameworks */,
 				73E7DA4C1E7A6C3000371E33 /* AVFoundation.framework in Frameworks */,
 				73E7DA4A1E7A6C2700371E33 /* MobileCoreServices.framework in Frameworks */,
@@ -601,6 +633,8 @@
 		1D3354C620478839F6FED82A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				73A3B6071E8A7B5600407957 /* AVKit.framework */,
+				73A3B6051E8A789F00407957 /* CoreMedia.framework */,
 				73E7DA4D1E7A6C3A00371E33 /* Foundation.framework */,
 				73E7DA4B1E7A6C3000371E33 /* AVFoundation.framework */,
 				73E7DA491E7A6C2700371E33 /* MobileCoreServices.framework */,
@@ -697,6 +731,43 @@
 				732BC8921E6FD17500B8B1BD /* Info.plist */,
 			);
 			path = MiYouProjectUITests;
+			sourceTree = "<group>";
+		};
+		73A3B5F71E89F78C00407957 /* Model02 */ = {
+			isa = PBXGroup;
+			children = (
+				73A3B5F91E89F7A900407957 /* UserInfoMTLModel.h */,
+				73A3B5FA1E89F7A900407957 /* UserInfoMTLModel.m */,
+				73A3B5FC1E89FA0E00407957 /* UserMessageMTLModel.h */,
+				73A3B5FD1E89FA0E00407957 /* UserMessageMTLModel.m */,
+			);
+			path = Model02;
+			sourceTree = "<group>";
+		};
+		73A3B5F81E89F78C00407957 /* View02 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View02;
+			sourceTree = "<group>";
+		};
+		73A3B5FF1E8A2CDB00407957 /* SettingVCes */ = {
+			isa = PBXGroup;
+			children = (
+				73A3B6001E8A2D8400407957 /* RenZhengViewController.h */,
+				73A3B6011E8A2D8400407957 /* RenZhengViewController.m */,
+				73A3B6021E8A2D8400407957 /* RenZhengViewController.xib */,
+				73A3B6091E8A808B00407957 /* MianZeViewController.h */,
+				73A3B60A1E8A808B00407957 /* MianZeViewController.m */,
+				73A3B60B1E8A808B00407957 /* MianZeViewController.xib */,
+				73A3B60E1E8A857200407957 /* AboutUSViewController.h */,
+				73A3B60F1E8A857200407957 /* AboutUSViewController.m */,
+				73A3B6101E8A857200407957 /* AboutUSViewController.xib */,
+				73A3B6131E8A86A600407957 /* YiJianViewController.h */,
+				73A3B6141E8A86A600407957 /* YiJianViewController.m */,
+				73A3B6151E8A86A600407957 /* YiJianViewController.xib */,
+			);
+			path = SettingVCes;
 			sourceTree = "<group>";
 		};
 		73C347061E80FCF700BBBDBE /* MBProgressHUDZL */ = {
@@ -887,6 +958,8 @@
 		73EB3EAF1E6FD7DB00CA8B5D /* FourController */ = {
 			isa = PBXGroup;
 			children = (
+				73A3B5F71E89F78C00407957 /* Model02 */,
+				73A3B5F81E89F78C00407957 /* View02 */,
 				73EB3EB01E6FD7DB00CA8B5D /* Controller */,
 				73EB3EB11E6FD7DB00CA8B5D /* Model */,
 				73EB3EB21E6FD7DB00CA8B5D /* View */,
@@ -897,6 +970,7 @@
 		73EB3EB01E6FD7DB00CA8B5D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				73A3B5FF1E8A2CDB00407957 /* SettingVCes */,
 				73EB3EDF1E6FD97300CA8B5D /* FourViewController.h */,
 				73EB3EE01E6FD97300CA8B5D /* FourViewController.m */,
 				730D38581E77CDCB00EE4692 /* MyYuEViewController.h */,
@@ -1614,6 +1688,7 @@
 				736557361E728F5800284C11 /* ReMenView.xib in Resources */,
 				73EB3FB41E6FDEE400CA8B5D /* Loading005.png in Resources */,
 				73EB43171E7241A400CA8B5D /* DianShiQiangCollectionCell.xib in Resources */,
+				73A3B60D1E8A808B00407957 /* MianZeViewController.xib in Resources */,
 				73EB3F9E1E6FDEE400CA8B5D /* 0006.png in Resources */,
 				73EB3FA11E6FDEE400CA8B5D /* zhoululu.webp in Resources */,
 				73EB3FB21E6FDEE400CA8B5D /* Loading003.png in Resources */,
@@ -1630,6 +1705,7 @@
 				73EB3F991E6FDEE400CA8B5D /* 0001.png in Resources */,
 				73EB3F9F1E6FDEE400CA8B5D /* b54504436257.jpg in Resources */,
 				73EB3FAB1E6FDEE400CA8B5D /* Loading0015.png in Resources */,
+				73A3B6121E8A857200407957 /* AboutUSViewController.xib in Resources */,
 				73EB3FCA1E6FDEE400CA8B5D /* background.png in Resources */,
 				73EB3F9C1E6FDEE400CA8B5D /* 0004.png in Resources */,
 				732BC87B1E6FD17400B8B1BD /* LaunchScreen.storyboard in Resources */,
@@ -1642,6 +1718,7 @@
 				73EB3FCC1E6FDEE400CA8B5D /* page.png in Resources */,
 				73EB3FA01E6FDEE400CA8B5D /* zhoulu.gif in Resources */,
 				73EB3FBA1E6FDEE400CA8B5D /* MLAnimationViewController.xib in Resources */,
+				73A3B6171E8A86A600407957 /* YiJianViewController.xib in Resources */,
 				730D38611E77D8FF00EE4692 /* SettingTableViewCell.xib in Resources */,
 				73EB3F9A1E6FDEE400CA8B5D /* 0002.png in Resources */,
 				73EB3FB71E6FDEE400CA8B5D /* Loading008.png in Resources */,
@@ -1660,6 +1737,7 @@
 				7365573B1E729C4B00284C11 /* DianYingCollectionViewCell.xib in Resources */,
 				730D385C1E77CDCB00EE4692 /* MyYuEViewController.xib in Resources */,
 				730D38661E77DC2D00EE4692 /* SettingViewController.xib in Resources */,
+				73A3B6041E8A2D8400407957 /* RenZhengViewController.xib in Resources */,
 				73E7DA841E7FB75800371E33 /* DianYingSubViewController.xib in Resources */,
 				730D384D1E7697A600EE4692 /* PersonHederTableViewCell.xib in Resources */,
 				73E7DA581E7A7C7F00371E33 /* HuanCunZLTableViewCell.xib in Resources */,
@@ -1841,6 +1919,7 @@
 				73E7DA6F1E7F740600371E33 /* DownloadModel.m in Sources */,
 				73EB3EDA1E6FD7DB00CA8B5D /* UploadParam.m in Sources */,
 				73E7DA8D1E7FBEC100371E33 /* DianYingSubCollectionViewCell.m in Sources */,
+				73A3B6031E8A2D8400407957 /* RenZhengViewController.m in Sources */,
 				73EB3ED71E6FD7DB00CA8B5D /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				73EB3EDB1E6FD7DB00CA8B5D /* ZLAFNetworking.m in Sources */,
 				73C347121E8211CD00BBBDBE /* ShaiXuanViewController.m in Sources */,
@@ -1868,17 +1947,21 @@
 				73EB3ED51E6FD7DB00CA8B5D /* SearchHistoryModel.m in Sources */,
 				73EB3FD01E6FDEE400CA8B5D /* NavTopCommonImage.m in Sources */,
 				73EB3F8D1E6FDEE400CA8B5D /* UIView+HeinQi.m in Sources */,
+				73A3B5FB1E89F7A900407957 /* UserInfoMTLModel.m in Sources */,
 				73EB3FA21E6FDEE400CA8B5D /* RSA.m in Sources */,
 				730D385B1E77CDCB00EE4692 /* MyYuEViewController.m in Sources */,
 				73EB3FDF1E70000F00CA8B5D /* ViewPagerController.m in Sources */,
+				73A3B6161E8A86A600407957 /* YiJianViewController.m in Sources */,
 				73EB3FBD1E6FDEE400CA8B5D /* UIApplication+Extend.m in Sources */,
 				73EB3F891E6FDEE400CA8B5D /* UIColor+HeinQi.m in Sources */,
 				73C347301E84E96600BBBDBE /* MSSAutoresizeLabelFlow.m in Sources */,
 				73EB3ED91E6FD7DB00CA8B5D /* FMDB+ZL.m in Sources */,
 				73EB3FD21E6FDEE400CA8B5D /* PulldownMenu.m in Sources */,
+				73A3B6111E8A857200407957 /* AboutUSViewController.m in Sources */,
 				73E7DA521E7A78A200371E33 /* HuanCunCenterViewController.m in Sources */,
 				73C347311E84E96600BBBDBE /* MSSAutoresizeLabelFlowCell.m in Sources */,
 				73EB3F851E6FDEE400CA8B5D /* NSValueTransformer+HeinQi.m in Sources */,
+				73A3B5FE1E89FA0E00407957 /* UserMessageMTLModel.m in Sources */,
 				730D38651E77DC2D00EE4692 /* SettingViewController.m in Sources */,
 				732BC8701E6FD17400B8B1BD /* ViewController.m in Sources */,
 				730D38511E7787EE00EE4692 /* ButtonsTableViewCell.m in Sources */,
@@ -1894,6 +1977,7 @@
 				73EB3F901E6FDEE400CA8B5D /* HFSApplicationContext.m in Sources */,
 				73EB3FC91E6FDEE400CA8B5D /* GCDTimer.m in Sources */,
 				73EB43161E7241A400CA8B5D /* DianShiQiangCollectionCell.m in Sources */,
+				73A3B60C1E8A808B00407957 /* MianZeViewController.m in Sources */,
 				73C347321E84E96600BBBDBE /* MSSAutoresizeLabelFlowConfig.m in Sources */,
 				73EB3FC21E6FDEE400CA8B5D /* NewFeatureScrollView.m in Sources */,
 				73EB3FDB1E6FE2CE00CA8B5D /* NSString+URLZL.m in Sources */,

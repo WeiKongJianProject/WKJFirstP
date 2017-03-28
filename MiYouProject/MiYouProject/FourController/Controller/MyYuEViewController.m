@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.yuELabel.text = [NSString stringWithFormat:@"%d",[self.userModel.points intValue]];
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

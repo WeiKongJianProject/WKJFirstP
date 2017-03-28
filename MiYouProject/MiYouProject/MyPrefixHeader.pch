@@ -28,7 +28,8 @@
 #import "AlertViewCustomZL.h"
 #import "UIImageView+ZLWebPsetImage.h"
 #import "UIButton+ZLWebPSetImage.h"
-
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <SDWebImage/UIButton+WebCache.h>
 
 
 #endif /* MyPrefixHeader_pch */
