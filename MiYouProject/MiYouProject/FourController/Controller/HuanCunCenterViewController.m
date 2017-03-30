@@ -67,6 +67,7 @@
             NSString * path = [shahePath stringByAppendingPathComponent:namestr];
             videoModel.videoName = namestr;
             videoModel.cachePath = path;
+            videoModel.fileSize = [NSFileManagerZL fileSizeAtPath:path];
             [self.videoARR addObject:videoModel];
         }
         
@@ -182,7 +183,8 @@
     
     VideoModelZL * Vmodel = [self.videoARR objectAtIndex:indexPath.row];
     cell.videoNameLabel.text = Vmodel.videoName;
-    
+    float sizeNum = Vmodel.fileSize / (1024.0*1024.0);
+    cell.videoSizeLabel.text = [NSString stringWithFormat:@"%.1fMB",sizeNum];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
@@ -190,14 +192,13 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //NSLog(@"点击了cell");
-    NSString * filePath = [[NSFileManagerZL pathDocument] stringByAppendingPathComponent:@"test.mp4"];
-    PlayerZLViewController * vc = [[PlayerZLViewController alloc]init];
+    VideoModelZL * Vmodel = [self.videoARR objectAtIndex:indexPath.row];
+    NSString * filePath = [[NSFileManagerZL pathDocument] stringByAppendingPathComponent:Vmodel.videoName];
+    SiFangPlayController * vc = [[SiFangPlayController alloc]init];
+    vc.isBenDi  = YES;
     NSURL * url = [NSURL fileURLWithPath:filePath];
-    //http://us.sinaimg.cn/003opPNzjx06YJT4qI4o05040100QgCe0k01.mp4
-    //http://v6.365yg.com/video/m/220cf27050a3be74e439b8d21ea0f6aabb81144cad000027b83f3eadc1/?Expires=1490538675&AWSAccessKeyId=qh0h9TdcEMoS2oPj7aKX&Signature=%2FLOKJy1fhwVVKtIuu0VyC2MLQoA%3D
-    //NSURL * url2 = [NSURL URLWithString:@"http://v6.365yg.com/video/m/220cf27050a3be74e439b8d21ea0f6aabb81144cad000027b83f3eadc1/?Expires=1490538675&AWSAccessKeyId=qh0h9TdcEMoS2oPj7aKX&Signature=%2FLOKJy1fhwVVKtIuu0VyC2MLQoA%3D"];
-    vc.url = url;
-    vc.name = @"鸡毛飞上天";
+    vc.benDiUrl = url;
+    vc.benDiName = Vmodel.videoName;
     
     [self.navigationController pushViewController:vc animated:YES];
 

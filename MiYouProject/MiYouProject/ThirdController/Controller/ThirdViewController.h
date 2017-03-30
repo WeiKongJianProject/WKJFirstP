@@ -8,8 +8,23 @@
 
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
-@interface ThirdViewController : ZLBaseViewController<WKUIDelegate,WKNavigationDelegate>
+#import <DZNSegmentedControl.h>
+#import "SiFangCollectionViewCell.h"
+#import "SiFangMTLModel.h"
+#import "ZLSecondAFNetworking.h"
+#import "SiFangPlayController.h"
+
+
+@interface ThirdViewController : ZLBaseViewController<WKUIDelegate,WKNavigationDelegate,DZNSegmentedControlDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (strong, nonatomic) WKWebView* webView;
+
+
+@property (nonatomic, strong) DZNSegmentedControl *control;
+@property (nonatomic, strong) NSMutableArray *menuItems;
+@property (strong, nonatomic) UICollectionView * collectionView;
+@property (strong, nonatomic) NSMutableArray * collectionViewARR01;
+@property (strong, nonatomic) NSMutableArray * collectionViewARR02;
+@property (strong, nonatomic) NSMutableArray * collectioinViewARR;
 
 @end

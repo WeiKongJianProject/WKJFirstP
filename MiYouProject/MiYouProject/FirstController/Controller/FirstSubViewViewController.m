@@ -50,7 +50,7 @@
     //自动改变 透明度
     self.tableview.mj_header.automaticallyChangeAlpha = YES;
 
-        [self.tableview.mj_header beginRefreshing];
+    [self.tableview.mj_header beginRefreshing];
 
     
     //上拉刷新

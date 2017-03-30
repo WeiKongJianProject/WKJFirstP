@@ -65,6 +65,11 @@
 		73A3B61A1E8B9BF300407957 /* PlayMemberMTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3B6191E8B9BF300407957 /* PlayMemberMTLModel.m */; };
 		73A3B61D1E8BE14600407957 /* ZhiFuButtonVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3B61C1E8BE14600407957 /* ZhiFuButtonVIew.m */; };
 		73A3B61F1E8BE15600407957 /* ZhiFuButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73A3B61E1E8BE15600407957 /* ZhiFuButtonView.xib */; };
+		73A3B6231E8CA9DD00407957 /* SiFangCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3B6211E8CA9DD00407957 /* SiFangCollectionViewCell.m */; };
+		73A3B6241E8CA9DD00407957 /* SiFangCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73A3B6221E8CA9DD00407957 /* SiFangCollectionViewCell.xib */; };
+		73A3B6291E8CD7D200407957 /* SiFangMTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3B6281E8CD7D200407957 /* SiFangMTLModel.m */; };
+		73A3B62D1E8CF2BD00407957 /* SiFangPlayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3B62B1E8CF2BD00407957 /* SiFangPlayController.m */; };
+		73A3B62E1E8CF2BD00407957 /* SiFangPlayController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73A3B62C1E8CF2BD00407957 /* SiFangPlayController.xib */; };
 		73C347091E80FCF800BBBDBE /* MBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C347081E80FCF700BBBDBE /* MBManager.m */; };
 		73C3470C1E8125A800BBBDBE /* UIAlertViewZL.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C3470B1E8125A800BBBDBE /* UIAlertViewZL.m */; };
 		73C3470E1E8125B900BBBDBE /* UIAlertVIewZL.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73C3470D1E8125B900BBBDBE /* UIAlertVIewZL.xib */; };
@@ -328,6 +333,14 @@
 		73A3B61B1E8BE14600407957 /* ZhiFuButtonVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZhiFuButtonVIew.h; path = MiYouProject/FirstController/Model/ZhiFuButtonVIew.h; sourceTree = SOURCE_ROOT; };
 		73A3B61C1E8BE14600407957 /* ZhiFuButtonVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZhiFuButtonVIew.m; path = MiYouProject/FirstController/Model/ZhiFuButtonVIew.m; sourceTree = SOURCE_ROOT; };
 		73A3B61E1E8BE15600407957 /* ZhiFuButtonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ZhiFuButtonView.xib; path = MiYouProject/FirstController/Model/ZhiFuButtonView.xib; sourceTree = SOURCE_ROOT; };
+		73A3B6201E8CA9DD00407957 /* SiFangCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SiFangCollectionViewCell.h; path = MiYouProject/FirstController/Model/SiFangCollectionViewCell.h; sourceTree = SOURCE_ROOT; };
+		73A3B6211E8CA9DD00407957 /* SiFangCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SiFangCollectionViewCell.m; path = MiYouProject/FirstController/Model/SiFangCollectionViewCell.m; sourceTree = SOURCE_ROOT; };
+		73A3B6221E8CA9DD00407957 /* SiFangCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SiFangCollectionViewCell.xib; path = MiYouProject/FirstController/Model/SiFangCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
+		73A3B6271E8CD7D200407957 /* SiFangMTLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiFangMTLModel.h; sourceTree = "<group>"; };
+		73A3B6281E8CD7D200407957 /* SiFangMTLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiFangMTLModel.m; sourceTree = "<group>"; };
+		73A3B62A1E8CF2BD00407957 /* SiFangPlayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiFangPlayController.h; sourceTree = "<group>"; };
+		73A3B62B1E8CF2BD00407957 /* SiFangPlayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiFangPlayController.m; sourceTree = "<group>"; };
+		73A3B62C1E8CF2BD00407957 /* SiFangPlayController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SiFangPlayController.xib; sourceTree = "<group>"; };
 		73C347071E80FCF700BBBDBE /* MBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBManager.h; sourceTree = "<group>"; };
 		73C347081E80FCF700BBBDBE /* MBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBManager.m; sourceTree = "<group>"; };
 		73C3470A1E8125A800BBBDBE /* UIAlertViewZL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertViewZL.h; sourceTree = "<group>"; };
@@ -778,6 +791,22 @@
 			path = SettingVCes;
 			sourceTree = "<group>";
 		};
+		73A3B6251E8CD7B000407957 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				73A3B6271E8CD7D200407957 /* SiFangMTLModel.h */,
+				73A3B6281E8CD7D200407957 /* SiFangMTLModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		73A3B6261E8CD7B000407957 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		73C347061E80FCF700BBBDBE /* MBProgressHUDZL */ = {
 			isa = PBXGroup;
 			children = (
@@ -1162,9 +1191,9 @@
 		73EB3ECC1E6FD7DB00CA8B5D /* ThirdController */ = {
 			isa = PBXGroup;
 			children = (
+				73A3B6251E8CD7B000407957 /* Model */,
+				73A3B6261E8CD7B000407957 /* View */,
 				73EB3ECD1E6FD7DB00CA8B5D /* Controller */,
-				73EB3ED01E6FD7DB00CA8B5D /* Model */,
-				73EB3ED11E6FD7DB00CA8B5D /* View */,
 			);
 			path = ThirdController;
 			sourceTree = "<group>";
@@ -1174,22 +1203,14 @@
 			children = (
 				73EB3ECE1E6FD7DB00CA8B5D /* ThirdViewController.h */,
 				73EB3ECF1E6FD7DB00CA8B5D /* ThirdViewController.m */,
+				73A3B6201E8CA9DD00407957 /* SiFangCollectionViewCell.h */,
+				73A3B6211E8CA9DD00407957 /* SiFangCollectionViewCell.m */,
+				73A3B6221E8CA9DD00407957 /* SiFangCollectionViewCell.xib */,
+				73A3B62A1E8CF2BD00407957 /* SiFangPlayController.h */,
+				73A3B62B1E8CF2BD00407957 /* SiFangPlayController.m */,
+				73A3B62C1E8CF2BD00407957 /* SiFangPlayController.xib */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		73EB3ED01E6FD7DB00CA8B5D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		73EB3ED11E6FD7DB00CA8B5D /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		73EB3EE21E6FDEE400CA8B5D /* Common */ = {
@@ -1703,6 +1724,7 @@
 				73EB43171E7241A400CA8B5D /* DianShiQiangCollectionCell.xib in Resources */,
 				73A3B60D1E8A808B00407957 /* MianZeViewController.xib in Resources */,
 				73EB3F9E1E6FDEE400CA8B5D /* 0006.png in Resources */,
+				73A3B62E1E8CF2BD00407957 /* SiFangPlayController.xib in Resources */,
 				73EB3FA11E6FDEE400CA8B5D /* zhoululu.webp in Resources */,
 				73EB3FB21E6FDEE400CA8B5D /* Loading003.png in Resources */,
 				73EB3F9D1E6FDEE400CA8B5D /* 0005.png in Resources */,
@@ -1757,6 +1779,7 @@
 				73E7DA581E7A7C7F00371E33 /* HuanCunZLTableViewCell.xib in Resources */,
 				73EB43211E727E6F00CA8B5D /* FirstSubViewViewController.xib in Resources */,
 				730D38891E79247E00EE4692 /* VIPChongZhiView.xib in Resources */,
+				73A3B6241E8CA9DD00407957 /* SiFangCollectionViewCell.xib in Resources */,
 				73EB3FB61E6FDEE400CA8B5D /* Loading007.png in Resources */,
 				730D387A1E78DF0B00EE4692 /* XiaoXiViewController.xib in Resources */,
 				73EB431C1E7241F200CA8B5D /* DianShiQiangViewController.xib in Resources */,
@@ -1965,6 +1988,7 @@
 				73A3B5FB1E89F7A900407957 /* UserInfoMTLModel.m in Sources */,
 				73EB3FA21E6FDEE400CA8B5D /* RSA.m in Sources */,
 				730D385B1E77CDCB00EE4692 /* MyYuEViewController.m in Sources */,
+				73A3B62D1E8CF2BD00407957 /* SiFangPlayController.m in Sources */,
 				73EB3FDF1E70000F00CA8B5D /* ViewPagerController.m in Sources */,
 				73A3B6161E8A86A600407957 /* YiJianViewController.m in Sources */,
 				73EB3FBD1E6FDEE400CA8B5D /* UIApplication+Extend.m in Sources */,
@@ -1972,6 +1996,7 @@
 				73C347301E84E96600BBBDBE /* MSSAutoresizeLabelFlow.m in Sources */,
 				73EB3ED91E6FD7DB00CA8B5D /* FMDB+ZL.m in Sources */,
 				73A3B61D1E8BE14600407957 /* ZhiFuButtonVIew.m in Sources */,
+				73A3B6231E8CA9DD00407957 /* SiFangCollectionViewCell.m in Sources */,
 				73EB3FD21E6FDEE400CA8B5D /* PulldownMenu.m in Sources */,
 				73A3B6111E8A857200407957 /* AboutUSViewController.m in Sources */,
 				73E7DA521E7A78A200371E33 /* HuanCunCenterViewController.m in Sources */,
@@ -1982,6 +2007,7 @@
 				732BC8701E6FD17400B8B1BD /* ViewController.m in Sources */,
 				730D38511E7787EE00EE4692 /* ButtonsTableViewCell.m in Sources */,
 				73EB3F881E6FDEE400CA8B5D /* UIButton+HeinQi.m in Sources */,
+				73A3B6291E8CD7D200407957 /* SiFangMTLModel.m in Sources */,
 				73EB3ED61E6FD7DB00CA8B5D /* UIColor+KSString.m in Sources */,
 				73E7DA7D1E7F778900371E33 /* UIView+WHC_Loading.m in Sources */,
 				73C347391E84FC5A00BBBDBE /* SearchResultModel.m in Sources */,

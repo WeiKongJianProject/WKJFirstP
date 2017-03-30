@@ -327,6 +327,7 @@
                 <outlet property="renShuLabel" destination="WnS-HA-hjH" id="BLx-N8-GkI"/>
                 <outlet property="yuELabel" destination="HPf-Sm-LV8" id="pWf-7W-amy"/>
                 <outlet property="zhangHaoLabel" destination="umz-Mq-TLX" id="0yc-MY-14M"/>
+                <outlet property="zhiFuButton" destination="edT-Na-Hua" id="vVG-Xm-CqK"/>
             </connections>
             <point key="canvasLocation" x="-252" y="1"/>
         </view>
@@ -631,6 +632,7 @@
                 <outlet property="fuWuXiaLabel" destination="mZq-kI-ixt" id="U4W-oM-ass"/>
                 <outlet property="renShuLabel" destination="cRy-HM-RCT" id="VfP-Ei-vDq"/>
                 <outlet property="vipFuWuLabel" destination="1gr-6a-NfZ" id="WBH-wu-74x"/>
+                <outlet property="zhiFuButton" destination="3Ga-Fb-RJK" id="iM4-Ba-cPO"/>
             </connections>
             <point key="canvasLocation" x="193.5" y="0.5"/>
         </view>

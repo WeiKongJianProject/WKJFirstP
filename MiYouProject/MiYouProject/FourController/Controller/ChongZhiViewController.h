@@ -12,6 +12,8 @@
 #import "VIPChongZhiView.h"
 #import "MemberMTLModel.h"
 #import "ZLSecondAFNetworking.h"
+#import "ZhiFuButtonVIew.h"
+
 typedef NS_ENUM(NSUInteger,UBorVIP) {
     UB_ChongZhi = 0,
     VIP_ChongZhi
@@ -30,7 +32,7 @@ typedef NS_ENUM(NSUInteger,UBorVIP) {
 @property (strong, nonatomic) NSMutableArray * ubButtonARR;
 @property (strong, nonatomic) NSMutableArray * vipButtonARR;
 
-@property (strong, nonatomic) UIView * zhiFuView;
+@property (strong, nonatomic) ZhiFuButtonVIew * zhiFuView;
 
 
 @end

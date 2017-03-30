@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *button05;
 @property (weak, nonatomic) IBOutlet UIButton *button06;
 
+@property (weak, nonatomic) IBOutlet UIButton *zhiFuButton;
 
 
 

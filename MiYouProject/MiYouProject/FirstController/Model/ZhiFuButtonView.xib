@@ -51,9 +51,12 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kaY-xZ-3OZ">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kaY-xZ-3OZ">
                     <rect key="frame" x="341" y="6" width="25" height="25"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="YjX-Rr-eT4"/>
+                        <constraint firstAttribute="height" constant="25" id="fIT-n4-kQV"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="X">
                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -67,11 +70,13 @@
                 <constraint firstItem="8uJ-hN-rKY" firstAttribute="leading" secondItem="GHq-rT-JY6" secondAttribute="trailing" constant="40" id="LxQ-X5-JPp"/>
                 <constraint firstItem="8uJ-hN-rKY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="P7e-cu-U8f"/>
                 <constraint firstItem="GHq-rT-JY6" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="X49-34-fpR"/>
+                <constraint firstItem="kaY-xZ-3OZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="6" id="alw-U0-VRo"/>
                 <constraint firstItem="W9L-b4-5cV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="cbO-x1-lIF"/>
                 <constraint firstItem="9db-Lp-wkG" firstAttribute="centerX" secondItem="W9L-b4-5cV" secondAttribute="centerX" id="dfQ-fA-ErS"/>
                 <constraint firstItem="GHq-rT-JY6" firstAttribute="leading" secondItem="W9L-b4-5cV" secondAttribute="trailing" constant="40" id="gTe-Ey-v3H"/>
                 <constraint firstItem="9db-Lp-wkG" firstAttribute="top" secondItem="W9L-b4-5cV" secondAttribute="bottom" constant="3" id="gtx-XP-APq"/>
                 <constraint firstItem="GHq-rT-JY6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="kLX-pQ-oiW"/>
+                <constraint firstAttribute="trailing" secondItem="kaY-xZ-3OZ" secondAttribute="trailing" constant="9" id="yqF-wk-n9a"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

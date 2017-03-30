@@ -14,4 +14,5 @@
 @property (strong, nonatomic) NSString * videoSmallImageURL;
 @property (strong, nonatomic) NSString * URL;
 @property (strong, nonatomic) NSString * cachePath;
+@property (assign, nonatomic) float fileSize;
 @end

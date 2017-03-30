@@ -12,6 +12,8 @@
 #import "HuanCunFooterView.h"
 #import "VideoModelZL.h"
 #import "PlayerZLViewController.h"
+#import "SiFangPlayController.h"
+
 @interface HuanCunCenterViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong, nonatomic) NSMutableArray * videoARR;

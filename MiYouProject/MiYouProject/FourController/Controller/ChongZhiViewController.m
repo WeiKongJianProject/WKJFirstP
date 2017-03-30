@@ -46,9 +46,11 @@
     
     self.UBView = (UBChongZhiView *)[[NSBundle mainBundle] loadNibNamed:@"UBChongZhiView" owner:self options:nil][0];
     [self.UBView setFrame:CGRectMake(0, 0, SIZE_WIDTH, SIZE_HEIGHT-64)];
+    [self.UBView.zhiFuButton addTarget:self action:@selector(tanChuZhiFuView) forControlEvents:UIControlEventTouchUpInside];
     
     self.VIPView = (VIPChongZhiView *)[[NSBundle mainBundle] loadNibNamed:@"UBChongZhiView" owner:self options:nil][1];
     [self.VIPView setFrame:CGRectMake(0, 0, SIZE_WIDTH, SIZE_HEIGHT-64)];
+    [self.VIPView.zhiFuButton addTarget:self action:@selector(tanChuZhiFuView) forControlEvents:UIControlEventTouchUpInside];
     [self.backgroundView addSubview:self.UBView];
     [self.backgroundView addSubview:self.VIPView];
     self.UBView.zhangHaoLabel.text = self.memMTLModel.name;
@@ -82,7 +84,11 @@
     [self.VIPView.button06 setBackgroundImage:[UIImage imageNamed:@"wangzhexuanzhong"] forState:UIControlStateSelected];
     
     
-    self.zhiFuView = (UIView *)[[NSBundle mainBundle] loadNibNamed:@"ZhiFuButtonView" owner:self options:nil][0];
+    self.zhiFuView = (ZhiFuButtonVIew *)[[NSBundle mainBundle] loadNibNamed:@"ZhiFuButtonView" owner:self options:nil][0];
+    [self.zhiFuView.closeButton addTarget:self action:@selector(closeButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.zhiFuView.zhiFuBaoButton addTarget:self action:@selector(zhifuBaoButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.zhiFuView.weiXinButton addTarget:self action:@selector(weixinZhiFuButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    
     [self.backgroundView addSubview:self.zhiFuView];
     CALayer *layer = [self.zhiFuView layer];
     layer.shadowOffset = CGSizeMake(0, 3);
@@ -92,10 +98,60 @@
     [self.zhiFuView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.view.mas_left);
         make.right.mas_equalTo(self.view.mas_right);
-        make.bottom.mas_equalTo(self.view.mas_bottom);
-        make.height.mas_equalTo(160.0f);
+        make.top.mas_equalTo(self.view.mas_bottom);
+        make.bottom.mas_equalTo(self.view.mas_bottom).offset(160.0f);
+        //make.height.mas_equalTo(160.0f);
     }];
 }
+//关闭支付按钮
+- (void)closeButtonAction:(UIButton *)sender{
+    __weak typeof(self) weakSelf = self;
+    [UIView animateWithDuration:0.3 animations:^{
+        [weakSelf.zhiFuView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(self.view.mas_left);
+            make.right.mas_equalTo(self.view.mas_right);
+            make.top.mas_equalTo(self.view.mas_bottom);
+            make.bottom.mas_equalTo(self.view.mas_bottom).offset(160.0f);
+            //make.height.mas_equalTo(160.0f);
+        }];
+    }];
+
+}
+//支付按钮
+- (void)tanChuZhiFuView{
+    
+    if (_currentJINE > 0) {
+        __weak typeof(self) weakSelf = self;
+        [UIView animateWithDuration:0.3 animations:^{
+            [weakSelf.zhiFuView mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.left.mas_equalTo(self.view.mas_left);
+                make.right.mas_equalTo(self.view.mas_right);
+                make.top.mas_equalTo(self.view.mas_bottom).offset(-160.0f);
+                make.bottom.mas_equalTo(self.view.mas_bottom);
+                //make.height.mas_equalTo(160.0f);
+            }];
+            
+        }];
+    }
+    else{
+    
+        [MBManager showBriefAlert:@"请选择充值类型"];
+    }
+
+    
+}
+//微信支付
+- (void)weixinZhiFuButtonAction:(UIButton *)sender{
+    //微信支付
+    NSLog(@"微信支付，金额为：%d",_currentJINE);
+    
+    
+}
+//支付宝支付
+- (void)zhifuBaoButtonAction:(UIButton *)sender{
+    NSLog(@"支付宝支付:金额为：%d",_currentJINE);
+}
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
 //    self.navigationController.navigationBar.translucent = NO;
@@ -129,15 +185,18 @@
         NSLog(@"VIP充值页面请求返回的数据为：%@",dic);
         NSString * result = dic[@"result"];
         if ([result isEqualToString:@"success"]) {
-//            if (!zlObjectIsEmpty(dic[@"points"])) {
-//              weakSelf.UBView.yuELabel.text = [NSString stringWithFormat:@"账户余额:%d",[dic[@"points"] intValue]];
-//            }
-//            if (!zlObjectIsEmpty(dic[@"exchange"])) {
-//                 weakSelf.UBView.duiHuanLabel.text = [NSString stringWithFormat:@"充值数量:%dU币=1元",[dic[@"exchange"] intValue]];
-//            }
-//            if (!zlObjectIsEmpty(dic[@"gift"])) {
-//                weakSelf.UBView.fuWuLabel.text = dic[@"gift"];
-//            }
+            if (!zlObjectIsEmpty(dic[@"points"])) {
+              weakSelf.UBView.yuELabel.text = [NSString stringWithFormat:@"账户余额:%d",[dic[@"points"] intValue]];
+            }
+            if (!zlObjectIsEmpty(dic[@"exchange"])) {
+                 weakSelf.UBView.duiHuanLabel.text = [NSString stringWithFormat:@"充值数量:%dU币=1元",[dic[@"exchange"] intValue]];
+            }
+            if (!zlObjectIsEmpty(dic[@"gift"])) {
+                weakSelf.UBView.fuWuLabel.text = dic[@"gift"];
+            }
+            if (!zlObjectIsEmpty(dic[@"total"])) {
+                weakSelf.UBView.renShuLabel.text = [NSString stringWithFormat:@"%d",[dic[@"total"] intValue]];
+            }
         }
         [MBManager hideAlert];
     } failure:^(NSError *error) {

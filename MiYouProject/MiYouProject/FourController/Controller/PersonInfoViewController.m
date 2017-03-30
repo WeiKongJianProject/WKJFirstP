@@ -127,9 +127,12 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"点击了cell");
-    [KZPhotoManager getImage:^(UIImage *image) {
-        [self updataImage:image];
-    } showIn:self AndActionTitle:@"选择照片"];
+    if (indexPath.row == 0) {
+        [KZPhotoManager getImage:^(UIImage *image) {
+            [self updataImage:image];
+        } showIn:self AndActionTitle:@"选择照片"];
+    }
+
 }
 
 #pragma end mark

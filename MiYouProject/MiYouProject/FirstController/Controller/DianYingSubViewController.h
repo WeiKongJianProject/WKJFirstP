@@ -13,8 +13,6 @@
 #import "DianYingSubCollectionViewCell.h"
 #import "PlayerZLViewController.h"
 
-
-
 @interface DianYingSubViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (strong, nonatomic) UITableView * tableview;
