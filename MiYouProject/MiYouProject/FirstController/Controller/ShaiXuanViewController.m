@@ -12,11 +12,13 @@
 @interface ShaiXuanViewController ()
 
 @end
+static int _currentPage;
 
 @implementation ShaiXuanViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _currentPage = 1;
     self.topView.backgroundColor = [UIColor whiteColor];
     self.view.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
     self.collectionARR = [[NSMutableArray alloc]init];
@@ -38,67 +40,87 @@
     [self setZLCollectionView:self.collectionView];
 }
 
+
 - (void)startAFNetworkingWith:(int)keyId{
         
         [MBManager showLoadingInView:self.view];
         __weak typeof(self) weakSelf = self;
         
         //http://api4.cn360du.com:88/index.php?m=api-ios&action=lists&cate=999
-        NSString * url = [NSString stringWithFormat:@"%@&action=lists&cate=%d",URL_Common_ios,keyId];
-        
+        NSString * url = [NSString stringWithFormat:@"%@&action=lists&cate=%d&page=%d",URL_Common_ios,keyId,_currentPage];
+        NSLog(@"筛选列表请求链接：%@",url);
         [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
             [MBManager hideAlert];
             NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
             NSLog(@"筛选列表请求数据：%@",dic);
             NSString * isSuccess = [NSString stringWithFormat:@"%@",[dic objectForKey:@"result"]];
             if ([isSuccess isEqualToString:@"success"]) {
-                NSArray * arr01 = [dic objectForKey:@"typelist"];
-                if (!zlArrayIsEmpty(arr01)) {
-                    for (int i = 0; i< arr01.count; i++) {
-                        NSDictionary * typeDic = arr01[i];
-                        //TypeListModel * models = [[TypeListModel alloc]init];
-                        TypeListModel * models = [[TypeListModel alloc]init];
-                        models.id = [NSNumber numberWithInt:(int)[typeDic objectForKey:@"id"]];
-                        models.name = [typeDic objectForKey:@"name"];
-                        [self.firstConARR addObject:models];
+                if (_currentPage == 1) {
+                    if ([[dic objectForKey:@"catelist"] isKindOfClass:[NSArray class]] && [dic objectForKey:@"catelist"] != nil) {
+                        NSArray * arr01 = [dic objectForKey:@"catelist"];
+                        NSLog(@"第一栏列表数据为：%ld",arr01.count);
+                        if (!zlArrayIsEmpty(arr01)) {
+                            for (int i = 0; i< arr01.count; i++) {
+                                NSDictionary * typeDic = arr01[i];
+                                //TypeListModel * models = [[TypeListModel alloc]init];
+                                TypeListModel * models = [[TypeListModel alloc]init];
+                                models.id = models.id;
+                                models.name = [typeDic objectForKey:@"name"];
+                                [weakSelf.firstConARR addObject:models];
+                            }
+                            
+                            //self.firstConARR = [MTLJSONAdapter modelsOfClass:[TypeListModel class] fromJSONArray:[dic objectForKey:@"typelist"] error:nil];
+                            NSLog(@"self.firstConARR。count值为：%ld+++arr01的个数为：%ld",self.firstConARR.count,arr01.count);
+                        }
+                    }
+                    NSDictionary * arr02 = [dic objectForKey:@"filterlist"];
+                    if (!zlDictIsEmpty(arr02)) {
+                        //                    NSArray * cusArr = [MTLJSONAdapter modelsOfClass:[FilterListModel class] fromJSONArray:[dic objectForKey:@"filterlist"] error:nil];
+                        weakSelf.secondConARR = (NSMutableArray *)[MTLJSONAdapter modelsOfClass:[TypeListModel class] fromJSONArray:arr02[@"class"] error:nil];
+                        NSDictionary * yearDic = [arr02 objectForKey:@"year"];
+                        //NSLog(@"年份为：%@",yearDic.allValues[0]);
+                        //weakSelf.thirdConARR = (NSMutableArray *)yearDic.allValues;
+                        //[weakSelf.thirdConARR addObjectsFromArray:yearDic.allValues];
+                        //[ary sortedArrayUsingSelector:@selector(compare:)];//这个是一直默认升序
+                        NSMutableArray *objARR = [[NSMutableArray alloc]init];
+                        for (int i = 0;i< yearDic.allKeys.count;i++) {
+                            
+                            [objARR addObject:[yearDic objectForKey:yearDic.allKeys[i]]];
+                            //[weakSelf.thirdConARR addObject:[yearDic objectForKey:yearDic.allKeys[i]]];
+                        }
+                        [weakSelf.thirdConARR addObjectsFromArray:[ objARR sortedArrayUsingSelector:@selector(compare:)]];
+                    }
+                    NSArray * arr03 = [dic objectForKey:@"list"];
+                    if (!zlArrayIsEmpty(arr03)) {
+                        [weakSelf.collectionARR addObjectsFromArray:[MTLJSONAdapter modelsOfClass:[VideoListMTLModel class] fromJSONArray:[dic objectForKey:@"list"] error:nil]];
                     }
                     
-                    //self.firstConARR = [MTLJSONAdapter modelsOfClass:[TypeListModel class] fromJSONArray:[dic objectForKey:@"typelist"] error:nil];
-                    NSLog(@"self.firstConARR。count值为：%ld+++arr01的个数为：%ld",self.firstConARR.count,arr01.count);
+                    [self settingSegmentView];
+                    [self.collectionView reloadData];
                 }
-                NSArray * arr02 = [dic objectForKey:@"filterlist"];
-                if (!zlArrayIsEmpty(arr02)) {
-                    NSArray * cusArr = [MTLJSONAdapter modelsOfClass:[FilterListModel class] fromJSONArray:[dic objectForKey:@"filterlist"] error:nil];
-                    for(FilterListModel * models in cusArr) {
-                        if ([models.key isEqualToString:@"class"]) {
-                            self.filterClassModel = models;
-                        }
-                        if ([models.key isEqualToString:@"year"]) {
-                            self.filterYearModel = models;
-                        }
+                else{
+                    NSArray * arr03 = [dic objectForKey:@"list"];
+                    if (!zlArrayIsEmpty(arr03)) {
+                        [weakSelf.collectionARR addObjectsFromArray:[MTLJSONAdapter modelsOfClass:[VideoListMTLModel class] fromJSONArray:[dic objectForKey:@"list"] error:nil]];
                     }
+
+                    [self.collectionView reloadData];
                 }
-                NSArray * arr03 = [dic objectForKey:@"list"];
-                if (!zlArrayIsEmpty(arr03)) {
-                    self.collectionARR = (NSMutableArray *)[MTLJSONAdapter modelsOfClass:[VideoListMTLModel class] fromJSONArray:[dic objectForKey:@"list"] error:nil];
-                }
-                
-                [self settingSegmentView];
-                [self.collectionView reloadData];
             }
-            
+            [self.collectionView.mj_footer endRefreshing];
             [MBManager hideAlert];
         } failure:^(NSError *error) {
 //            [self.tableview.mj_header endRefreshing];
 //            [self.tableview.mj_footer endRefreshing];
             [MBManager hideAlert];
             [MBManager showBriefAlert:@"数据加载失败"];
+            [self.collectionView.mj_footer endRefreshing];
         }];
 
 }
 
 - (void)settingSegmentView{
-    
+
     //NSMutableDictionary * firstDic = [[NSMutableDictionary alloc]init];
     NSMutableArray * firstSegmentARR = [[NSMutableArray alloc]init];
     NSMutableArray * secondSegmentARR = [[NSMutableArray alloc]init];
@@ -108,13 +130,15 @@
         [firstSegmentARR addObject:@{VOSegmentText:model.name}];
         NSLog(@"第一个分类的名称为：%@",model.name);
     }
-    for (int i = 0; i<self.filterClassModel.list.count; i++) {
-        NSString * key = self.filterClassModel.list.allKeys[i];
-        [secondSegmentARR addObject:@{VOSegmentText:[self.filterClassModel.list objectForKey:key]}];
+    for (int i = 0; i<self.secondConARR.count; i++) {
+         TypeListModel * model = self.secondConARR[i];
+        [secondSegmentARR addObject:@{VOSegmentText:model.name}];
     }
-    for (int i = 0; i<self.filterYearModel.list.count; i++) {
-        NSString * key = self.filterYearModel.list.allKeys[i];
-        [thirdSegmentARR addObject:@{VOSegmentText:[self.filterYearModel.list objectForKey:key]}];
+    for (int i = 0; i<self.thirdConARR.count; i++) {
+        NSString * str = [NSString stringWithFormat:@"%d",[self.thirdConARR[i] intValue]];
+        int value = (int)self.thirdConARR[i];
+        NSLog(@"第三个分类值为：%d",value);
+        [thirdSegmentARR addObject:@{VOSegmentText:str}];
     }
     
     
@@ -145,7 +169,7 @@
     self.sgControl02.backgroundColor = [UIColor clearColor];
     self.sgControl02.selectedBackgroundColor = self.sgControl02.backgroundColor;
     self.sgControl02.allowNoSelection = YES;
-    self.sgControl02.frame = CGRectMake(50, 40, SIZE_WIDTH-100, 20);
+    self.sgControl02.frame = CGRectMake(50, 40, SIZE_WIDTH-50, 20);
     self.sgControl02.indicatorThickness = 0;
     self.sgControl02.tag = 2;
     [self.sgControl02 setSelectedSegmentIndex:-1];
@@ -178,7 +202,7 @@
     self.sgControl03.backgroundColor = [UIColor clearColor];
     self.sgControl03.selectedBackgroundColor = self.sgControl03.backgroundColor;
     self.sgControl03.allowNoSelection = YES;
-    self.sgControl03.frame = CGRectMake(50, 75, SIZE_WIDTH-100, 20);
+    self.sgControl03.frame = CGRectMake(50, 75, SIZE_WIDTH-50, 20);
     self.sgControl03.indicatorThickness = 0;
     self.sgControl03.tag = 3;
     [self.sgControl03 setSelectedSegmentIndex:-1];
@@ -259,7 +283,7 @@
     
     //[self.backCollectionView registerClass:[DianShiQiangCollectionCell class] forCellWithReuseIdentifier:@"dianShiQiangCellId"];
     [collectionView registerNib:[UINib nibWithNibName:@"DianYingSubCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"DianYingSubCollectionCellID"];
-    
+    collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(shanglaShuaXin)];
 }
 #pragma mark CollectionView  的  dataSource方法
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -277,7 +301,7 @@
     
     VideoListMTLModel * model = [self.collectionARR objectAtIndex:indexPath.row];
     cell.nameLabel.text = model.name;
-    cell.subNameLabel.text = nil;
+    cell.subNameLabel.text = model.subname;
     [cell.smallImageVIew sd_setImageWithURL:[NSURL URLWithString:model.pic] placeholderImage:PLACEHOLDER_IMAGE];
     /*
      UIImage * JHimage = self.dataSourceArray[indexPath.row];
@@ -313,7 +337,10 @@
 
 #pragma end mark
 
-
+- (void)shanglaShuaXin{
+    _currentPage++;
+    [self startAFNetworkingWith:self.id];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

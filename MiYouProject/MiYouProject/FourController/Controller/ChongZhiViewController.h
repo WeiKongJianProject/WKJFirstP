@@ -10,6 +10,8 @@
 #import <DZNSegmentedControl.h>
 #import "UBChongZhiView.h"
 #import "VIPChongZhiView.h"
+#import "MemberMTLModel.h"
+#import "ZLSecondAFNetworking.h"
 typedef NS_ENUM(NSUInteger,UBorVIP) {
     UB_ChongZhi = 0,
     VIP_ChongZhi
@@ -24,5 +26,11 @@ typedef NS_ENUM(NSUInteger,UBorVIP) {
 @property (strong, nonatomic) UIView * backgroundView;
 @property (strong, nonatomic) UBChongZhiView * UBView;
 @property (strong, nonatomic) VIPChongZhiView * VIPView;
+@property (strong, nonatomic) MemberMTLModel * memMTLModel;
+@property (strong, nonatomic) NSMutableArray * ubButtonARR;
+@property (strong, nonatomic) NSMutableArray * vipButtonARR;
+
+@property (strong, nonatomic) UIView * zhiFuView;
+
 
 @end

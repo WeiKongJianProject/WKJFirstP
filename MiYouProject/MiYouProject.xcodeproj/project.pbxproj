@@ -62,6 +62,9 @@
 		73A3B6121E8A857200407957 /* AboutUSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73A3B6101E8A857200407957 /* AboutUSViewController.xib */; };
 		73A3B6161E8A86A600407957 /* YiJianViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3B6141E8A86A600407957 /* YiJianViewController.m */; };
 		73A3B6171E8A86A600407957 /* YiJianViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73A3B6151E8A86A600407957 /* YiJianViewController.xib */; };
+		73A3B61A1E8B9BF300407957 /* PlayMemberMTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3B6191E8B9BF300407957 /* PlayMemberMTLModel.m */; };
+		73A3B61D1E8BE14600407957 /* ZhiFuButtonVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3B61C1E8BE14600407957 /* ZhiFuButtonVIew.m */; };
+		73A3B61F1E8BE15600407957 /* ZhiFuButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73A3B61E1E8BE15600407957 /* ZhiFuButtonView.xib */; };
 		73C347091E80FCF800BBBDBE /* MBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C347081E80FCF700BBBDBE /* MBManager.m */; };
 		73C3470C1E8125A800BBBDBE /* UIAlertViewZL.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C3470B1E8125A800BBBDBE /* UIAlertViewZL.m */; };
 		73C3470E1E8125B900BBBDBE /* UIAlertVIewZL.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73C3470D1E8125B900BBBDBE /* UIAlertVIewZL.xib */; };
@@ -320,6 +323,11 @@
 		73A3B6131E8A86A600407957 /* YiJianViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YiJianViewController.h; sourceTree = "<group>"; };
 		73A3B6141E8A86A600407957 /* YiJianViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YiJianViewController.m; sourceTree = "<group>"; };
 		73A3B6151E8A86A600407957 /* YiJianViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YiJianViewController.xib; sourceTree = "<group>"; };
+		73A3B6181E8B9BF300407957 /* PlayMemberMTLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayMemberMTLModel.h; sourceTree = "<group>"; };
+		73A3B6191E8B9BF300407957 /* PlayMemberMTLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayMemberMTLModel.m; sourceTree = "<group>"; };
+		73A3B61B1E8BE14600407957 /* ZhiFuButtonVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZhiFuButtonVIew.h; path = MiYouProject/FirstController/Model/ZhiFuButtonVIew.h; sourceTree = SOURCE_ROOT; };
+		73A3B61C1E8BE14600407957 /* ZhiFuButtonVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZhiFuButtonVIew.m; path = MiYouProject/FirstController/Model/ZhiFuButtonVIew.m; sourceTree = SOURCE_ROOT; };
+		73A3B61E1E8BE15600407957 /* ZhiFuButtonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ZhiFuButtonView.xib; path = MiYouProject/FirstController/Model/ZhiFuButtonView.xib; sourceTree = SOURCE_ROOT; };
 		73C347071E80FCF700BBBDBE /* MBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBManager.h; sourceTree = "<group>"; };
 		73C347081E80FCF700BBBDBE /* MBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBManager.m; sourceTree = "<group>"; };
 		73C3470A1E8125A800BBBDBE /* UIAlertViewZL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertViewZL.h; sourceTree = "<group>"; };
@@ -896,6 +904,8 @@
 				73C3473B1E85196E00BBBDBE /* TypeListModel.m */,
 				73C3473D1E8519E200BBBDBE /* FilterListModel.h */,
 				73C3473E1E8519E200BBBDBE /* FilterListModel.m */,
+				73A3B6181E8B9BF300407957 /* PlayMemberMTLModel.h */,
+				73A3B6191E8B9BF300407957 /* PlayMemberMTLModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1051,6 +1061,9 @@
 				73E7DA8F1E80BF7C00371E33 /* PlayVideoTableViewCell.h */,
 				73E7DA901E80BF7C00371E33 /* PlayVideoTableViewCell.m */,
 				73E7DA911E80BF7C00371E33 /* PlayVideoTableViewCell.xib */,
+				73A3B61B1E8BE14600407957 /* ZhiFuButtonVIew.h */,
+				73A3B61C1E8BE14600407957 /* ZhiFuButtonVIew.m */,
+				73A3B61E1E8BE15600407957 /* ZhiFuButtonView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1725,6 +1738,7 @@
 				732BC8781E6FD17400B8B1BD /* Assets.xcassets in Resources */,
 				73EB3FAC1E6FDEE400CA8B5D /* Loading0016.png in Resources */,
 				73EB3FB81E6FDEE400CA8B5D /* Loading009.png in Resources */,
+				73A3B61F1E8BE15600407957 /* ZhiFuButtonView.xib in Resources */,
 				73EB3FBC1E6FDEE400CA8B5D /* app_bg.jpg in Resources */,
 				73EB3FA51E6FDEE400CA8B5D /* Loading001.png in Resources */,
 				73EB3FAD1E6FDEE400CA8B5D /* Loading0017.png in Resources */,
@@ -1923,6 +1937,7 @@
 				73EB3ED71E6FD7DB00CA8B5D /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				73EB3EDB1E6FD7DB00CA8B5D /* ZLAFNetworking.m in Sources */,
 				73C347121E8211CD00BBBDBE /* ShaiXuanViewController.m in Sources */,
+				73A3B61A1E8B9BF300407957 /* PlayMemberMTLModel.m in Sources */,
 				73EB3FE61E70FB1E00CA8B5D /* UIColor+ColorZL.m in Sources */,
 				730D384C1E7697A600EE4692 /* PersonHederTableViewCell.m in Sources */,
 				18AEC4521E759451004BD503 /* ZLCollectionGirdVIew.m in Sources */,
@@ -1956,6 +1971,7 @@
 				73EB3F891E6FDEE400CA8B5D /* UIColor+HeinQi.m in Sources */,
 				73C347301E84E96600BBBDBE /* MSSAutoresizeLabelFlow.m in Sources */,
 				73EB3ED91E6FD7DB00CA8B5D /* FMDB+ZL.m in Sources */,
+				73A3B61D1E8BE14600407957 /* ZhiFuButtonVIew.m in Sources */,
 				73EB3FD21E6FDEE400CA8B5D /* PulldownMenu.m in Sources */,
 				73A3B6111E8A857200407957 /* AboutUSViewController.m in Sources */,
 				73E7DA521E7A78A200371E33 /* HuanCunCenterViewController.m in Sources */,

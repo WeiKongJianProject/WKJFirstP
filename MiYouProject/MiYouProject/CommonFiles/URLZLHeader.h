@@ -14,6 +14,8 @@
 #define IS_RENZHENG_TIJIAO @"is_renzheng_tijiao"
 #define HEAD_IMAGEVIEW_UPDATA_NOTIFICATION @"head_imageView_updata_notification"
 
+//友盟APPID 58db47df07fe657cca0001b1
+#define YOUMENG_APP_ID_ZL @"58db47df07fe657cca0001b1"
 
 #define URL_Common_ios @"http://api4.cn360du.com:88/index.php?m=api-ios"
 

@@ -23,8 +23,7 @@
 #define	RetinaScree		(iPhone_Retina || iPhone5 || iPad_Retina)
 #define NormalScree		(iPad_Normal||iPhone_Normal)
 
-#define IOS_VERSION		([[[UIDevice currentDevice] systemVersion] floatValue])
-#define IOS(ver)		(IOS_VERSION >= ver)
+
 
 #define Color(color)					(((float)color)/255.0f)
 
@@ -65,7 +64,6 @@
 #define EN_FONT_LIGHT @"HelveticaNeue-Light"
 #define EN_FONT_LIGHTER @"HelveticaNeue-UltraLight"
 
-#define VERSION_NUM  @"V1.0"
 
 #import "Masonry.h"
 
@@ -103,7 +101,9 @@
 
 #define REQUEST_ERROR_ZL @"服务连接失败"
 
-#define vCFBundleShortVersionStr [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
+#define BundleZLShortVersionStr [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
+#define IOS_VERSION		([[[UIDevice currentDevice] systemVersion] floatValue])
+#define IOS(ver)		(IOS_VERSION >= ver)
 
 #define Message_badge_num   @"message_badge_num"
 
@@ -208,6 +208,6 @@ blue:((float)(rgbValue & 0xFF)) / 255.0 alpha:1.0]
 
 #define PLACEHOLDER_IMAGE [UIImage imageNamed:@"icon_default"]
 
-#define tel(phoneNumber) ([[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",phoneNumber]]])
+#define TEL(phoneNumber) ([[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",phoneNumber]]])
 
 #endif

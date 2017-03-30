@@ -126,7 +126,7 @@
         NSDictionary * memberDic = [dic objectForKey:@"member"];
         NSArray * listARR = [dic objectForKey:@"list"];
         NSString * result = [dic objectForKey:@"result"];
-        //NSLog(@"数据加载：%@++++++%@++++",result,dic);
+        NSLog(@"首页第一次加载---结果：%@++++++%@++++",result,dic);
         if ([result isEqualToString:@"success"]) {
             NSArray * arr1 = [MTLJSONAdapter modelsOfClass:[CateListMTLModel class] fromJSONArray:cateListARR error:nil];
             //self.itemsTitlesARR = arr1;
@@ -307,6 +307,7 @@
         vCtrl.dianYingCollectionARR = self.listARR;
         //NSLog(@"电影列表的个数dianYingCollectionARR.count:%ld",vCtrl.dianYingCollectionARR.count);
         vCtrl.lunXianImageARR = self.bannerARR;
+        
     }
     CateListMTLModel *itemModel = [self.itemsTitlesARR objectAtIndex:index];
     vCtrl.id = [itemModel.id intValue];

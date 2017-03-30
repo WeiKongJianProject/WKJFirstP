@@ -36,8 +36,8 @@
                             <constraint firstAttribute="width" constant="20" id="VX8-jO-97H"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="huiyuanbiaoqian" translatesAutoresizingMaskIntoConstraints="NO" id="Fhp-1c-Z3q">
-                        <rect key="frame" x="237" y="88" width="41" height="15"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="huiyuanbiaoqian" translatesAutoresizingMaskIntoConstraints="NO" id="Fhp-1c-Z3q">
+                        <rect key="frame" x="239" y="84.5" width="50" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="2Lp-eI-5UR"/>
                             <constraint firstAttribute="height" constant="20" id="pu8-5X-0PZ"/>
@@ -62,15 +62,15 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="王者" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuH-d6-o51">
-                        <rect key="frame" x="251" y="88" width="22" height="15"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="普通会员" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuH-d6-o51">
+                        <rect key="frame" x="255.5" y="90.5" width="29" height="8.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="7"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="DuH-d6-o51" firstAttribute="centerX" secondItem="Fhp-1c-Z3q" secondAttribute="centerX" id="IOv-qy-dCO"/>
+                    <constraint firstItem="DuH-d6-o51" firstAttribute="centerX" secondItem="Fhp-1c-Z3q" secondAttribute="centerX" constant="6" id="IOv-qy-dCO"/>
                     <constraint firstItem="Fhp-1c-Z3q" firstAttribute="centerY" secondItem="rTS-rL-ONB" secondAttribute="centerY" id="IQO-C1-YgP"/>
                     <constraint firstItem="pI1-F8-8iI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="42" id="KHw-e6-DmF"/>
                     <constraint firstItem="DuH-d6-o51" firstAttribute="centerY" secondItem="Fhp-1c-Z3q" secondAttribute="centerY" id="NPG-C6-fJ8"/>

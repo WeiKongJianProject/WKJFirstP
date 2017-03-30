@@ -10,7 +10,7 @@
 
 @interface PlayVideoMTLModel : MTLModel<MTLJSONSerializing>
 
-@property (strong, nonatomic) NSNumber * id;
+@property (strong, nonatomic) NSString * id;
 @property (strong, nonatomic) NSString * name;
 @property (strong, nonatomic) NSString * subname;
 @property (strong, nonatomic) NSString * pic;
@@ -19,7 +19,7 @@
 @property (strong, nonatomic) NSString * remarks;
 @property (strong, nonatomic) NSString * area;
 @property (strong, nonatomic) NSString * lang;
-@property (strong, nonatomic) NSString * year;
+@property (strong, nonatomic) NSNumber * year;
 @property (strong, nonatomic) NSString * type;
 @property (strong, nonatomic) NSString * story;
 @property (strong, nonatomic) NSNumber * duration;
@@ -29,7 +29,6 @@
 @property (strong, nonatomic) NSString * trial;
 @property (strong, nonatomic) NSNumber * usergroup;
 @property (strong, nonatomic) NSString * content;
-@property (strong, nonatomic) NSString * result;
 
 
 @end

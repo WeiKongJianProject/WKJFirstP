@@ -98,7 +98,7 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
     SearchResultModel * model = self.resultARR[indexPath.row];
-    NSString * key = model.name;
+    NSString * key = model.d_name;
     
     cell.textLabel.text = key;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -113,10 +113,10 @@
     
     PlayerZLViewController * vc = [[PlayerZLViewController alloc]init];
     vc.id = [model.id intValue];
-    vc.name = model.name;
+    vc.name = model.d_name;
     
     [self.navigationController pushViewController:vc animated:YES];
-     NSLog(@"点击了++++++%@",model.name);
+     NSLog(@"点击了++++++%@",model.d_name);
 }
 //- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
 //    return YES;
@@ -313,7 +313,7 @@
     [MBManager showLoadingInView:self.view];
     __weak typeof(self) weakSelf = self;
     NSString * url = [NSString stringWithFormat:@"%@&action=search&keyword=%@",URL_Common_ios,string];
-    NSLog(@"请求的链接为：%@",url);
+    //NSLog(@"请求的链接为：%@",url);
     //NSString * codeString =  [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSString * codeString = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];//去掉特殊字符
     NSLog(@"编码后的搜索请求链接：%@",codeString);
@@ -321,19 +321,21 @@
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:codeString parameters:nil success:^(id responseObject) {
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSLog(@"搜索结果：%@",dic);
-        
-        weakSelf.resultARR = [MTLJSONAdapter modelsOfClass:[SearchResultModel class] fromJSONArray:[dic objectForKey:@"list"] error:nil];
-        if (zlArrayIsEmpty(self.resultARR)) {
-            [MBManager showBriefAlert:@"没有搜索到相关结果"];
-        }
-        else{
-            [weakSelf.tableview reloadData];
+        if ([dic[@"result"] isEqualToString:@"success"]) {
+            weakSelf.resultARR = (NSMutableArray *)[MTLJSONAdapter modelsOfClass:[SearchResultModel class] fromJSONArray:[dic objectForKey:@"list"] error:nil];
+            if (zlArrayIsEmpty(self.resultARR)) {
+                [MBManager showBriefAlert:@"没有搜索到相关结果"];
+            }
+            else{
+                [weakSelf.tableview reloadData];
+            }
         }
         [MBManager hideAlert];
         
     } failure:^(NSError *error) {
         [MBManager hideAlert];
     }];
+    [MBManager hideAlert];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

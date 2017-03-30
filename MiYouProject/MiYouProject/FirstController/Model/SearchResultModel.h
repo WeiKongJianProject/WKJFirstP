@@ -11,6 +11,6 @@
 @interface SearchResultModel : MTLModel<MTLJSONSerializing>
 
 @property (strong, nonatomic) NSNumber *id;
-@property (strong, nonatomic) NSString * name;
-
+@property (strong, nonatomic) NSString * d_id;
+@property (strong, nonatomic) NSString * d_name;
 @end

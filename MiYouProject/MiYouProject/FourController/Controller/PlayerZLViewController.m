@@ -68,12 +68,19 @@ static int _isKuaiJinAction = 0;
     [[ZLSecondAFNetworking sharedInstance]getWithURLString:urlstr parameters:nil success:^(id responseObject) {
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         //[MTLJSONAdapter modelOfClass:[PlayVideoMTLModel class] fromJSONDictionary:dic error:nil];
-        weakSelf.playModel = (PlayVideoMTLModel *)[MTLJSONAdapter modelOfClass:[PlayVideoMTLModel class] fromJSONDictionary:dic error:nil];
-        //NSString * str = [dic objectForKey:@"actor"];
-        //NSLog(@"播放页请求的结果为：%@++++全部结果为：%@",weakSelf.playModel.pic,dic);
-        [weakSelf settingPlayer];//加载播放器
-        [MBManager hideAlert];
-        [self.tableView reloadData];
+        if ([dic[@"result"] isEqualToString:@"success"]) {
+            weakSelf.playModel = (PlayVideoMTLModel *)[MTLJSONAdapter modelOfClass:[PlayVideoMTLModel class] fromJSONDictionary:dic[@"video"] error:nil];
+            weakSelf.playMemberModel = [MTLJSONAdapter modelOfClass:[PlayMemberMTLModel class] fromJSONDictionary:dic[@"member"] error:nil];
+            //NSString * str = [dic objectForKey:@"actor"];
+            //NSLog(@"播放页请求的结果为：%@++++全部结果为：%@",weakSelf.playModel.pic,dic);
+            [weakSelf settingPlayer];//加载播放器
+            [MBManager hideAlert];
+            [weakSelf.tableView reloadData];
+        }
+        else{
+            [MBManager showBriefMessage:@"数据加载失败" InView:self.view];
+        }
+
     } failure:^(NSError *error) {
         [MBManager hideAlert];
         [MBManager showBriefAlert:@"请求失败"];

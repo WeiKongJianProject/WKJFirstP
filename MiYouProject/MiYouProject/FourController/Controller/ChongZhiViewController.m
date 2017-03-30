@@ -8,7 +8,12 @@
 
 #import "ChongZhiViewController.h"
 
-@interface ChongZhiViewController ()
+@interface ChongZhiViewController (){
+
+
+    int _currentJINE;
+    
+}
 
 @end
 
@@ -18,6 +23,11 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
     [self.menuItems addObjectsFromArray:@[@"U币充值",@"充值VIP"]];
+    
+    NSDictionary * dic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
+    self.memMTLModel = [MTLJSONAdapter modelOfClass:[MemberMTLModel class] fromJSONDictionary:dic error:nil];
+    
+    
     
     self.navigationItem.titleView = self.control;
     
@@ -41,6 +51,50 @@
     [self.VIPView setFrame:CGRectMake(0, 0, SIZE_WIDTH, SIZE_HEIGHT-64)];
     [self.backgroundView addSubview:self.UBView];
     [self.backgroundView addSubview:self.VIPView];
+    self.UBView.zhangHaoLabel.text = self.memMTLModel.name;
+    [self startAFNetworkingUB];
+    [self startAFNetworkingVIP];
+    [self.UBView.button01 addTarget:self action:@selector(UBJinEButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.UBView.button02 addTarget:self action:@selector(UBJinEButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.UBView.button03 addTarget:self action:@selector(UBJinEButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.UBView.button04 addTarget:self action:@selector(UBJinEButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.UBView.button05 addTarget:self action:@selector(UBJinEButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.UBView.button06 addTarget:self action:@selector(UBJinEButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.VIPView.button01 addTarget:self action:@selector(UBJinEButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.VIPView.button02 addTarget:self action:@selector(UBJinEButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.VIPView.button03 addTarget:self action:@selector(UBJinEButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.VIPView.button04 addTarget:self action:@selector(UBJinEButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.VIPView.button05 addTarget:self action:@selector(UBJinEButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.VIPView.button06 addTarget:self action:@selector(UBJinEButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.ubButtonARR addObjectsFromArray:@[self.UBView.button01,self.UBView.button02,self.UBView.button03,self.UBView.button04,self.UBView.button05,self.UBView.button06,self.VIPView.button01,self.VIPView.button02,self.VIPView.button03,self.VIPView.button04,self.VIPView.button05,self.VIPView.button06]];
+    
+    [self.UBView.button01 setBackgroundImage:[UIImage imageNamed:@"10yuanxuanzhong"] forState:UIControlStateSelected];
+     [self.UBView.button02 setBackgroundImage:[UIImage imageNamed:@"20yuanxuanzhong"] forState:UIControlStateSelected];
+     [self.UBView.button03 setBackgroundImage:[UIImage imageNamed:@"30yuanxuanzhong"] forState:UIControlStateSelected];
+     [self.UBView.button04 setBackgroundImage:[UIImage imageNamed:@"50yuanxuanzhong"] forState:UIControlStateSelected];
+     [self.UBView.button05 setBackgroundImage:[UIImage imageNamed:@"100yuanxuanzhong"] forState:UIControlStateSelected];
+     [self.UBView.button06 setBackgroundImage:[UIImage imageNamed:@"500yuanxuanzhong"] forState:UIControlStateSelected];
+    [self.VIPView.button01 setBackgroundImage:[UIImage imageNamed:@"qingtongxuanzhong"] forState:UIControlStateSelected];
+    [self.VIPView.button02 setBackgroundImage:[UIImage imageNamed:@"heijinvip"] forState:UIControlStateSelected];
+    [self.VIPView.button03 setBackgroundImage:[UIImage imageNamed:@"huangjinxuanzhong"] forState:UIControlStateSelected];
+    [self.VIPView.button04 setBackgroundImage:[UIImage imageNamed:@"baijinxuanzhong"] forState:UIControlStateSelected];
+    [self.VIPView.button05 setBackgroundImage:[UIImage imageNamed:@"zuanshixuanzhong"] forState:UIControlStateSelected];
+    [self.VIPView.button06 setBackgroundImage:[UIImage imageNamed:@"wangzhexuanzhong"] forState:UIControlStateSelected];
+    
+    
+    self.zhiFuView = (UIView *)[[NSBundle mainBundle] loadNibNamed:@"ZhiFuButtonView" owner:self options:nil][0];
+    [self.backgroundView addSubview:self.zhiFuView];
+    CALayer *layer = [self.zhiFuView layer];
+    layer.shadowOffset = CGSizeMake(0, 3);
+    layer.shadowRadius = 5.0;
+    layer.shadowColor = [UIColor blackColor].CGColor;
+    layer.shadowOpacity = 0.8;
+    [self.zhiFuView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.view.mas_left);
+        make.right.mas_equalTo(self.view.mas_right);
+        make.bottom.mas_equalTo(self.view.mas_bottom);
+        make.height.mas_equalTo(160.0f);
+    }];
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -64,6 +118,58 @@
     }
     
 }
+
+- (void)startAFNetworkingUB{
+    [MBManager showLoadingInView:self.view];
+    __weak typeof(self) weakSelf = self;
+    NSString * url = [NSString stringWithFormat:@"%@&action=recharge&id=%@",URL_Common_ios,self.memMTLModel.id];
+    NSLog(@"VIP充值页面链接：%@",url);
+    [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
+        NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"VIP充值页面请求返回的数据为：%@",dic);
+        NSString * result = dic[@"result"];
+        if ([result isEqualToString:@"success"]) {
+//            if (!zlObjectIsEmpty(dic[@"points"])) {
+//              weakSelf.UBView.yuELabel.text = [NSString stringWithFormat:@"账户余额:%d",[dic[@"points"] intValue]];
+//            }
+//            if (!zlObjectIsEmpty(dic[@"exchange"])) {
+//                 weakSelf.UBView.duiHuanLabel.text = [NSString stringWithFormat:@"充值数量:%dU币=1元",[dic[@"exchange"] intValue]];
+//            }
+//            if (!zlObjectIsEmpty(dic[@"gift"])) {
+//                weakSelf.UBView.fuWuLabel.text = dic[@"gift"];
+//            }
+        }
+        [MBManager hideAlert];
+    } failure:^(NSError *error) {
+        [MBManager hideAlert];
+    }];
+    
+}
+- (void)startAFNetworkingVIP{
+
+    __weak typeof(self) weakSelf = self;
+    NSString * url = [NSString stringWithFormat:@"%@&action=buyVip&id=%@",URL_Common_ios,self.memMTLModel.id];
+    NSLog(@"充值页面链接：%@",url);
+    [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
+        NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"充值页面请求返回的数据为：%@",dic);
+        NSString * result = dic[@"result"];
+        if ([result isEqualToString:@"success"]) {
+            if (!zlObjectIsEmpty(dic[@"gift"])) {
+                weakSelf.VIPView.fuWuXiaLabel.text = dic[@"gift"];
+            }
+            if (!zlObjectIsEmpty(dic[@"total"])) {
+                weakSelf.VIPView.renShuLabel.text = [NSString stringWithFormat:@"%d",[dic[@"total"] intValue]];
+            }
+            
+        }
+        
+    } failure:^(NSError *error) {
+        
+    }];
+
+}
+
 //+ (void)initialize
 //{
 //#if DEBUG_APPERANCE
@@ -80,6 +186,72 @@
 //    
 //#endif
 //}
+//金额按钮执行方法
+- (void)UBJinEButtonAction:(UIButton *)sender{
+    // 10  20  30  50  100  500
+    
+    for (UIButton * btn in self.ubButtonARR) {
+        btn.selected = NO;
+    }
+    sender.selected = YES;
+    switch (sender.tag) {
+        case 1:{
+            if (self.UB_or_VIP == UB_ChongZhi) {
+                _currentJINE = 10;
+            }
+            else{
+                _currentJINE = 18;
+            }
+        
+        }
+            break;
+        case 2:
+            if (self.UB_or_VIP == UB_ChongZhi) {
+                _currentJINE = 20;
+            }
+            else{
+                _currentJINE = 28;
+            }
+            break;
+        case 3:
+            if (self.UB_or_VIP == UB_ChongZhi) {
+                _currentJINE = 30;
+            }
+            else{
+                _currentJINE = 38;
+            }
+            break;
+        case 4:
+            if (self.UB_or_VIP == UB_ChongZhi) {
+                _currentJINE = 50;
+            }
+            else{
+                _currentJINE = 58;
+            }
+            break;
+        case 5:
+            if (self.UB_or_VIP == UB_ChongZhi) {
+                _currentJINE = 100;
+            }
+            else{
+                _currentJINE = 98;
+            }
+            break;
+        case 6:
+            if (self.UB_or_VIP == UB_ChongZhi) {
+                _currentJINE = 500;
+            }
+            else{
+                _currentJINE = 198;
+            }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+
 - (NSMutableArray *)menuItems{
     if (!_menuItems) {
         _menuItems = [[NSMutableArray alloc]init];
@@ -180,6 +352,19 @@
 - (UIBarPosition)positionForSelectionIndicator:(id<UIBarPositioning>)bar
 {
     return UIBarPositionAny;
+}
+
+- (NSMutableArray *)ubButtonARR{
+    if (!_ubButtonARR) {
+        _ubButtonARR = [[NSMutableArray alloc]init];
+    }
+    return _ubButtonARR;
+}
+- (NSMutableArray *)vipButtonARR{
+    if (!_vipButtonARR) {
+        _vipButtonARR = [[NSMutableArray alloc]init];
+    }
+    return _vipButtonARR;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -30,8 +30,7 @@
              @"video":@"video",
              @"trial":@"trial",
              @"usergroup":@"usergroup",
-             @"content":@"content",
-             @"result":@"result"
+             @"content":@"content"
              };
 }
 @end

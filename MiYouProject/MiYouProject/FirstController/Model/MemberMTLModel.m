@@ -17,8 +17,10 @@
              @"name":@"name",
              @"nickname":@"nickname",
              @"password":@"password",
-             @"group":@"group",
-             @"sex":@"sex"
+             @"loginip":@"loginip",
+             @"sex":@"sex",
+             @"vip":@"vip",
+             @"vipName":@"vipName"
              };
 }
 

@@ -10,13 +10,13 @@
 
 @interface MemberMTLModel : MTLModel<MTLJSONSerializing>
 
-@property (strong, nonatomic) NSNumber * id;
+@property (strong, nonatomic) NSString * id;
 @property (strong, nonatomic) NSString * name;
 @property (strong, nonatomic) NSString * nickname;
 @property (strong, nonatomic) NSString * password;
 @property (strong, nonatomic) NSString * loginip;
 @property (strong, nonatomic) NSString * sex;
 @property (strong, nonatomic) NSNumber * vip;
-
+@property (strong, nonatomic) NSString * vipName;
 
 @end

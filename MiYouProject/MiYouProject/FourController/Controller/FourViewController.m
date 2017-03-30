@@ -116,9 +116,14 @@
         if (!hcell) {
             hcell = (PersonHederTableViewCell *)[[NSBundle mainBundle] loadNibNamed:@"PersonHederTableViewCell" owner:self options:nil][0];
         }
-        hcell.userNameLabel.text = self.userInfoModel.name;
-        hcell.huiYuanDengJiLabel.text = [NSString stringWithFormat:@"%d",[self.userMessageModel.group intValue]];
+        hcell.userNameLabel.text = self.userInfoModel.nickname;
+        hcell.huiYuanDengJiLabel.text = self.userInfoModel.vipName;
         hcell.UBiNumLabel.text = [NSString stringWithFormat:@"%d",[self.userMessageModel.points intValue]];
+        UIImage * image = [self readHeadImageFromUserDefault];
+        if (!zlObjectIsEmpty(image)) {
+            [hcell.headerImageVIew setImage:image];
+        }
+
 //        //设置圆角
 //        cellhead.headerImageVIew.layer.cornerRadius = cellhead.imageView.frame.size.width / 2;
 //        //将多余的部分切掉
@@ -257,7 +262,13 @@
     VC.UB_or_VIP = VIP_ChongZhi;
     [self.navigationController pushViewController:VC animated:YES];
 }
-
+//读取本地 图片
+- (UIImage *)readHeadImageFromUserDefault{
+    UIImage *image;
+    NSData * data = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserHeaderImage"];
+    image = [UIImage imageWithData:data];
+    return  image;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -49,7 +49,10 @@
     self.tableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(xiaLaShuaXin)];
     //自动改变 透明度
     self.tableview.mj_header.automaticallyChangeAlpha = YES;
-    [self.tableview.mj_header beginRefreshing];
+
+        [self.tableview.mj_header beginRefreshing];
+
+    
     //上拉刷新
     self.tableview.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(shangLaShuaXin)];
     //[self.lunXianImageARR addObjectsFromArray:@[@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489137038151&di=f8359be9591004374d8585189541c241&imgtype=0&src=http%3A%2F%2Fpic.365j.com%2Farticle%2Fimage%2F201702%2F23%2F6084932905.jpg",@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489137038151&di=a486e7d292f3ea0fbd1d6039e2c337c6&imgtype=0&src=http%3A%2F%2Fimg3.cache.netease.com%2Fent%2F2014%2F7%2F22%2F201407221029266b582.jpg",@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489137038151&di=4c58da342c002a67215c2824e2e0ecfb&imgtype=0&src=http%3A%2F%2Fwww.qulishi.com%2Fuploads%2Fnews%2F201603%2F1456823338865420.png"]];
@@ -178,6 +181,22 @@
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(photoTapped:)];
         [imageview addGestureRecognizer:singleTap];
         [self.lunXianScrollView addSubview:imageview];
+        
+        UIView * backview = [[UIView alloc]initWithFrame:CGRectMake(0, imageScrollViewHeight-40, imageScrollViewWidth, 38)];
+        backview.backgroundColor = [UIColor blackColor];
+        backview.alpha = 0.3;
+        [imageview addSubview:backview];
+        UILabel * nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, imageScrollViewHeight-35, 250, 16)];
+        nameLabel.textColor = [UIColor whiteColor];
+        nameLabel.text = bannerModel.name;
+        nameLabel.font = [UIFont systemFontOfSize:13.0];
+        [imageview addSubview:nameLabel];
+        UILabel * subnameLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, imageScrollViewHeight-19, 250, 14)];
+        subnameLabel.textColor = [UIColor whiteColor];
+        //subnameLabel.text = bannerModel.subname;
+        subnameLabel.text = @"ddddddd林俊杰";
+        subnameLabel.font = [UIFont systemFontOfSize:10.0];
+        [imageview addSubview:subnameLabel];
     }
     self.lunXianScrollView.contentSize = CGSizeMake(imageScrollViewWidth*self.lunXianImageARR.count, 0);
     
@@ -549,6 +568,7 @@
     }
     return _lunXianImageARR;
 }
+
 
 #pragma end mark
 

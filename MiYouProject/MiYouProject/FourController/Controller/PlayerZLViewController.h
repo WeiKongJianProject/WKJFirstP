@@ -14,7 +14,7 @@
 #import "PlayVideoTableViewCell.h"
 #import "ZLSecondAFNetworking.h"
 #import "PlayVideoMTLModel.h"
-
+#import "PlayMemberMTLModel.h"
 @interface PlayerZLViewController : UIViewController<ZFPlayerDelegate,ZFPlayerControlViewDelagate,UITableViewDelegate,UITableViewDataSource>
 
 @property (assign, nonatomic) BOOL isBenDi;
@@ -34,5 +34,7 @@
 @property (assign, nonatomic) int id;//影片ID
 @property (assign, nonatomic) int mid;//用户信息
 @property (strong, nonatomic) PlayVideoMTLModel * playModel;
+@property (strong, nonatomic) PlayMemberMTLModel * playMemberModel;
+
 
 @end

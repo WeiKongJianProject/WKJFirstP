@@ -10,4 +10,17 @@
 
 @interface VIPChongZhiView : UIView
 
+@property (weak, nonatomic) IBOutlet UILabel *renShuLabel;
+@property (weak, nonatomic) IBOutlet UILabel *fuWuXiaLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *vipFuWuLabel;
+@property (weak, nonatomic) IBOutlet UIButton *button01;
+@property (weak, nonatomic) IBOutlet UIButton *button02;
+@property (weak, nonatomic) IBOutlet UIButton *button03;
+@property (weak, nonatomic) IBOutlet UIButton *button04;
+@property (weak, nonatomic) IBOutlet UIButton *button05;
+@property (weak, nonatomic) IBOutlet UIButton *button06;
+
+
+
 @end

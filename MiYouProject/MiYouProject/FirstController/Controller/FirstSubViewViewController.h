@@ -39,8 +39,9 @@ static int _currentPage;
 @property (weak, nonatomic) id<FirstSubViewDelegate> delegate;
 
 @property (assign, nonatomic) int id;
-@property (assign, nonatomic) NSString * name;
+@property (strong, nonatomic) NSString * name;
 
+@property (assign, nonatomic) int  isFirstIndex;
 
 //@property (strong, nonatomic) NSMutableArray * bannerARR;
 //@property (strong, nonatomic) NSMutableArray * listARR;

@@ -67,6 +67,7 @@
         }
     }
     
+    NSDictionary * userDic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
     
     switch (indexPath.row) {
         case 0:{
@@ -76,26 +77,43 @@
             //将多余的部分切掉
             cell.touXiangImageView.layer.masksToBounds = YES;
             
-            [cell.touXiangImageView sd_setImageWithURL:[NSURL URLWithString:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489550112931&di=aaf8556b5dc99730709ee5341c1178ce&imgtype=0&src=http%3A%2F%2Fstar.yule.com.cn%2Fuploadfile%2F2014%2Fcng%2Fyintao%2Fyule0117.jpg"]];
+            //[cell.touXiangImageView sd_setImageWithURL:[NSURL URLWithString:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489550112931&di=aaf8556b5dc99730709ee5341c1178ce&imgtype=0&src=http%3A%2F%2Fstar.yule.com.cn%2Fuploadfile%2F2014%2Fcng%2Fyintao%2Fyule0117.jpg"]];
+            
+            UIImage * image = [self readHeadImageFromUserDefault];
+            if (!zlObjectIsEmpty(image)) {
+                [cell.touXiangImageView setImage:image];
+            }
+            else{
+                [cell.touXiangImageView setImage:[UIImage imageNamed:@"touxiang"]];
+            }
             self.headImageView = cell.touXiangImageView;
         }
             break;
         case 1:
             NSLog(@"第二行");
             cell.leftLabel.text = @"昵称";
-            cell.rightNameLabel.text = @"鸡毛飞上天";
+            
+            if (!zlDictIsEmpty(userDic)) {
+                cell.rightNameLabel.text = userDic[@"nickname"];
+            }
             break;
         case 2:
             cell.leftLabel.text = @"性别";
-            cell.rightNameLabel.text = @"男";
+            if (!zlDictIsEmpty(userDic)) {
+                cell.rightNameLabel.text = userDic[@"sex"];
+            }
             break;
         case 3:
             cell.leftLabel.text = @"账号";
-            cell.rightNameLabel.text = @"123456789";
+            if (!zlDictIsEmpty(userDic)) {
+                cell.rightNameLabel.text = userDic[@"name"];
+            }
             break;
         case 4:
             cell.leftLabel.text = @"密码";
-            cell.rightNameLabel.text = @"987654321";
+            if (!zlDictIsEmpty(userDic)) {
+                cell.rightNameLabel.text = userDic[@"password"];
+            }
             break;
         default:
             break;
@@ -117,10 +135,23 @@
 #pragma end mark
 - (void)updataImage:(UIImage *) image{
     [self.headImageView setImage:image];
+    [self writeImageToUserDefaultWithImage:image];
     //[self.tableView reloadData];
     [self xw_postNotificationWithName:HEAD_IMAGEVIEW_UPDATA_NOTIFICATION userInfo:@{@"head":image}];
 }
 
+//读取本地 图片
+- (UIImage *)readHeadImageFromUserDefault{
+    UIImage *image;
+    NSData * data = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserHeaderImage"];
+    image = [UIImage imageWithData:data];
+    return  image;
+}
+//图片存入本地
+- (void)writeImageToUserDefaultWithImage:(UIImage *)image{
+    NSData *imgData = UIImageJPEGRepresentation(image, 0.3);
+    [[NSUserDefaults standardUserDefaults] setObject:imgData forKey:@"UserHeaderImage"];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
