@@ -154,6 +154,7 @@ static int _is_first;
     SiFangMTLModel * model = [self.collectioinViewARR objectAtIndex:indexPath.row];
     cell.nameLabel.text = model.member;
     [cell.headerImageVIew sd_setImageWithURL:[NSURL URLWithString:model.avator] placeholderImage:PLACEHOLDER_IMAGE];
+    //时间 时间戳设置
     NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:[model.time longValue]];
     //NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[confromTimesp timeIntervalSince1970]];
     //NSDate *date = [NSDate date];
@@ -163,7 +164,6 @@ static int _is_first;
     //formatter.dateFormat = @"yyyy年MM月dd日 HH时mm分ss秒 Z";
     formatter.dateFormat = @"yyyy/MM/dd HH:mm:ss";
     //formatter.dateFormat = @"MM-dd-yyyy HH-mm-ss";
-    
     NSString *res = [formatter stringFromDate:confromTimesp];
     cell.timeLabel.text = res;
     [cell.videoImageView sd_setImageWithURL:[NSURL URLWithString:model.pic] placeholderImage:PLACEHOLDER_IMAGE];
@@ -171,8 +171,11 @@ static int _is_first;
     cell.pingLunLabel.text = [NSString stringWithFormat:@"%d",[model.commentNum intValue]];
     
     cell.playButton.tag = [model.id intValue];
-    
+    cell.playButton.videoID = [model.id intValue];
+    cell.playButton.sifangModel = model;
     [cell.playButton addTarget:self action:@selector(playButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    cell.pingLunButton.tag = [model.id intValue];
+    [cell.pingLunButton addTarget:self action:@selector(pingLunButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     /*
      UIImage * JHimage = self.dataSourceArray[indexPath.row];
      //    UIImage * JHImage = [UIImage imageNamed:imageNamed];
@@ -181,12 +184,7 @@ static int _is_first;
      cell.delegate = self;
      //    cell.backgroundColor = arcColor;
      */
-    
-    
     return cell;
-    
-    
-    
 }
 
 #pragma end mark
@@ -198,15 +196,46 @@ static int _is_first;
     //    }
     NSLog(@"点击了cell");
 }
-- (void)playButtonAction:(UIButton *)sender{
-    NSLog(@"按钮的tag值为：%ld",sender.tag);
+//播放按钮 执行方法
+- (void)playButtonAction:(SiFangPlayButton *)sender{
+    //NSLog(@"按钮的tag值为：%ld",sender.tag);
+    NSDictionary * memDic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
+    self.currentMemberMTLModel = [MTLJSONAdapter modelOfClass:[MemberMTLModel class] fromJSONDictionary:memDic error:nil];
     
-    SiFangPlayController * vc = [[SiFangPlayController alloc]init];
-    
-    [self.navigationController pushViewController:vc animated:NO];
-    
+    int UBpoitnts = [self.currentMemberMTLModel.points intValue];
+    if (UBpoitnts < [sender.sifangModel.price intValue]) {
+        __weak typeof(self) weakSelf = self;
+        AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
+        alertZL.titleName = @"U币余额不足";
+        alertZL.cancelBtnTitle = @"取消";
+        alertZL.okBtnTitle = @"充值";
+        [alertZL cancelBlockAction:^(BOOL success) {
+            [alertZL hideCustomeAlertView];
+        }];
+        [alertZL okButtonBlockAction:^(BOOL success) {
+            NSLog(@"点击了去支付按钮");
+            [alertZL hideCustomeAlertView];
+            ChongZhiViewController * vc = [[ChongZhiViewController alloc]init];
+            vc.UB_or_VIP = UB_ChongZhi;
+            [weakSelf.navigationController pushViewController:vc animated:YES];
+        }];
+        [alertZL showCustomAlertView];
+    }
+    else{
+        SiFangPlayController * vc = [[SiFangPlayController alloc]init];
+        vc.mid = self.currentMemberMTLModel.id;
+        vc.id = [NSString stringWithFormat:@"%d",sender.videoID];
+        [self.navigationController pushViewController:vc animated:NO];
+    }
 }
+//执行 评论按钮方法
+- (void)pingLunButtonAction:(UIButton *)sender{
+    
+    PingLunViewController * vc = [[PingLunViewController alloc]init];
+    vc.id = sender.tag;
+    [self.navigationController pushViewController:vc animated:YES];
 
+}
 
 #pragma mark  设置CollectionViewCell是否可以被点击
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath

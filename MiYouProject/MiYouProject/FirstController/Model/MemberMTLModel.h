@@ -18,5 +18,5 @@
 @property (strong, nonatomic) NSString * sex;
 @property (strong, nonatomic) NSNumber * vip;
 @property (strong, nonatomic) NSString * vipName;
-
+@property (strong, nonatomic) NSNumber * points;
 @end

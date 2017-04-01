@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="VIPViewCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="120" height="170"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="120" height="170"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cvL-FR-SD3">
+                        <rect key="frame" x="0.0" y="0.0" width="120" height="150"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="VIPVideoCellID" text="三生三世十里桃花" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpa-9F-tiD">
+                        <rect key="frame" x="0.0" y="150" width="120" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="An7-9B-AO9"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="cvL-FR-SD3" secondAttribute="trailing" id="Jp0-Kj-Zny"/>
+                <constraint firstItem="tpa-9F-tiD" firstAttribute="top" secondItem="cvL-FR-SD3" secondAttribute="bottom" id="M1H-K6-aJq"/>
+                <constraint firstItem="cvL-FR-SD3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="SDu-FT-xhy"/>
+                <constraint firstItem="cvL-FR-SD3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ckD-Iw-kup"/>
+                <constraint firstAttribute="bottom" secondItem="tpa-9F-tiD" secondAttribute="bottom" id="qrX-No-UVy"/>
+                <constraint firstItem="tpa-9F-tiD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="tlN-8W-zFw"/>
+                <constraint firstAttribute="trailing" secondItem="tpa-9F-tiD" secondAttribute="trailing" id="yC0-fY-Fq1"/>
+            </constraints>
+            <size key="customSize" width="189" height="157"/>
+            <connections>
+                <outlet property="imageView" destination="cvL-FR-SD3" id="p6f-87-oy7"/>
+                <outlet property="nameLabel" destination="tpa-9F-tiD" id="cQe-0a-YAj"/>
+            </connections>
+            <point key="canvasLocation" x="94.5" y="105.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

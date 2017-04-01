@@ -16,7 +16,8 @@
              @"name":@"name",
              @"duration":@"duration",
              @"pic":@"pic",
-             @"vip":@"vip"
+             @"vip":@"vip",
+             @"subname":@"subname"
       };
     
 }

@@ -18,4 +18,5 @@
 @property (strong, nonatomic) NSString * nickname;
 @property (strong, nonatomic) NSString * loginip;
 @property (strong, nonatomic) NSString * vipName;
+@property (strong, nonatomic) NSNumber * points;
 @end

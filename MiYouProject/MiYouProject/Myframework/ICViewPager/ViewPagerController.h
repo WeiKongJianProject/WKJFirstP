@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "URLZLHeader.h"
 typedef NS_ENUM(NSUInteger, ViewPagerOption) {
     ViewPagerOptionTabHeight,
     ViewPagerOptionTabOffset,
@@ -34,6 +34,10 @@ typedef NS_ENUM(NSUInteger, ViewPagerComponent) {
 
 @property UIScrollView *tabsView;
 
+/*
+ zl修改
+ */
+@property (assign, nonatomic) int isSecondVC;
 
 #pragma mark ViewPagerOptions
 // Tab bar's height, defaults to 49.0

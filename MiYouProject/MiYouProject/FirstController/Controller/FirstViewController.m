@@ -35,7 +35,7 @@
     for (int i = 0; i<5; i++) {
         CateListMTLModel * model = [[CateListMTLModel alloc]init];
         model.name = @"热门";
-        model.id = @1;
+        model.id = @"1";
         [self.itemsTitlesARR addObject:model];
     }
     //请求数据

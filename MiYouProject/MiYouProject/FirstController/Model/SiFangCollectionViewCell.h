@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SiFangPlayButton.h"
 
 @interface SiFangCollectionViewCell : UICollectionViewCell
 
@@ -14,9 +15,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *videoImageView;
-@property (weak, nonatomic) IBOutlet UIButton *playButton;
+@property (weak, nonatomic) IBOutlet SiFangPlayButton *playButton;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pingLunLabel;
+@property (weak, nonatomic) IBOutlet UIButton *pingLunButton;
 
 
 

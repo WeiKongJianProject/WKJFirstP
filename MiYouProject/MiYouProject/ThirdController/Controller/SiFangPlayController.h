@@ -28,4 +28,7 @@
 @property (strong, nonatomic) NSURL * zaiXianUrl;
 @property (strong, nonatomic) NSString * zaiXianName;
 
+@property (strong, nonatomic) NSString * mid;
+@property (strong, nonatomic) NSString * id;
+
 @end

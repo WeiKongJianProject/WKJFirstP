@@ -15,6 +15,7 @@
 #define kDefaultTabWidth 93.0
 
 
+
 #define kDefaultTabLocation 1.0 // 1.0: Top, 0.0: Bottom
 
 #define kDefaultStartFromSecondTab 0.0 // 1.0: YES, 0.0: NO
@@ -158,7 +159,14 @@
     frame.origin.x = 0.0;
 
     frame.origin.y = self.tabLocation ? 20.0 : self.view.frame.size.height - self.tabHeight;
-
+    
+    /*
+     *zl修改 20170331 start
+     */
+    //int customeWeight = _isSecondVC?0:80;
+    /*
+     *zl修改 20170331 end
+     */
     frame.size.width = self.view.bounds.size.width-80;
     frame.size.height = self.tabHeight;
     _tabsView.frame = frame;

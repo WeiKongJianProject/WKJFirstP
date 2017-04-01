@@ -13,7 +13,11 @@
 #import "SiFangMTLModel.h"
 #import "ZLSecondAFNetworking.h"
 #import "SiFangPlayController.h"
-
+#import "MemberMTLModel.h"
+#import "SiFangPlayButton.h"
+#import "AlertViewCustomZL.h"
+#import "ChongZhiViewController.h"
+#import "PingLunViewController.h"
 
 @interface ThirdViewController : ZLBaseViewController<WKUIDelegate,WKNavigationDelegate,DZNSegmentedControlDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
@@ -26,5 +30,6 @@
 @property (strong, nonatomic) NSMutableArray * collectionViewARR01;
 @property (strong, nonatomic) NSMutableArray * collectionViewARR02;
 @property (strong, nonatomic) NSMutableArray * collectioinViewARR;
+@property (strong, nonatomic) MemberMTLModel * currentMemberMTLModel;
 
 @end

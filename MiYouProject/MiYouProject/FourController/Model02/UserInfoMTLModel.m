@@ -18,7 +18,8 @@
              @"sex":@"sex",
              @"nickname":@"nickname",
              @"loginip":@"loginip",
-             @"vipName":@"vipName"
+             @"vipName":@"vipName",
+             @"points":@"points"
              };
     
 }

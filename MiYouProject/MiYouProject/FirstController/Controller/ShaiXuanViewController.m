@@ -9,16 +9,30 @@
 #import "ShaiXuanViewController.h"
 #define Collection_item_Width (SIZE_WIDTH-40)/3.0
 #define Collection_item_Height (SIZE_WIDTH-40)/3.0 * 386.0/225.0
-@interface ShaiXuanViewController ()
+@interface ShaiXuanViewController (){
+    
+    NSString * _currentType;
+    NSString * _currentStory;
+    NSString * _currentYear;
+    NSString * _currentOrder;
+
+}
 
 @end
 static int _currentPage;
+static int _isFirstOpen;
 
 @implementation ShaiXuanViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     _currentPage = 1;
+    _isFirstOpen = 1;
+    _currentType = @"全部";
+    _currentStory = @"全部";
+    _currentOrder = @"new";
+    _currentYear = @"全部";
+    
     self.topView.backgroundColor = [UIColor whiteColor];
     self.view.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
     self.collectionARR = [[NSMutableArray alloc]init];
@@ -28,7 +42,7 @@ static int _currentPage;
     self.thirdConARR = [[NSMutableArray alloc]init];
     self.fourConARR = [[NSMutableArray alloc]init];
     
-    [self startAFNetworkingWith:self.id];
+    [self startAFNetworkingWith:self.id withPage:_currentPage withJuQing:@"全部" withYear:@"全部" withType:@"全部" withOrder:@"new"];
     
     //[self settingSegmentView];
     [self settingCollectionView];
@@ -41,62 +55,67 @@ static int _currentPage;
 }
 
 
-- (void)startAFNetworkingWith:(int)keyId{
-        
-        [MBManager showLoadingInView:self.view];
+- (void)startAFNetworkingWith:(int)keyId withPage:(int)page withJuQing:(NSString *)story withYear:(NSString *)year withType:(NSString *)type withOrder:(NSString *) orderType {
         __weak typeof(self) weakSelf = self;
+        [MBManager showLoadingInView:weakSelf.view];
+    
         
         //http://api4.cn360du.com:88/index.php?m=api-ios&action=lists&cate=999
-        NSString * url = [NSString stringWithFormat:@"%@&action=lists&cate=%d&page=%d",URL_Common_ios,keyId,_currentPage];
+        NSString * url = [NSString stringWithFormat:@"%@&action=lists&cate=%d&page=%d&juqing=%@&year=%@&type=%@&order=%@",URL_Common_ios,keyId,page,story,year,type,orderType];
         NSLog(@"筛选列表请求链接：%@",url);
-        [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
+        NSString * codeString = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];//去掉特殊字符
+        [[ZLSecondAFNetworking sharedInstance] getWithURLString:codeString parameters:nil success:^(id responseObject) {
             [MBManager hideAlert];
             NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
             NSLog(@"筛选列表请求数据：%@",dic);
             NSString * isSuccess = [NSString stringWithFormat:@"%@",[dic objectForKey:@"result"]];
             if ([isSuccess isEqualToString:@"success"]) {
                 if (_currentPage == 1) {
-                    if ([[dic objectForKey:@"catelist"] isKindOfClass:[NSArray class]] && [dic objectForKey:@"catelist"] != nil) {
-                        NSArray * arr01 = [dic objectForKey:@"catelist"];
+                    if ([[dic objectForKey:@"typelist"] isKindOfClass:[NSArray class]] && [dic objectForKey:@"typelist"] != nil) {
+                        NSArray * arr01 = [dic objectForKey:@"typelist"];
                         NSLog(@"第一栏列表数据为：%ld",arr01.count);
                         if (!zlArrayIsEmpty(arr01)) {
-                            for (int i = 0; i< arr01.count; i++) {
-                                NSDictionary * typeDic = arr01[i];
-                                //TypeListModel * models = [[TypeListModel alloc]init];
-                                TypeListModel * models = [[TypeListModel alloc]init];
-                                models.id = models.id;
-                                models.name = [typeDic objectForKey:@"name"];
-                                [weakSelf.firstConARR addObject:models];
-                            }
+//                            for (int i = 0; i< arr01.count; i++) {
+//                                NSDictionary * typeDic = arr01[i];
+//                                //TypeListModel * models = [[TypeListModel alloc]init];
+//                                TypeListModel * models = [[TypeListModel alloc]init];
+//                                models.id = models.id;
+//                                models.name = [typeDic objectForKey:@"name"];
+//                                [weakSelf.firstConARR addObject:models];
+//                            }
                             
-                            //self.firstConARR = [MTLJSONAdapter modelsOfClass:[TypeListModel class] fromJSONArray:[dic objectForKey:@"typelist"] error:nil];
-                            NSLog(@"self.firstConARR。count值为：%ld+++arr01的个数为：%ld",self.firstConARR.count,arr01.count);
+                            weakSelf.firstConARR = (NSMutableArray *)[MTLJSONAdapter modelsOfClass:[TypeListModel class] fromJSONArray:[dic objectForKey:@"typelist"] error:nil];
+                            //NSLog(@"self.firstConARR。count值为：%ld+++arr01的个数为：%ld",self.firstConARR.count,arr01.count);
                         }
                     }
                     NSDictionary * arr02 = [dic objectForKey:@"filterlist"];
                     if (!zlDictIsEmpty(arr02)) {
                         //                    NSArray * cusArr = [MTLJSONAdapter modelsOfClass:[FilterListModel class] fromJSONArray:[dic objectForKey:@"filterlist"] error:nil];
-                        weakSelf.secondConARR = (NSMutableArray *)[MTLJSONAdapter modelsOfClass:[TypeListModel class] fromJSONArray:arr02[@"class"] error:nil];
-                        NSDictionary * yearDic = [arr02 objectForKey:@"year"];
+                        weakSelf.secondConARR = (NSMutableArray *)[MTLJSONAdapter modelsOfClass:[TypeListModel class] fromJSONArray:arr02[@"story"] error:nil];
+                        weakSelf.thirdConARR = (NSMutableArray *)[MTLJSONAdapter modelsOfClass:[TypeListModel class] fromJSONArray:arr02[@"year"] error:nil];
+                        //NSDictionary * yearDic = [arr02 objectForKey:@"year"];
                         //NSLog(@"年份为：%@",yearDic.allValues[0]);
                         //weakSelf.thirdConARR = (NSMutableArray *)yearDic.allValues;
                         //[weakSelf.thirdConARR addObjectsFromArray:yearDic.allValues];
                         //[ary sortedArrayUsingSelector:@selector(compare:)];//这个是一直默认升序
-                        NSMutableArray *objARR = [[NSMutableArray alloc]init];
-                        for (int i = 0;i< yearDic.allKeys.count;i++) {
-                            
-                            [objARR addObject:[yearDic objectForKey:yearDic.allKeys[i]]];
-                            //[weakSelf.thirdConARR addObject:[yearDic objectForKey:yearDic.allKeys[i]]];
-                        }
-                        [weakSelf.thirdConARR addObjectsFromArray:[ objARR sortedArrayUsingSelector:@selector(compare:)]];
+//                        NSMutableArray *objARR = [[NSMutableArray alloc]init];
+//                        for (int i = 0;i< yearDic.allKeys.count;i++) {
+//                            
+//                            [objARR addObject:[yearDic objectForKey:yearDic.allKeys[i]]];
+//                            //[weakSelf.thirdConARR addObject:[yearDic objectForKey:yearDic.allKeys[i]]];
+//                        }
+//                        [weakSelf.thirdConARR addObjectsFromArray:[ objARR sortedArrayUsingSelector:@selector(compare:)]];
                     }
                     NSArray * arr03 = [dic objectForKey:@"list"];
                     if (!zlArrayIsEmpty(arr03)) {
                         [weakSelf.collectionARR addObjectsFromArray:[MTLJSONAdapter modelsOfClass:[VideoListMTLModel class] fromJSONArray:[dic objectForKey:@"list"] error:nil]];
                     }
+                    if(_isFirstOpen == 1){
+                        [weakSelf settingSegmentView];
+                        _isFirstOpen++;
+                    }
                     
-                    [self settingSegmentView];
-                    [self.collectionView reloadData];
+                    [weakSelf.collectionView reloadData];
                 }
                 else{
                     NSArray * arr03 = [dic objectForKey:@"list"];
@@ -104,17 +123,17 @@ static int _currentPage;
                         [weakSelf.collectionARR addObjectsFromArray:[MTLJSONAdapter modelsOfClass:[VideoListMTLModel class] fromJSONArray:[dic objectForKey:@"list"] error:nil]];
                     }
 
-                    [self.collectionView reloadData];
+                    [weakSelf.collectionView reloadData];
                 }
             }
-            [self.collectionView.mj_footer endRefreshing];
+            [weakSelf.collectionView.mj_footer endRefreshing];
             [MBManager hideAlert];
         } failure:^(NSError *error) {
 //            [self.tableview.mj_header endRefreshing];
 //            [self.tableview.mj_footer endRefreshing];
             [MBManager hideAlert];
             [MBManager showBriefAlert:@"数据加载失败"];
-            [self.collectionView.mj_footer endRefreshing];
+            [weakSelf.collectionView.mj_footer endRefreshing];
         }];
 
 }
@@ -135,13 +154,14 @@ static int _currentPage;
         [secondSegmentARR addObject:@{VOSegmentText:model.name}];
     }
     for (int i = 0; i<self.thirdConARR.count; i++) {
-        NSString * str = [NSString stringWithFormat:@"%d",[self.thirdConARR[i] intValue]];
-        int value = (int)self.thirdConARR[i];
-        NSLog(@"第三个分类值为：%d",value);
-        [thirdSegmentARR addObject:@{VOSegmentText:str}];
+//        NSString * str = [NSString stringWithFormat:@"%d",[self.thirdConARR[i] intValue]];
+//        int value = (int)self.thirdConARR[i];
+//        NSLog(@"第三个分类值为：%d",value);
+        TypeListModel * model = self.thirdConARR[i];
+        [thirdSegmentARR addObject:@{VOSegmentText:model.name}];
     }
     
-    
+    __weak typeof(self) weakSelf = self;
     self.sgControl01 = [[VOSegmentedControl alloc] initWithSegments:firstSegmentARR];
     self.sgControl01.contentStyle = VOContentStyleTextAlone;
     self.sgControl01.selectedTextColor = [UIColor colorWithhex16stringToColor:Main_BackgroundColor];
@@ -157,6 +177,11 @@ static int _currentPage;
     [self.topView addSubview:self.sgControl01];
     [self.sgControl01 setIndexChangeBlock:^(NSInteger index) {
         NSLog(@"1: block --> %@", @(index));
+        _currentType = firstSegmentARR[index][VOSegmentText];
+        _currentPage = 1;
+        //__strong typeof(weakSelf) strongSelf = weakSelf;
+        [weakSelf.collectionARR removeAllObjects];
+       [weakSelf startAFNetworkingWith:weakSelf.id withPage:_currentPage withJuQing:_currentStory withYear:_currentYear withType:_currentType withOrder:_currentOrder];
     }];
     [self.sgControl01 addTarget:self action:@selector(segmentCtrlValuechange:) forControlEvents:UIControlEventValueChanged];
     //第二个
@@ -169,13 +194,17 @@ static int _currentPage;
     self.sgControl02.backgroundColor = [UIColor clearColor];
     self.sgControl02.selectedBackgroundColor = self.sgControl02.backgroundColor;
     self.sgControl02.allowNoSelection = YES;
-    self.sgControl02.frame = CGRectMake(50, 40, SIZE_WIDTH-50, 20);
+    self.sgControl02.frame = CGRectMake(10, 40, SIZE_WIDTH-10, 20);
     self.sgControl02.indicatorThickness = 0;
     self.sgControl02.tag = 2;
     [self.sgControl02 setSelectedSegmentIndex:-1];
     [self.topView addSubview:self.sgControl02];
     [self.sgControl02 setIndexChangeBlock:^(NSInteger index) {
         NSLog(@"1: block --> %@", @(index));
+        _currentStory = secondSegmentARR[index][VOSegmentText];
+        _currentPage = 1;
+         [weakSelf.collectionARR removeAllObjects];
+        [weakSelf startAFNetworkingWith:weakSelf.id withPage:_currentPage withJuQing:_currentStory withYear:_currentYear withType:_currentType withOrder:_currentOrder];
     }];
     
     [self.sgControl02 addTarget:self action:@selector(segmentCtrlValuechange:) forControlEvents:UIControlEventValueChanged];
@@ -186,7 +215,7 @@ static int _currentPage;
     [self.allButton01 setTitle:@"全部" forState:UIControlStateNormal];
     [self.allButton01 setTitleColor:[UIColor colorWithhex16stringToColor:Main_BackgroundColor] forState:UIControlStateNormal];
     [self.allButton01 addTarget:self action:@selector(allbutton01Action:) forControlEvents:UIControlEventTouchUpInside];
-    [self.topView addSubview:self.allButton01];
+    //[self.topView addSubview:self.allButton01];
     UIView * spView02 = [[UIView alloc]initWithFrame:CGRectMake(0, 61, SIZE_WIDTH, 1)];
     spView02.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
     spView02.alpha = 0.8;
@@ -202,13 +231,17 @@ static int _currentPage;
     self.sgControl03.backgroundColor = [UIColor clearColor];
     self.sgControl03.selectedBackgroundColor = self.sgControl03.backgroundColor;
     self.sgControl03.allowNoSelection = YES;
-    self.sgControl03.frame = CGRectMake(50, 75, SIZE_WIDTH-50, 20);
+    self.sgControl03.frame = CGRectMake(10, 75, SIZE_WIDTH-10, 20);
     self.sgControl03.indicatorThickness = 0;
     self.sgControl03.tag = 3;
     [self.sgControl03 setSelectedSegmentIndex:-1];
     [self.topView addSubview:self.sgControl03];
     [self.sgControl03 setIndexChangeBlock:^(NSInteger index) {
         NSLog(@"1: block --> %@", @(index));
+        _currentYear = thirdSegmentARR[index][VOSegmentText];
+        _currentPage = 1;
+         [weakSelf.collectionARR removeAllObjects];
+        [weakSelf startAFNetworkingWith:weakSelf.id withPage:_currentPage withJuQing:_currentStory withYear:_currentYear withType:_currentType withOrder:_currentOrder];
     }];
     [self.sgControl03 addTarget:self action:@selector(segmentCtrlValuechange:) forControlEvents:UIControlEventValueChanged];
     
@@ -218,7 +251,7 @@ static int _currentPage;
     self.allButton02.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     [self.allButton02 setTitleColor:[UIColor colorWithhex16stringToColor:Main_BackgroundColor] forState:UIControlStateNormal];
     [self.allButton02 addTarget:self action:@selector(allbutton02Action:) forControlEvents:UIControlEventTouchUpInside];
-    [self.topView addSubview:self.allButton02];
+    //[self.topView addSubview:self.allButton02];
     UIView * spView03 = [[UIView alloc]initWithFrame:CGRectMake(0, 96, SIZE_WIDTH, 1)];
     spView03.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
     spView03.alpha = 0.8;
@@ -240,6 +273,20 @@ static int _currentPage;
     [self.topView addSubview:self.sgControl04];
     [self.sgControl04 setIndexChangeBlock:^(NSInteger index) {
         NSLog(@"1: block --> %@", @(index));
+        switch (index) {
+            case 0:
+                    _currentOrder = @"new";
+                break;
+            case 1:
+                _currentOrder = @"score";
+                break;
+            default:
+                break;
+        }
+        _currentPage = 1;
+         [weakSelf.collectionARR removeAllObjects];
+        [weakSelf startAFNetworkingWith:weakSelf.id withPage:_currentPage withJuQing:_currentStory withYear:_currentYear withType:_currentType withOrder:_currentOrder];
+        
     }];
     [self.sgControl04 addTarget:self action:@selector(segmentCtrlValuechange:) forControlEvents:UIControlEventValueChanged];
 
@@ -340,7 +387,7 @@ static int _currentPage;
 
 - (void)shanglaShuaXin{
     _currentPage++;
-    [self startAFNetworkingWith:self.id];
+    [self startAFNetworkingWith:self.id withPage:_currentPage withJuQing:_currentStory withYear:_currentYear withType:_currentType withOrder:_currentOrder];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

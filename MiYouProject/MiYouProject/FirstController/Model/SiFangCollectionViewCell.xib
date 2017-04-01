@@ -58,7 +58,7 @@
                             <constraint firstAttribute="width" secondItem="5mG-t7-pCt" secondAttribute="height" multiplier="1:1" id="P4K-dt-jEL"/>
                         </constraints>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZ2-ft-eUt">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZ2-ft-eUt" customClass="SiFangPlayButton">
                         <rect key="frame" x="163" y="142" width="49" height="46"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="49" id="e06-0x-H0M"/>
@@ -139,6 +139,7 @@
             <connections>
                 <outlet property="headerImageVIew" destination="ylU-Cb-Qjy" id="gdq-Kb-OSl"/>
                 <outlet property="nameLabel" destination="ZG3-9c-63Y" id="vx9-hB-pF3"/>
+                <outlet property="pingLunButton" destination="Pap-cz-NJ5" id="YrH-jL-7lg"/>
                 <outlet property="pingLunLabel" destination="caK-0b-D3S" id="LJ3-ma-xSe"/>
                 <outlet property="playButton" destination="EZ2-ft-eUt" id="1gU-vc-6I5"/>
                 <outlet property="priceLabel" destination="2Wa-v9-ggM" id="4SF-Kb-5Uj"/>

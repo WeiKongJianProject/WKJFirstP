@@ -36,8 +36,8 @@
 #import "CateListMTLModel.h"
 #import "MemberMTLModel.h"
 #import "VideoListMTLModel.h"
-
-
+#import "SecondVC02.h"
+#import "VIPVideoMTLModel.h"
 
 @interface SecondViewController : ViewPagerController<CustomIOSAlertViewDelegate,ViewPagerDataSource,ViewPagerDelegate,FirstSubViewDelegate>
 
@@ -49,5 +49,10 @@
 
 @property (strong, nonatomic) NSMutableArray* labelARR;
 @property (strong, nonatomic) ZLLabelCustom * currentLabel;
+
+@property (strong, nonatomic) NSDictionary * currentMemInfoDic;
+@property (strong, nonatomic) NSDictionary * titleDic;
+@property (strong, nonatomic) NSMutableArray * collectionARR;
+
 
 @end

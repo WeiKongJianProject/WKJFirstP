@@ -8,7 +8,11 @@
 
 #import "SecondViewController.h"
 
-@interface SecondViewController ()
+@interface SecondViewController (){
+
+    NSString * _totalNum;
+    
+}
 
 @end
 
@@ -16,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    //_isSecondVC = YES;
     
     
     self.labelARR = [[NSMutableArray alloc]init];
@@ -35,7 +39,7 @@
     for (int i = 0; i<5; i++) {
         CateListMTLModel * model = [[CateListMTLModel alloc]init];
         model.name = @"热门";
-        model.id = @1;
+        model.id = @"1";
         [self.itemsTitlesARR addObject:model];
     }
     //请求数据
@@ -104,7 +108,7 @@
 }
 //网络请求  数据 标题
 - (void)getShuJuFromAFNetworking{
-    [MBManager showLoadingInView:self.view];
+    //[MBManager showLoadingInView:self.view];
     __weak typeof(self) weakSelf = self;
     
     NSString * url = nil;
@@ -112,48 +116,29 @@
 //        url = [NSString stringWithFormat:@"%@&action=index&mid=999&page=1&fresh=1",URL_Common_ios];
 //    }
 //    else{
-    
+    NSDictionary * memDic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
     //page为空时默认为第一页//&action=index&mid=1&level=1&playfrom=youku&hot=1&page=1
-        url = [NSString stringWithFormat:@"%@&action=index&mid=1&page=1",URL_Common_ios];
+        url = [NSString stringWithFormat:@"%@&action=vip&mid=%@&page=1",URL_Common_ios,memDic[@"id"]];
 //    }
     
     NSLog(@"第一次请求的链接：%@",url);
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
         
-        [MBManager hideAlert];
+       // [MBManager hideAlert];
         
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        
-        NSArray * bannerARR = [dic objectForKey:@"banner"];
-        NSArray  * cateListARR = [dic objectForKey:@"catelist"];
-        NSDictionary * memberDic = [dic objectForKey:@"member"];
-        NSArray * listARR = [dic objectForKey:@"list"];
-        NSString * result = [dic objectForKey:@"result"];
-        //NSLog(@"数据加载：%@++++++%@++++",result,dic);
-        if ([result isEqualToString:@"success"]) {
-            NSArray * arr1 = [MTLJSONAdapter modelsOfClass:[CateListMTLModel class] fromJSONArray:cateListARR error:nil];
-            //self.itemsTitlesARR = arr1;
-            [weakSelf.itemsTitlesARR removeAllObjects];
-            [weakSelf.itemsTitlesARR addObjectsFromArray:arr1];
-            
-            NSArray * arr2 = [MTLJSONAdapter modelsOfClass:[HOmeBannerMTLModel class] fromJSONArray:bannerARR error:nil];
-            [weakSelf.bannerARR removeAllObjects];
-            [weakSelf.bannerARR addObjectsFromArray:arr2];
-            
-            NSArray * arr3 = [MTLJSONAdapter modelsOfClass:[VideoListMTLModel class] fromJSONArray:listARR error:nil];
-            NSLog(@"加载电影列表的个数：%ld",arr3.count);
-            [weakSelf.listARR removeAllObjects];
-            [weakSelf.listARR addObjectsFromArray:arr3];
-            
-            if (memberDic != nil && ![memberDic isKindOfClass:[NSNull class]]) {
-                weakSelf.memberInfo = [MTLJSONAdapter modelOfClass:[MemberMTLModel class] fromJSONDictionary:memberDic error:nil];
-                [[NSUserDefaults standardUserDefaults] setObject:memberDic forKey:MEMBER_INFO_DIC];
+        if ([dic[@"result" ] isEqualToString:@"success"]) {
+            if (dic[@"member"] != nil && ![dic[@"member"] isKindOfClass:[NSNull class]]) {
+               self.currentMemInfoDic = dic[@"member"];
             }
-            
+            self.currentMemInfoDic = dic[@"member"];
+            self.titleDic = dic[@"sourceList"];
+            self.collectionARR = (NSMutableArray *)[MTLJSONAdapter modelsOfClass:[VIPVideoMTLModel class] fromJSONArray:dic[@"list"] error:nil];
+            _totalNum = dic[@"total"];
             [weakSelf reloadData];
         }
     } failure:^(NSError *error) {
-        [MBManager hideAlert];
+        //[MBManager hideAlert];
         [MBManager showBriefAlert:@"数据加载失败"];
     }];
     
@@ -265,11 +250,11 @@
 //Tab数量
 - (NSUInteger)numberOfTabsForViewPager:(ViewPagerController *)viewPager{
     NSLog(@"数组的数量为：%ld",self.itemsTitlesARR.count);
-    return self.itemsTitlesARR.count;
+    return self.titleDic.allKeys.count+1;
 }
 //类别-0 类别-1 添加
 - (UIView *)viewPager:(ViewPagerController *)viewPager viewForTabAtIndex:(NSUInteger)index{
-    CateListMTLModel *itemModel = [self.itemsTitlesARR objectAtIndex:index];
+    //CateListMTLModel *itemModel = [self.titleDic objectAtIndex:index];
     
     //    UILabel *label = [UILabel new];
     //    label.backgroundColor = [UIColor clearColor];
@@ -281,41 +266,84 @@
     //    label.textAlignment = NSTextAlignmentCenter;
     //    label.textColor = [UIColor colorWithhex16stringToColor:@"f4f4f4"];
     //    [label sizeToFit];
+    if (index == 0) {
+        ZLLabelCustom * label = [ZLLabelCustom new];
+        
+        
+        label.backgroundColor = [UIColor clearColor];
+        label.font = [UIFont systemFontOfSize:15.0];
+        label.text = @"VIP电影";
+        //NSString * titleStr = [self.itemsTitlesARR objectAtIndex:index];
+        //label.text = itemModel.name;
+        //label.text = [NSString stringWithFormat:@"全球购%ld", index];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.textColor = [UIColor colorWithhex16stringToColor:@"606060"];
+        [label sizeToFit];
+        
+        [_labelARR addObject:label];
+        
+        label.spView  = [[UIView alloc]initWithFrame:CGRectMake(label.frame.origin.x, label.frame.origin.y+21, label.frame.size.width, 1)];
+        label.spView.backgroundColor = [UIColor whiteColor];
+        label.spView.hidden = YES;
+        [label addSubview:label.spView];
+        return label;
+    }
+    else{
+        NSString * titleString = [self.titleDic.allValues objectAtIndex:index-1];
+        ZLLabelCustom * label = [ZLLabelCustom new];
+        
+        
+        label.backgroundColor = [UIColor clearColor];
+        label.font = [UIFont systemFontOfSize:15.0];
+        label.text = titleString;
+        //NSString * titleStr = [self.itemsTitlesARR objectAtIndex:index];
+        //label.text = itemModel.name;
+        //label.text = [NSString stringWithFormat:@"全球购%ld", index];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.textColor = [UIColor colorWithhex16stringToColor:@"606060"];
+        [label sizeToFit];
+        
+        [_labelARR addObject:label];
+        
+        label.spView  = [[UIView alloc]initWithFrame:CGRectMake(label.frame.origin.x, label.frame.origin.y+21, label.frame.size.width, 1)];
+        label.spView.backgroundColor = [UIColor whiteColor];
+        label.spView.hidden = YES;
+        [label addSubview:label.spView];
+        return label;
     
-    ZLLabelCustom * label = [ZLLabelCustom new];
-    label.backgroundColor = [UIColor clearColor];
-    label.font = [UIFont systemFontOfSize:15.0];
-    //NSString * titleStr = [self.itemsTitlesARR objectAtIndex:index];
-    label.text = itemModel.name;
-    //label.text = [NSString stringWithFormat:@"全球购%ld", index];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.textColor = [UIColor colorWithhex16stringToColor:@"606060"];
-    [label sizeToFit];
-    
-    [_labelARR addObject:label];
-    
-    label.spView  = [[UIView alloc]initWithFrame:CGRectMake(label.frame.origin.x, label.frame.origin.y+21, label.frame.size.width, 1)];
-    label.spView.backgroundColor = [UIColor whiteColor];
-    label.spView.hidden = YES;
-    [label addSubview:label.spView];
-    return label;
+    }
+
 }
 //每个Tab对应的控制器
 - (UIViewController *)viewPager:(ViewPagerController *)viewPager contentViewControllerForTabAtIndex:(NSUInteger)index{
-    FirstSubViewViewController *vCtrl = [[FirstSubViewViewController alloc]init];
-    vCtrl.view.backgroundColor = [UIColor whiteColor];
-    vCtrl.delegate = self;
-    //[vCtrl setPViewCtrl:self];
-    if (index == 0) {
-        vCtrl.dianYingCollectionARR = self.listARR;
-        //NSLog(@"电影列表的个数dianYingCollectionARR.count:%ld",vCtrl.dianYingCollectionARR.count);
-        vCtrl.lunXianImageARR = self.bannerARR;
-    }
-    CateListMTLModel *itemModel = [self.itemsTitlesARR objectAtIndex:index];
-    vCtrl.id = [itemModel.id intValue];
-    vCtrl.name = itemModel.name;
-    return vCtrl;
     
+    if (index == 0) {
+        SecondVC02 * vc = [[SecondVC02 alloc]init];
+        vc.numLabelText = _totalNum;
+        NSLog(@"++++片库为：%@",_totalNum);
+        vc.collectionViewARR = [self.collectionARR mutableCopy];
+        return vc;
+    }
+    else{
+        SecondVC02 * vc = [[SecondVC02 alloc]init];
+        
+        return vc;
+    
+    }
+    
+//    FirstSubViewViewController *vCtrl = [[FirstSubViewViewController alloc]init];
+//    vCtrl.view.backgroundColor = [UIColor whiteColor];
+//    vCtrl.delegate = self;
+//    //[vCtrl setPViewCtrl:self];
+//    if (index == 0) {
+//        vCtrl.dianYingCollectionARR = self.listARR;
+//        //NSLog(@"电影列表的个数dianYingCollectionARR.count:%ld",vCtrl.dianYingCollectionARR.count);
+//        vCtrl.lunXianImageARR = self.bannerARR;
+//    }
+//    CateListMTLModel *itemModel = [self.itemsTitlesARR objectAtIndex:index];
+//    vCtrl.id = [itemModel.id intValue];
+//    vCtrl.name = itemModel.name;
+//    return vCtrl;
 }
 //代理实现方法
 - (CGFloat)viewPager:(ViewPagerController *)viewPager valueForOption:(ViewPagerOption)option withDefault:(CGFloat)value {
@@ -541,9 +569,32 @@
 
 #pragma end mark
 
+
+- (NSDictionary *)currentMemInfoDic{
+
+    if (!_currentMemInfoDic) {
+        _currentMemInfoDic = [[NSDictionary alloc]init];
+    }
+    return _currentMemInfoDic;
+}
+- (NSDictionary *)titleDic{
+    if (!_titleDic) {
+        _titleDic = [[NSDictionary alloc]init];
+    }
+    return _titleDic;
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSMutableArray *)collectionARR{
+    if (!_collectionARR) {
+        _collectionARR = [[NSMutableArray alloc]init];
+    }
+    return _collectionARR;
 }
 
 /*
