@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VIPShaiXuanVCViewController">
+            <connections>
+                <outlet property="collectionView" destination="UlY-08-YEo" id="2bx-zX-8Ck"/>
+                <outlet property="topView" destination="png-h0-GI4" id="DU9-db-3ma"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="png-h0-GI4">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="135"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="135" id="Kqv-b1-j3E"/>
+                    </constraints>
+                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="UlY-08-YEo">
+                    <rect key="frame" x="0.0" y="145" width="375" height="473"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SVT-5p-y7x">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="png-h0-GI4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EMR-Hs-nKq"/>
+                <constraint firstAttribute="trailing" secondItem="UlY-08-YEo" secondAttribute="trailing" id="RFZ-FS-Lag"/>
+                <constraint firstItem="UlY-08-YEo" firstAttribute="top" secondItem="png-h0-GI4" secondAttribute="bottom" constant="10" id="YcX-Wi-Vu4"/>
+                <constraint firstAttribute="trailing" secondItem="png-h0-GI4" secondAttribute="trailing" id="ZBW-FX-70X"/>
+                <constraint firstItem="UlY-08-YEo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="csi-xW-a0Y"/>
+                <constraint firstItem="png-h0-GI4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="mE4-MJ-jKw"/>
+                <constraint firstAttribute="bottom" secondItem="UlY-08-YEo" secondAttribute="bottom" constant="49" id="xnY-b9-mbF"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

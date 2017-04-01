@@ -159,7 +159,15 @@
             btn.hidden = YES;
         }
         NSArray * vipListARR = [self.userMessageModel.viplist mutableCopy];
-        for (int i = 0; i<vipListARR.count; i++) {
+        NSLog(@"请求的用户VIP特权为：%ld,cell.ButtonARR的个数为：%ld",vipListARR.count,fcell.VIPButtonARR.count);
+        NSInteger zonButNum;
+        if (vipListARR.count > fcell.VIPButtonARR.count) {
+            zonButNum = fcell.VIPButtonARR.count;
+        }
+        else{
+            zonButNum = vipListARR.count;
+        }
+        for (int i = 0; i<zonButNum; i++) {
             NSString * stringURL = vipListARR[i];
             UIButton * btn = (UIButton *)fcell.VIPButtonARR[i];
             btn.hidden = NO;

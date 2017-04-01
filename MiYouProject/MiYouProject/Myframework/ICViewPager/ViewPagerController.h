@@ -35,9 +35,9 @@ typedef NS_ENUM(NSUInteger, ViewPagerComponent) {
 @property UIScrollView *tabsView;
 
 /*
- zl修改
+ *zl修改 20170331
  */
-@property (assign, nonatomic) int isSecondVC;
+@property (assign, nonatomic) BOOL isSecondVC;
 
 #pragma mark ViewPagerOptions
 // Tab bar's height, defaults to 49.0

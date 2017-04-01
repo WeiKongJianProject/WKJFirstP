@@ -81,6 +81,10 @@
 		73A3B6471E8E455C00407957 /* VIPViewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3B6451E8E455C00407957 /* VIPViewCollectionViewCell.m */; };
 		73A3B6481E8E455C00407957 /* VIPViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73A3B6461E8E455C00407957 /* VIPViewCollectionViewCell.xib */; };
 		73A3B64B1E8E59BC00407957 /* VIPVideoMTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3B64A1E8E59BC00407957 /* VIPVideoMTLModel.m */; };
+		73A3B64F1E8F442600407957 /* VIPShaiXuanVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3B64D1E8F442600407957 /* VIPShaiXuanVCViewController.m */; };
+		73A3B6501E8F442600407957 /* VIPShaiXuanVCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73A3B64E1E8F442600407957 /* VIPShaiXuanVCViewController.xib */; };
+		73A3B6561E8F4F4800407957 /* VIP03VideoMTLModel03.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3B6551E8F4F4800407957 /* VIP03VideoMTLModel03.m */; };
+		73A3B6591E8F50D700407957 /* VIPFilterListMTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3B6581E8F50D700407957 /* VIPFilterListMTLModel.m */; };
 		73C347091E80FCF800BBBDBE /* MBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C347081E80FCF700BBBDBE /* MBManager.m */; };
 		73C3470C1E8125A800BBBDBE /* UIAlertViewZL.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C3470B1E8125A800BBBDBE /* UIAlertViewZL.m */; };
 		73C3470E1E8125B900BBBDBE /* UIAlertVIewZL.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73C3470D1E8125B900BBBDBE /* UIAlertVIewZL.xib */; };
@@ -370,6 +374,13 @@
 		73A3B6461E8E455C00407957 /* VIPViewCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VIPViewCollectionViewCell.xib; path = MiYouProject/SecondController/Controller/VIPViewCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
 		73A3B6491E8E59BC00407957 /* VIPVideoMTLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VIPVideoMTLModel.h; path = MiYouProject/SecondController/Controller/VIPVideoMTLModel.h; sourceTree = SOURCE_ROOT; };
 		73A3B64A1E8E59BC00407957 /* VIPVideoMTLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VIPVideoMTLModel.m; path = MiYouProject/SecondController/Controller/VIPVideoMTLModel.m; sourceTree = SOURCE_ROOT; };
+		73A3B64C1E8F442600407957 /* VIPShaiXuanVCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPShaiXuanVCViewController.h; sourceTree = "<group>"; };
+		73A3B64D1E8F442600407957 /* VIPShaiXuanVCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPShaiXuanVCViewController.m; sourceTree = "<group>"; };
+		73A3B64E1E8F442600407957 /* VIPShaiXuanVCViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VIPShaiXuanVCViewController.xib; sourceTree = "<group>"; };
+		73A3B6541E8F4F4800407957 /* VIP03VideoMTLModel03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VIP03VideoMTLModel03.h; path = MiYouProject/SecondController/Controller/VIP03VideoMTLModel03.h; sourceTree = SOURCE_ROOT; };
+		73A3B6551E8F4F4800407957 /* VIP03VideoMTLModel03.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VIP03VideoMTLModel03.m; path = MiYouProject/SecondController/Controller/VIP03VideoMTLModel03.m; sourceTree = SOURCE_ROOT; };
+		73A3B6571E8F50D700407957 /* VIPFilterListMTLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VIPFilterListMTLModel.h; path = MiYouProject/SecondController/Controller/VIPFilterListMTLModel.h; sourceTree = SOURCE_ROOT; };
+		73A3B6581E8F50D700407957 /* VIPFilterListMTLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VIPFilterListMTLModel.m; path = MiYouProject/SecondController/Controller/VIPFilterListMTLModel.m; sourceTree = SOURCE_ROOT; };
 		73C347071E80FCF700BBBDBE /* MBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBManager.h; sourceTree = "<group>"; };
 		73C347081E80FCF700BBBDBE /* MBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBManager.m; sourceTree = "<group>"; };
 		73C3470A1E8125A800BBBDBE /* UIAlertViewZL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertViewZL.h; sourceTree = "<group>"; };
@@ -1209,6 +1220,9 @@
 				73A3B63F1E8E440600407957 /* SecondVC02.h */,
 				73A3B6401E8E440600407957 /* SecondVC02.m */,
 				73A3B6411E8E440600407957 /* SecondVC02.xib */,
+				73A3B64C1E8F442600407957 /* VIPShaiXuanVCViewController.h */,
+				73A3B64D1E8F442600407957 /* VIPShaiXuanVCViewController.m */,
+				73A3B64E1E8F442600407957 /* VIPShaiXuanVCViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1218,6 +1232,10 @@
 			children = (
 				73A3B6491E8E59BC00407957 /* VIPVideoMTLModel.h */,
 				73A3B64A1E8E59BC00407957 /* VIPVideoMTLModel.m */,
+				73A3B6541E8F4F4800407957 /* VIP03VideoMTLModel03.h */,
+				73A3B6551E8F4F4800407957 /* VIP03VideoMTLModel03.m */,
+				73A3B6571E8F50D700407957 /* VIPFilterListMTLModel.h */,
+				73A3B6581E8F50D700407957 /* VIPFilterListMTLModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1821,6 +1839,7 @@
 				730D38871E79246400EE4692 /* UBChongZhiView.xib in Resources */,
 				7365573B1E729C4B00284C11 /* DianYingCollectionViewCell.xib in Resources */,
 				730D385C1E77CDCB00EE4692 /* MyYuEViewController.xib in Resources */,
+				73A3B6501E8F442600407957 /* VIPShaiXuanVCViewController.xib in Resources */,
 				730D38661E77DC2D00EE4692 /* SettingViewController.xib in Resources */,
 				73A3B6041E8A2D8400407957 /* RenZhengViewController.xib in Resources */,
 				73E7DA841E7FB75800371E33 /* DianYingSubViewController.xib in Resources */,
@@ -2012,6 +2031,8 @@
 				73EB3ED71E6FD7DB00CA8B5D /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				73EB3EDB1E6FD7DB00CA8B5D /* ZLAFNetworking.m in Sources */,
 				73C347121E8211CD00BBBDBE /* ShaiXuanViewController.m in Sources */,
+				73A3B64F1E8F442600407957 /* VIPShaiXuanVCViewController.m in Sources */,
+				73A3B6591E8F50D700407957 /* VIPFilterListMTLModel.m in Sources */,
 				73A3B61A1E8B9BF300407957 /* PlayMemberMTLModel.m in Sources */,
 				73EB3FE61E70FB1E00CA8B5D /* UIColor+ColorZL.m in Sources */,
 				73A3B6421E8E440600407957 /* SecondVC02.m in Sources */,
@@ -2113,6 +2134,7 @@
 				73EB3FD41E6FDEE400CA8B5D /* ZLPageControl.m in Sources */,
 				73EB3FA31E6FDEE400CA8B5D /* RSAEncryptor.m in Sources */,
 				73EB43121E7240EE00CA8B5D /* NSObject+XWAdd.m in Sources */,
+				73A3B6561E8F4F4800407957 /* VIP03VideoMTLModel03.m in Sources */,
 				730D38851E79244C00EE4692 /* VIPChongZhiView.m in Sources */,
 				73E7DA881E7FBD2700371E33 /* DianYingSubTableViewCell.m in Sources */,
 				732BC86A1E6FD17400B8B1BD /* main.m in Sources */,

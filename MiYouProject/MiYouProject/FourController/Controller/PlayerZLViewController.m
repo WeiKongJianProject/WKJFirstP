@@ -60,10 +60,10 @@ static int _isKuaiJinAction = 0;
     }];
 }
 
-- (void)startAFNetworkingWithID:(int)keyID withUserMid:(int)mID{
+- (void)startAFNetworkingWithID:(NSString *)keyID withUserMid:(int)mID{
     [MBManager showLoadingInView:self.view];
     __weak typeof(self) weakSelf = self;
-    NSString * urlstr = [NSString stringWithFormat:@"%@&action=play&id=%d&mid=%d",URL_Common_ios,keyID,mID];
+    NSString * urlstr = [NSString stringWithFormat:@"%@&action=play&id=%@&mid=%d",URL_Common_ios,keyID,mID];
     NSLog(@"播放页请求的链接为：%@",urlstr);
     [[ZLSecondAFNetworking sharedInstance]getWithURLString:urlstr parameters:nil success:^(id responseObject) {
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];

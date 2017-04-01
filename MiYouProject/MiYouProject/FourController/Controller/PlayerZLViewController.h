@@ -31,7 +31,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *tiJiaoButton;
 
-@property (assign, nonatomic) int id;//影片ID
+@property (strong, nonatomic) NSString * id;//影片ID
 @property (assign, nonatomic) int mid;//用户信息
 @property (strong, nonatomic) PlayVideoMTLModel * playModel;
 @property (strong, nonatomic) PlayMemberMTLModel * playMemberModel;

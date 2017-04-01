@@ -339,9 +339,10 @@
     s = zongTime-60;
     
     NSString * timeString = [NSString stringWithFormat:@"%d:%d",m,s];
-    
-    
     cell.timeLabel.text = timeString;
+    
+    
+    [cell.minImageView sd_setImageWithURL:[NSURL URLWithString:vModel.pic] placeholderImage:PLACEHOLDER_IMAGE];
     return cell;
     
     
@@ -383,34 +384,29 @@
 {
     VideoListMTLModel * model = [self.dianYingCollectionARR objectAtIndex:indexPath.row];
     NSString * modelVIP = [NSString stringWithFormat:@"%d",[model.vip intValue]];
-    NSString * isMemberVIP = [[NSUserDefaults standardUserDefaults] objectForKey:IS_MEMBER_VIP];
-    if ([modelVIP isEqualToString:@"1"]) {
-        if ([isMemberVIP isEqualToString:@"1"]) {
-            if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:)]) {
-                NSString * keyID = [NSString stringWithFormat:@"%@",model.id];
-                [self.delegate firstSubVC:self withType:2 withName:model.name withKey:keyID];
-            }
-        }
-        else{
-            AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
-            alertZL.titleName = @"需要开通VIP才能观看";
-            alertZL.cancelBtnTitle = @"取消";
-            alertZL.okBtnTitle = @"开通";
-            [alertZL cancelBlockAction:^(BOOL success) {
-                [alertZL hideCustomeAlertView];
-            }];
-            [alertZL okButtonBlockAction:^(BOOL success) {
-                NSLog(@"点击了去支付按钮");
-            }];
-            [alertZL showCustomAlertView];
-        }
-    }else{
+    //NSString * isMemberVIP = [[NSUserDefaults standardUserDefaults] objectForKey:IS_MEMBER_VIP];
+    NSString * memVIP = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
+    if ([memVIP intValue] < [modelVIP intValue]) {
+        AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
+        alertZL.titleName = @"需要开通VIP才能观看";
+        alertZL.cancelBtnTitle = @"取消";
+        alertZL.okBtnTitle = @"开通";
+        [alertZL cancelBlockAction:^(BOOL success) {
+            [alertZL hideCustomeAlertView];
+        }];
+        [alertZL okButtonBlockAction:^(BOOL success) {
+            [alertZL hideCustomeAlertView];
+            NSLog(@"点击了去支付按钮");
+        }];
+        [alertZL showCustomAlertView];
+    }
+    else{
         if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:)]) {
             NSString * keyID = [NSString stringWithFormat:@"%@",model.id];
             [self.delegate firstSubVC:self withType:2 withName:model.name withKey:keyID];
         }
-    
     }
+
 //    if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:)]) {
 //        [self.delegate firstSubVC:self withType:2 withName:model.name withKey:model.video];
 //    }

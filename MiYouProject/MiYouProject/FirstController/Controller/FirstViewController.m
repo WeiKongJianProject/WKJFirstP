@@ -104,7 +104,7 @@
 }
 //网络请求  数据 标题
 - (void)getShuJuFromAFNetworking{
-    [MBManager showLoadingInView:self.view];
+    //[MBManager showLoadingInView:self.view];
     __weak typeof(self) weakSelf = self;
     
     NSString * url = nil;
@@ -117,7 +117,7 @@
     NSLog(@"第一次请求的链接：%@",url);
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
         
-        [MBManager hideAlert];
+        //[MBManager hideAlert];
         
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         
@@ -150,8 +150,8 @@
             [weakSelf reloadData];
         }
     } failure:^(NSError *error) {
-        [MBManager hideAlert];
-        [MBManager showBriefAlert:@"数据加载失败"];
+        //[MBManager hideAlert];
+        //[MBManager showBriefAlert:@"数据加载失败"];
     }];
     
 }
@@ -406,7 +406,7 @@
             vc.name = name;
             //NSURL * url = [NSURL URLWithString:key];
             //vc.url = url;
-            vc.id = [key intValue];
+            vc.id = key;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;

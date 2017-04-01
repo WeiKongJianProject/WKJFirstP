@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //_isSecondVC = YES;
-    
+    self.isSecondVC = YES;
     
     self.labelARR = [[NSMutableArray alloc]init];
     self.bannerARR = [[NSMutableArray alloc]init];
@@ -131,7 +131,6 @@
             if (dic[@"member"] != nil && ![dic[@"member"] isKindOfClass:[NSNull class]]) {
                self.currentMemInfoDic = dic[@"member"];
             }
-            self.currentMemInfoDic = dic[@"member"];
             self.titleDic = dic[@"sourceList"];
             self.collectionARR = (NSMutableArray *)[MTLJSONAdapter modelsOfClass:[VIPVideoMTLModel class] fromJSONArray:dic[@"list"] error:nil];
             _totalNum = dic[@"total"];
@@ -322,13 +321,19 @@
         vc.numLabelText = _totalNum;
         NSLog(@"++++片库为：%@",_totalNum);
         vc.collectionViewARR = [self.collectionARR mutableCopy];
+        vc.delegate = self;
         return vc;
     }
     else{
-        SecondVC02 * vc = [[SecondVC02 alloc]init];
+        
+        NSString * sourceID = [self.titleDic.allKeys objectAtIndex:index-1];
+        
+        VIPShaiXuanVCViewController * vc = [[VIPShaiXuanVCViewController alloc]init];
+        vc.delegate = self;
+        vc.sourceID = sourceID;
+        vc.type = @"1";
         
         return vc;
-    
     }
     
 //    FirstSubViewViewController *vCtrl = [[FirstSubViewViewController alloc]init];
@@ -414,10 +419,9 @@
 //}
 
 
-#pragma mark FirstSubDelegate 代理方法
-- (void)firstSubVC:(FirstSubViewViewController *)viewC withType:(NSInteger)typeInt withName:(NSString *)name withKey:(NSString *)key{
-    
-    switch (typeInt) {
+#pragma mark SecondSubDelegate 代理方法
+- (void)secondVC02:(SecondVC02 *)viewController withType:(int)typeInd withName:(NSString *)name withKey:(NSString *)keyId{
+    switch (typeInd) {
         case 0:{
             DianYingSubViewController * vc = [[DianYingSubViewController alloc]init];
             vc.title = @"电影";
@@ -427,7 +431,7 @@
         case 1:{
             ShaiXuanViewController * vc = [[ShaiXuanViewController alloc]init];
             vc.title = name;
-            vc.id = [key intValue];
+            vc.id = [keyId intValue];
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -436,18 +440,31 @@
             vc.name = name;
             //NSURL * url = [NSURL URLWithString:key];
             //vc.url = url;
-            vc.id = [key intValue];
+            vc.id = keyId;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         default:
             break;
     }
-    
-    
+
+}
+
+
+#pragma end mark
+#pragma mark VIPShaiXuanDelegate代理方法
+- (void)vipShaiXuanVC:(VIPShaiXuanVCViewController *)class withType:(int)typeInd withName:(NSString *)name withKey:(NSString *)keyId{
+    PlayerZLViewController * vc = [[PlayerZLViewController alloc]init];
+    vc.name = name;
+    //NSURL * url = [NSURL URLWithString:key];
+    //vc.url = url;
+    vc.id = keyId;
+    [self.navigationController pushViewController:vc animated:YES];
+
 }
 
 #pragma end mark
+
 
 #pragma mark 是否是第一次登录
 - (BOOL)isFirstOpen{

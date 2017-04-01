@@ -38,8 +38,10 @@
 #import "VideoListMTLModel.h"
 #import "SecondVC02.h"
 #import "VIPVideoMTLModel.h"
+#import "VIPShaiXuanVCViewController.h"
 
-@interface SecondViewController : ViewPagerController<CustomIOSAlertViewDelegate,ViewPagerDataSource,ViewPagerDelegate,FirstSubViewDelegate>
+
+@interface SecondViewController : ViewPagerController<CustomIOSAlertViewDelegate,ViewPagerDataSource,ViewPagerDelegate,SecondVC02Delegate,VIPShaiXuanVCDelegate>
 
 @property (strong, nonatomic) NSMutableArray * itemsTitlesARR;
 @property (strong, nonatomic) NSMutableArray * bannerARR;

@@ -163,11 +163,11 @@
     /*
      *zl修改 20170331 start
      */
-    //int customeWeight = _isSecondVC?0:80;
+    int customeWeight = self.isSecondVC?0:80;
     /*
      *zl修改 20170331 end
      */
-    frame.size.width = self.view.bounds.size.width-80;
+    frame.size.width = self.view.bounds.size.width-customeWeight;
     frame.size.height = self.tabHeight;
     _tabsView.frame = frame;
     
