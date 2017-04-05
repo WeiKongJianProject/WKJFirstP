@@ -403,11 +403,21 @@
             break;
         case 2:{
             PlayerZLViewController * vc = [[PlayerZLViewController alloc]init];
-            vc.name = name;
+//            vc.name = name;
             //NSURL * url = [NSURL URLWithString:key];
-            //vc.url = url;
-            vc.id = key;
+            vc.isBenDi = YES;
+            NSURL * url = [NSURL URLWithString:@"http://www.w3cschool.cc/try/demo_source/mov_bbb.mp4"];
+            vc.url = url;
+//            vc.id = key;
             [self.navigationController pushViewController:vc animated:YES];
+            
+            //KYLocalVideoPlayVC * vc = [[KYLocalVideoPlayVC alloc]init];
+            //WMPlayZLViewController
+//            WMPlayZLViewController  * vc = [[WMPlayZLViewController alloc]init];
+//            vc.URLString = @"http://www.w3cschool.cc/try/demo_source/mov_bbb.mp4";
+//            //vc.videoTitleLabel.text = name;
+//            //vc.id = key;
+//            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         default:

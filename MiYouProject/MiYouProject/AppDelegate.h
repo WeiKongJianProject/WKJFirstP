@@ -25,5 +25,7 @@
 
 - (NetworkStatus)currentReachabilityStatus;
 
++(AppDelegate *)shareAppDelegate;
+
 @end
 

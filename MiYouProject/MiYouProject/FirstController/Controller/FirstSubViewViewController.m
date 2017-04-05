@@ -385,8 +385,9 @@
     VideoListMTLModel * model = [self.dianYingCollectionARR objectAtIndex:indexPath.row];
     NSString * modelVIP = [NSString stringWithFormat:@"%d",[model.vip intValue]];
     //NSString * isMemberVIP = [[NSUserDefaults standardUserDefaults] objectForKey:IS_MEMBER_VIP];
-    NSString * memVIP = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
-    if ([memVIP intValue] < [modelVIP intValue]) {
+    NSDictionary * memVIPDic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
+    
+    if ([memVIPDic[@"vip"] intValue] < [modelVIP intValue]) {
         AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
         alertZL.titleName = @"需要开通VIP才能观看";
         alertZL.cancelBtnTitle = @"取消";

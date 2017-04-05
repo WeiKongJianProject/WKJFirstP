@@ -46,6 +46,23 @@
 		732BC87B1E6FD17400B8B1BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 732BC8791E6FD17400B8B1BD /* LaunchScreen.storyboard */; };
 		732BC8861E6FD17500B8B1BD /* MiYouProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC8851E6FD17500B8B1BD /* MiYouProjectTests.m */; };
 		732BC8911E6FD17500B8B1BD /* MiYouProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC8901E6FD17500B8B1BD /* MiYouProjectUITests.m */; };
+		732DFC701E94BCD100D024F8 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732DFC551E94BCD100D024F8 /* BaseViewController.m */; };
+		732DFC711E94BCD100D024F8 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732DFC571E94BCD100D024F8 /* DetailViewController.m */; };
+		732DFC721E94BCD100D024F8 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 732DFC5B1E94BCD100D024F8 /* DataManager.m */; };
+		732DFC731E94BCD100D024F8 /* SidModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 732DFC5D1E94BCD100D024F8 /* SidModel.m */; };
+		732DFC741E94BCD100D024F8 /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 732DFC5F1E94BCD100D024F8 /* VideoModel.m */; };
+		732DFC751E94BCD100D024F8 /* ScreenShotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 732DFC621E94BCD100D024F8 /* ScreenShotView.m */; };
+		732DFC761E94BCD100D024F8 /* WMDragView.m in Sources */ = {isa = PBXBuildFile; fileRef = 732DFC651E94BCD100D024F8 /* WMDragView.m */; };
+		732DFC771E94BCD100D024F8 /* FastForwardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 732DFC691E94BCD100D024F8 /* FastForwardView.m */; };
+		732DFC781E94BCD100D024F8 /* FastForwardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732DFC6A1E94BCD100D024F8 /* FastForwardView.xib */; };
+		732DFC791E94BCD100D024F8 /* WMLightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 732DFC6C1E94BCD100D024F8 /* WMLightView.m */; };
+		732DFC7A1E94BCD100D024F8 /* WMPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 732DFC6D1E94BCD100D024F8 /* WMPlayer.bundle */; };
+		732DFC7B1E94BCD100D024F8 /* WMPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 732DFC6F1E94BCD100D024F8 /* WMPlayer.m */; };
+		732DFC7F1E94BF9100D024F8 /* WMPlayZLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732DFC7D1E94BF9100D024F8 /* WMPlayZLViewController.m */; };
+		732DFC801E94BF9100D024F8 /* WMPlayZLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732DFC7E1E94BF9100D024F8 /* WMPlayZLViewController.xib */; };
+		732DFC831E94EC5600D024F8 /* KYLocalVideoPlayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 732DFC821E94EC5600D024F8 /* KYLocalVideoPlayVC.m */; };
+		732DFC861E94EE7500D024F8 /* KYBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732DFC851E94EE7500D024F8 /* KYBaseViewController.m */; };
+		732DFC891E94EF1E00D024F8 /* KYVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 732DFC881E94EF1E00D024F8 /* KYVideo.m */; };
 		736557361E728F5800284C11 /* ReMenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736557351E728F5800284C11 /* ReMenView.xib */; };
 		7365573A1E729C4B00284C11 /* DianYingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */; };
 		7365573B1E729C4B00284C11 /* DianYingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736557391E729C4B00284C11 /* DianYingCollectionViewCell.xib */; };
@@ -319,6 +336,37 @@
 		732BC88C1E6FD17500B8B1BD /* MiYouProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiYouProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		732BC8901E6FD17500B8B1BD /* MiYouProjectUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiYouProjectUITests.m; sourceTree = "<group>"; };
 		732BC8921E6FD17500B8B1BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		732DFC541E94BCD100D024F8 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		732DFC551E94BCD100D024F8 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		732DFC561E94BCD100D024F8 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		732DFC571E94BCD100D024F8 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		732DFC5A1E94BCD100D024F8 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		732DFC5B1E94BCD100D024F8 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		732DFC5C1E94BCD100D024F8 /* SidModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidModel.h; sourceTree = "<group>"; };
+		732DFC5D1E94BCD100D024F8 /* SidModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidModel.m; sourceTree = "<group>"; };
+		732DFC5E1E94BCD100D024F8 /* VideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoModel.h; sourceTree = "<group>"; };
+		732DFC5F1E94BCD100D024F8 /* VideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoModel.m; sourceTree = "<group>"; };
+		732DFC611E94BCD100D024F8 /* ScreenShotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenShotView.h; sourceTree = "<group>"; };
+		732DFC621E94BCD100D024F8 /* ScreenShotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenShotView.m; sourceTree = "<group>"; };
+		732DFC641E94BCD100D024F8 /* WMDragView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMDragView.h; sourceTree = "<group>"; };
+		732DFC651E94BCD100D024F8 /* WMDragView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMDragView.m; sourceTree = "<group>"; };
+		732DFC681E94BCD100D024F8 /* FastForwardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastForwardView.h; sourceTree = "<group>"; };
+		732DFC691E94BCD100D024F8 /* FastForwardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastForwardView.m; sourceTree = "<group>"; };
+		732DFC6A1E94BCD100D024F8 /* FastForwardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FastForwardView.xib; sourceTree = "<group>"; };
+		732DFC6B1E94BCD100D024F8 /* WMLightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMLightView.h; sourceTree = "<group>"; };
+		732DFC6C1E94BCD100D024F8 /* WMLightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMLightView.m; sourceTree = "<group>"; };
+		732DFC6D1E94BCD100D024F8 /* WMPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WMPlayer.bundle; sourceTree = "<group>"; };
+		732DFC6E1E94BCD100D024F8 /* WMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPlayer.h; sourceTree = "<group>"; };
+		732DFC6F1E94BCD100D024F8 /* WMPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPlayer.m; sourceTree = "<group>"; };
+		732DFC7C1E94BF9100D024F8 /* WMPlayZLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPlayZLViewController.h; sourceTree = "<group>"; };
+		732DFC7D1E94BF9100D024F8 /* WMPlayZLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPlayZLViewController.m; sourceTree = "<group>"; };
+		732DFC7E1E94BF9100D024F8 /* WMPlayZLViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WMPlayZLViewController.xib; sourceTree = "<group>"; };
+		732DFC811E94EC5600D024F8 /* KYLocalVideoPlayVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYLocalVideoPlayVC.h; sourceTree = "<group>"; };
+		732DFC821E94EC5600D024F8 /* KYLocalVideoPlayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYLocalVideoPlayVC.m; sourceTree = "<group>"; };
+		732DFC841E94EE7500D024F8 /* KYBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYBaseViewController.h; sourceTree = "<group>"; };
+		732DFC851E94EE7500D024F8 /* KYBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYBaseViewController.m; sourceTree = "<group>"; };
+		732DFC871E94EF1E00D024F8 /* KYVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYVideo.h; sourceTree = "<group>"; };
+		732DFC881E94EF1E00D024F8 /* KYVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYVideo.m; sourceTree = "<group>"; };
 		736557351E728F5800284C11 /* ReMenView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReMenView.xib; sourceTree = "<group>"; };
 		736557371E729C4B00284C11 /* DianYingCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianYingCollectionViewCell.h; sourceTree = "<group>"; };
 		736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianYingCollectionViewCell.m; sourceTree = "<group>"; };
@@ -794,6 +842,89 @@
 			path = MiYouProjectUITests;
 			sourceTree = "<group>";
 		};
+		732DFC531E94BBF200D024F8 /* ZLWMPlayerVC */ = {
+			isa = PBXGroup;
+			children = (
+				732DFC541E94BCD100D024F8 /* BaseViewController.h */,
+				732DFC551E94BCD100D024F8 /* BaseViewController.m */,
+				732DFC561E94BCD100D024F8 /* DetailViewController.h */,
+				732DFC571E94BCD100D024F8 /* DetailViewController.m */,
+				732DFC811E94EC5600D024F8 /* KYLocalVideoPlayVC.h */,
+				732DFC821E94EC5600D024F8 /* KYLocalVideoPlayVC.m */,
+				732DFC841E94EE7500D024F8 /* KYBaseViewController.h */,
+				732DFC851E94EE7500D024F8 /* KYBaseViewController.m */,
+				732DFC871E94EF1E00D024F8 /* KYVideo.h */,
+				732DFC881E94EF1E00D024F8 /* KYVideo.m */,
+				732DFC581E94BCD100D024F8 /* PlayerFile */,
+				732DFC661E94BCD100D024F8 /* WMPlayer */,
+			);
+			path = ZLWMPlayerVC;
+			sourceTree = "<group>";
+		};
+		732DFC581E94BCD100D024F8 /* PlayerFile */ = {
+			isa = PBXGroup;
+			children = (
+				732DFC591E94BCD100D024F8 /* DataManager */,
+				732DFC601E94BCD100D024F8 /* ScreenShotBack */,
+				732DFC631E94BCD100D024F8 /* WMDragView */,
+			);
+			path = PlayerFile;
+			sourceTree = "<group>";
+		};
+		732DFC591E94BCD100D024F8 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				732DFC5A1E94BCD100D024F8 /* DataManager.h */,
+				732DFC5B1E94BCD100D024F8 /* DataManager.m */,
+				732DFC5C1E94BCD100D024F8 /* SidModel.h */,
+				732DFC5D1E94BCD100D024F8 /* SidModel.m */,
+				732DFC5E1E94BCD100D024F8 /* VideoModel.h */,
+				732DFC5F1E94BCD100D024F8 /* VideoModel.m */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		732DFC601E94BCD100D024F8 /* ScreenShotBack */ = {
+			isa = PBXGroup;
+			children = (
+				732DFC611E94BCD100D024F8 /* ScreenShotView.h */,
+				732DFC621E94BCD100D024F8 /* ScreenShotView.m */,
+			);
+			path = ScreenShotBack;
+			sourceTree = "<group>";
+		};
+		732DFC631E94BCD100D024F8 /* WMDragView */ = {
+			isa = PBXGroup;
+			children = (
+				732DFC641E94BCD100D024F8 /* WMDragView.h */,
+				732DFC651E94BCD100D024F8 /* WMDragView.m */,
+			);
+			path = WMDragView;
+			sourceTree = "<group>";
+		};
+		732DFC661E94BCD100D024F8 /* WMPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				732DFC671E94BCD100D024F8 /* View */,
+				732DFC6D1E94BCD100D024F8 /* WMPlayer.bundle */,
+				732DFC6E1E94BCD100D024F8 /* WMPlayer.h */,
+				732DFC6F1E94BCD100D024F8 /* WMPlayer.m */,
+			);
+			path = WMPlayer;
+			sourceTree = "<group>";
+		};
+		732DFC671E94BCD100D024F8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				732DFC681E94BCD100D024F8 /* FastForwardView.h */,
+				732DFC691E94BCD100D024F8 /* FastForwardView.m */,
+				732DFC6A1E94BCD100D024F8 /* FastForwardView.xib */,
+				732DFC6B1E94BCD100D024F8 /* WMLightView.h */,
+				732DFC6C1E94BCD100D024F8 /* WMLightView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		73A3B5F71E89F78C00407957 /* Model02 */ = {
 			isa = PBXGroup;
 			children = (
@@ -908,6 +1039,7 @@
 		73EB3E9D1E6FD7DB00CA8B5D /* CommonFiles */ = {
 			isa = PBXGroup;
 			children = (
+				732DFC531E94BBF200D024F8 /* ZLWMPlayerVC */,
 				73E7DA731E7F778900371E33 /* UIUnitCore */,
 				73EB3EE21E6FDEE400CA8B5D /* Common */,
 				73EB3E9E1E6FD7DB00CA8B5D /* ZLBaseViewController.h */,
@@ -1080,6 +1212,9 @@
 				73E7DA681E7BE08D00371E33 /* PlayerZLViewController.h */,
 				73E7DA691E7BE08D00371E33 /* PlayerZLViewController.m */,
 				73E7DA6A1E7BE08D00371E33 /* PlayerZLViewController.xib */,
+				732DFC7C1E94BF9100D024F8 /* WMPlayZLViewController.h */,
+				732DFC7D1E94BF9100D024F8 /* WMPlayZLViewController.m */,
+				732DFC7E1E94BF9100D024F8 /* WMPlayZLViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1784,15 +1919,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				730D387F1E790F1C00EE4692 /* ChongZhiViewController.xib in Resources */,
+				732DFC781E94BCD100D024F8 /* FastForwardView.xib in Resources */,
 				736557361E728F5800284C11 /* ReMenView.xib in Resources */,
 				73EB3FB41E6FDEE400CA8B5D /* Loading005.png in Resources */,
 				73EB43171E7241A400CA8B5D /* DianShiQiangCollectionCell.xib in Resources */,
 				73A3B60D1E8A808B00407957 /* MianZeViewController.xib in Resources */,
 				73EB3F9E1E6FDEE400CA8B5D /* 0006.png in Resources */,
 				73A3B62E1E8CF2BD00407957 /* SiFangPlayController.xib in Resources */,
+				732DFC7A1E94BCD100D024F8 /* WMPlayer.bundle in Resources */,
 				73EB3FA11E6FDEE400CA8B5D /* zhoululu.webp in Resources */,
 				73EB3FB21E6FDEE400CA8B5D /* Loading003.png in Resources */,
 				73EB3F9D1E6FDEE400CA8B5D /* 0005.png in Resources */,
+				732DFC801E94BF9100D024F8 /* WMPlayZLViewController.xib in Resources */,
 				73A3B6481E8E455C00407957 /* VIPViewCollectionViewCell.xib in Resources */,
 				73E7DA531E7A78A200371E33 /* HuanCunCenterViewController.xib in Resources */,
 				73EB3FA81E6FDEE400CA8B5D /* Loading0012.png in Resources */,
@@ -2038,6 +2176,7 @@
 				73A3B6421E8E440600407957 /* SecondVC02.m in Sources */,
 				730D384C1E7697A600EE4692 /* PersonHederTableViewCell.m in Sources */,
 				18AEC4521E759451004BD503 /* ZLCollectionGirdVIew.m in Sources */,
+				732DFC891E94EF1E00D024F8 /* KYVideo.m in Sources */,
 				73EB3FC01E6FDEE400CA8B5D /* NewFeatureModel.m in Sources */,
 				73E7DA921E80BF7C00371E33 /* PlayVideoTableViewCell.m in Sources */,
 				73C347331E84E96600BBBDBE /* MSSAutoresizeLabelFlowLayout.m in Sources */,
@@ -2050,11 +2189,14 @@
 				73EB430D1E713D5A00CA8B5D /* SearchViewController.m in Sources */,
 				73EB3FCE1E6FDEE400CA8B5D /* UIView+MJAlertView.m in Sources */,
 				73EB3F931E6FDEE400CA8B5D /* KZPhotoManager.m in Sources */,
+				732DFC761E94BCD100D024F8 /* WMDragView.m in Sources */,
+				732DFC771E94BCD100D024F8 /* FastForwardView.m in Sources */,
 				73EB3FBB1E6FDEE400CA8B5D /* YYAnimationIndicator.m in Sources */,
 				73E7DA6B1E7BE08D00371E33 /* PlayerZLViewController.m in Sources */,
 				73EB43091E71313100CA8B5D /* ZLLabelCustom.m in Sources */,
 				73EB43201E727E6F00CA8B5D /* FirstSubViewViewController.m in Sources */,
 				73EB3FCB1E6FDEE400CA8B5D /* iCarousel.m in Sources */,
+				732DFC831E94EC5600D024F8 /* KYLocalVideoPlayVC.m in Sources */,
 				73E7DA7E1E7F778900371E33 /* UIView+WHC_Toast.m in Sources */,
 				73E7DA571E7A7C7F00371E33 /* HuanCunZLTableViewCell.m in Sources */,
 				73EB3ED51E6FD7DB00CA8B5D /* SearchHistoryModel.m in Sources */,
@@ -2076,14 +2218,19 @@
 				73EB3FD21E6FDEE400CA8B5D /* PulldownMenu.m in Sources */,
 				73A3B6111E8A857200407957 /* AboutUSViewController.m in Sources */,
 				73E7DA521E7A78A200371E33 /* HuanCunCenterViewController.m in Sources */,
+				732DFC701E94BCD100D024F8 /* BaseViewController.m in Sources */,
 				73C347311E84E96600BBBDBE /* MSSAutoresizeLabelFlowCell.m in Sources */,
+				732DFC711E94BCD100D024F8 /* DetailViewController.m in Sources */,
 				73EB3F851E6FDEE400CA8B5D /* NSValueTransformer+HeinQi.m in Sources */,
 				73A3B5FE1E89FA0E00407957 /* UserMessageMTLModel.m in Sources */,
+				732DFC731E94BCD100D024F8 /* SidModel.m in Sources */,
 				730D38651E77DC2D00EE4692 /* SettingViewController.m in Sources */,
 				732BC8701E6FD17400B8B1BD /* ViewController.m in Sources */,
 				730D38511E7787EE00EE4692 /* ButtonsTableViewCell.m in Sources */,
 				73EB3F881E6FDEE400CA8B5D /* UIButton+HeinQi.m in Sources */,
 				73A3B6291E8CD7D200407957 /* SiFangMTLModel.m in Sources */,
+				732DFC7B1E94BCD100D024F8 /* WMPlayer.m in Sources */,
+				732DFC791E94BCD100D024F8 /* WMLightView.m in Sources */,
 				73EB3ED61E6FD7DB00CA8B5D /* UIColor+KSString.m in Sources */,
 				73E7DA7D1E7F778900371E33 /* UIView+WHC_Loading.m in Sources */,
 				73C347391E84FC5A00BBBDBE /* SearchResultModel.m in Sources */,
@@ -2098,6 +2245,7 @@
 				73EB43161E7241A400CA8B5D /* DianShiQiangCollectionCell.m in Sources */,
 				73A3B60C1E8A808B00407957 /* MianZeViewController.m in Sources */,
 				73C347321E84E96600BBBDBE /* MSSAutoresizeLabelFlowConfig.m in Sources */,
+				732DFC741E94BCD100D024F8 /* VideoModel.m in Sources */,
 				73EB3FC21E6FDEE400CA8B5D /* NewFeatureScrollView.m in Sources */,
 				73EB3FDB1E6FE2CE00CA8B5D /* NSString+URLZL.m in Sources */,
 				73EB3EDE1E6FD7DB00CA8B5D /* ThirdViewController.m in Sources */,
@@ -2119,6 +2267,7 @@
 				73A3B6351E8DEE6B00407957 /* PingLunViewController.m in Sources */,
 				187EE4A11E8166F900825054 /* AlertViewCustomZL.m in Sources */,
 				73C3470C1E8125A800BBBDBE /* UIAlertViewZL.m in Sources */,
+				732DFC751E94BCD100D024F8 /* ScreenShotView.m in Sources */,
 				73E7DA5B1E7A8C5D00371E33 /* ZLButtons.m in Sources */,
 				730D38601E77D8FF00EE4692 /* SettingTableViewCell.m in Sources */,
 				73C3473C1E85196E00BBBDBE /* TypeListModel.m in Sources */,
@@ -2127,6 +2276,7 @@
 				73E7DA721E7F743300371E33 /* WHC_DownloadObject.m in Sources */,
 				73EB3FC81E6FDEE400CA8B5D /* GCDSemaphore.m in Sources */,
 				73E7DA671E7BAFF400371E33 /* VideoModelZL.m in Sources */,
+				732DFC861E94EE7500D024F8 /* KYBaseViewController.m in Sources */,
 				73EB3F8C1E6FDEE400CA8B5D /* UIView+BlankPage.m in Sources */,
 				73C347171E8245E200BBBDBE /* HOmeBannerMTLModel.m in Sources */,
 				73EB3F8B1E6FDEE400CA8B5D /* UILabel+HeinQi.m in Sources */,
@@ -2134,6 +2284,7 @@
 				73EB3FD41E6FDEE400CA8B5D /* ZLPageControl.m in Sources */,
 				73EB3FA31E6FDEE400CA8B5D /* RSAEncryptor.m in Sources */,
 				73EB43121E7240EE00CA8B5D /* NSObject+XWAdd.m in Sources */,
+				732DFC7F1E94BF9100D024F8 /* WMPlayZLViewController.m in Sources */,
 				73A3B6561E8F4F4800407957 /* VIP03VideoMTLModel03.m in Sources */,
 				730D38851E79244C00EE4692 /* VIPChongZhiView.m in Sources */,
 				73E7DA881E7FBD2700371E33 /* DianYingSubTableViewCell.m in Sources */,
@@ -2148,6 +2299,7 @@
 				73C3471A1E82495500BBBDBE /* CateListMTLModel.m in Sources */,
 				73E7DA641E7B78A800371E33 /* NSFileManagerZL.m in Sources */,
 				73EB3ED81E6FD7DB00CA8B5D /* KSNavigationController.m in Sources */,
+				732DFC721E94BCD100D024F8 /* DataManager.m in Sources */,
 				73E7DA7C1E7F778900371E33 /* UIScrollView+WHC_PullRefresh.m in Sources */,
 				73C3472F1E84E96600BBBDBE /* AutoFitLabelView.m in Sources */,
 				73C347201E824AE300BBBDBE /* VideoListMTLModel.m in Sources */,

@@ -986,10 +986,12 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
 }
 
 - (void)zf_playerCurrentTime:(NSInteger)currentTime totalTime:(NSInteger)totalTime sliderValue:(CGFloat)value {
+   
     /*zl修改20170324start*/
 //    NSInteger * suijiInt =3600 + arc4random()%400;
 //    totalTime = suijiInt;
      /*zl修改20170324start*/
+    /*
     // 当前时长进度progress
     NSInteger proMin = currentTime / 60;//当前秒
     NSInteger proSec = currentTime % 60;//当前分钟
@@ -1005,11 +1007,12 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
     }
     // 更新总时间
     self.totalTimeLabel.text = [NSString stringWithFormat:@"%02zd:%02zd", durMin, durSec];
+     */
     /*zl修改20170324start*/
     //self.totalTimeLabel.text = [NSString stringWithFormat:@"%02zd:%02zd", 60, 05];
      /*zl修改20170324start*/
     
-    /*
+    
      //备份
      // 当前时长进度progress
      NSInteger proMin = currentTime / 60;//当前秒
@@ -1026,7 +1029,7 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
      }
      // 更新总时间
      self.totalTimeLabel.text = [NSString stringWithFormat:@"%02zd:%02zd", durMin, durSec];
-     */
+    
 }
 
 - (void)zf_playerDraggedTime:(NSInteger)draggedTime totalTime:(NSInteger)totalTime isForward:(BOOL)forawrd hasPreview:(BOOL)preview {

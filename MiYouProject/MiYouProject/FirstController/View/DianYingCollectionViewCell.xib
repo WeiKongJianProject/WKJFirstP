@@ -27,7 +27,7 @@
                             <constraint firstAttribute="width" constant="25" id="mZD-P5-XJZ"/>
                             <constraint firstAttribute="height" constant="25" id="p8L-V3-VhW"/>
                         </constraints>
-                        <state key="normal" title="播放" backgroundImage="dabofanganniu"/>
+                        <state key="normal" backgroundImage="dabofanganniu"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="星光灿烂" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nJ-cY-FEB">
                         <rect key="frame" x="0.0" y="295" width="425" height="35"/>

@@ -28,6 +28,9 @@
 #import "MemberMTLModel.h"
 #import "VideoListMTLModel.h"
 
+#import "WMPlayZLViewController.h"
+#import "KYLocalVideoPlayVC.h"
+
 @interface FirstViewController : ViewPagerController<ViewPagerDataSource,ViewPagerDelegate,FirstSubViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray * itemsTitlesARR;

@@ -41,4 +41,5 @@ target 'MiYouProject' do
   pod 'WHCNetWorkKit', '~> 0.0'
   pod 'CustomIOSAlertView', '~> 0.9'
   pod 'VOSegmentedControl', '~> 1.0'
+  pod 'KYVedioPlayer', '~> 0.0'
 end

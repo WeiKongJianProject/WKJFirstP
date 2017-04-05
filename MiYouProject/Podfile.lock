@@ -26,6 +26,8 @@ PODS:
   - GONMarkupParser (0.7.2):
     - NSString+Color
   - IQKeyboardManager (4.0.8)
+  - KYVedioPlayer (0.0.5):
+    - Masonry (~> 1.0.1)
   - Mantle (2.1.0):
     - Mantle/extobjc (= 2.1.0)
   - Mantle/extobjc (2.1.0)
@@ -72,6 +74,7 @@ DEPENDENCIES:
   - FMDB (~> 2.6)
   - GONMarkupParser (~> 0.7)
   - IQKeyboardManager (~> 4.0)
+  - KYVedioPlayer (~> 0.0)
   - Mantle (~> 2.1)
   - Masonry (~> 1.0)
   - MBProgressHUD (~> 1.0)
@@ -97,6 +100,7 @@ SPEC CHECKSUMS:
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   GONMarkupParser: fb4052cc4d7af41853552c704755b2bdc95fd205
   IQKeyboardManager: 1a8189fa153bf09044355ee0ad36826f6767e7f7
+  KYVedioPlayer: 22514bca35913053adcfc9a150d74ec90218f4d4
   Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
@@ -112,6 +116,6 @@ SPEC CHECKSUMS:
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   ZFPlayer: 8dc82b4508fbba4ee59d0304c52e30f8b3390244
 
-PODFILE CHECKSUM: 116c6cf071ca9c0e773658313caeec9e4d47eafe
+PODFILE CHECKSUM: e8652486abd32fef07ec226eebe35123b3e097b8
 
 COCOAPODS: 1.2.0

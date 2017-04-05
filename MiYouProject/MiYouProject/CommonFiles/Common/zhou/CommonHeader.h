@@ -210,4 +210,21 @@ blue:((float)(rgbValue & 0xFF)) / 255.0 alpha:1.0]
 
 #define TEL(phoneNumber) ([[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",phoneNumber]]])
 
+
+
+//#define kScreenWidth [[UIScreen mainScreen]bounds].size.width //屏幕宽度
+//#define kScreenHeight [[UIScreen mainScreen]bounds].size.height //屏幕高度
+#define kStatusBarHeight ([[UIApplication sharedApplication]statusBarFrame].size.height)//状态栏高度
+#define kNavgationBarHeight (64.0f) //NavgationBar的高度
+
+#define kDeviceVersion [[UIDevice currentDevice].systemVersion floatValue]
+#define WS(weakSelf) __weak __typeof(&*self)weakSelf = self;
+
+#define kNavbarHeight ((kDeviceVersion>=7.0)? 64 :44 )
+#define kIOS7DELTA   ((kDeviceVersion>=7.0)? 20 :0 )
+#define kTabBarHeight 49
+
+
+
+
 #endif

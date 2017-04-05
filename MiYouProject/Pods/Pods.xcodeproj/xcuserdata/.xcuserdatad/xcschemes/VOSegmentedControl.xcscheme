@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C39D79614F25E82D45E5FA01428FFDA8'
+               BlueprintIdentifier = '22FACE1F10DBFCAB9C74FC35300E3AA5'
                BlueprintName = 'VOSegmentedControl'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libVOSegmentedControl.a'>

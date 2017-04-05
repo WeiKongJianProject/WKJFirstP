@@ -34,8 +34,8 @@ static int _isKuaiJinAction = 0;
         [self settingPlayer];
     }else{
     //网络视频
-       NSString * userMID = [[NSUserDefaults standardUserDefaults] objectForKey:IS_MEMBER_VIP];
-        [self startAFNetworkingWithID:self.id withUserMid:[userMID intValue]];
+       //NSString * userMID = [[NSUserDefaults standardUserDefaults] objectForKey:IS_MEMBER_VIP];
+        [self startAFNetworkingWithID:self.id];
     }
     
     
@@ -60,10 +60,13 @@ static int _isKuaiJinAction = 0;
     }];
 }
 
-- (void)startAFNetworkingWithID:(NSString *)keyID withUserMid:(int)mID{
+- (void)startAFNetworkingWithID:(NSString *)keyID{
     [MBManager showLoadingInView:self.view];
+    
+    NSDictionary * userInfoDic = [[NSUserDefaults standardUserDefaults]objectForKey:MEMBER_INFO_DIC];
+    NSString * userID = userInfoDic[@"id"];
     __weak typeof(self) weakSelf = self;
-    NSString * urlstr = [NSString stringWithFormat:@"%@&action=play&id=%@&mid=%d",URL_Common_ios,keyID,mID];
+    NSString * urlstr = [NSString stringWithFormat:@"%@&action=play&id=%@&mid=%@",URL_Common_ios,keyID,userID];
     NSLog(@"播放页请求的链接为：%@",urlstr);
     [[ZLSecondAFNetworking sharedInstance]getWithURLString:urlstr parameters:nil success:^(id responseObject) {
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
@@ -80,12 +83,10 @@ static int _isKuaiJinAction = 0;
         else{
             [MBManager showBriefMessage:@"数据加载失败" InView:self.view];
         }
-
     } failure:^(NSError *error) {
         [MBManager hideAlert];
         [MBManager showBriefAlert:@"请求失败"];
     }];
-
 }
 
 - (void)alertViewShow{

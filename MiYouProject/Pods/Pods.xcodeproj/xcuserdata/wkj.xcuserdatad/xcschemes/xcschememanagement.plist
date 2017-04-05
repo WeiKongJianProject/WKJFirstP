@@ -59,6 +59,11 @@
 			<key>orderHint</key>
 			<integer>15</integer>
 		</dict>
+		<key>KYVedioPlayer.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>32</integer>
+		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -202,6 +207,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>118E1CC7C044F4000E792519605D27D9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>124F4E9931CD4A38AA1A3A0625CE182C</key>
 		<dict>
 			<key>primary</key>
@@ -222,6 +232,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>1D114F1C704F06698663DB3AF2B8DE8E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2111975792EDF9239C4E5443D074D4C3</key>
 		<dict>
 			<key>primary</key>
@@ -232,7 +247,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>22FACE1F10DBFCAB9C74FC35300E3AA5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>24A4C7A895662E72B7DA473B1794743D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2AAAEAF27628621D252CAA8AB77DD250</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2EBA285BBA51586492CCACBE8759DCF9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -312,6 +342,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>5A885F93D0A9F9604D87CB8F4933080B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6065EC8A468B6A25AC8CD17DB1E3C65E</key>
 		<dict>
 			<key>primary</key>
@@ -353,6 +388,11 @@
 			<true/>
 		</dict>
 		<key>8744510F92A905A3BADE78FFEE29773C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>89A31722068CE63B6EF30BE2A11E1C84</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -517,6 +557,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>C8ABA1A0A3544DB52DC0955C61A0F398</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>CA0D8BB4C55308A0482DC60F13EC13A1</key>
 		<dict>
 			<key>primary</key>
@@ -603,6 +648,11 @@
 			<true/>
 		</dict>
 		<key>F22A5922B9C5B87BF6382A9F84AE3984</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F2939431E5468E0CDCAAC63617B0AC87</key>
 		<dict>
 			<key>primary</key>
 			<true/>
