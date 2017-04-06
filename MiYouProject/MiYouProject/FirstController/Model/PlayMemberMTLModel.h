@@ -8,6 +8,12 @@
 
 #import <Mantle/Mantle.h>
 
-@interface PlayMemberMTLModel : MTLModel
+@interface PlayMemberMTLModel : MTLModel<MTLJSONSerializing>
+
+@property (strong, nonatomic) NSString * id;
+@property (strong, nonatomic) NSNumber * points;
+@property (strong, nonatomic) NSMutableArray * viplist;
+@property (strong, nonatomic) NSNumber * vip;
+@property (strong, nonatomic) NSNumber * messageNum;
 
 @end

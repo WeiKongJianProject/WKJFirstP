@@ -24,7 +24,7 @@ static int _currentPage;
 
 @protocol FirstSubViewDelegate <NSObject>
 
-- (void)firstSubVC:(FirstSubViewViewController *)viewC withType:(NSInteger) typeInt withName:(NSString *)name withKey:(NSString *)key;
+- (void)firstSubVC:(FirstSubViewViewController *)viewC withType:(NSInteger) typeInt withName:(NSString *)name withKey:(NSString *)key withIsShiKan:(BOOL) isShiKan;
 
 @end
 

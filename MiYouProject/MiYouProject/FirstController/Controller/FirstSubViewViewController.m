@@ -208,36 +208,50 @@
 - (void)photoTapped:(UITapGestureRecognizer *)sender{
     NSLog(@"点击了第几张:%ld",sender.view.tag);
     HOmeBannerMTLModel * bannerModel = self.lunXianImageARR[sender.view.tag];
-    NSString * isVIP = [[NSUserDefaults standardUserDefaults] objectForKey:IS_MEMBER_VIP];
+    NSString * isVIPLevel = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_VIP_LEVEL];
     NSString * bannerVIP = [NSString stringWithFormat:@"%d",[bannerModel.vip intValue]];
-    if ([bannerVIP isEqualToString:@"1"]) {
-        if ([isVIP isEqualToString:@"1"]) {
-            if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:)]) {
-                NSString * keyID = [NSString stringWithFormat:@"%@",bannerModel.id];
-                [self.delegate firstSubVC:self withType:2 withName:bannerModel.name withKey:keyID];
-            }
-        }
-        else{
-            AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
-            alertZL.titleName = @"需要开通VIP才能观看";
-            alertZL.cancelBtnTitle = @"取消";
-            alertZL.okBtnTitle = @"开通";
-            [alertZL cancelBlockAction:^(BOOL success) {
-                [alertZL hideCustomeAlertView];
-            }];
-            [alertZL okButtonBlockAction:^(BOOL success) {
-                NSLog(@"点击了去支付按钮");
-            }];
-            [alertZL showCustomAlertView];
-        }
-
-    }else{
     
-        if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:)]) {
-            NSString * keyID = [NSString stringWithFormat:@"%@",bannerModel.id];
-            [self.delegate firstSubVC:self withType:2 withName:bannerModel.name withKey:keyID];
+    if ([isVIPLevel intValue] < [bannerModel.vip intValue] ) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:withIsShiKan:)]) {
+        NSString * keyID = [NSString stringWithFormat:@"%@",bannerModel.id];
+        [self.delegate firstSubVC:self withType:2 withName:bannerModel.name withKey:keyID withIsShiKan:YES];
         }
     }
+    else{
+        if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:withIsShiKan:)]) {
+            NSString * keyID = [NSString stringWithFormat:@"%@",bannerModel.id];
+            [self.delegate firstSubVC:self withType:2 withName:bannerModel.name withKey:keyID withIsShiKan:NO];
+        }
+    }
+    
+//    if ([bannerVIP isEqualToString:@"1"]) {
+//        if ([isVIP isEqualToString:@"1"]) {
+//            if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:)]) {
+//                NSString * keyID = [NSString stringWithFormat:@"%@",bannerModel.id];
+//                [self.delegate firstSubVC:self withType:2 withName:bannerModel.name withKey:keyID];
+//            }
+//        }
+//        else{
+//            AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
+//            alertZL.titleName = @"需要开通VIP才能观看";
+//            alertZL.cancelBtnTitle = @"取消";
+//            alertZL.okBtnTitle = @"开通";
+//            [alertZL cancelBlockAction:^(BOOL success) {
+//                [alertZL hideCustomeAlertView];
+//            }];
+//            [alertZL okButtonBlockAction:^(BOOL success) {
+//                NSLog(@"点击了去支付按钮");
+//            }];
+//            [alertZL showCustomAlertView];
+//        }
+//
+//    }else{
+//    
+//        if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:)]) {
+//            NSString * keyID = [NSString stringWithFormat:@"%@",bannerModel.id];
+//            [self.delegate firstSubVC:self withType:2 withName:bannerModel.name withKey:keyID];
+//        }
+//    }
     
 
     
@@ -382,32 +396,45 @@
 #pragma mark  点击CollectionView触发事件
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    __weak typeof(self) weakSelf = self;
     VideoListMTLModel * model = [self.dianYingCollectionARR objectAtIndex:indexPath.row];
     NSString * modelVIP = [NSString stringWithFormat:@"%d",[model.vip intValue]];
     //NSString * isMemberVIP = [[NSUserDefaults standardUserDefaults] objectForKey:IS_MEMBER_VIP];
     NSDictionary * memVIPDic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
-    
-    if ([memVIPDic[@"vip"] intValue] < [modelVIP intValue]) {
-        AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
-        alertZL.titleName = @"需要开通VIP才能观看";
-        alertZL.cancelBtnTitle = @"取消";
-        alertZL.okBtnTitle = @"开通";
-        [alertZL cancelBlockAction:^(BOOL success) {
-            [alertZL hideCustomeAlertView];
-        }];
-        [alertZL okButtonBlockAction:^(BOOL success) {
-            [alertZL hideCustomeAlertView];
-            NSLog(@"点击了去支付按钮");
-        }];
-        [alertZL showCustomAlertView];
+    int vipLevel = [[[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_VIP_LEVEL] intValue];
+    if (vipLevel < [modelVIP intValue]) {
+//        AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
+//        alertZL.titleName = @"需要开通VIP才能观看";
+//        alertZL.cancelBtnTitle = @"取消";
+//        alertZL.okBtnTitle = @"开通";
+//        [alertZL cancelBlockAction:^(BOOL success){
+//            [alertZL hideCustomeAlertView];
+//        }];
+//        [alertZL okButtonBlockAction:^(BOOL success){
+//            [alertZL hideCustomeAlertView];
+//            NSLog(@"点击了去支付按钮");
+//            [weakSelf xw_postNotificationWithName:KAITONG_VIP_NOTIFICATION userInfo:nil];
+//        }];
+//        [alertZL showCustomAlertView];
+        
+        if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:withIsShiKan:)]) {
+            NSString * keyID = [NSString stringWithFormat:@"%@",model.id];
+            [self.delegate firstSubVC:self withType:2 withName:model.name withKey:keyID withIsShiKan:YES];
+        }
+        
     }
     else{
-        if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:)]) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:withIsShiKan:)]) {
             NSString * keyID = [NSString stringWithFormat:@"%@",model.id];
-            [self.delegate firstSubVC:self withType:2 withName:model.name withKey:keyID];
+            [self.delegate firstSubVC:self withType:2 withName:model.name withKey:keyID withIsShiKan:NO];
         }
     }
 
+//    if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:)]) {
+//        NSString * keyID = [NSString stringWithFormat:@"%@",model.id];
+//        [self.delegate firstSubVC:self withType:2 withName:model.name withKey:keyID];
+//    }
+    
 //    if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:)]) {
 //        [self.delegate firstSubVC:self withType:2 withName:model.name withKey:model.video];
 //    }
@@ -543,8 +570,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (indexPath.row == 1) {
-        if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:)]) {
-            [self.delegate firstSubVC:self withType:1 withName:self.name withKey:[NSString stringWithFormat:@"%d",self.id]];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:withIsShiKan:)]) {
+            [self.delegate firstSubVC:self withType:1 withName:self.name withKey:[NSString stringWithFormat:@"%d",self.id]withIsShiKan:YES];
         }
     }
 }

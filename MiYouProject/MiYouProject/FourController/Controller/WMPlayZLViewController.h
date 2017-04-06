@@ -18,6 +18,8 @@
 
 @property (nonatomic, retain)NSString * URLString;
 
+@property (assign, nonatomic) BOOL isNoShiKan;
+
 @property (strong, nonatomic) IBOutlet UIView *topVIew;
 @property (strong, nonatomic) WMPlayer * wmPlayer;
 @property (strong, nonatomic) IBOutlet UILabel *videoTitleLabel;

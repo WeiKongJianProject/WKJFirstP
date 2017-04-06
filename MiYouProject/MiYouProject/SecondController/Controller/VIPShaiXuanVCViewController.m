@@ -75,7 +75,7 @@ static BOOL _isCanPlay;
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:codeString parameters:nil success:^(id responseObject) {
         [MBManager hideAlert];
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        NSLog(@"筛选列表请求数据：%@",dic);
+        NSLog(@"第三方VIP筛选列表请求数据：%@",dic);
         NSString * isSuccess = [NSString stringWithFormat:@"%@",[dic objectForKey:@"result"]];
         if ([isSuccess isEqualToString:@"success"]) {
             _isCanPlay = [dic objectForKey:@"access"];
@@ -97,36 +97,44 @@ static BOOL _isCanPlay;
                 }
                 [weakSelf.collectionView reloadData];
             }
-          
-            NSArray * arr02 = [dic[@"filterlist"] objectForKey:@"area"];
-            if (arr02.count > 0) {
+            NSArray  * filterlistARR = dic[@"filterlist"];
+            if (!zlArrayIsEmpty(filterlistARR)) {
+                NSArray * arr02 = [dic[@"filterlist"] objectForKey:@"area"];
+                if (arr02.count > 0) {
+                    
+                    weakSelf.secondConARR = (NSMutableArray *)[MTLJSONAdapter modelsOfClass:[VIPFilterListMTLModel class] fromJSONArray:arr02 error:nil];
+                    
+                }
+                NSArray * arr03 = [dic[@"filterlist"] objectForKey:@"type"];
+                if (arr03.count > 0) {
+                    
+                    weakSelf.thirdConARR = (NSMutableArray *)[MTLJSONAdapter modelsOfClass:[VIPFilterListMTLModel class] fromJSONArray:arr03 error:nil];
+                    
+                }
+                NSArray * arr04 = [dic[@"filterlist"] objectForKey:@"year"];
+                if (arr04.count > 0) {
+                    
+                    weakSelf.fourConARR = (NSMutableArray *)[MTLJSONAdapter modelsOfClass:[VIPFilterListMTLModel class] fromJSONArray:arr04 error:nil];
+                    
+                }
                 
-                weakSelf.secondConARR = (NSMutableArray *)[MTLJSONAdapter modelsOfClass:[VIPFilterListMTLModel class] fromJSONArray:arr02 error:nil];
-                
+                if (_isFirstOpen == 1) {
+                    NSLog(@"执行了几次 setSegment 方法");
+                    
+                    [weakSelf settingSegmentView];
+                    _isFirstOpen++;
+                }
             }
-            NSArray * arr03 = [dic[@"filterlist"] objectForKey:@"type"];
-            if (arr03.count > 0) {
-                
-                weakSelf.thirdConARR = (NSMutableArray *)[MTLJSONAdapter modelsOfClass:[VIPFilterListMTLModel class] fromJSONArray:arr03 error:nil];
-                
-            }
-            NSArray * arr04 = [dic[@"filterlist"] objectForKey:@"year"];
-            if (arr04.count > 0) {
-                
-                weakSelf.fourConARR = (NSMutableArray *)[MTLJSONAdapter modelsOfClass:[VIPFilterListMTLModel class] fromJSONArray:arr04 error:nil];
-                
+            else{
+            
+                [MBManager showBriefAlert:@"小编很懒,还没添加数据"];
             }
 
-            if (_isFirstOpen == 1) {
-                NSLog(@"执行了几次 setSegment 方法");
-                
-                [weakSelf settingSegmentView];
-                _isFirstOpen++;
-            }
+            
         }
         
         [weakSelf.collectionView.mj_footer endRefreshing];
-        [MBManager hideAlert];
+        
     } failure:^(NSError *error) {
         //            [self.tableview.mj_header endRefreshing];
         //            [self.tableview.mj_footer endRefreshing];
@@ -375,27 +383,66 @@ static BOOL _isCanPlay;
     //        [self.delegate firstSubVC:self withType:0 withName:@"电影" withKey:@"关键字"];
     //    }
      VIP03VideoMTLModel03 * model = [self.collectionARR objectAtIndex:indexPath.row];
-    if (_isCanPlay == YES) {
-        if (self.delegate && [self.delegate respondsToSelector:@selector(vipShaiXuanVC:withType:withName:withKey:)]) {
-            [self.delegate vipShaiXuanVC:self withType:2 withName:model.name withKey:model.url];
-        }
+//    if (_isCanPlay == YES) {
+//        if (self.delegate && [self.delegate respondsToSelector:@selector(vipShaiXuanVC:withType:withName:withKey:)]) {
+//            [self.delegate vipShaiXuanVC:self withType:2 withName:model.name withKey:model.url];
+//        }
+//    }
+//    else{
+//        //用户会员等级  小于  电影VIP等级
+//        AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
+//        alertZL.titleName = @"VIP等级不够";
+//        alertZL.cancelBtnTitle = @"取消";
+//        alertZL.okBtnTitle = @"升级";
+//        [alertZL cancelBlockAction:^(BOOL success) {
+//            [alertZL hideCustomeAlertView];
+//        }];
+//        [alertZL okButtonBlockAction:^(BOOL success) {
+//            [alertZL hideCustomeAlertView];
+//            NSLog(@"点击了去支付按钮");
+//        }];
+//        [alertZL showCustomAlertView];
+//    }
+    NSLog(@"该电影来源于：%@",model.source);
+    [self startPlayAFNetWorkingwithType:self.type withSource:self.sourceID withVid:nil withIDURL:model.url withName:model.name];
+}
+
+//请求 VIP 第三方播放页
+- (void)startPlayAFNetWorkingwithType:(NSString *)type withSource:(NSString *)source withVid:(NSString *)vid withIDURL:(NSString *)idURL withName:(NSString *)name{
+
+    __weak typeof(self) weakSelf = self;
+    [MBManager showLoadingInView:weakSelf.view];
+    NSString * memID = [[[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC] objectForKey:@"id"];
+    //http://api4.cn360du.com:88/index.php?m=api-ios&action=lists&cate=999
+    NSString * url = nil;
+    if ([type isEqualToString:@"1"]) {
+        url = [NSString stringWithFormat:@"%@&action=vipPlay&type=%@&url=%@&mid=%@&source=%@",URL_Common_ios,type,idURL,memID,source];
     }
     else{
-        //用户会员等级  小于  电影VIP等级
-        AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
-        alertZL.titleName = @"VIP等级不够";
-        alertZL.cancelBtnTitle = @"取消";
-        alertZL.okBtnTitle = @"升级";
-        [alertZL cancelBlockAction:^(BOOL success) {
-            [alertZL hideCustomeAlertView];
-        }];
-        [alertZL okButtonBlockAction:^(BOOL success) {
-            [alertZL hideCustomeAlertView];
-            NSLog(@"点击了去支付按钮");
-        }];
-        [alertZL showCustomAlertView];
+        url = [NSString stringWithFormat:@"%@&action=vipPlay&type=%@&url=%@&mid=%@&source=%@&vid=%@",URL_Common_ios,type,idURL,memID,source,vid];
     }
+    NSLog(@"VIP播放页请求：%@",url);
+    NSString * codeString = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];//去掉特殊字符
+    [[ZLSecondAFNetworking sharedInstance] getWithURLString:codeString parameters:nil success:^(id responseObject) {
+        [MBManager hideAlert];
+        NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"第三方VIP播放页请求数据：%@",dic);
+        NSString * isSuccess = [NSString stringWithFormat:@"%@",[dic objectForKey:@"result"]];
+        if ([isSuccess isEqualToString:@"success"]) {
+            
+            
+            
+        }
+        [MBManager hideAlert];
+    } failure:^(NSError *error) {
+        //            [self.tableview.mj_header endRefreshing];
+        //            [self.tableview.mj_footer endRefreshing];
+        [MBManager hideAlert];
+        [MBManager showBriefAlert:@"数据加载失败"];
+        
+    }];
 }
+
 
 #pragma mark  设置CollectionViewCell是否可以被点击
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath

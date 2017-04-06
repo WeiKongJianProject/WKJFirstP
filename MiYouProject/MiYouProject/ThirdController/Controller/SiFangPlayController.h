@@ -25,6 +25,7 @@
 
 @property (strong, nonatomic) NSURL * benDiUrl;
 @property (strong, nonatomic) NSString * benDiName;
+
 @property (strong, nonatomic) NSURL * zaiXianUrl;
 @property (strong, nonatomic) NSString * zaiXianName;
 

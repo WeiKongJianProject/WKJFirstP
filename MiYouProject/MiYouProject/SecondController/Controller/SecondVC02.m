@@ -12,7 +12,7 @@
 
 
 #define Collection_item_Width (SIZE_WIDTH-40)/3.0
-#define Collection_item_Height (SIZE_WIDTH-40)/3.0 * 386.0/225.0
+#define Collection_item_Height (SIZE_WIDTH-40)/3.0 * 300.0/225.0
 
 @interface SecondVC02 (){
     
@@ -44,7 +44,7 @@ static int _currentPage;
     //    else{
     NSDictionary * memDic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
     //page为空时默认为第一页//&action=index&mid=1&level=1&playfrom=youku&hot=1&page=1
-    url = [NSString stringWithFormat:@"%@&action=vip&mid=%@&page=1",URL_Common_ios,memDic[@"id"]];
+    url = [NSString stringWithFormat:@"%@&action=vip&mid=%@&page=%d",URL_Common_ios,memDic[@"id"],page];
     //    }
     
     NSLog(@"第一次请求的链接：%@",url);
@@ -54,8 +54,13 @@ static int _currentPage;
         
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         if ([dic[@"result" ] isEqualToString:@"success"]) {
+            
+            
+            
             if (dic[@"member"] != nil && ![dic[@"member"] isKindOfClass:[NSNull class]]) {
                 weakSelf.currentMemInfoDic = dic[@"member"];
+                //NSLog(@"会员等级为：%@",weakSelf.currentMemInfoDic[@"vip"]);
+                [[NSUserDefaults standardUserDefaults] setObject:weakSelf.currentMemInfoDic[@"vip"] forKey:MEMBER_VIP_LEVEL];
             }
             
             NSArray * arr01 = [MTLJSONAdapter modelsOfClass:[VIPVideoMTLModel class] fromJSONArray:dic[@"list"] error:nil];
@@ -65,6 +70,8 @@ static int _currentPage;
                 [weakSelf.collectionVIew reloadData];
             }
             _totalNum = dic[@"total"];
+            
+            
             [self.collectionVIew.mj_header endRefreshing];
             [self.collectionVIew.mj_footer endRefreshing];
         }
@@ -149,29 +156,38 @@ static int _currentPage;
     //    if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:)]) {
     //        [self.delegate firstSubVC:self withType:0 withName:@"电影" withKey:@"关键字"];
     //    }
+    
     VIPVideoMTLModel * model = [self.collectionViewARR objectAtIndex:indexPath.row];
     int vipLevel = [model.vip intValue];
-    int memVIPLevel = [[[[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC]objectForKey:@"vip"] intValue];
-    if (memVIPLevel < vipLevel) {
+    //int memVIPLevel = [[[[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC]objectForKey:@"vip"] intValue];
+    int mvipLevel = [[[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_VIP_LEVEL] intValue];
+    NSLog(@"电影会员等级为：%d,用户的等级为：%d",vipLevel,mvipLevel);
+    if (mvipLevel < vipLevel) {
      //用户会员等级  小于  电影VIP等级
-        AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
-        alertZL.titleName = @"VIP等级不够";
-        alertZL.cancelBtnTitle = @"取消";
-        alertZL.okBtnTitle = @"升级";
-        [alertZL cancelBlockAction:^(BOOL success) {
-            [alertZL hideCustomeAlertView];
-        }];
-        [alertZL okButtonBlockAction:^(BOOL success) {
-            [alertZL hideCustomeAlertView];
-            NSLog(@"点击了去支付按钮");
-        }];
-        [alertZL showCustomAlertView];
+//        AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
+//        alertZL.titleName = @"VIP等级不够";
+//        alertZL.cancelBtnTitle = @"取消";
+//        alertZL.okBtnTitle = @"升级";
+//        [alertZL cancelBlockAction:^(BOOL success) {
+//            [alertZL hideCustomeAlertView];
+//        }];
+//        [alertZL okButtonBlockAction:^(BOOL success) {
+//            [alertZL hideCustomeAlertView];
+//            NSLog(@"点击了去支付按钮");
+//        }];
+//        [alertZL showCustomAlertView];
+        
+        if (self.delegate && [self.delegate respondsToSelector:@selector(secondVC02:withType:withName:withKey:withIsShiKan:)]) {
+            
+            [self.delegate secondVC02:self withType:2 withName:model.name withKey:model.id withIsShiKan:YES];
+            
+        }
     }
     else{
     //用户会员等级  大于等于  电影VIP等级
-        if (self.delegate && [self.delegate respondsToSelector:@selector(secondVC02:withType:withName:withKey:)]) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(secondVC02:withType:withName:withKey:withIsShiKan:)]) {
             
-            [self.delegate secondVC02:self withType:2 withName:model.name withKey:model.id];
+            [self.delegate secondVC02:self withType:2 withName:model.name withKey:model.id withIsShiKan:NO];
             
         }
         

@@ -11,6 +11,8 @@
 #import "ZLSecondAFNetworking.h"
 #import "SearchResultModel.h"
 #import "PlayerZLViewController.h"
+#import "WMPlayZLViewController.h"
+
 @interface SearchViewController : ZLBaseViewController<UISearchBarDelegate,UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
 
 

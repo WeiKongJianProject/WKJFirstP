@@ -31,7 +31,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eSP-dI-4jO">
-                    <rect key="frame" x="0.0" y="25" width="375" height="642"/>
+                    <rect key="frame" x="0.0" y="25" width="375" height="572"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3Yo-JI-iif">
                         <size key="itemSize" width="50" height="50"/>
@@ -47,7 +47,7 @@
                 <constraint firstItem="eSP-dI-4jO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9Bz-Bq-bKT"/>
                 <constraint firstAttribute="trailing" secondItem="eSP-dI-4jO" secondAttribute="trailing" id="CJ7-5R-Duc"/>
                 <constraint firstItem="8P9-oS-U8r" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="j32-s5-QFT"/>
-                <constraint firstAttribute="bottom" secondItem="eSP-dI-4jO" secondAttribute="bottom" id="mTZ-db-g1z"/>
+                <constraint firstAttribute="bottom" secondItem="eSP-dI-4jO" secondAttribute="bottom" constant="70" id="mTZ-db-g1z"/>
                 <constraint firstItem="eSP-dI-4jO" firstAttribute="top" secondItem="8P9-oS-U8r" secondAttribute="bottom" id="uYZ-Fp-Fmn"/>
                 <constraint firstAttribute="trailing" secondItem="8P9-oS-U8r" secondAttribute="trailing" id="vcj-qF-E6q"/>
             </constraints>

@@ -10,9 +10,11 @@
 #define URLZLHeader_h
 #define IS_FIRST_OPEN @"is_first_open"
 #define MEMBER_INFO_DIC @"member_info_dic"
-#define IS_MEMBER_VIP @"is_member_vip"
+#define MEMBER_VIP_LEVEL @"is_member_vip"
 #define IS_RENZHENG_TIJIAO @"is_renzheng_tijiao"
 #define HEAD_IMAGEVIEW_UPDATA_NOTIFICATION @"head_imageView_updata_notification"
+
+#define KAITONG_VIP_NOTIFICATION @"kaitong_vip_notification"
 
 //友盟APPID 58db47df07fe657cca0001b1
 #define YOUMENG_APP_ID_ZL @"58db47df07fe657cca0001b1"

@@ -129,10 +129,11 @@
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         if ([dic[@"result" ] isEqualToString:@"success"]) {
             if (dic[@"member"] != nil && ![dic[@"member"] isKindOfClass:[NSNull class]]) {
-               self.currentMemInfoDic = dic[@"member"];
+               weakSelf.currentMemInfoDic = dic[@"member"];
+                [[NSUserDefaults standardUserDefaults] setObject:weakSelf.currentMemInfoDic[@"vip"] forKey:MEMBER_VIP_LEVEL];
             }
-            self.titleDic = dic[@"sourceList"];
-            self.collectionARR = (NSMutableArray *)[MTLJSONAdapter modelsOfClass:[VIPVideoMTLModel class] fromJSONArray:dic[@"list"] error:nil];
+            weakSelf.titleDic = dic[@"sourceList"];
+            weakSelf.collectionARR = (NSMutableArray *)[MTLJSONAdapter modelsOfClass:[VIPVideoMTLModel class] fromJSONArray:dic[@"list"] error:nil];
             _totalNum = dic[@"total"];
             [weakSelf reloadData];
         }
@@ -420,7 +421,7 @@
 
 
 #pragma mark SecondSubDelegate 代理方法
-- (void)secondVC02:(SecondVC02 *)viewController withType:(int)typeInd withName:(NSString *)name withKey:(NSString *)keyId{
+- (void)secondVC02:(SecondVC02 *)viewController withType:(int)typeInd withName:(NSString *)name withKey:(NSString *)keyId withIsShiKan:(BOOL)isShiKan{
     switch (typeInd) {
         case 0:{
             DianYingSubViewController * vc = [[DianYingSubViewController alloc]init];
@@ -436,12 +437,21 @@
         }
             break;
         case 2:{
-            PlayerZLViewController * vc = [[PlayerZLViewController alloc]init];
-            vc.name = name;
-            //NSURL * url = [NSURL URLWithString:key];
-            //vc.url = url;
-            vc.id = keyId;
-            [self.navigationController pushViewController:vc animated:YES];
+            if (isShiKan == YES) {
+                WMPlayZLViewController * vc = [[WMPlayZLViewController alloc]init];
+                vc.id = keyId;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            else{
+                PlayerZLViewController * vc = [[PlayerZLViewController alloc]init];
+                vc.name = name;
+                //NSURL * url = [NSURL URLWithString:key];
+                //vc.url = url;
+                vc.id = keyId;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            
+
         }
             break;
         default:
@@ -454,11 +464,11 @@
 #pragma end mark
 #pragma mark VIPShaiXuanDelegate代理方法
 - (void)vipShaiXuanVC:(VIPShaiXuanVCViewController *)class withType:(int)typeInd withName:(NSString *)name withKey:(NSString *)keyId{
-    PlayerZLViewController * vc = [[PlayerZLViewController alloc]init];
-    vc.name = name;
+    SiFangPlayController * vc = [[SiFangPlayController alloc]init];
+    vc.zaiXianName = name;
     //NSURL * url = [NSURL URLWithString:key];
     //vc.url = url;
-    vc.id = keyId;
+    vc.zaiXianUrl = keyId;
     [self.navigationController pushViewController:vc animated:YES];
 
 }

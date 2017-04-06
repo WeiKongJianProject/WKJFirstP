@@ -10,4 +10,16 @@
 
 @implementation PlayMemberMTLModel
 
++ (NSDictionary *)JSONKeyPathsByPropertyKey{
+    
+    return @{
+             @"id":@"id",
+             @"points":@"points",
+             @"viplist":@"viplist",
+             @"vip":@"vip",
+             @"messageNum":@"messageNum"
+             };
+
+}
+
 @end

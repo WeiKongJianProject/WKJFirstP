@@ -9,7 +9,7 @@
 #import "WMPlayZLViewController.h"
 
 @interface WMPlayZLViewController ()<WMPlayerDelegate>{
-
+    
     //WMPlayer  *wmPlayer;
     CGRect     playerFrame;
     BOOL isHiddenStatusBar;//记录状态的隐藏显示
@@ -17,15 +17,87 @@
 
 @end
 
+static int _currentPage;
+
 @implementation WMPlayZLViewController
 
 
+#pragma mark viewDidLoad
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    _currentPage = 1;
+    
+    self.pingLunTableVIew.delegate = self;
+    self.pingLunTableVIew.dataSource = self;
+    self.pingLunTableVIew.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.pingLunTableVIew.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerShuaXin)];
+    
+    
+    playerFrame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, ([UIScreen mainScreen].bounds.size.width)* 9 / 16);
+    
+    self.wmPlayer = [[WMPlayer alloc]init];
+    //    wmPlayer = [[WMPlayer alloc]initWithFrame:playerFrame];
+    
+    self.wmPlayer.delegate = self;
+    //self.wmPlayer.URLString = self.URLString;
+    NSLog(@"视频的地址为：%@",self.URLString);
+    self.wmPlayer.titleLabel.text = self.title;
+    self.wmPlayer.closeBtn.hidden = NO;
+    self.wmPlayer.enableFastForwardGesture = YES;
+    self.wmPlayer.enableVolumeGesture = YES;
+    self.wmPlayer.dragEnable = NO;
+    [self.view addSubview:self.wmPlayer];
+    //[self.wmPlayer play];
+    
+    [self.wmPlayer mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view).with.offset(0);
+        make.left.equalTo(self.view).with.offset(0);
+        make.right.equalTo(self.view).with.offset(0);
+        make.height.equalTo(@(playerFrame.size.height));
+    }];
+    
+    
+    [self startAFNetworkingWithID:self.id];
+    [self startPingLunAFNetworkingWithID:self.id withPage:_currentPage];
+    
+    [self.XiaZaiButton addTarget:self action:@selector(alertXiaZaiButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.tiJiaoButton addTarget:self action:@selector(tiJiaoButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)tiJiaoButtonAction:(UIButton *)sender{
+    
+    AlertViewCustomZL  * alert = [[AlertViewCustomZL alloc]init];
+    
+    alert.titleName = @"观看完整版才可以评论";
+    alert.cancelBtnTitle = @"取消";
+    alert.okBtnTitle = @"确定";
+    [alert showCustomAlertView];
+    [alert cancelBlockAction:^(BOOL success) {
+        //_isKuaiJinAction = 0;
+        [alert hideCustomeAlertView];
+    }];
+    [alert okButtonBlockAction:^(BOOL success) {
+        //_isKuaiJinAction = 0;
+        [alert hideCustomeAlertView];
+        //        [weakSelf.navigationController popViewControllerAnimated:NO];
+        //        [weakSelf xw_postNotificationWithName:KAITONG_VIP_NOTIFICATION userInfo:nil];
+        [self.textFieldView resignFirstResponder];
+    }];
+    [self.view addSubview:alert];
+    
+}
 
 #pragma mark zl添加 START
-
+- (void)footerShuaXin{
+    _currentPage++;
+    [self startPingLunAFNetworkingWithID:self.id withPage:_currentPage];
+}
 
 
 #pragma mark 网络请求
+
+//播放页请求 视频数据
 - (void)startAFNetworkingWithID:(NSString *)keyID{
     [MBManager showLoadingInView:self.view];
     
@@ -46,6 +118,7 @@
             //[weakSelf settingPlayer];//加载播放器
             [MBManager hideAlert];
             //[weakSelf.tableView reloadData];
+            [weakSelf PlayBoFangVideo];
         }
         else{
             [MBManager showBriefMessage:@"数据加载失败" InView:self.view];
@@ -57,13 +130,59 @@
     }];
     
 }
+
+- (void)PlayBoFangVideo{
+    
+    self.boFangNumLabel.text = [NSString stringWithFormat:@"%d",[self.playModel.hit intValue]];
+    
+    self.videoTitleLabel.text = self.playModel.name;
+    self.wmPlayer.URLString = self.playModel.trial;
+    //@"http://www.w3cschool.cc/try/demo_source/mov_bbb.mp4";//self.playModel.trial;
+    [self.wmPlayer play];
+}
+
+//播放页 请求评论
+- (void)startPingLunAFNetworkingWithID:(NSString *)keyID withPage:(int)page{
+    //[MBManager showLoadingInView:self.view];
+    
+    NSDictionary * userInfoDic = [[NSUserDefaults standardUserDefaults]objectForKey:MEMBER_INFO_DIC];
+    NSString * userID = userInfoDic[@"id"];
+    __weak typeof(self) weakSelf = self;
+    //play
+    NSString * urlstr = [NSString stringWithFormat:@"%@&action=comment&id=%@&page=%d",URL_Common_ios,keyID,page];
+    NSLog(@"评论的链接为：%@",urlstr);
+    [[ZLSecondAFNetworking sharedInstance]getWithURLString:urlstr parameters:nil success:^(id responseObject) {
+        NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        //[MTLJSONAdapter modelOfClass:[PlayVideoMTLModel class] fromJSONDictionary:dic error:nil];
+        if ([dic[@"result"] isEqualToString:@"success"]) {
+            NSArray * arr01 = dic[@"list"];
+            if (!zlArrayIsEmpty(arr01)) {
+                [self.tableViewARR addObjectsFromArray:[MTLJSONAdapter modelsOfClass:[PingLunMTLModel class] fromJSONArray:dic[@"list"] error:nil]];
+                [weakSelf.pingLunTableVIew reloadData];
+            }
+            [MBManager hideAlert];
+        }
+        else{
+            [MBManager showBriefMessage:@"评论数据加载失败" InView:self.view];
+        }
+        
+        [self.pingLunTableVIew.mj_footer endRefreshing];
+    } failure:^(NSError *error) {
+        [self.pingLunTableVIew.mj_footer endRefreshing];
+        [MBManager hideAlert];
+        [MBManager showBriefAlert:@"评论请求失败"];
+    }];
+    
+}
+
+
 #pragma mark TableviewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.tableViewARR.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 35.0f;
+    return 75.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -72,6 +191,9 @@
     if(!cell){
         cell = (PingLunTableViewCell *)[[NSBundle mainBundle] loadNibNamed:@"PingLunTableViewCell" owner:self options:nil][0];
     }
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     PingLunMTLModel * model = self.tableViewARR[indexPath.row];
     
     
@@ -93,19 +215,13 @@
     cell.timeLabel.text = res;
     NSLog(@"评论的时间为：%@",res);
     return cell;
-
+    
     
     
 }
 
 #pragma end mark
 #pragma end mark  zl 添加结束
-
-
-
-
-
-
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
@@ -172,9 +288,6 @@
     //    }]];
     //    [self presentViewController:alertVC animated:YES completion:^{
     //    }];
-    
-    
-    
 }
 ///双击播放器
 -(void)wmplayer:(WMPlayer *)wmplayer doubleTaped:(UITapGestureRecognizer *)doubleTap{
@@ -188,7 +301,19 @@
     //    NSLog(@"wmplayerDidReadyToPlay");
 }
 -(void)wmplayerFinishedPlay:(WMPlayer *)wmplayer{
-    NSLog(@"wmplayerDidFinishedPlay");
+    NSLog(@"wmplayerDidFinishedPlay播放完成");
+    if (self.wmPlayer.isFullscreen==YES) {//全屏
+        [self toOrientation:UIInterfaceOrientationPortrait];
+        self.wmPlayer.isFullscreen = NO;
+        self.enablePanGesture = YES;
+        
+    }
+    //    else{//非全屏
+    //        [self toOrientation:UIInterfaceOrientationLandscapeRight];
+    //        self.wmPlayer.isFullscreen = YES;
+    //        self.enablePanGesture = NO;
+    //    }
+    [self alertViewShow];
 }
 //操作栏隐藏或者显示都会调用此方法
 -(void)wmplayer:(WMPlayer *)wmplayer isHiddenTopAndBottomView:(BOOL)isHidden{
@@ -297,36 +422,30 @@
     [super viewDidAppear:animated];
 }
 #pragma mark
-#pragma mark viewDidLoad
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    playerFrame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, ([UIScreen mainScreen].bounds.size.width)* 9 / 16);
+
+
+- (void)alertXiaZaiButtonAction:(UIButton *)sender{
+    __weak typeof(self) weakSelf = self;
     
-   self.wmPlayer = [[WMPlayer alloc]init];
-    //    wmPlayer = [[WMPlayer alloc]initWithFrame:playerFrame];
+    AlertViewCustomZL  * alert = [[AlertViewCustomZL alloc]init];
     
-    self.wmPlayer.delegate = self;
-    self.wmPlayer.URLString = self.URLString;
-    NSLog(@"视频的地址为：%@",self.URLString);
-    self.wmPlayer.titleLabel.text = self.title;
-    self.wmPlayer.closeBtn.hidden = NO;
-    self.wmPlayer.enableFastForwardGesture = YES;
-    self.wmPlayer.enableVolumeGesture = YES;
-    self.wmPlayer.dragEnable = NO;
-    [self.view addSubview:self.wmPlayer];
-    [self.wmPlayer play];
-    
-    [self.wmPlayer mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view).with.offset(0);
-        make.left.equalTo(self.view).with.offset(0);
-        make.right.equalTo(self.view).with.offset(0);
-        make.height.equalTo(@(playerFrame.size.height));
+    alert.titleName = @"下载视频需要开通VIP";
+    alert.cancelBtnTitle = @"取消";
+    alert.okBtnTitle = @"开通";
+    [alert showCustomAlertView];
+    [alert cancelBlockAction:^(BOOL success) {
+        //_isKuaiJinAction = 0;
+        [alert hideCustomeAlertView];
     }];
-    
-    
-    [self startAFNetworkingWithID:self.id];
+    [alert okButtonBlockAction:^(BOOL success) {
+        //_isKuaiJinAction = 0;
+        [alert hideCustomeAlertView];
+        [weakSelf.navigationController popViewControllerAnimated:NO];
+        [weakSelf xw_postNotificationWithName:KAITONG_VIP_NOTIFICATION userInfo:nil];
+    }];
+    [self.view addSubview:alert];
 }
+
 
 - (void)releaseWMPlayer
 {
@@ -359,21 +478,44 @@
 }
 
 - (NSMutableArray *)tableViewARR{
-
+    
     if (!_tableViewARR) {
         _tableViewARR = [[NSMutableArray alloc]init];
     }
     return _tableViewARR;
 }
+//自定义 弹出按钮
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)alertViewShow{
+    
+    __weak typeof(self) weakSelf = self;
+    
+    AlertViewCustomZL  * alert = [[AlertViewCustomZL alloc]init];
+    
+    alert.titleName = @"观看完整版,需要开通VIP";
+    alert.cancelBtnTitle = @"取消";
+    alert.okBtnTitle = @"开通";
+    [alert showCustomAlertView];
+    [alert cancelBlockAction:^(BOOL success) {
+        //_isKuaiJinAction = 0;
+        [alert hideCustomeAlertView];
+    }];
+    [alert okButtonBlockAction:^(BOOL success) {
+        //_isKuaiJinAction = 0;
+        [alert hideCustomeAlertView];
+        [weakSelf.navigationController popViewControllerAnimated:NO];
+        [weakSelf xw_postNotificationWithName:KAITONG_VIP_NOTIFICATION userInfo:nil];
+    }];
+    [self.view addSubview:alert];
 }
-*/
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

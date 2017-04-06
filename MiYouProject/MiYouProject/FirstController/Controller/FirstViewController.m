@@ -101,6 +101,14 @@
         
     }];
     
+    //开通VIP通知
+    [self xw_addNotificationForName:KAITONG_VIP_NOTIFICATION block:^(NSNotification * _Nonnull notification) {
+        NSLog(@"调用了开通VIP通知");
+        ChongZhiViewController * vc = [[ChongZhiViewController alloc]init];
+        vc.UB_or_VIP = VIP_ChongZhi;
+        [weakSelf.navigationController pushViewController:vc animated:YES];
+    }];
+
 }
 //网络请求  数据 标题
 - (void)getShuJuFromAFNetworking{
@@ -145,6 +153,8 @@
             if (memberDic != nil && ![memberDic isKindOfClass:[NSNull class]]) {
                 weakSelf.memberInfo = [MTLJSONAdapter modelOfClass:[MemberMTLModel class] fromJSONDictionary:memberDic error:nil];
                 [[NSUserDefaults standardUserDefaults] setObject:memberDic forKey:MEMBER_INFO_DIC];
+                NSString * vipLevel = memberDic[@"vip"];
+                [[NSUserDefaults standardUserDefaults] setObject:vipLevel forKey:MEMBER_VIP_LEVEL];
             }
             
             [weakSelf reloadData];
@@ -385,7 +395,7 @@
 
 
 #pragma mark FirstSubDelegate 代理方法
-- (void)firstSubVC:(FirstSubViewViewController *)viewC withType:(NSInteger)typeInt withName:(NSString *)name withKey:(NSString *)key{
+- (void)firstSubVC:(FirstSubViewViewController *)viewC withType:(NSInteger)typeInt withName:(NSString *)name withKey:(NSString *)key withIsShiKan:(BOOL)isShiKan{
     
     switch (typeInt) {
         case 0:{
@@ -402,22 +412,29 @@
         }
             break;
         case 2:{
-            PlayerZLViewController * vc = [[PlayerZLViewController alloc]init];
-//            vc.name = name;
-            //NSURL * url = [NSURL URLWithString:key];
-            vc.isBenDi = YES;
-            NSURL * url = [NSURL URLWithString:@"http://www.w3cschool.cc/try/demo_source/mov_bbb.mp4"];
-            vc.url = url;
-//            vc.id = key;
-            [self.navigationController pushViewController:vc animated:YES];
             
+            if (isShiKan == YES) {
+                WMPlayZLViewController  * vc = [[WMPlayZLViewController alloc]init];
+                //vc.URLString = @"http://www.w3cschool.cc/try/demo_source/mov_bbb.mp4";
+                vc.videoTitleLabel.text = name;
+                NSLog(@"电影标题为：%@",name);
+                vc.id = key;
+                [self.navigationController pushViewController:vc animated:YES];
+
+            }
+            else{
+            
+                PlayerZLViewController * vc = [[PlayerZLViewController alloc]init];
+                vc.name = name;
+                //NSURL * url = [NSURL URLWithString:key];
+                //vc.isBenDi = YES;
+                //NSURL * url = [NSURL URLWithString:@"http://www.w3cschool.cc/try/demo_source/mov_bbb.mp4"];
+                //vc.url = url;
+                vc.id = key;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
             //KYLocalVideoPlayVC * vc = [[KYLocalVideoPlayVC alloc]init];
             //WMPlayZLViewController
-//            WMPlayZLViewController  * vc = [[WMPlayZLViewController alloc]init];
-//            vc.URLString = @"http://www.w3cschool.cc/try/demo_source/mov_bbb.mp4";
-//            //vc.videoTitleLabel.text = name;
-//            //vc.id = key;
-//            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         default:

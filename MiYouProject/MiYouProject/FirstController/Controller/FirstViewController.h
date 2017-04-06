@@ -31,6 +31,8 @@
 #import "WMPlayZLViewController.h"
 #import "KYLocalVideoPlayVC.h"
 
+#import "ChongZhiViewController.h"
+
 @interface FirstViewController : ViewPagerController<ViewPagerDataSource,ViewPagerDelegate,FirstSubViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray * itemsTitlesARR;

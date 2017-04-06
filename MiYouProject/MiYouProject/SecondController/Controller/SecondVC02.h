@@ -14,7 +14,7 @@
 
 @protocol SecondVC02Delegate <NSObject>
 
-- (void)secondVC02:(SecondVC02 *)viewController withType:(int) typeInd withName:(NSString *)name withKey:(NSString *)keyId;
+- (void)secondVC02:(SecondVC02 *)viewController withType:(int) typeInd withName:(NSString *)name withKey:(NSString *)keyId withIsShiKan:(BOOL)isShiKan;
 
 @end
 

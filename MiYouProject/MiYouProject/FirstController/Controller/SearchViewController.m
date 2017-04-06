@@ -98,7 +98,7 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
     SearchResultModel * model = self.resultARR[indexPath.row];
-    NSString * key = model.d_name;
+    NSString * key = model.name;
     
     cell.textLabel.text = key;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -108,15 +108,18 @@
    
     
     //NSString  * key = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
-    
     SearchResultModel * model = [self.resultARR objectAtIndex:indexPath.row];
     
-    PlayerZLViewController * vc = [[PlayerZLViewController alloc]init];
-    vc.id = model.id;
-    vc.name = model.d_name;
-    
-    [self.navigationController pushViewController:vc animated:YES];
-     NSLog(@"点击了++++++%@",model.d_name);
+    NSString * vipLevel = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_VIP_LEVEL];
+    if ([vipLevel intValue] < [model.vip intValue]) {
+        WMPlayZLViewController * vc = [[WMPlayZLViewController alloc]init];
+        vc.id = model.id;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else{
+        PlayerZLViewController * vc = [[PlayerZLViewController alloc]init];
+        vc.id = model.id;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 //- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
 //    return YES;

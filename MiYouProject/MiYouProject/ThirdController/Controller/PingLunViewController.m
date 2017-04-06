@@ -97,7 +97,7 @@ static int _currentPage;
 }
 //PingLunCellID
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString * cellID = @"PingLunCellID";
+    static NSString * cellID = @"PingLunTableVIewCellID";
     PingLunTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if(!cell){
         cell = (PingLunTableViewCell *)[[NSBundle mainBundle] loadNibNamed:@"PingLunTableViewCell" owner:self options:nil][0];

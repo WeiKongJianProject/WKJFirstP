@@ -12,7 +12,7 @@
 #define Collection_item_Height (SIZE_WIDTH-40)/3.0 * 386.0/225.0
 
 @interface PlayerZLViewController (){
-
+    
     CGFloat  _index_0_height;
     CGFloat _index_0_height_zhanKai;
     CGFloat _index_1_height;
@@ -23,29 +23,30 @@
 
 @end
 static int _isKuaiJinAction = 0;
-
+static int _currentPage;
 @implementation PlayerZLViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    _currentPage = 1;
     if (self.isBenDi == YES) {
         //本地视频
         [self settingPlayer];
     }else{
-    //网络视频
-       //NSString * userMID = [[NSUserDefaults standardUserDefaults] objectForKey:IS_MEMBER_VIP];
+        //网络视频
+        //NSString * userMID = [[NSUserDefaults standardUserDefaults] objectForKey:IS_MEMBER_VIP];
         [self startAFNetworkingWithID:self.id];
     }
     
     
     [self settingTableView];
     [self.tiJiaoButton addTarget:self action:@selector(tiJiaoButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.xiaZaiButton addTarget:self action:@selector(alertXiaZaiButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     __weak typeof(self) weakSelf = self;
     
     [self xw_addNotificationForName:@"KUAIJINNOTIFICATION" block:^(NSNotification * _Nonnull notification) {
         NSLog(@"执行了快进按钮");
-        NSString * isVIP = [[NSUserDefaults standardUserDefaults] objectForKey:IS_MEMBER_VIP];
+        NSString * isVIP = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_VIP_LEVEL];
         if ([isVIP isEqualToString:@"1"]) {
             
             
@@ -55,11 +56,53 @@ static int _isKuaiJinAction = 0;
                 _isKuaiJinAction++;
             }
         }
-
+        
         
     }];
+    
+    [self startPingLunAFNetworkingWithID:self.id withPage:_currentPage];
 }
 
+- (void)alertXiaZaiButtonAction:(UIButton *)sender{
+    if (self.playModel.video != nil) {
+        [self zf_playerDownload:self.playModel.video];
+    }
+}
+
+//播放页 请求评论
+- (void)startPingLunAFNetworkingWithID:(NSString *)keyID withPage:(int)page{
+    //[MBManager showLoadingInView:self.view];
+    
+    NSDictionary * userInfoDic = [[NSUserDefaults standardUserDefaults]objectForKey:MEMBER_INFO_DIC];
+    NSString * userID = userInfoDic[@"id"];
+    __weak typeof(self) weakSelf = self;
+    //play
+    NSString * urlstr = [NSString stringWithFormat:@"%@&action=comment&id=%@&page=%d",URL_Common_ios,keyID,page];
+    NSLog(@"评论的链接为：%@",urlstr);
+    [[ZLSecondAFNetworking sharedInstance]getWithURLString:urlstr parameters:nil success:^(id responseObject) {
+        NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        //[MTLJSONAdapter modelOfClass:[PlayVideoMTLModel class] fromJSONDictionary:dic error:nil];
+        if ([dic[@"result"] isEqualToString:@"success"]) {
+            NSArray * arr01 = dic[@"list"];
+            if (!zlArrayIsEmpty(arr01)) {
+                [self.tableViewARR addObjectsFromArray:[MTLJSONAdapter modelsOfClass:[PingLunMTLModel class] fromJSONArray:dic[@"list"] error:nil]];
+                [weakSelf.tableView reloadData];
+            }
+            [MBManager hideAlert];
+        }
+        else{
+            [MBManager showBriefMessage:@"评论数据加载失败" InView:self.view];
+        }
+        
+        [self.tableView.mj_footer endRefreshing];
+    } failure:^(NSError *error) {
+        [self.tableView.mj_footer endRefreshing];
+        [MBManager hideAlert];
+        [MBManager showBriefAlert:@"评论请求失败"];
+    }];
+    
+}
+//播放页 视频 信息
 - (void)startAFNetworkingWithID:(NSString *)keyID{
     [MBManager showLoadingInView:self.view];
     
@@ -76,6 +119,8 @@ static int _isKuaiJinAction = 0;
             weakSelf.playMemberModel = [MTLJSONAdapter modelOfClass:[PlayMemberMTLModel class] fromJSONDictionary:dic[@"member"] error:nil];
             //NSString * str = [dic objectForKey:@"actor"];
             //NSLog(@"播放页请求的结果为：%@++++全部结果为：%@",weakSelf.playModel.pic,dic);
+            weakSelf.videoTitleLabel.text = weakSelf.playModel.name;
+            weakSelf.boFangNumLabel.text = [NSString stringWithFormat:@"%d",[weakSelf.playModel.hit intValue]];
             [weakSelf settingPlayer];//加载播放器
             [MBManager hideAlert];
             [weakSelf.tableView reloadData];
@@ -108,10 +153,14 @@ static int _isKuaiJinAction = 0;
 
 
 - (void)tiJiaoButtonAction:(UIButton *)sender{
-    [self.textField resignFirstResponder];
-    self.textField.text = @"";
-    [MBManager showBriefAlert:@"您的评论需要后台审核"];
-    
+    if (![self.textField.text isEqualToString:@""] && self.textField.text != nil) {
+        [self.textField resignFirstResponder];
+        self.textField.text = @"";
+        [MBManager showBriefAlert:@"评论提交成功,审核中"];
+    }else{
+        [self.textField resignFirstResponder];
+        [MBManager showBriefAlert:@"评论不能为空！"];
+    }
 }
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
@@ -139,7 +188,7 @@ static int _isKuaiJinAction = 0;
     //[self.playerView cancelAutoFadeOutControlBar];
 }
 - (void)settingPlayer{
-   
+    
     // 初始化控制层view(可自定义)
     ZFPlayerControlView *controlView = [[ZFPlayerControlView alloc] init];
     
@@ -153,16 +202,17 @@ static int _isKuaiJinAction = 0;
     }
     else{
         playerModel.videoURL = [NSURL URLWithString:self.playModel.video];
+        //[NSURL URLWithString:@"http://www.w3cschool.cc/try/demo_source/mov_bbb.mp4"];
         playerModel.title = self.playModel.name;
     }
-
-     //从xx秒开始播放
+    
+    //从xx秒开始播放
     //playerModel.seekTime = 10;
     //占位图
     playerModel.placeholderImage = [UIImage imageNamed:@"icon_default"];
     //网络占位图
     // 网络图片
-    //playerModel.placeholderImageURLString = @"https://xxx.jpg";
+    playerModel.placeholderImageURLString = self.playModel.pic;
     [self.playerView playerControlView:controlView playerModel:playerModel];
     // 设置代理
     self.playerView.delegate = self;
@@ -172,7 +222,7 @@ static int _isKuaiJinAction = 0;
     self.playerView.playerLayerGravity = ZFPlayerLayerGravityResizeAspect;
     //断点下载
     self.playerView.hasDownload = YES;
-
+    
 }
 
 - (void)settingTableView{
@@ -183,10 +233,18 @@ static int _isKuaiJinAction = 0;
     self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
+    
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerShuaXin)];
 }
+
+- (void)footerShuaXin{
+    _currentPage++;
+    [self startPingLunAFNetworkingWithID:self.id withPage:_currentPage];
+}
+
 #pragma mark TableView代理方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;
+    return self.tableViewARR.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     CGFloat height = 0.0f;
@@ -201,66 +259,97 @@ static int _isKuaiJinAction = 0;
         }
     }
     else if (indexPath.row == 1){
-            height = 35.0;
+        height = 35.0;
     }
-
-    return height;
+    
+    return 75.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell * cell = nil;
-    switch (indexPath.row) {
-        case 0:{
-            static NSString * cellID = @"PlayTableviewCellID";
-            PlayVideoTableViewCell * cell0 = [tableView dequeueReusableCellWithIdentifier:cellID];
-            if (!cell0) {
-                cell0 = (PlayVideoTableViewCell *)[[NSBundle mainBundle] loadNibNamed:@"PlayVideoTableViewCell" owner:self options:nil][0];
-                //[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-            }
-            [cell0.smallImageView sd_setImageWithURL:[NSURL URLWithString:self.playModel.pic] placeholderImage:PLACEHOLDER_IMAGE];
-            cell0.videoName.text = self.playModel.name;
-            cell0.typeLabel.text = self.playModel.type;
-            cell0.zhuYanLabel.text = self.playModel.actor;
-            cell0.jianJieLabel.text = self.playModel.content;
-            
-            
-            
-            [cell0.moreButton addTarget:self action:@selector(moreButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-            
-            _index_0_height_zhanKai = [self textHeight:cell0.jianJieLabel.text] - 15 + _index_0_height ;
-            if (_isZhanKai == NO) {
-                //NSLog(@"行数为：%ld",cell0.jianJieLabel.numberOfLines);
-                cell0.jianJieLabel.numberOfLines = 1;
-            }
-            else{
-                cell0.jianJieLabel.numberOfLines = 0;
-            }
-            
-            cell0.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell = cell0;
-        }
-            break;
-        case 1:{
-            static NSString * cellID = @"PlayTableviewCellID02";
-            UITableViewCell * cell1 = [tableView dequeueReusableCellWithIdentifier:cellID];
-            if (!cell1) {
-                //cell0 = (PlayVideoTableViewCell *)[[NSBundle mainBundle] loadNibNamed:@"PlayVideoTableViewCell" owner:self options:nil][0];
-                 cell1 = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-            }
-            cell1.textLabel.text = @"暂时没有评论";
-            cell1.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
-            cell = cell1;
-        }
-            break;
-        default:
-            break;
+    /*
+     switch (indexPath.row) {
+     case 0:{
+     static NSString * cellID = @"PlayTableviewCellID";
+     PlayVideoTableViewCell * cell0 = [tableView dequeueReusableCellWithIdentifier:cellID];
+     if (!cell0) {
+     cell0 = (PlayVideoTableViewCell *)[[NSBundle mainBundle] loadNibNamed:@"PlayVideoTableViewCell" owner:self options:nil][0];
+     //[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+     }
+     [cell0.smallImageView sd_setImageWithURL:[NSURL URLWithString:self.playModel.pic] placeholderImage:PLACEHOLDER_IMAGE];
+     cell0.videoName.text = self.playModel.name;
+     cell0.typeLabel.text = self.playModel.type;
+     cell0.zhuYanLabel.text = self.playModel.actor;
+     cell0.jianJieLabel.text = self.playModel.content;
+     
+     
+     
+     [cell0.moreButton addTarget:self action:@selector(moreButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+     
+     _index_0_height_zhanKai = [self textHeight:cell0.jianJieLabel.text] - 15 + _index_0_height ;
+     if (_isZhanKai == NO) {
+     //NSLog(@"行数为：%ld",cell0.jianJieLabel.numberOfLines);
+     cell0.jianJieLabel.numberOfLines = 1;
+     }
+     else{
+     cell0.jianJieLabel.numberOfLines = 0;
+     }
+     
+     cell0.selectionStyle = UITableViewCellSelectionStyleNone;
+     cell = cell0;
+     }
+     break;
+     case 1:{
+     static NSString * cellID = @"PlayTableviewCellID02";
+     UITableViewCell * cell1 = [tableView dequeueReusableCellWithIdentifier:cellID];
+     if (!cell1) {
+     //cell0 = (PlayVideoTableViewCell *)[[NSBundle mainBundle] loadNibNamed:@"PlayVideoTableViewCell" owner:self options:nil][0];
+     cell1 = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+     }
+     cell1.textLabel.text = @"暂时没有评论";
+     cell1.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
+     cell = cell1;
+     }
+     break;
+     default:
+     break;
+     }
+     */
+    //UITableViewCell * cell = nil;
+    
+    static NSString * cellID = @"PingLunTableVIewCellID";
+    
+    PingLunTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    if (!cell) {
+        cell = [[NSBundle mainBundle] loadNibNamed:@"PingLunTableViewCell" owner:self options:nil][0];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    PingLunMTLModel * model = self.tableViewARR[indexPath.row];
+    [cell.headImageVIew sd_setImageWithURL:[NSURL URLWithString:model.avator] placeholderImage:PLACEHOLDER_IMAGE];
+    cell.nameLabel.text = model.member;
+    cell.contentLabel.text = model.content;
+    
+    //时间 时间戳设置
+    NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:[model.time intValue]];
+    //NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[confromTimesp timeIntervalSince1970]];
+    //NSDate *date = [NSDate date];
+    //创建一个时间格式化对象
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    //按照什么样的格式来格式化时间
+    //formatter.dateFormat = @"yyyy年MM月dd日 HH时mm分ss秒 Z";
+    formatter.dateFormat = @"yyyy/MM/dd HH:mm:ss";
+    //formatter.dateFormat = @"MM-dd-yyyy HH-mm-ss";
+    NSString *res = [formatter stringFromDate:confromTimesp];
+    cell.timeLabel.text = res;
     
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
 }
+
+
+#pragma end mark TableViewDelegate
+
 - (void)moreButtonAction:(UIButton *)sender{
     NSLog(@"展开");
     if (_isZhanKai == YES) {
@@ -297,7 +386,7 @@ static int _isKuaiJinAction = 0;
 #pragma end mark
 
 - (void)viewPlayFeiQi{
-
+    
     //__weak typeof(self) weakSelf = self;
     
     //if use Masonry,Please open this annotation
@@ -357,7 +446,7 @@ static int _isKuaiJinAction = 0;
     
     //[self settingPlayer];
     // Do any additional setup after loading the view from its nib.
-
+    
     
 }
 
@@ -365,7 +454,7 @@ static int _isKuaiJinAction = 0;
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-     //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+    //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     //self prefersStatusBarHidden
     // 调用playerView的layoutSubviews方法
     if (self.playerView) { [self.playerView setNeedsLayout]; }
@@ -374,9 +463,9 @@ static int _isKuaiJinAction = 0;
         self.isPlaying = NO;
         [self.playerView play];
     }
-
+    
     [self.navigationController setNavigationBarHidden:YES];
-
+    
 }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
@@ -395,6 +484,31 @@ static int _isKuaiJinAction = 0;
     return YES;
 }
 
+
+//- (void)tiJiaoButtonAction:(UIButton *)sender{
+//
+//    AlertViewCustomZL  * alert = [[AlertViewCustomZL alloc]init];
+//
+//    alert.titleName = @"观看完整版才可以评论";
+//    alert.cancelBtnTitle = @"取消";
+//    alert.okBtnTitle = @"确定";
+//    [alert showCustomAlertView];
+//    [alert cancelBlockAction:^(BOOL success) {
+//        //_isKuaiJinAction = 0;
+//        [alert hideCustomeAlertView];
+//    }];
+//    [alert okButtonBlockAction:^(BOOL success) {
+//        //_isKuaiJinAction = 0;
+//        [alert hideCustomeAlertView];
+//        //        [weakSelf.navigationController popViewControllerAnimated:NO];
+//        //        [weakSelf xw_postNotificationWithName:KAITONG_VIP_NOTIFICATION userInfo:nil];
+//        [self.textField resignFirstResponder];
+//    }];
+//    [self.view addSubview:alert];
+//
+//}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -405,14 +519,23 @@ static int _isKuaiJinAction = 0;
     CGRect rect =[string boundingRectWithSize:CGSizeMake(SIZE_WIDTH-69, 9999) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.0]} context:nil];//计算字符串所占的矩形区域的大小
     return rect.size.height;//返回高度
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+- (NSMutableArray *)tableViewARR{
+    if (!_tableViewARR) {
+        _tableViewARR = [[NSMutableArray alloc]init];
+    }
+    return _tableViewARR;
 }
-*/
+
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
