@@ -13,6 +13,8 @@
 #import "VideoModelZL.h"
 #import "PlayerZLViewController.h"
 #import "SiFangPlayController.h"
+#import <AVFoundation/AVFoundation.h>
+#import <CoreMedia/CoreMedia.h>
 
 @interface HuanCunCenterViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 

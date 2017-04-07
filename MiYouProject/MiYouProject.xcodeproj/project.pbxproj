@@ -63,6 +63,8 @@
 		732DFC831E94EC5600D024F8 /* KYLocalVideoPlayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 732DFC821E94EC5600D024F8 /* KYLocalVideoPlayVC.m */; };
 		732DFC861E94EE7500D024F8 /* KYBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732DFC851E94EE7500D024F8 /* KYBaseViewController.m */; };
 		732DFC891E94EF1E00D024F8 /* KYVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 732DFC881E94EF1E00D024F8 /* KYVideo.m */; };
+		732DFC8D1E977CC100D024F8 /* SanVIPPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732DFC8B1E977CC100D024F8 /* SanVIPPlayViewController.m */; };
+		732DFC8E1E977CC100D024F8 /* SanVIPPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732DFC8C1E977CC100D024F8 /* SanVIPPlayViewController.xib */; };
 		736557361E728F5800284C11 /* ReMenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736557351E728F5800284C11 /* ReMenView.xib */; };
 		7365573A1E729C4B00284C11 /* DianYingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */; };
 		7365573B1E729C4B00284C11 /* DianYingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736557391E729C4B00284C11 /* DianYingCollectionViewCell.xib */; };
@@ -367,6 +369,9 @@
 		732DFC851E94EE7500D024F8 /* KYBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYBaseViewController.m; sourceTree = "<group>"; };
 		732DFC871E94EF1E00D024F8 /* KYVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYVideo.h; sourceTree = "<group>"; };
 		732DFC881E94EF1E00D024F8 /* KYVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYVideo.m; sourceTree = "<group>"; };
+		732DFC8A1E977CC100D024F8 /* SanVIPPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SanVIPPlayViewController.h; sourceTree = "<group>"; };
+		732DFC8B1E977CC100D024F8 /* SanVIPPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SanVIPPlayViewController.m; sourceTree = "<group>"; };
+		732DFC8C1E977CC100D024F8 /* SanVIPPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SanVIPPlayViewController.xib; sourceTree = "<group>"; };
 		736557351E728F5800284C11 /* ReMenView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReMenView.xib; sourceTree = "<group>"; };
 		736557371E729C4B00284C11 /* DianYingCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianYingCollectionViewCell.h; sourceTree = "<group>"; };
 		736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianYingCollectionViewCell.m; sourceTree = "<group>"; };
@@ -1358,6 +1363,9 @@
 				73A3B64C1E8F442600407957 /* VIPShaiXuanVCViewController.h */,
 				73A3B64D1E8F442600407957 /* VIPShaiXuanVCViewController.m */,
 				73A3B64E1E8F442600407957 /* VIPShaiXuanVCViewController.xib */,
+				732DFC8A1E977CC100D024F8 /* SanVIPPlayViewController.h */,
+				732DFC8B1E977CC100D024F8 /* SanVIPPlayViewController.m */,
+				732DFC8C1E977CC100D024F8 /* SanVIPPlayViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1931,6 +1939,7 @@
 				73EB3FB21E6FDEE400CA8B5D /* Loading003.png in Resources */,
 				73EB3F9D1E6FDEE400CA8B5D /* 0005.png in Resources */,
 				732DFC801E94BF9100D024F8 /* WMPlayZLViewController.xib in Resources */,
+				732DFC8E1E977CC100D024F8 /* SanVIPPlayViewController.xib in Resources */,
 				73A3B6481E8E455C00407957 /* VIPViewCollectionViewCell.xib in Resources */,
 				73E7DA531E7A78A200371E33 /* HuanCunCenterViewController.xib in Resources */,
 				73EB3FA81E6FDEE400CA8B5D /* Loading0012.png in Resources */,
@@ -2193,6 +2202,7 @@
 				732DFC771E94BCD100D024F8 /* FastForwardView.m in Sources */,
 				73EB3FBB1E6FDEE400CA8B5D /* YYAnimationIndicator.m in Sources */,
 				73E7DA6B1E7BE08D00371E33 /* PlayerZLViewController.m in Sources */,
+				732DFC8D1E977CC100D024F8 /* SanVIPPlayViewController.m in Sources */,
 				73EB43091E71313100CA8B5D /* ZLLabelCustom.m in Sources */,
 				73EB43201E727E6F00CA8B5D /* FirstSubViewViewController.m in Sources */,
 				73EB3FCB1E6FDEE400CA8B5D /* iCarousel.m in Sources */,

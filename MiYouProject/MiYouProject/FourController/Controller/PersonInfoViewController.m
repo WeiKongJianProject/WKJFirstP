@@ -68,7 +68,7 @@
     }
     
     NSDictionary * userDic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
-    
+    NSLog(@"用户信息详情页：%@",userDic);
     switch (indexPath.row) {
         case 0:{
             

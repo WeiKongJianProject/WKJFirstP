@@ -1,8 +1,8 @@
 //
-//  SiFangPlayController.h
+//  SanVIPPlayViewController.h
 //  MiYouProject
 //
-//  Created by wkj on 2017/3/30.
+//  Created by wkj on 2017/4/7.
 //  Copyright © 2017年 junhong. All rights reserved.
 //
 
@@ -17,10 +17,10 @@
 #import "PlayMemberMTLModel.h"
 #import "SiFangMTLModel.h"
 
-@interface SiFangPlayController : ZLBaseViewController<ZFPlayerDelegate,ZFPlayerControlViewDelagate>
-
+@interface SanVIPPlayViewController : ZLBaseViewController<ZFPlayerDelegate,ZFPlayerControlViewDelagate>
 @property (weak, nonatomic) IBOutlet ZFPlayerView *playerView;
 @property (assign,  nonatomic) BOOL isBenDi;
+@property (assign, nonatomic) BOOL isDianShiType;
 /** 离开页面时候是否在播放 */
 @property (nonatomic, assign) BOOL isPlaying;
 @property (weak, nonatomic) IBOutlet UIView *backgroundPlayView;
@@ -35,5 +35,7 @@
 @property (strong, nonatomic) NSString * id;
 
 @property (strong, nonatomic) SiFangMTLModel * currentSiFangMTLModel;
+
+@property (strong, nonatomic) IBOutlet UICollectionView *collecctionViews;
 
 @end

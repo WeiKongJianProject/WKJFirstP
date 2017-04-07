@@ -20,13 +20,14 @@
 
 @end
 static int _currentPage;
-static int _isFirstOpen = 1;
+static int _isFirstOpen;
 
 @implementation ShaiXuanViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     _currentPage = 1;
+    _isFirstOpen = 1;
     _currentType = @"全部";
     _currentStory = @"全部";
     _currentOrder = @"new";
@@ -109,6 +110,7 @@ static int _isFirstOpen = 1;
                     if (!zlArrayIsEmpty(arr03)) {
                         [weakSelf.collectionARR addObjectsFromArray:[MTLJSONAdapter modelsOfClass:[VideoListMTLModel class] fromJSONArray:[dic objectForKey:@"list"] error:nil]];
                     }
+                    NSLog(@"筛选列表的isFirstOpen的值为：%d",_isFirstOpen);
                     if(_isFirstOpen == 1){
                         [weakSelf settingSegmentView];
                         _isFirstOpen++;

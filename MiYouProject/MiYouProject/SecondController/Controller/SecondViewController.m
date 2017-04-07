@@ -81,29 +81,29 @@
     
     //[self createSearchButton];
     
-    __weak typeof(self) weakSelf = self;
-    [self xw_addNotificationForName:TIAOZHUAN_NOTICFICATION block:^(NSNotification * _Nonnull notification) {
-        NSLog(@"执行了跳转方法");
-        NSDictionary * dic = notification.userInfo;
-        NSString * useString = [dic objectForKey:@"index"];
-        if ([useString isEqualToString:@"0"]) {
-            [weakSelf setActiveTabIndex:0];
-        }
-        else if([useString isEqualToString:@"1"]){
-            [weakSelf setActiveTabIndex:1];
-        }
-        else if ([useString isEqualToString:@"2"]){
-            [weakSelf.tabBarController setSelectedIndex:1];
-        }else if ([useString isEqualToString:@"3"]){
-            [weakSelf.tabBarController setSelectedIndex:2];
-        }else if ([useString isEqualToString:@"5"]){
-            [weakSelf setActiveTabIndex:4];
-        }else if ([useString isEqualToString:@"6"]){
-            [weakSelf setActiveTabIndex:5];
-        }
-        
-        
-    }];
+//    __weak typeof(self) weakSelf = self;
+//    [self xw_addNotificationForName:TIAOZHUAN_NOTICFICATION block:^(NSNotification * _Nonnull notification) {
+//        NSLog(@"执行了跳转方法");
+//        NSDictionary * dic = notification.userInfo;
+//        NSString * useString = [dic objectForKey:@"index"];
+//        if ([useString isEqualToString:@"0"]) {
+//            [weakSelf setActiveTabIndex:0];
+//        }
+//        else if([useString isEqualToString:@"1"]){
+//            [weakSelf setActiveTabIndex:1];
+//        }
+//        else if ([useString isEqualToString:@"2"]){
+//            [weakSelf.tabBarController setSelectedIndex:1];
+//        }else if ([useString isEqualToString:@"3"]){
+//            [weakSelf.tabBarController setSelectedIndex:2];
+//        }else if ([useString isEqualToString:@"5"]){
+//            [weakSelf setActiveTabIndex:4];
+//        }else if ([useString isEqualToString:@"6"]){
+//            [weakSelf setActiveTabIndex:5];
+//        }
+//        
+//        
+//    }];
     
 }
 //网络请求  数据 标题
@@ -121,7 +121,7 @@
         url = [NSString stringWithFormat:@"%@&action=vip&mid=%@&page=1",URL_Common_ios,memDic[@"id"]];
 //    }
     
-    NSLog(@"第一次请求的链接：%@",url);
+    NSLog(@"VIP第二个控制器第一次请求的链接：%@",url);
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
         
        // [MBManager hideAlert];
@@ -463,15 +463,22 @@
 
 #pragma end mark
 #pragma mark VIPShaiXuanDelegate代理方法
-- (void)vipShaiXuanVC:(VIPShaiXuanVCViewController *)class withType:(int)typeInd withName:(NSString *)name withKey:(NSString *)keyId{
-    SiFangPlayController * vc = [[SiFangPlayController alloc]init];
+- (void)vipShaiXuanVC:(VIPShaiXuanVCViewController *)class withType:(int)typeInd withName:(NSString *)name withKey:(NSString *)keyId withJuJIARR:(NSArray *)arr withVid:(NSString *)vid{
+    SanVIPPlayViewController * vc = [[SanVIPPlayViewController alloc]init];
     vc.zaiXianName = name;
     //NSURL * url = [NSURL URLWithString:key];
     //vc.url = url;
-    vc.zaiXianUrl = keyId;
+    NSURL * urld = [NSURL URLWithString:keyId];
+    vc.zaiXianUrl = urld;
     [self.navigationController pushViewController:vc animated:YES];
 
 }
+
+- (void)vipShaiXuanVC:(VIPShaiXuanVCViewController *)class withTypeChongZhi:(int)type{
+
+
+}
+
 
 #pragma end mark
 

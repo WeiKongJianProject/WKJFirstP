@@ -41,7 +41,7 @@
 #import "VIPShaiXuanVCViewController.h"
 #import "WMPlayZLViewController.h"
 #import "SiFangPlayController.h"
-
+#import "SanVIPPlayViewController.h"
 
 @interface SecondViewController : ViewPagerController<CustomIOSAlertViewDelegate,ViewPagerDataSource,ViewPagerDelegate,SecondVC02Delegate,VIPShaiXuanVCDelegate>
 

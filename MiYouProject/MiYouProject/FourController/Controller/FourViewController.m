@@ -26,7 +26,7 @@
     [super viewDidLoad];
     NSDictionary * memDic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
     self.userInfoModel = [MTLJSONAdapter modelOfClass:[UserInfoMTLModel class] fromJSONDictionary:memDic error:nil];
-    [self startAFNetworking];
+    
     _index_0_height = SIZE_WIDTH*(295.0/675.0);
     _index_1_height = SIZE_WIDTH*(50.0/325.0);
     [self loadTableview];
@@ -35,6 +35,13 @@
     [self xw_addNotificationForName:HEAD_IMAGEVIEW_UPDATA_NOTIFICATION block:^(NSNotification * _Nonnull notification) {
         [weakSelf.headImageView setImage:notification.userInfo[@"head"]];
     }];
+}
+- (void)viewWillAppear:(BOOL)animated{
+    
+    [super viewDidAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+    [self startAFNetworking];
+    
 }
 
 - (void)startAFNetworking{
@@ -56,6 +63,8 @@
         NSLog(@"用户中心请求的数据为：%@",dic);
         if ([dic[@"result"] isEqualToString:@"success"]) {
             self.userMessageModel = [MTLJSONAdapter modelOfClass:[UserMessageMTLModel class] fromJSONDictionary:dic error:nil];
+            [[NSUserDefaults standardUserDefaults] setObject:[dic objectForKey:@"points"] forKey:MEMBER_POINTS_NUM];
+            [[NSUserDefaults standardUserDefaults] setObject:[dic objectForKey:@"vip"] forKey:MEMBER_VIP_LEVEL];
         }
         [self.tableView reloadData];
         [MBManager hideAlert];
@@ -66,10 +75,6 @@
    
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES];
-}
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
 //    [self.navigationController setNavigationBarHidden:YES];

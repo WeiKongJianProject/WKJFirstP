@@ -155,6 +155,7 @@
                 [[NSUserDefaults standardUserDefaults] setObject:memberDic forKey:MEMBER_INFO_DIC];
                 NSString * vipLevel = memberDic[@"vip"];
                 [[NSUserDefaults standardUserDefaults] setObject:vipLevel forKey:MEMBER_VIP_LEVEL];
+                [[NSUserDefaults standardUserDefaults] setObject:memberDic[@"points"] forKey:MEMBER_POINTS_NUM];
             }
             
             [weakSelf reloadData];

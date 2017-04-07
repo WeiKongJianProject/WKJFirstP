@@ -15,4 +15,5 @@
 @property (strong, nonatomic) NSString * URL;
 @property (strong, nonatomic) NSString * cachePath;
 @property (assign, nonatomic) float fileSize;
+@property (strong, nonatomic) UIImage * image;
 @end

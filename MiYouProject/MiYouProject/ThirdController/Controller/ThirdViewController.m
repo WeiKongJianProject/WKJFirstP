@@ -50,7 +50,9 @@ static int _is_first;
     __weak typeof(self) weakSelf = self;
     [MBManager showLoadingInView:self.view];
     NSString * url = [NSString stringWithFormat:@"%@&action=sifang&page=%d&order=%@",URL_Common_ios,page,order];
+    NSLog(@"私房链接为：%@",url);
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
+        [MBManager hideAlert];
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSLog(@"私房请求的数据为：%@",dic);
         if ([dic[@"result"] isEqualToString:@"success"]) {
@@ -79,7 +81,7 @@ static int _is_first;
             
         }
         [self.collectionView reloadData];
-        [MBManager hideAlert];
+        
         [self.collectionView.mj_footer endRefreshing];
         [self.collectionView.mj_header endRefreshing];
     } failure:^(NSError *error) {
@@ -152,7 +154,7 @@ static int _is_first;
     }
     
     SiFangMTLModel * model = [self.collectioinViewARR objectAtIndex:indexPath.row];
-    cell.nameLabel.text = model.member;
+    cell.nameLabel.text = model.name;
     [cell.headerImageVIew sd_setImageWithURL:[NSURL URLWithString:model.avator] placeholderImage:PLACEHOLDER_IMAGE];
     //时间 时间戳设置
     NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:[model.time longValue]];
@@ -166,7 +168,7 @@ static int _is_first;
     //formatter.dateFormat = @"MM-dd-yyyy HH-mm-ss";
     NSString *res = [formatter stringFromDate:confromTimesp];
     cell.timeLabel.text = res;
-    [cell.videoImageView sd_setImageWithURL:[NSURL URLWithString:model.pic] placeholderImage:PLACEHOLDER_IMAGE];
+    [cell.videoImageView sd_setImageWithURL:[NSURL URLWithString:model.pic] placeholderImage:[UIImage imageNamed:@"sifang_default"]];
     cell.priceLabel.text = [NSString stringWithFormat:@"%d",[model.price intValue]];
     cell.pingLunLabel.text = [NSString stringWithFormat:@"%d",[model.commentNum intValue]];
     
@@ -202,7 +204,7 @@ static int _is_first;
     NSDictionary * memDic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
     self.currentMemberMTLModel = [MTLJSONAdapter modelOfClass:[MemberMTLModel class] fromJSONDictionary:memDic error:nil];
     
-    int UBpoitnts = [self.currentMemberMTLModel.points intValue];
+    int UBpoitnts = [[[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_POINTS_NUM ] intValue];
     if (UBpoitnts < [sender.sifangModel.price intValue]) {
         __weak typeof(self) weakSelf = self;
         AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
@@ -222,9 +224,14 @@ static int _is_first;
         [alertZL showCustomAlertView];
     }
     else{
+        
+        int shengNum = UBpoitnts - [sender.sifangModel.price intValue];
+        NSNumber * shengNS = [NSNumber numberWithInt:shengNum];
+        [[NSUserDefaults standardUserDefaults] setObject:shengNS forKey:MEMBER_POINTS_NUM];
         SiFangPlayController * vc = [[SiFangPlayController alloc]init];
         vc.mid = self.currentMemberMTLModel.id;
         vc.id = [NSString stringWithFormat:@"%d",sender.videoID];
+        vc.currentSiFangMTLModel = sender.sifangModel;
         [self.navigationController pushViewController:vc animated:NO];
     }
 }

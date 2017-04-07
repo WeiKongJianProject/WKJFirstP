@@ -9,14 +9,21 @@
 #import "SearchViewController.h"
 
 #define SEARCH_KEY  @"sousuoLishi"
-@interface SearchViewController ()
+@interface SearchViewController (){
+
+    NSString * _currentSearchTitle;
+    
+}
 
 @end
+
+static int _currentPage;
 
 @implementation SearchViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _currentPage = 1;
     self.view.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
     self.lishiARR = [[NSMutableArray alloc]init];
     self.resultARR = [[NSMutableArray alloc]init];
@@ -41,7 +48,10 @@
         __weak typeof(self) weakSelf = self;
         self.secondView = [[MSSAutoresizeLabelFlow alloc]initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 50) titles:self.lishiARR selectedHandler:^(NSUInteger index, NSString *title) {
             NSLog(@"%@",title);
-            [weakSelf startAFNetworkingWithsearchKey:title];
+            [weakSelf.resultARR removeAllObjects];
+            _currentPage = 1;
+            _currentSearchTitle = title;
+            [weakSelf startAFNetworkingWithsearchKey:title withPage:_currentPage];
         }];
         [self.view addSubview:self.secondView];
         self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 150, SIZE_WIDTH, SIZE_HEIGHT-150) style:UITableViewStylePlain];
@@ -49,6 +59,7 @@
         self.tableview.dataSource = self;
         self.tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.view addSubview:self.tableview];
+        self.tableview.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footShuaXin)];
     }else{
         self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 100, SIZE_WIDTH, SIZE_HEIGHT-100) style:UITableViewStylePlain];
         self.tableview.delegate = self;
@@ -307,15 +318,24 @@
      
      */
     [userDefault setObject:self.lishiARR forKey:SEARCH_KEY];
-    
-    [self startAFNetworkingWithsearchKey:self.searchTextField.text];
+    _currentPage = 1;
+    _currentSearchTitle = self.searchTextField.text;
+    [self.resultARR removeAllObjects];
+    [self startAFNetworkingWithsearchKey:self.searchTextField.text withPage:_currentPage];
     
 }
 
-- (void)startAFNetworkingWithsearchKey:(NSString *)string{
+- (void)footShuaXin{
+
+    _currentPage++;
+    [self startAFNetworkingWithsearchKey:_currentSearchTitle withPage:_currentPage];
+    
+}
+
+- (void)startAFNetworkingWithsearchKey:(NSString *)string withPage:(int)page{
     [MBManager showLoadingInView:self.view];
     __weak typeof(self) weakSelf = self;
-    NSString * url = [NSString stringWithFormat:@"%@&action=search&keyword=%@",URL_Common_ios,string];
+    NSString * url = [NSString stringWithFormat:@"%@&action=search&keyword=%@&page=%d",URL_Common_ios,string,page];
     //NSLog(@"请求的链接为：%@",url);
     //NSString * codeString =  [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSString * codeString = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];//去掉特殊字符
@@ -325,20 +345,33 @@
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSLog(@"搜索结果：%@",dic);
         if ([dic[@"result"] isEqualToString:@"success"]) {
-            weakSelf.resultARR = (NSMutableArray *)[MTLJSONAdapter modelsOfClass:[SearchResultModel class] fromJSONArray:[dic objectForKey:@"list"] error:nil];
-            if (zlArrayIsEmpty(self.resultARR)) {
-                [MBManager showBriefAlert:@"没有搜索到相关结果"];
+            NSArray * arr01 = dic[@"list"];
+            if (!zlArrayIsEmpty(arr01)) {
+                [weakSelf.resultARR addObjectsFromArray:[MTLJSONAdapter modelsOfClass:[SearchResultModel class] fromJSONArray:[dic objectForKey:@"list"] error:nil]];
+                if (zlArrayIsEmpty(self.resultARR)) {
+                    //[MBManager showBriefAlert:@"没有搜索到相关结果"];
+                }
+                else{
+                    [weakSelf.tableview reloadData];
+                }
+            }else{
+            
+                if (_currentPage == 1) {
+                    [weakSelf.resultARR removeAllObjects];
+                     [weakSelf.tableview reloadData];
+                     //[MBManager showBriefAlert:@"没有搜索到相关结果"];
+                }
+                
             }
-            else{
-                [weakSelf.tableview reloadData];
-            }
+            
         }
         [MBManager hideAlert];
-        
+        [self.tableview.mj_footer endRefreshing];
     } failure:^(NSError *error) {
         [MBManager hideAlert];
+        [self.tableview.mj_footer endRefreshing];
     }];
-    [MBManager hideAlert];
+    //[MBManager hideAlert];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

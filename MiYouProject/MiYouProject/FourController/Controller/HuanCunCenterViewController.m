@@ -62,12 +62,19 @@
     for (int i =0 ; i<arr.count; i++) {
         
         NSString  * namestr = (NSString *)arr[i];
+        
+        NSString * quanChengStr = [shahePath stringByAppendingPathComponent:namestr];
+        NSURL * urls = [NSURL fileURLWithPath:quanChengStr];
+        
         if ([NSFileManagerZL panDuanHouZhuiis:@"mp4" withPath:namestr] || [NSFileManagerZL panDuanHouZhuiis:@"MP4" withPath:namestr]) {
+            
+            
             VideoModelZL * videoModel = [[VideoModelZL alloc]init];
             NSString * path = [shahePath stringByAppendingPathComponent:namestr];
             videoModel.videoName = namestr;
             videoModel.cachePath = path;
             videoModel.fileSize = [NSFileManagerZL fileSizeAtPath:path];
+            videoModel.image = [self thumbnailImageForVideo:urls atTime:0.1];
             [self.videoARR addObject:videoModel];
         }
         
@@ -177,14 +184,15 @@
         cell.leftButton02.hidden = YES;
     }
     
-    NSString * str = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490315625&di=9623f388ed874fa396bbdf09f3e54647&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.cx368.com%2Fuploadfile%2F2017%2F0303%2F20170303095605511.jpg";
-    NSURL * url = [NSURL URLWithString:str];
-    [cell.leftImageView sd_setImageWithURL:url];
+//    NSString * str = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490315625&di=9623f388ed874fa396bbdf09f3e54647&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.cx368.com%2Fuploadfile%2F2017%2F0303%2F20170303095605511.jpg";
+//    NSURL * url = [NSURL URLWithString:str];
+//    [cell.leftImageView sd_setImageWithURL:url];
     
     VideoModelZL * Vmodel = [self.videoARR objectAtIndex:indexPath.row];
     cell.videoNameLabel.text = Vmodel.videoName;
     float sizeNum = Vmodel.fileSize / (1024.0*1024.0);
     cell.videoSizeLabel.text = [NSString stringWithFormat:@"%.1fMB",sizeNum];
+    [cell.leftImageView setImage:Vmodel.image];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
@@ -335,6 +343,26 @@
     
 }
 
+//获取 本地视频第一帧图片
+- (UIImage*) thumbnailImageForVideo:(NSURL *)videoURL atTime:(NSTimeInterval)time {
+    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:videoURL options:nil];
+    NSParameterAssert(asset);
+    AVAssetImageGenerator *assetImageGenerator = [[AVAssetImageGenerator alloc] initWithAsset:asset];
+    assetImageGenerator.appliesPreferredTrackTransform = YES;
+    assetImageGenerator.apertureMode = AVAssetImageGeneratorApertureModeEncodedPixels;
+    
+    CGImageRef thumbnailImageRef = NULL;
+    CFTimeInterval thumbnailImageTime = time;
+    NSError *thumbnailImageGenerationError = nil;
+    thumbnailImageRef = [assetImageGenerator copyCGImageAtTime:CMTimeMake(thumbnailImageTime, 60) actualTime:NULL error:&thumbnailImageGenerationError];
+    
+    if (!thumbnailImageRef)
+        NSLog(@"thumbnailImageGenerationError %@", thumbnailImageGenerationError);
+    
+    UIImage *thumbnailImage = thumbnailImageRef ? [[UIImage alloc] initWithCGImage:thumbnailImageRef] : nil;
+    
+    return thumbnailImage;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

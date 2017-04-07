@@ -21,7 +21,7 @@
 
 @end
 static int _currentPage;
-static int _isFirstOpen = 1;
+static int _isFirstOpen;
 static BOOL _isHaveNextPage;
 static BOOL _isCanPlay;
 
@@ -30,6 +30,7 @@ static BOOL _isCanPlay;
 - (void)viewDidLoad {
     [super viewDidLoad];
     _currentPage = 1;
+    _isFirstOpen = 1;
     //_isFirstOpen = 1;
     _currentType = @"全部";
     _currentStory = @"全部";
@@ -63,6 +64,7 @@ static BOOL _isCanPlay;
     
     NSString * memID = [[[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC] objectForKey:@"id"];
     //http://api4.cn360du.com:88/index.php?m=api-ios&action=lists&cate=999
+    //
     NSString * url = nil;
     if (urlID == nil) {
         url = [NSString stringWithFormat:@"%@&action=vipList&source=%@&type=%@&mid=%@",URL_Common_ios,sourceId,type,memID];
@@ -423,6 +425,7 @@ static BOOL _isCanPlay;
     }
     NSLog(@"VIP播放页请求：%@",url);
     NSString * codeString = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];//去掉特殊字符
+    NSLog(@"VIP播放页请求编码后：%@",codeString);
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:codeString parameters:nil success:^(id responseObject) {
         [MBManager hideAlert];
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
@@ -430,16 +433,59 @@ static BOOL _isCanPlay;
         NSString * isSuccess = [NSString stringWithFormat:@"%@",[dic objectForKey:@"result"]];
         if ([isSuccess isEqualToString:@"success"]) {
             
+            if ([dic[@"access"] intValue] == 1) {
+                
+                if ([type isEqualToString:@"1"]) {
+                    if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(vipShaiXuanVC:withType:withName:withKey:withJuJIARR:withVid:)]) {
+                        [weakSelf.delegate vipShaiXuanVC:weakSelf
+                                                withType:1
+                                                withName:name
+                                                 withKey:dic[@"url"]
+                                             withJuJIARR:nil
+                                                 withVid:dic[@""]];
+                    }
+                }
+                else{
+                    if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(vipShaiXuanVC:withType:withName:withKey:withJuJIARR:withVid:)]) {
+                        [weakSelf.delegate vipShaiXuanVC:weakSelf
+                                                withType:0
+                                                withName:name
+                                                 withKey:dic[@"url"]
+                                             withJuJIARR:nil
+                                                 withVid:dic[@""]];
+                    }
+                }
+                
+
+                
+            }
+            else{
             
+                        AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
+                        alertZL.titleName = @"VIP等级不够";
+                        alertZL.cancelBtnTitle = @"取消";
+                        alertZL.okBtnTitle = @"升级";
+                        [alertZL cancelBlockAction:^(BOOL success) {
+                            [alertZL hideCustomeAlertView];
+                        }];
+                        [alertZL okButtonBlockAction:^(BOOL success) {
+                            [alertZL hideCustomeAlertView];
+                            [weakSelf xw_postNotificationWithName:KAITONG_VIP_NOTIFICATION userInfo:nil];
+                        }];
+                        [alertZL showCustomAlertView];
+                
+            }
             
         }
-        [MBManager hideAlert];
+        else{
+            [MBManager showBriefAlert:@"视频获取失败"];
+        }
+        
     } failure:^(NSError *error) {
         //            [self.tableview.mj_header endRefreshing];
         //            [self.tableview.mj_footer endRefreshing];
         [MBManager hideAlert];
         [MBManager showBriefAlert:@"数据加载失败"];
-        
     }];
 }
 

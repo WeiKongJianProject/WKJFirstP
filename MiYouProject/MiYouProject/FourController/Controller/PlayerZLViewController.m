@@ -65,7 +65,7 @@ static int _currentPage;
 
 - (void)alertXiaZaiButtonAction:(UIButton *)sender{
     if (self.playModel.video != nil) {
-        [self zf_playerDownload:self.playModel.video];
+        [self zf_playerDownload:self.playModel.trial];
     }
 }
 
@@ -373,7 +373,8 @@ static int _currentPage;
     __weak typeof(self) weakSelf = self;
     // 此处是截取的下载地址，可以自己根据服务器的视频名称来赋值
     NSLog(@"下载的链接为：%@",url);
-    NSString *name = [url lastPathComponent];
+    //NSString *name = [url lastPathComponent];
+    NSString *name = self.playModel.name;
     //开始后台下载
     DownloadModel *downloadModel = [[DownloadModel alloc]init];
     downloadModel.showModelMssage= ^(NSString *message){

@@ -1,18 +1,18 @@
 //
-//  SiFangPlayController.m
+//  SanVIPPlayViewController.m
 //  MiYouProject
 //
-//  Created by wkj on 2017/3/30.
+//  Created by wkj on 2017/4/7.
 //  Copyright © 2017年 junhong. All rights reserved.
 //
 
-#import "SiFangPlayController.h"
+#import "SanVIPPlayViewController.h"
 
-@interface SiFangPlayController ()
+@interface SanVIPPlayViewController ()
 
 @end
 
-@implementation SiFangPlayController
+@implementation SanVIPPlayViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -20,20 +20,22 @@
     
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapBackgroundGesAction:)];
     [self.view addGestureRecognizer:tap];
-   
     
-    if (self.isBenDi == YES) {
-         [self settingPlayer];
-    }
-    else{
-        [self startWatchPlayWithID:self.id withMID:self.mid];
-    }
+    
+//    if (self.isBenDi == YES) {
+//        [self settingPlayer];
+//    }
+//    else{
+//        //[self startWatchPlayWithID:self.id withMID:self.mid];
+//    }
+//    
+    [self settingPlayer];
 }
 
 //观看网络请求
 - (void)startWatchPlayWithID:(NSString *)ids withMID:(NSString *)mids{
     __weak typeof(self) weakSelf = self;
-
+    
     NSString * url = [NSString stringWithFormat:@"%@&action=watch&mid=%@&id=%@",URL_Common_ios,mids,ids];
     NSLog(@"私房视频链接为：%@",url);
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
@@ -53,28 +55,28 @@
                 [self settingPlayer];
             }
             else{
-//                weakSelf.zaiXianUrl = [NSURL URLWithString:@"http://www.runoob.com/try/demo_source/mov_bbb.mp4"];
-//                [self settingPlayer];
+                //                weakSelf.zaiXianUrl = [NSURL URLWithString:@"http://www.runoob.com/try/demo_source/mov_bbb.mp4"];
+                //                [self settingPlayer];
                 [MBManager showBriefAlert:@"视频信息错误"];
                 [weakSelf.navigationController popViewControllerAnimated:NO];
             }
             
-            }
-            else{
-               
-                [MBManager showBriefAlert:@"视频信息错误"];
-                [weakSelf.navigationController popViewControllerAnimated:NO];
-            }
+        }
+        else{
             
+            [MBManager showBriefAlert:@"视频信息错误"];
+            [weakSelf.navigationController popViewControllerAnimated:NO];
+        }
         
-
+        
+        
     } failure:^(NSError *error) {
         [MBManager showBriefAlert:@"视频信息错误"];
         [weakSelf.navigationController popViewControllerAnimated:NO];
     }];
-
     
-
+    
+    
 }
 
 - (void)settingPlayer{
@@ -119,7 +121,7 @@
     // 设置视频的填充模式，内部设置默认（ZFPlayerLayerGravityResizeAspect：等比例填充，直到一个维度到达区域边界）
     self.playerView.playerLayerGravity = ZFPlayerLayerGravityResizeAspect;
     //断点下载
-    self.playerView.hasDownload = YES;
+    //self.playerView.hasDownload = YES;
     
 }
 #pragma mark ZFPlayerDelegate方法

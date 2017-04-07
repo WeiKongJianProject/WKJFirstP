@@ -356,7 +356,7 @@
     cell.timeLabel.text = timeString;
     
     
-    [cell.minImageView sd_setImageWithURL:[NSURL URLWithString:vModel.pic] placeholderImage:PLACEHOLDER_IMAGE];
+    [cell.minImageView sd_setImageWithURL:[NSURL URLWithString:vModel.pic] placeholderImage:[UIImage imageNamed:@"icon_default2"]];
     return cell;
     
     

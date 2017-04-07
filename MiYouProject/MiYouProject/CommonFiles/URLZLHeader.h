@@ -11,6 +11,7 @@
 #define IS_FIRST_OPEN @"is_first_open"
 #define MEMBER_INFO_DIC @"member_info_dic"
 #define MEMBER_VIP_LEVEL @"is_member_vip"
+#define MEMBER_POINTS_NUM  @"member_points_num"
 #define IS_RENZHENG_TIJIAO @"is_renzheng_tijiao"
 #define HEAD_IMAGEVIEW_UPDATA_NOTIFICATION @"head_imageView_updata_notification"
 

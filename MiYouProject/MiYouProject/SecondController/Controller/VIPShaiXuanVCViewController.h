@@ -22,7 +22,9 @@
 @class VIPShaiXuanVCViewController;
 @protocol VIPShaiXuanVCDelegate <NSObject>
 
-- (void)vipShaiXuanVC:(VIPShaiXuanVCViewController *)class withType:(int) typeInd withName:(NSString *)name withKey:(NSString *)keyId;
+- (void)vipShaiXuanVC:(VIPShaiXuanVCViewController *)class withType:(int) typeInd withName:(NSString *)name withKey:(NSString *)keyId withJuJIARR:(NSArray *)arr withVid:(NSString *)vid;
+
+- (void)vipShaiXuanVC:(VIPShaiXuanVCViewController *)class withTypeChongZhi:(int)type;
 
 @end
 
