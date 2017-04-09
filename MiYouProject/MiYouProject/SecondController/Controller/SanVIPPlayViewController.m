@@ -11,15 +11,16 @@
 @interface SanVIPPlayViewController ()
 
 @end
-
+#define Collection_item_Width (SIZE_WIDTH)/6.0
+#define Collection_item_Height (SIZE_WIDTH)/6.0
 @implementation SanVIPPlayViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
     
-    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapBackgroundGesAction:)];
-    [self.view addGestureRecognizer:tap];
+    //UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapBackgroundGesAction:)];
+    //[self.view addGestureRecognizer:tap];
     
     
 //    if (self.isBenDi == YES) {
@@ -30,6 +31,7 @@
 //    }
 //    
     [self settingPlayer];
+    [self setZLCollectionView:self.collecctionViews];
 }
 
 //观看网络请求
@@ -101,17 +103,17 @@
     //从xx秒开始播放
     //playerModel.seekTime = 10;
     //占位图
-    //playerModel.placeholderImage = [UIImage imageNamed:@"icon_default"];
+    playerModel.placeholderImage = [UIImage imageNamed:@"icon_default"];
     //网络占位图
     // 网络图片
     //playerModel.placeholderImageURLString = @"";
-    if (!zlStringIsEmpty(self.currentSiFangMTLModel.pic)) {
-        playerModel.placeholderImageURLString = self.currentSiFangMTLModel.pic;
-    }else{
-        //占位图
-        playerModel.placeholderImage = [UIImage imageNamed:@"icon_default"];
-        
-    }
+//    if (!zlStringIsEmpty(self.currentSiFangMTLModel.pic)) {
+//        playerModel.placeholderImageURLString = self.currentSiFangMTLModel.pic;
+//    }else{
+//        //占位图
+//        playerModel.placeholderImage = [UIImage imageNamed:@"icon_default"];
+//        
+//    }
     
     [self.playerView playerControlView:controlView playerModel:playerModel];
     // 设置代理
@@ -202,6 +204,115 @@
     return YES;
 }
 
+#pragma mark CollectionViewCellDelegate 代理方法
+//设置CollectionView
+- (void)setZLCollectionView:(UICollectionView *)collectionView{
+    //创建一个Layout布局
+    UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc]init];
+    //设置布局方向为垂直流布局
+    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    //设置每个item的大小为
+    layout.itemSize = CGSizeMake(Collection_item_Width, Collection_item_Height);
+    //item距离四周的位置（上左下右）
+    layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    //item 行与行的距离
+    layout.minimumLineSpacing = 0;
+    //item 列与列的距离
+    layout.minimumInteritemSpacing = 0;
+    
+    [collectionView setCollectionViewLayout:layout];
+    collectionView.delegate = self;
+    collectionView.dataSource = self;
+    //collectionView.backgroundColor = [UIColor whiteColor];
+    
+    //collectionView.scrollEnabled = NO;
+    //注册item类型
+    //[self.backCollectionView registerClass:[DianShiQiangCollectionCell class] forCellWithReuseIdentifier:@"dianShiQiangCellId"];
+    [collectionView registerNib:[UINib nibWithNibName:@"XuanJiCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"XuanJiCellID"];
+    //collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(shanglaShuaXin)];
+    
+}
+#pragma mark CollectionView  的  dataSource方法
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    //NSLog(@"self.collectionARR.count的个数为：%ld",self.collectionARR.count);
+    return self.collectionARR.count;
+}
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString * cellId = @"XuanJiCellID";
+    XuanJiCollectionViewCell *cell = (XuanJiCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+    
+
+    NSDictionary * dic = (NSDictionary *)[self.collectionARR objectAtIndex:indexPath.row];
+    cell.numLabel.text = dic[@"name"];
+    /*
+     UIImage * JHimage = self.dataSourceArray[indexPath.row];
+     //    UIImage * JHImage = [UIImage imageNamed:imageNamed];
+     cell.myImgView.image = JHimage;
+     cell.close.hidden = self.isDelItem;
+     cell.delegate = self;
+     //    cell.backgroundColor = arcColor;
+     */
+    
+    
+    return cell;
+    
+    
+    
+}
+
+#pragma end mark
+#pragma mark  点击CollectionView触发事件
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+
+    //[self startPlayAFNetWorkingwithType:self.type withSource:self.sourceID withVid:nil withIDURL:model.url withName:model.name];
+}
+
+//请求 VIP 第三方播放页
+- (void)startPlayAFNetWorkingwithType:(NSString *)type withSource:(NSString *)source withVid:(NSString *)vid withIDURL:(NSString *)idURL withName:(NSString *)name{
+    
+    __weak typeof(self) weakSelf = self;
+    [MBManager showLoadingInView:weakSelf.view];
+    NSString * memID = [[[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC] objectForKey:@"id"];
+    //http://api4.cn360du.com:88/index.php?m=api-ios&action=lists&cate=999
+    NSString * url = nil;
+    if ([type isEqualToString:@"1"]) {
+        url = [NSString stringWithFormat:@"%@&action=vipPlay&type=%@&url=%@&mid=%@&source=%@",URL_Common_ios,type,idURL,memID,source];
+    }
+    else{
+        url = [NSString stringWithFormat:@"%@&action=vipPlay&type=%@&url=%@&mid=%@&source=%@&vid=%@",URL_Common_ios,type,idURL,memID,source,vid];
+    }
+    NSLog(@"VIP播放页请求：%@",url);
+    NSString * codeString = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];//去掉特殊字符
+    NSLog(@"VIP播放页请求编码后：%@",codeString);
+    [[ZLSecondAFNetworking sharedInstance] getWithURLString:codeString parameters:nil success:^(id responseObject) {
+        [MBManager hideAlert];
+        NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"第三方VIP播放页请求数据：%@",dic);
+        
+    } failure:^(NSError *error) {
+        //            [self.tableview.mj_header endRefreshing];
+        //            [self.tableview.mj_footer endRefreshing];
+        [MBManager hideAlert];
+        [MBManager showBriefAlert:@"数据加载失败"];
+    }];
+}
+
+
+#pragma mark  设置CollectionViewCell是否可以被点击
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+#pragma end mark
+
+
 - (void)dealloc{
     NSLog(@"什么类释放了：%@",self.class);
     //[self.playerView cancelAutoFadeOutControlBar];
@@ -210,6 +321,13 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSMutableArray *)collectionARR{
+    if (!_collectionARR) {
+        _collectionARR = [[NSMutableArray alloc]init];
+    }
+    return _collectionARR;
 }
 
 /*

@@ -16,8 +16,9 @@
 #import "PlayVideoMTLModel.h"
 #import "PlayMemberMTLModel.h"
 #import "SiFangMTLModel.h"
+#import "XuanJiCollectionViewCell.h"
 
-@interface SanVIPPlayViewController : ZLBaseViewController<ZFPlayerDelegate,ZFPlayerControlViewDelagate>
+@interface SanVIPPlayViewController : ZLBaseViewController<ZFPlayerDelegate,ZFPlayerControlViewDelagate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet ZFPlayerView *playerView;
 @property (assign,  nonatomic) BOOL isBenDi;
 @property (assign, nonatomic) BOOL isDianShiType;
@@ -37,5 +38,7 @@
 @property (strong, nonatomic) SiFangMTLModel * currentSiFangMTLModel;
 
 @property (strong, nonatomic) IBOutlet UICollectionView *collecctionViews;
+@property (strong, nonatomic) NSMutableArray * collectionARR;
+
 
 @end

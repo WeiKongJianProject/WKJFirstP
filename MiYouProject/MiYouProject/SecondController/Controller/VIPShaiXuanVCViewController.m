@@ -433,7 +433,7 @@ static BOOL _isCanPlay;
         NSString * isSuccess = [NSString stringWithFormat:@"%@",[dic objectForKey:@"result"]];
         if ([isSuccess isEqualToString:@"success"]) {
             
-            if ([dic[@"access"] intValue] == 1) {
+            if ([dic[@"access"] intValue] == 0) {
                 
                 if ([type isEqualToString:@"1"]) {
                     if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(vipShaiXuanVC:withType:withName:withKey:withJuJIARR:withVid:)]) {
@@ -451,13 +451,10 @@ static BOOL _isCanPlay;
                                                 withType:0
                                                 withName:name
                                                  withKey:dic[@"url"]
-                                             withJuJIARR:nil
-                                                 withVid:dic[@""]];
+                                             withJuJIARR:dic[@"epList"]
+                                                 withVid:dic[@"vid"]];
                     }
                 }
-                
-
-                
             }
             else{
             

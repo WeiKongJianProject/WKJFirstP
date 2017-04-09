@@ -466,10 +466,28 @@
 - (void)vipShaiXuanVC:(VIPShaiXuanVCViewController *)class withType:(int)typeInd withName:(NSString *)name withKey:(NSString *)keyId withJuJIARR:(NSArray *)arr withVid:(NSString *)vid{
     SanVIPPlayViewController * vc = [[SanVIPPlayViewController alloc]init];
     vc.zaiXianName = name;
-    //NSURL * url = [NSURL URLWithString:key];
-    //vc.url = url;
-    NSURL * urld = [NSURL URLWithString:keyId];
-    vc.zaiXianUrl = urld;
+
+    if(typeInd == 1){
+        vc.collecctionViews.hidden = YES;
+        //NSURL * url = [NSURL URLWithString:key];
+        //vc.url = url;
+        NSURL * urld = [NSURL URLWithString:keyId];
+        vc.zaiXianUrl = urld;
+    }
+    else{
+        vc.collecctionViews.hidden = NO;
+        vc.collectionARR = (NSMutableArray *)arr;
+        if (!zlArrayIsEmpty(vc.collectionARR)) {
+            NSDictionary *firstDic = vc.collectionARR[0];
+            NSString * strs = firstDic[@"url"];
+            NSURL * urld = [NSURL URLWithString:strs];
+            vc.zaiXianUrl = urld;
+        }
+        else{
+            vc.zaiXianUrl = [NSURL URLWithString:@""];
+        }
+    }
+    
     [self.navigationController pushViewController:vc animated:YES];
 
 }

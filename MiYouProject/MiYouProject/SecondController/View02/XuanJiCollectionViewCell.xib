@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="XuanJiCellID" reuseIdentifier="XuanJiCellID" id="gTV-IL-0wX" customClass="XuanJiCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mGz-R5-NeE">
+                        <rect key="frame" x="1" y="1" width="58" height="58"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="58" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t87-B2-AFF">
+                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="mGz-R5-NeE" secondAttribute="bottom" constant="1" id="1pT-Da-ImG"/>
+                <constraint firstAttribute="trailing" secondItem="mGz-R5-NeE" secondAttribute="trailing" constant="1" id="5CD-iS-yyr"/>
+                <constraint firstItem="mGz-R5-NeE" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="1" id="NSl-Gq-hbI"/>
+                <constraint firstAttribute="trailing" secondItem="t87-B2-AFF" secondAttribute="trailing" id="bDE-rV-XRA"/>
+                <constraint firstItem="t87-B2-AFF" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="h3p-ra-Ect"/>
+                <constraint firstItem="mGz-R5-NeE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="1" id="j5v-3a-cKq"/>
+                <constraint firstItem="t87-B2-AFF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="j8g-6W-HTZ"/>
+                <constraint firstAttribute="bottom" secondItem="t87-B2-AFF" secondAttribute="bottom" id="vIq-Ij-x7V"/>
+            </constraints>
+            <size key="customSize" width="160" height="147"/>
+            <connections>
+                <outlet property="numLabel" destination="t87-B2-AFF" id="Ug8-m5-6fr"/>
+            </connections>
+            <point key="canvasLocation" x="-74" y="35.5"/>
+        </collectionViewCell>
+    </objects>
+</document>
