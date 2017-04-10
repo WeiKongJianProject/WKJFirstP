@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="120" height="170"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_default" translatesAutoresizingMaskIntoConstraints="NO" id="cvL-FR-SD3">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vip_default" translatesAutoresizingMaskIntoConstraints="NO" id="cvL-FR-SD3">
                         <rect key="frame" x="0.0" y="0.0" width="120" height="150"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="VIPVideoCellID" text="三生三世十里桃花" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpa-9F-tiD">
@@ -50,6 +50,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="icon_default" width="256" height="256"/>
+        <image name="vip_default" width="80" height="100"/>
     </resources>
 </document>

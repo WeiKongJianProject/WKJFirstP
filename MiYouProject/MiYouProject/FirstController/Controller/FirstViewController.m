@@ -162,7 +162,7 @@
         }
     } failure:^(NSError *error) {
         //[MBManager hideAlert];
-        //[MBManager showBriefAlert:@"数据加载失败"];
+        [MBManager showBriefAlert:@"数据加载失败"];
     }];
     
 }

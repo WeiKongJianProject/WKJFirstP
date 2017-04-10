@@ -133,7 +133,7 @@ static int _currentPage;
     VIPVideoMTLModel * model = [self.collectionViewARR objectAtIndex:indexPath.row];
     cell.nameLabel.text = model.name;
     //cell.subNameLabel.text = model.subname;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:model.pic] placeholderImage:PLACEHOLDER_IMAGE];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:model.pic] placeholderImage:[UIImage imageNamed:@"vip_default"]];
     /*
      UIImage * JHimage = self.dataSourceArray[indexPath.row];
      //    UIImage * JHImage = [UIImage imageNamed:imageNamed];

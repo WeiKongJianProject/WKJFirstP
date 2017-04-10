@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor blackColor];
+    //self.view.backgroundColor = [UIColor blackColor];
     
     //UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapBackgroundGesAction:)];
     //[self.view addGestureRecognizer:tap];
@@ -87,23 +87,23 @@
     ZFPlayerControlView *controlView = [[ZFPlayerControlView alloc] init];
     
     // 初始化播放模型
-    ZFPlayerModel *playerModel = [[ZFPlayerModel alloc] init];
+    self.zfPlayerModel = [[ZFPlayerModel alloc] init];
     // playerView的父视图
-    playerModel.fatherView = self.backgroundPlayView;
+    self.zfPlayerModel.fatherView = self.backgroundPlayView;
     if (self.isBenDi == YES) {
-        playerModel.videoURL = self.benDiUrl;
+        self.zfPlayerModel.videoURL = self.benDiUrl;
         //[NSURL URLWithString:@"http://www.runoob.com/try/demo_source/mov_bbb.mp4"];
-        playerModel.title = self.benDiName;
+        self.zfPlayerModel.title = self.benDiName;
     }
     else{
-        playerModel.videoURL = self.zaiXianUrl;
-        playerModel.title = self.zaiXianName;
+        self.zfPlayerModel.videoURL = self.zaiXianUrl;
+        self.zfPlayerModel.title = self.zaiXianName;
     }
     
     //从xx秒开始播放
     //playerModel.seekTime = 10;
     //占位图
-    playerModel.placeholderImage = [UIImage imageNamed:@"icon_default"];
+    self.zfPlayerModel.placeholderImage = [UIImage imageNamed:@"icon_default"];
     //网络占位图
     // 网络图片
     //playerModel.placeholderImageURLString = @"";
@@ -115,7 +115,7 @@
 //        
 //    }
     
-    [self.playerView playerControlView:controlView playerModel:playerModel];
+    [self.playerView playerControlView:controlView playerModel:self.zfPlayerModel];
     // 设置代理
     self.playerView.delegate = self;
     // 自动播放
@@ -246,9 +246,12 @@
     static NSString * cellId = @"XuanJiCellID";
     XuanJiCollectionViewCell *cell = (XuanJiCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     
-
+    
     NSDictionary * dic = (NSDictionary *)[self.collectionARR objectAtIndex:indexPath.row];
-    cell.numLabel.text = dic[@"name"];
+    if (!zlDictIsEmpty(dic)) {
+        cell.numLabel.text = dic[@"name"];
+    }
+    
     /*
      UIImage * JHimage = self.dataSourceArray[indexPath.row];
      //    UIImage * JHImage = [UIImage imageNamed:imageNamed];
@@ -271,6 +274,15 @@
 {
 
     //[self startPlayAFNetWorkingwithType:self.type withSource:self.sourceID withVid:nil withIDURL:model.url withName:model.name];
+    [self.playerView pause];
+   
+    
+    NSDictionary * dic = self.collectionARR[indexPath.row];
+    
+    //NSString * vid = [NSString stringWithFormat:@"%@",dic[@"vid"]];
+    NSString * urlid = dic[@"url"];
+    NSLog(@"选择了第几集：%ld++++%@",indexPath.row,urlid);
+    [self startPlayAFNetWorkingwithType:@"2" withSource:self.sourceName withVid:self.vid withIDURL:urlid withName:self.zaiXianName];
 }
 
 //请求 VIP 第三方播放页
@@ -293,8 +305,17 @@
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:codeString parameters:nil success:^(id responseObject) {
         [MBManager hideAlert];
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        NSLog(@"第三方VIP播放页请求数据：%@",dic);
-        
+        NSLog(@"第三方  电视剧  VIP播放页请求数据：%@",dic);
+        if ([dic[@"result"] isEqualToString:@"success"]) {
+            if (!zlObjectIsEmpty(dic[@"url"])) {
+                weakSelf.zfPlayerModel.videoURL = [NSURL URLWithString:dic[@"url"]];
+                 [weakSelf.playerView resetToPlayNewVideo:weakSelf.zfPlayerModel];
+                //[weakSelf.playerView play];
+            }
+        }
+        else{
+         [MBManager showBriefAlert:@"数据加载失败"];
+        }
     } failure:^(NSError *error) {
         //            [self.tableview.mj_header endRefreshing];
         //            [self.tableview.mj_footer endRefreshing];

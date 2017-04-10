@@ -42,7 +42,9 @@
         if ([dic[@"result"] isEqualToString:@"success"]) {
             
             if (![dic[@"points"] isKindOfClass:[NSNull class]] && !zlObjectIsEmpty(dic[@"points"])) {
-                
+                int shengNum = [dic[@"points"] intValue];
+                NSNumber * shengNS = [NSNumber numberWithInt:shengNum];
+                [[NSUserDefaults standardUserDefaults] setObject:shengNS forKey:MEMBER_POINTS_NUM];
             }
             
             weakSelf.zaiXianName = self.currentSiFangMTLModel.name;

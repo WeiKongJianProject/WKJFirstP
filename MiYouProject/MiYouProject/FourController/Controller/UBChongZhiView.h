@@ -26,6 +26,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *zhiFuButton;
 
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 
 @end

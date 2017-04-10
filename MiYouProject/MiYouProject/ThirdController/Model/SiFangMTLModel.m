@@ -21,7 +21,8 @@
       @"avator":@"avator",
       @"time":@"time",
       @"price":@"price",
-      @"commentNum":@"commentNum"
+      @"commentNum":@"commentNum",
+      @"isBuy":@"isBuy"
       };
 
 }

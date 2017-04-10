@@ -325,6 +325,7 @@
                 <outlet property="duiHuanLabel" destination="2yl-UH-32J" id="G7E-qh-SLQ"/>
                 <outlet property="fuWuLabel" destination="M8c-1q-k0E" id="8ij-cL-kD1"/>
                 <outlet property="renShuLabel" destination="WnS-HA-hjH" id="BLx-N8-GkI"/>
+                <outlet property="scrollView" destination="6kL-3J-Zo7" id="4dA-0Q-52T"/>
                 <outlet property="yuELabel" destination="HPf-Sm-LV8" id="pWf-7W-amy"/>
                 <outlet property="zhangHaoLabel" destination="umz-Mq-TLX" id="0yc-MY-14M"/>
                 <outlet property="zhiFuButton" destination="edT-Na-Hua" id="vVG-Xm-CqK"/>
@@ -631,6 +632,7 @@
                 <outlet property="button06" destination="DfE-af-1U6" id="Rd1-qX-ElY"/>
                 <outlet property="fuWuXiaLabel" destination="mZq-kI-ixt" id="U4W-oM-ass"/>
                 <outlet property="renShuLabel" destination="cRy-HM-RCT" id="VfP-Ei-vDq"/>
+                <outlet property="scrollView" destination="XPk-0l-QPR" id="98j-uM-kuu"/>
                 <outlet property="vipFuWuLabel" destination="1gr-6a-NfZ" id="WBH-wu-74x"/>
                 <outlet property="zhiFuButton" destination="3Ga-Fb-RJK" id="iM4-Ba-cPO"/>
             </connections>

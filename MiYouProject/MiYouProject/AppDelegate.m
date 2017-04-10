@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "UMMobClick/MobClick.h"
+#import <Bugly/Bugly.h>
 @interface AppDelegate ()
 
 @end
@@ -17,6 +18,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    UMConfigInstance.appKey = YOUMENG_APP_ID_ZL;
+    UMConfigInstance.channelId = @"Custom Channel";
+    //UMConfigInstance.eSType = E_UM_GAME; //仅适用于游戏场景，应用统计不用设置
+    [MobClick startWithConfigure:UMConfigInstance];//配置以上参数后调用此方法初始化SDK！
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    [MobClick setAppVersion:version];
+    
+    //bugly异常统计
+    [Bugly startWithAppId:@"4126a8935b"];
     ///开启网络状况的监听
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reachabilityChanged:)

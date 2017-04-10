@@ -19,7 +19,7 @@ typedef NS_ENUM(NSUInteger,UBorVIP) {
     VIP_ChongZhi
 };
 
-@interface ChongZhiViewController : UIViewController<DZNSegmentedControlDelegate>
+@interface ChongZhiViewController : UIViewController<DZNSegmentedControlDelegate,UIScrollViewDelegate>
 
 
 @property (nonatomic, strong) DZNSegmentedControl *control;

@@ -19,5 +19,5 @@
 @property (strong, nonatomic) NSNumber * time;
 @property (strong, nonatomic) NSNumber * price;
 @property (strong, nonatomic) NSNumber * commentNum;
-
+@property (strong, nonatomic) NSNumber * isBuy;
 @end

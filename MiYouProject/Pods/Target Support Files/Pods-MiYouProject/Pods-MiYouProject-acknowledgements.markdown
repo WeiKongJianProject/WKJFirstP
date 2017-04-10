@@ -471,6 +471,11 @@ THE SOFTWARE.
 
 
 
+## UMengAnalytics
+
+Copyright 2011 - 2015 UMeng.com. All rights reserved.
+
+
 ## VOSegmentedControl
 
                     GNU GENERAL PUBLIC LICENSE

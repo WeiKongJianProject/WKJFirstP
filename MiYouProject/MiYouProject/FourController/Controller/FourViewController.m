@@ -176,7 +176,13 @@
             NSString * stringURL = vipListARR[i];
             UIButton * btn = (UIButton *)fcell.VIPButtonARR[i];
             btn.hidden = NO;
+            NSLog(@"会员图标的链接：%@--%p",stringURL,btn);
+            //[btn sd_setBackgroundImageWithURL:[NSURL URLWithString:stringURL] forState:UIControlStateNormal];
             [btn sd_setBackgroundImageWithURL:[NSURL URLWithString:stringURL] forState:UIControlStateNormal placeholderImage:PLACEHOLDER_IMAGE];
+            //[btn sd_setBackgroundImageWithURL:[NSURL URLWithString:@"http://img2.cache.netease.com/photo/0005/2014-12-11/AD5A6INS5GUO0005.jpg"] forState:UIControlStateNormal placeholderImage:PLACEHOLDER_IMAGE options:SDWebImageLowPriority];
+//            [btn sd_setBackgroundImageWithURL:[NSURL URLWithString:@"http://api4.cn360du.com:88/index.php?m=api-ios&action=index&cate=999"] forState:UIControlStateNormal completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+//                NSLog(@"会员图片设置完成！");
+//            }];
         }
         cell = fcell;
     }

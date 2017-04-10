@@ -40,5 +40,9 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *collecctionViews;
 @property (strong, nonatomic) NSMutableArray * collectionARR;
 
+@property (strong, nonatomic) ZFPlayerModel * zfPlayerModel;
+
+@property (strong, nonatomic) NSString * sourceName;
+@property (strong, nonatomic) NSString * vid;
 
 @end

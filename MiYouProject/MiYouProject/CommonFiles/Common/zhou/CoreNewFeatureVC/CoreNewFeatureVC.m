@@ -125,7 +125,7 @@ NSString *const NewFeatureVersionKey = @"NewFeatureVersionKey";
             label.text = @"立即体验";
             label.textColor = [UIColor whiteColor];
             label.textAlignment = NSTextAlignmentCenter;
-            [imageV addSubview:label];
+            //[imageV addSubview:label];
             
             /*
              zhoulu修改 end

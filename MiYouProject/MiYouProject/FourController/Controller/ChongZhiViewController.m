@@ -45,10 +45,14 @@
     [self.view addSubview:self.backgroundView];
     
     self.UBView = (UBChongZhiView *)[[NSBundle mainBundle] loadNibNamed:@"UBChongZhiView" owner:self options:nil][0];
+    self.UBView.scrollView.showsVerticalScrollIndicator = NO;
+    self.UBView.scrollView.scrollEnabled = NO;
     [self.UBView setFrame:CGRectMake(0, 0, SIZE_WIDTH, SIZE_HEIGHT-64)];
     [self.UBView.zhiFuButton addTarget:self action:@selector(tanChuZhiFuView) forControlEvents:UIControlEventTouchUpInside];
     
     self.VIPView = (VIPChongZhiView *)[[NSBundle mainBundle] loadNibNamed:@"UBChongZhiView" owner:self options:nil][1];
+    self.VIPView.scrollView.showsVerticalScrollIndicator = NO;
+    self.VIPView.scrollView.scrollEnabled = NO;
     [self.VIPView setFrame:CGRectMake(0, 0, SIZE_WIDTH, SIZE_HEIGHT-64)];
     [self.VIPView.zhiFuButton addTarget:self action:@selector(tanChuZhiFuView) forControlEvents:UIControlEventTouchUpInside];
     [self.backgroundView addSubview:self.UBView];
@@ -102,7 +106,62 @@
         make.bottom.mas_equalTo(self.view.mas_bottom).offset(160.0f);
         //make.height.mas_equalTo(160.0f);
     }];
+    __weak typeof(self) weakSelf = self;
+    //滚动速度
+    CGFloat offSet=300.0;
+    
+    //若果字幕滚动到第二部分重复的部分则把偏移置0，设为第一部分,实现无限循环
+    if (weakSelf.UBView.scrollView.contentOffset.y>=weakSelf.UBView.scrollView.contentSize.height / 2) {
+        
+        weakSelf.UBView.scrollView.contentOffset=CGPointMake(0, -90);
+    }
+    if (weakSelf.VIPView.scrollView.contentOffset.y>=weakSelf.VIPView.scrollView.contentSize.height / 2) {
+        
+        weakSelf.VIPView.scrollView.contentOffset=CGPointMake(0, -90);
+    }
+    //切割每次动画滚动距离
+    
+    [UIView animateWithDuration:19.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+        weakSelf.UBView.scrollView.contentOffset = CGPointMake(weakSelf.UBView.scrollView.contentOffset.x, weakSelf.UBView.scrollView.contentOffset.y+offSet);
+    } completion:nil];
+    [UIView animateWithDuration:19.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+        weakSelf.VIPView.scrollView.contentOffset = CGPointMake(weakSelf.VIPView.scrollView.contentOffset.x, weakSelf.VIPView.scrollView.contentOffset.y+offSet);
+    } completion:nil];
+    //滚动动画
+    [NSTimer scheduledTimerWithTimeInterval:19.0f target:self selector:@selector(addAnimationScrollview) userInfo:nil repeats:YES];
 }
+//滚动动画
+- (void)addAnimationScrollview{
+    __weak typeof(self) weakSelf = self;
+//    [UIView animateWithDuration:19.0f animations:^{
+//        [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 300)];
+//        
+//    } completion:^(BOOL finished) {
+//         [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 0)];
+//    }];
+    //滚动速度
+    CGFloat offSet=300.0;
+    
+    //若果字幕滚动到第二部分重复的部分则把偏移置0，设为第一部分,实现无限循环
+    if (weakSelf.UBView.scrollView.contentOffset.y>=weakSelf.UBView.scrollView.contentSize.height / 2) {
+        
+        weakSelf.UBView.scrollView.contentOffset=CGPointMake(0, -90);
+    }
+    if (weakSelf.VIPView.scrollView.contentOffset.y>=weakSelf.VIPView.scrollView.contentSize.height / 2) {
+        
+        weakSelf.VIPView.scrollView.contentOffset=CGPointMake(0, -90);
+    }
+    
+    //切割每次动画滚动距离
+    
+    [UIView animateWithDuration:19.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+        weakSelf.UBView.scrollView.contentOffset = CGPointMake(weakSelf.UBView.scrollView.contentOffset.x, weakSelf.UBView.scrollView.contentOffset.y+offSet);
+    } completion:nil];
+    [UIView animateWithDuration:19.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+        weakSelf.VIPView.scrollView.contentOffset = CGPointMake(weakSelf.VIPView.scrollView.contentOffset.x, weakSelf.VIPView.scrollView.contentOffset.y+offSet);
+    } completion:nil];
+}
+
 //关闭支付按钮
 - (void)closeButtonAction:(UIButton *)sender{
     __weak typeof(self) weakSelf = self;
@@ -197,6 +256,29 @@
             if (!zlObjectIsEmpty(dic[@"total"])) {
                 weakSelf.UBView.renShuLabel.text = [NSString stringWithFormat:@"%d",[dic[@"total"] intValue]];
             }
+            NSArray * arr00 = dic[@"rechargeList"];
+            if (!zlArrayIsEmpty(arr00)) {
+                NSString * string = [NSString stringWithFormat:@""];
+                for (NSDictionary * dic00 in arr00) {
+                    NSString * name = dic00[@"name"];
+                    NSString * con = dic00[@"content"];
+                    NSString * str = [NSString stringWithFormat:@"%@ %@\n",name,con];
+                    NSLog(@"解析已充值的用户：%@",str);
+                    string = [string stringByAppendingString:str];
+                }
+                NSLog(@"已充值的UB的用户：%@",string);
+                UILabel * label = [[UILabel alloc]init];
+                label.numberOfLines = 0;
+                label.font = [UIFont systemFontOfSize:12.0f];
+                label.textColor = [UIColor blackColor];
+                label.text = string;
+                [weakSelf.UBView.scrollView addSubview:label];
+                [label mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.top.with.bottom.mas_equalTo(weakSelf.UBView.scrollView);
+                    make.left.with.right.mas_equalTo(weakSelf.UBView.scrollView).offset(20.0f);
+                }];
+                
+            }
         }
         [MBManager hideAlert];
     } failure:^(NSError *error) {
@@ -208,10 +290,10 @@
 
     __weak typeof(self) weakSelf = self;
     NSString * url = [NSString stringWithFormat:@"%@&action=buyVip&id=%@",URL_Common_ios,self.memMTLModel.id];
-    NSLog(@"充值页面链接：%@",url);
+    NSLog(@"充值VIP页面链接：%@",url);
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        NSLog(@"充值页面请求返回的数据为：%@",dic);
+        NSLog(@"充值VIP页面请求返回的数据为：%@",dic);
         NSString * result = dic[@"result"];
         if ([result isEqualToString:@"success"]) {
             if (!zlObjectIsEmpty(dic[@"gift"])) {
@@ -220,6 +302,30 @@
             if (!zlObjectIsEmpty(dic[@"total"])) {
                 weakSelf.VIPView.renShuLabel.text = [NSString stringWithFormat:@"%d",[dic[@"total"] intValue]];
             }
+            NSArray * arr00 = dic[@"buyVipList"];
+            if (!zlArrayIsEmpty(arr00)) {
+                NSString * string = [NSString stringWithFormat:@""];
+                for (NSDictionary * dic00 in arr00) {
+                    NSString * name = dic00[@"name"];
+                    NSString * con = dic00[@"content"];
+                    NSString * str = [NSString stringWithFormat:@"%@ %@\n",name,con];
+                    NSLog(@"解析VIP已充值的用户：%@",str);
+                    string = [string stringByAppendingString:str];
+                }
+                NSLog(@"已充值的VIP的用户：%@",string);
+                UILabel * label = [[UILabel alloc]init];
+                label.numberOfLines = 0;
+                label.font = [UIFont systemFontOfSize:12.0f];
+                label.textColor = [UIColor blackColor];
+                label.text = string;
+                [weakSelf.VIPView.scrollView addSubview:label];
+                [label mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.top.with.bottom.mas_equalTo(weakSelf.VIPView.scrollView);
+                    make.left.with.right.mas_equalTo(weakSelf.VIPView.scrollView).offset(20.0f);
+                }];
+                
+            }
+
             
         }
         

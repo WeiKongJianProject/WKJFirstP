@@ -28,7 +28,7 @@
     //self.tableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:self.tableView];
     
-    [self.xiaoXiARR addObjectsFromArray:@[@"1",@"2",@"3",@"4",@"5"]];
+    [self.xiaoXiARR addObjectsFromArray:@[@"1"]];
 }
 
 - (NSMutableArray *)xiaoXiARR{
@@ -65,7 +65,7 @@
 //    for (UIView * view in cell.contentView.subviews) {
 //        [view removeFromSuperview];
 //    }
-    cell.xiaoXiSubTitleLabel.text = @"1.先安装 Adobe Premiere Pro CC ，在安装时选择试用安装。2.你可能需要一个 Adobe ID 帐号，可以进行免费注册。直至软件安装完成。";
+    cell.xiaoXiSubTitleLabel.text = @"欢迎注册迷优APP，开启欢乐之旅！";
     cell.timeLabel.text = @"2017-03-15  02:30";
     
     

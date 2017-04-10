@@ -421,7 +421,7 @@ static BOOL _isCanPlay;
         url = [NSString stringWithFormat:@"%@&action=vipPlay&type=%@&url=%@&mid=%@&source=%@",URL_Common_ios,type,idURL,memID,source];
     }
     else{
-        url = [NSString stringWithFormat:@"%@&action=vipPlay&type=%@&url=%@&mid=%@&source=%@&vid=%@",URL_Common_ios,type,idURL,memID,source,vid];
+        url = [NSString stringWithFormat:@"%@&action=vipPlay&type=%@&url=%@&mid=%@&source=%@",URL_Common_ios,type,idURL,memID,source];
     }
     NSLog(@"VIP播放页请求：%@",url);
     NSString * codeString = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];//去掉特殊字符
@@ -436,23 +436,25 @@ static BOOL _isCanPlay;
             if ([dic[@"access"] intValue] == 0) {
                 
                 if ([type isEqualToString:@"1"]) {
-                    if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(vipShaiXuanVC:withType:withName:withKey:withJuJIARR:withVid:)]) {
+                    if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(vipShaiXuanVC:withType:withName:withKey:withJuJIARR:withVid:withSourceNmae:)]) {
                         [weakSelf.delegate vipShaiXuanVC:weakSelf
                                                 withType:1
                                                 withName:name
                                                  withKey:dic[@"url"]
                                              withJuJIARR:nil
-                                                 withVid:dic[@""]];
+                                                 withVid:dic[@""]
+                                          withSourceNmae:source];
                     }
                 }
                 else{
-                    if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(vipShaiXuanVC:withType:withName:withKey:withJuJIARR:withVid:)]) {
+                    if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(vipShaiXuanVC:withType:withName:withKey:withJuJIARR:withVid:withSourceNmae:)]) {
                         [weakSelf.delegate vipShaiXuanVC:weakSelf
                                                 withType:0
                                                 withName:name
                                                  withKey:dic[@"url"]
                                              withJuJIARR:dic[@"epList"]
-                                                 withVid:dic[@"vid"]];
+                                                 withVid:dic[@"vid"]
+                                          withSourceNmae:source];
                     }
                 }
             }

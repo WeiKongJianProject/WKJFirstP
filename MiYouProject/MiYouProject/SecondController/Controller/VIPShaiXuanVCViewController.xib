@@ -29,7 +29,7 @@
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="UlY-08-YEo">
-                    <rect key="frame" x="0.0" y="145" width="375" height="473"/>
+                    <rect key="frame" x="0.0" y="145" width="375" height="462"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SVT-5p-y7x">
                         <size key="itemSize" width="50" height="50"/>
@@ -47,7 +47,7 @@
                 <constraint firstAttribute="trailing" secondItem="png-h0-GI4" secondAttribute="trailing" id="ZBW-FX-70X"/>
                 <constraint firstItem="UlY-08-YEo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="csi-xW-a0Y"/>
                 <constraint firstItem="png-h0-GI4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="mE4-MJ-jKw"/>
-                <constraint firstAttribute="bottom" secondItem="UlY-08-YEo" secondAttribute="bottom" constant="49" id="xnY-b9-mbF"/>
+                <constraint firstAttribute="bottom" secondItem="UlY-08-YEo" secondAttribute="bottom" constant="60" id="xnY-b9-mbF"/>
             </constraints>
         </view>
     </objects>
