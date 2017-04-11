@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import "UMMobClick/MobClick.h"
 #import <Bugly/Bugly.h>
+//#import <AlipaySDK/AlipaySDK.h>
+//#import <BmobPaySDK/Bmob.h>
+
 @interface AppDelegate ()
 
 @end
@@ -17,7 +20,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+    //[Bmob registerWithAppKey:@"d4f6c4b18b7e35a7255d724a0ed34d47"];
     UMConfigInstance.appKey = YOUMENG_APP_ID_ZL;
     UMConfigInstance.channelId = @"Custom Channel";
     //UMConfigInstance.eSType = E_UM_GAME; //仅适用于游戏场景，应用统计不用设置
@@ -84,6 +87,19 @@
     
     return YES;
 }
+#pragma mark 支付调用接口
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+    if ([url.host isEqualToString:@"safepay"]) {
+        //跳转支付宝钱包进行支付，处理支付结果
+//        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+//            NSLog(@"支付宝支付结果：result = %@",resultDic);
+//        }];
+    }
+    
+    return YES;
+}
+#pragma end mark 支付接口调用结束
+
 //通知
 -(void)reachabilityChanged:(NSNotification*)note {
     Reachability * reach = [note object];

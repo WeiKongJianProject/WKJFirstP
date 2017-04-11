@@ -19,6 +19,8 @@
 
 //友盟APPID 58db47df07fe657cca0001b1
 #define YOUMENG_APP_ID_ZL @"58db47df07fe657cca0001b1"
+#define ALIPAY_APP_ID_ZL @"2015110400687059"
+
 
 #define URL_Common_ios @"http://api4.cn360du.com:88/index.php?m=api-ios"
 

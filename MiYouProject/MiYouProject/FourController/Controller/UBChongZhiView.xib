@@ -324,6 +324,7 @@
                 <outlet property="button06" destination="fe8-ch-SA9" id="8BR-gp-2TJ"/>
                 <outlet property="duiHuanLabel" destination="2yl-UH-32J" id="G7E-qh-SLQ"/>
                 <outlet property="fuWuLabel" destination="M8c-1q-k0E" id="8ij-cL-kD1"/>
+                <outlet property="jieShaoLabel" destination="LFr-Yr-eys" id="R1h-wC-bTq"/>
                 <outlet property="renShuLabel" destination="WnS-HA-hjH" id="BLx-N8-GkI"/>
                 <outlet property="scrollView" destination="6kL-3J-Zo7" id="4dA-0Q-52T"/>
                 <outlet property="yuELabel" destination="HPf-Sm-LV8" id="pWf-7W-amy"/>
@@ -631,6 +632,7 @@
                 <outlet property="button05" destination="1qo-kE-WDE" id="FsW-Yj-qFS"/>
                 <outlet property="button06" destination="DfE-af-1U6" id="Rd1-qX-ElY"/>
                 <outlet property="fuWuXiaLabel" destination="mZq-kI-ixt" id="U4W-oM-ass"/>
+                <outlet property="jieshaoLabel" destination="Bk3-UK-RXb" id="Is3-3g-rOt"/>
                 <outlet property="renShuLabel" destination="cRy-HM-RCT" id="VfP-Ei-vDq"/>
                 <outlet property="scrollView" destination="XPk-0l-QPR" id="98j-uM-kuu"/>
                 <outlet property="vipFuWuLabel" destination="1gr-6a-NfZ" id="WBH-wu-74x"/>

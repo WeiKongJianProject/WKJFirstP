@@ -24,5 +24,6 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (weak, nonatomic) IBOutlet UIButton *zhiFuButton;
+@property (strong, nonatomic) IBOutlet UILabel *jieshaoLabel;
 
 @end

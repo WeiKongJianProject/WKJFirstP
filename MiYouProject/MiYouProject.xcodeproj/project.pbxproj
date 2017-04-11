@@ -33,7 +33,7 @@
 		730D38751E78D8B800EE4692 /* XiaoXiTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730D38731E78D8B800EE4692 /* XiaoXiTableViewCell.xib */; };
 		730D38791E78DF0B00EE4692 /* XiaoXiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 730D38771E78DF0B00EE4692 /* XiaoXiViewController.m */; };
 		730D387A1E78DF0B00EE4692 /* XiaoXiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730D38781E78DF0B00EE4692 /* XiaoXiViewController.xib */; };
-		730D387E1E790F1C00EE4692 /* ChongZhiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 730D387C1E790F1C00EE4692 /* ChongZhiViewController.m */; };
+		730D387E1E790F1C00EE4692 /* ChongZhiViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 730D387C1E790F1C00EE4692 /* ChongZhiViewController.mm */; };
 		730D387F1E790F1C00EE4692 /* ChongZhiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730D387D1E790F1C00EE4692 /* ChongZhiViewController.xib */; };
 		730D38821E79243A00EE4692 /* UBChongZhiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 730D38811E79243A00EE4692 /* UBChongZhiView.m */; };
 		730D38851E79244C00EE4692 /* VIPChongZhiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 730D38841E79244C00EE4692 /* VIPChongZhiView.m */; };
@@ -67,6 +67,21 @@
 		732DFC891E94EF1E00D024F8 /* KYVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 732DFC881E94EF1E00D024F8 /* KYVideo.m */; };
 		732DFC8D1E977CC100D024F8 /* SanVIPPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732DFC8B1E977CC100D024F8 /* SanVIPPlayViewController.m */; };
 		732DFC8E1E977CC100D024F8 /* SanVIPPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732DFC8C1E977CC100D024F8 /* SanVIPPlayViewController.xib */; };
+		73485C2D1E9CAD3600A6691A /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C2C1E9CAD3600A6691A /* libc++.tbd */; };
+		73485C2F1E9CAD3F00A6691A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C2E1E9CAD3F00A6691A /* libz.tbd */; };
+		73485C311E9CAD4B00A6691A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C301E9CAD4B00A6691A /* SystemConfiguration.framework */; };
+		73485C331E9CAD5600A6691A /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C321E9CAD5600A6691A /* CoreTelephony.framework */; };
+		73485C351E9CAD6300A6691A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C341E9CAD6300A6691A /* QuartzCore.framework */; };
+		73485C371E9CAD6E00A6691A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C361E9CAD6E00A6691A /* CoreText.framework */; };
+		73485C391E9CAD7B00A6691A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C381E9CAD7B00A6691A /* CoreGraphics.framework */; };
+		73485C3B1E9CAD8B00A6691A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C3A1E9CAD8B00A6691A /* UIKit.framework */; };
+		73485C3D1E9CAD9C00A6691A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C3C1E9CAD9C00A6691A /* CFNetwork.framework */; };
+		73485C3F1E9CADAB00A6691A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C3E1E9CADAB00A6691A /* CoreMotion.framework */; };
+		73485C421E9CB07A00A6691A /* OrderZLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73485C411E9CB07A00A6691A /* OrderZLModel.m */; };
+		73485C461E9CCD2B00A6691A /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C451E9CCD2B00A6691A /* libWeChatSDK.a */; };
+		73485C481E9CCDC900A6691A /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C471E9CCDC900A6691A /* libz.1.2.5.tbd */; };
+		73485C501E9CD87600A6691A /* AppDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 732BC86B1E6FD17400B8B1BD /* AppDelegate.h */; };
+		73485C511E9CD87E00A6691A /* ChongZhiViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 730D387B1E790F1C00EE4692 /* ChongZhiViewController.h */; };
 		736557361E728F5800284C11 /* ReMenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736557351E728F5800284C11 /* ReMenView.xib */; };
 		7365573A1E729C4B00284C11 /* DianYingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */; };
 		7365573B1E729C4B00284C11 /* DianYingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736557391E729C4B00284C11 /* DianYingCollectionViewCell.xib */; };
@@ -318,7 +333,7 @@
 		730D38771E78DF0B00EE4692 /* XiaoXiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XiaoXiViewController.m; sourceTree = "<group>"; };
 		730D38781E78DF0B00EE4692 /* XiaoXiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XiaoXiViewController.xib; sourceTree = "<group>"; };
 		730D387B1E790F1C00EE4692 /* ChongZhiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChongZhiViewController.h; sourceTree = "<group>"; };
-		730D387C1E790F1C00EE4692 /* ChongZhiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChongZhiViewController.m; sourceTree = "<group>"; };
+		730D387C1E790F1C00EE4692 /* ChongZhiViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ChongZhiViewController.mm; sourceTree = "<group>"; };
 		730D387D1E790F1C00EE4692 /* ChongZhiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChongZhiViewController.xib; sourceTree = "<group>"; };
 		730D38801E79243A00EE4692 /* UBChongZhiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBChongZhiView.h; path = MiYouProject/FourController/Controller/UBChongZhiView.h; sourceTree = SOURCE_ROOT; };
 		730D38811E79243A00EE4692 /* UBChongZhiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBChongZhiView.m; path = MiYouProject/FourController/Controller/UBChongZhiView.m; sourceTree = SOURCE_ROOT; };
@@ -377,6 +392,22 @@
 		732DFC8A1E977CC100D024F8 /* SanVIPPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SanVIPPlayViewController.h; sourceTree = "<group>"; };
 		732DFC8B1E977CC100D024F8 /* SanVIPPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SanVIPPlayViewController.m; sourceTree = "<group>"; };
 		732DFC8C1E977CC100D024F8 /* SanVIPPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SanVIPPlayViewController.xib; sourceTree = "<group>"; };
+		73485C2C1E9CAD3600A6691A /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		73485C2E1E9CAD3F00A6691A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		73485C301E9CAD4B00A6691A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		73485C321E9CAD5600A6691A /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		73485C341E9CAD6300A6691A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		73485C361E9CAD6E00A6691A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		73485C381E9CAD7B00A6691A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		73485C3A1E9CAD8B00A6691A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		73485C3C1E9CAD9C00A6691A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		73485C3E1E9CADAB00A6691A /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		73485C401E9CB07A00A6691A /* OrderZLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderZLModel.h; sourceTree = "<group>"; };
+		73485C411E9CB07A00A6691A /* OrderZLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderZLModel.m; sourceTree = "<group>"; };
+		73485C451E9CCD2B00A6691A /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		73485C471E9CCDC900A6691A /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
+		73485C491E9CD37D00A6691A /* BmobPaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BmobPaySDK.framework; path = MiYouProject/Myframework/ZhiFuFrame/BmobPaySDK.framework; sourceTree = "<group>"; };
+		73485C4E1E9CD74C00A6691A /* BmobPaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BmobPaySDK.framework; sourceTree = "<group>"; };
 		736557351E728F5800284C11 /* ReMenView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReMenView.xib; sourceTree = "<group>"; };
 		736557371E729C4B00284C11 /* DianYingCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianYingCollectionViewCell.h; sourceTree = "<group>"; };
 		736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianYingCollectionViewCell.m; sourceTree = "<group>"; };
@@ -708,6 +739,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73485C481E9CCDC900A6691A /* libz.1.2.5.tbd in Frameworks */,
+				73485C3F1E9CADAB00A6691A /* CoreMotion.framework in Frameworks */,
+				73485C3D1E9CAD9C00A6691A /* CFNetwork.framework in Frameworks */,
+				73485C3B1E9CAD8B00A6691A /* UIKit.framework in Frameworks */,
+				73485C391E9CAD7B00A6691A /* CoreGraphics.framework in Frameworks */,
+				73485C371E9CAD6E00A6691A /* CoreText.framework in Frameworks */,
+				73485C461E9CCD2B00A6691A /* libWeChatSDK.a in Frameworks */,
+				73485C351E9CAD6300A6691A /* QuartzCore.framework in Frameworks */,
+				73485C331E9CAD5600A6691A /* CoreTelephony.framework in Frameworks */,
+				73485C311E9CAD4B00A6691A /* SystemConfiguration.framework in Frameworks */,
+				73485C2F1E9CAD3F00A6691A /* libz.tbd in Frameworks */,
+				73485C2D1E9CAD3600A6691A /* libc++.tbd in Frameworks */,
 				73A3B6081E8A7B5600407957 /* AVKit.framework in Frameworks */,
 				73A3B6061E8A789F00407957 /* CoreMedia.framework in Frameworks */,
 				73E7DA4E1E7A6C3A00371E33 /* Foundation.framework in Frameworks */,
@@ -778,6 +821,19 @@
 		1D3354C620478839F6FED82A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				73485C4E1E9CD74C00A6691A /* BmobPaySDK.framework */,
+				73485C491E9CD37D00A6691A /* BmobPaySDK.framework */,
+				73485C471E9CCDC900A6691A /* libz.1.2.5.tbd */,
+				73485C3E1E9CADAB00A6691A /* CoreMotion.framework */,
+				73485C3C1E9CAD9C00A6691A /* CFNetwork.framework */,
+				73485C3A1E9CAD8B00A6691A /* UIKit.framework */,
+				73485C381E9CAD7B00A6691A /* CoreGraphics.framework */,
+				73485C361E9CAD6E00A6691A /* CoreText.framework */,
+				73485C341E9CAD6300A6691A /* QuartzCore.framework */,
+				73485C321E9CAD5600A6691A /* CoreTelephony.framework */,
+				73485C301E9CAD4B00A6691A /* SystemConfiguration.framework */,
+				73485C2E1E9CAD3F00A6691A /* libz.tbd */,
+				73485C2C1E9CAD3600A6691A /* libc++.tbd */,
 				73A3B6071E8A7B5600407957 /* AVKit.framework */,
 				73A3B6051E8A789F00407957 /* CoreMedia.framework */,
 				73E7DA4D1E7A6C3A00371E33 /* Foundation.framework */,
@@ -961,13 +1017,33 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		73485C271E9CAD0300A6691A /* ZhiFuFrame */ = {
+			isa = PBXGroup;
+			children = (
+				73485C451E9CCD2B00A6691A /* libWeChatSDK.a */,
+			);
+			path = ZhiFuFrame;
+			sourceTree = "<group>";
+		};
 		73A3B5F71E89F78C00407957 /* Model02 */ = {
 			isa = PBXGroup;
 			children = (
+				73E7DA701E7F743300371E33 /* WHC_DownloadObject.h */,
+				73E7DA711E7F743300371E33 /* WHC_DownloadObject.m */,
+				73E7DA6D1E7F740600371E33 /* DownloadModel.h */,
+				73E7DA6E1E7F740600371E33 /* DownloadModel.m */,
+				73E7DA591E7A8C5D00371E33 /* ZLButtons.h */,
+				73E7DA5A1E7A8C5D00371E33 /* ZLButtons.m */,
+				73E7DA651E7BAFF400371E33 /* VideoModelZL.h */,
+				73E7DA661E7BAFF400371E33 /* VideoModelZL.m */,
+				737B24BC1E88E9A9001421FF /* PlayVideoMTLModel.h */,
+				737B24BD1E88E9A9001421FF /* PlayVideoMTLModel.m */,
 				73A3B5F91E89F7A900407957 /* UserInfoMTLModel.h */,
 				73A3B5FA1E89F7A900407957 /* UserInfoMTLModel.m */,
 				73A3B5FC1E89FA0E00407957 /* UserMessageMTLModel.h */,
 				73A3B5FD1E89FA0E00407957 /* UserMessageMTLModel.m */,
+				73485C401E9CB07A00A6691A /* OrderZLModel.h */,
+				73485C411E9CB07A00A6691A /* OrderZLModel.m */,
 			);
 			path = Model02;
 			sourceTree = "<group>";
@@ -975,6 +1051,42 @@
 		73A3B5F81E89F78C00407957 /* View02 */ = {
 			isa = PBXGroup;
 			children = (
+				730D38491E7697A600EE4692 /* PersonHederTableViewCell.h */,
+				730D384A1E7697A600EE4692 /* PersonHederTableViewCell.m */,
+				730D384B1E7697A600EE4692 /* PersonHederTableViewCell.xib */,
+				730D384E1E7787EE00EE4692 /* ButtonsTableViewCell.h */,
+				730D384F1E7787EE00EE4692 /* ButtonsTableViewCell.m */,
+				730D38501E7787EE00EE4692 /* ButtonsTableViewCell.xib */,
+				730D38531E7795FA00EE4692 /* ThirdTeQuanTableViewCell.h */,
+				730D38541E7795FA00EE4692 /* ThirdTeQuanTableViewCell.m */,
+				730D38551E7795FA00EE4692 /* ThirdTeQuanTableViewCell.xib */,
+				730D385D1E77D8FF00EE4692 /* SettingTableViewCell.h */,
+				730D385E1E77D8FF00EE4692 /* SettingTableViewCell.m */,
+				730D385F1E77D8FF00EE4692 /* SettingTableViewCell.xib */,
+				730D386C1E78C4F000EE4692 /* PersonTableViewCell.h */,
+				730D386D1E78C4F000EE4692 /* PersonTableViewCell.m */,
+				730D386E1E78C4F000EE4692 /* PersonTableViewCell.xib */,
+				730D38711E78D8B800EE4692 /* XiaoXiTableViewCell.h */,
+				730D38721E78D8B800EE4692 /* XiaoXiTableViewCell.m */,
+				730D38731E78D8B800EE4692 /* XiaoXiTableViewCell.xib */,
+				730D38801E79243A00EE4692 /* UBChongZhiView.h */,
+				730D38811E79243A00EE4692 /* UBChongZhiView.m */,
+				730D38861E79246400EE4692 /* UBChongZhiView.xib */,
+				730D38831E79244C00EE4692 /* VIPChongZhiView.h */,
+				730D38841E79244C00EE4692 /* VIPChongZhiView.m */,
+				730D38881E79247E00EE4692 /* VIPChongZhiView.xib */,
+				73E7DA541E7A7C7F00371E33 /* HuanCunZLTableViewCell.h */,
+				73E7DA551E7A7C7F00371E33 /* HuanCunZLTableViewCell.m */,
+				73E7DA561E7A7C7F00371E33 /* HuanCunZLTableViewCell.xib */,
+				73E7DA5C1E7B6F0C00371E33 /* HuanCunFooterView.h */,
+				73E7DA5D1E7B6F0C00371E33 /* HuanCunFooterView.m */,
+				73E7DA5F1E7B6F2200371E33 /* HuanCunFooterView.xib */,
+				73E7DA8F1E80BF7C00371E33 /* PlayVideoTableViewCell.h */,
+				73E7DA901E80BF7C00371E33 /* PlayVideoTableViewCell.m */,
+				73E7DA911E80BF7C00371E33 /* PlayVideoTableViewCell.xib */,
+				73A3B61B1E8BE14600407957 /* ZhiFuButtonVIew.h */,
+				73A3B61C1E8BE14600407957 /* ZhiFuButtonVIew.m */,
+				73A3B61E1E8BE15600407957 /* ZhiFuButtonView.xib */,
 			);
 			path = View02;
 			sourceTree = "<group>";
@@ -1215,8 +1327,6 @@
 				73A3B5F71E89F78C00407957 /* Model02 */,
 				73A3B5F81E89F78C00407957 /* View02 */,
 				73EB3EB01E6FD7DB00CA8B5D /* Controller */,
-				73EB3EB11E6FD7DB00CA8B5D /* Model */,
-				73EB3EB21E6FD7DB00CA8B5D /* View */,
 			);
 			path = FourController;
 			sourceTree = "<group>";
@@ -1240,7 +1350,7 @@
 				730D38771E78DF0B00EE4692 /* XiaoXiViewController.m */,
 				730D38781E78DF0B00EE4692 /* XiaoXiViewController.xib */,
 				730D387B1E790F1C00EE4692 /* ChongZhiViewController.h */,
-				730D387C1E790F1C00EE4692 /* ChongZhiViewController.m */,
+				730D387C1E790F1C00EE4692 /* ChongZhiViewController.mm */,
 				730D387D1E790F1C00EE4692 /* ChongZhiViewController.xib */,
 				73E7DA4F1E7A78A200371E33 /* HuanCunCenterViewController.h */,
 				73E7DA501E7A78A200371E33 /* HuanCunCenterViewController.m */,
@@ -1255,69 +1365,10 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		73EB3EB11E6FD7DB00CA8B5D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				73E7DA701E7F743300371E33 /* WHC_DownloadObject.h */,
-				73E7DA711E7F743300371E33 /* WHC_DownloadObject.m */,
-				73E7DA6D1E7F740600371E33 /* DownloadModel.h */,
-				73E7DA6E1E7F740600371E33 /* DownloadModel.m */,
-				73E7DA591E7A8C5D00371E33 /* ZLButtons.h */,
-				73E7DA5A1E7A8C5D00371E33 /* ZLButtons.m */,
-				73E7DA651E7BAFF400371E33 /* VideoModelZL.h */,
-				73E7DA661E7BAFF400371E33 /* VideoModelZL.m */,
-				737B24BC1E88E9A9001421FF /* PlayVideoMTLModel.h */,
-				737B24BD1E88E9A9001421FF /* PlayVideoMTLModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		73EB3EB21E6FD7DB00CA8B5D /* View */ = {
-			isa = PBXGroup;
-			children = (
-				730D38491E7697A600EE4692 /* PersonHederTableViewCell.h */,
-				730D384A1E7697A600EE4692 /* PersonHederTableViewCell.m */,
-				730D384B1E7697A600EE4692 /* PersonHederTableViewCell.xib */,
-				730D384E1E7787EE00EE4692 /* ButtonsTableViewCell.h */,
-				730D384F1E7787EE00EE4692 /* ButtonsTableViewCell.m */,
-				730D38501E7787EE00EE4692 /* ButtonsTableViewCell.xib */,
-				730D38531E7795FA00EE4692 /* ThirdTeQuanTableViewCell.h */,
-				730D38541E7795FA00EE4692 /* ThirdTeQuanTableViewCell.m */,
-				730D38551E7795FA00EE4692 /* ThirdTeQuanTableViewCell.xib */,
-				730D385D1E77D8FF00EE4692 /* SettingTableViewCell.h */,
-				730D385E1E77D8FF00EE4692 /* SettingTableViewCell.m */,
-				730D385F1E77D8FF00EE4692 /* SettingTableViewCell.xib */,
-				730D386C1E78C4F000EE4692 /* PersonTableViewCell.h */,
-				730D386D1E78C4F000EE4692 /* PersonTableViewCell.m */,
-				730D386E1E78C4F000EE4692 /* PersonTableViewCell.xib */,
-				730D38711E78D8B800EE4692 /* XiaoXiTableViewCell.h */,
-				730D38721E78D8B800EE4692 /* XiaoXiTableViewCell.m */,
-				730D38731E78D8B800EE4692 /* XiaoXiTableViewCell.xib */,
-				730D38801E79243A00EE4692 /* UBChongZhiView.h */,
-				730D38811E79243A00EE4692 /* UBChongZhiView.m */,
-				730D38861E79246400EE4692 /* UBChongZhiView.xib */,
-				730D38831E79244C00EE4692 /* VIPChongZhiView.h */,
-				730D38841E79244C00EE4692 /* VIPChongZhiView.m */,
-				730D38881E79247E00EE4692 /* VIPChongZhiView.xib */,
-				73E7DA541E7A7C7F00371E33 /* HuanCunZLTableViewCell.h */,
-				73E7DA551E7A7C7F00371E33 /* HuanCunZLTableViewCell.m */,
-				73E7DA561E7A7C7F00371E33 /* HuanCunZLTableViewCell.xib */,
-				73E7DA5C1E7B6F0C00371E33 /* HuanCunFooterView.h */,
-				73E7DA5D1E7B6F0C00371E33 /* HuanCunFooterView.m */,
-				73E7DA5F1E7B6F2200371E33 /* HuanCunFooterView.xib */,
-				73E7DA8F1E80BF7C00371E33 /* PlayVideoTableViewCell.h */,
-				73E7DA901E80BF7C00371E33 /* PlayVideoTableViewCell.m */,
-				73E7DA911E80BF7C00371E33 /* PlayVideoTableViewCell.xib */,
-				73A3B61B1E8BE14600407957 /* ZhiFuButtonVIew.h */,
-				73A3B61C1E8BE14600407957 /* ZhiFuButtonVIew.m */,
-				73A3B61E1E8BE15600407957 /* ZhiFuButtonView.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		73EB3EB31E6FD7DB00CA8B5D /* Myframework */ = {
 			isa = PBXGroup;
 			children = (
+				73485C271E9CAD0300A6691A /* ZhiFuFrame */,
 				73C347241E84E96600BBBDBE /* AutoFitLabel */,
 				73E7DA611E7B787E00371E33 /* ZLNSFileManager */,
 				18AEC44F1E7593FA004BD503 /* ZLCollectionViewGird */,
@@ -2179,6 +2230,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73485C511E9CD87E00A6691A /* ChongZhiViewController.h in Sources */,
+				73485C501E9CD87600A6691A /* AppDelegate.h in Sources */,
 				73E7DA6F1E7F740600371E33 /* DownloadModel.m in Sources */,
 				73EB3EDA1E6FD7DB00CA8B5D /* UploadParam.m in Sources */,
 				73E7DA8D1E7FBEC100371E33 /* DianYingSubCollectionViewCell.m in Sources */,
@@ -2254,7 +2307,7 @@
 				73E7DA7D1E7F778900371E33 /* UIView+WHC_Loading.m in Sources */,
 				73C347391E84FC5A00BBBDBE /* SearchResultModel.m in Sources */,
 				73A3B63E1E8DF77F00407957 /* PingLunMTLModel.m in Sources */,
-				730D387E1E790F1C00EE4692 /* ChongZhiViewController.m in Sources */,
+				730D387E1E790F1C00EE4692 /* ChongZhiViewController.mm in Sources */,
 				73EB3F951E6FDEE400CA8B5D /* UIImage+WebP.m in Sources */,
 				73EB3FB91E6FDEE400CA8B5D /* MLAnimationViewController.m in Sources */,
 				73EB3FD31E6FDEE400CA8B5D /* ZhengZePanDuan.m in Sources */,
@@ -2279,6 +2332,7 @@
 				73EB3F8A1E6FDEE400CA8B5D /* UIImage+HeinQi.m in Sources */,
 				732BC86D1E6FD17400B8B1BD /* AppDelegate.m in Sources */,
 				730D38821E79243A00EE4692 /* UBChongZhiView.m in Sources */,
+				73485C421E9CB07A00A6691A /* OrderZLModel.m in Sources */,
 				730D38791E78DF0B00EE4692 /* XiaoXiViewController.m in Sources */,
 				73EB3FC31E6FDEE400CA8B5D /* CustomButton.m in Sources */,
 				73EB3FD81E6FE29F00CA8B5D /* NSDatezlModel.m in Sources */,
@@ -2484,6 +2538,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MiYouProject/CommonFiles/Common/Resource/FrameWork/iOS-WebP",
+					"$(PROJECT_DIR)/MiYouProject/Myframework/ZhiFuFrame",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MiYouProject/MyPrefixHeader.pch";
@@ -2492,6 +2548,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MiYouProject/CommonFiles/Common/zhou/paymentcontrol/libs",
+					"$(PROJECT_DIR)/MiYouProject/Myframework/ZhiFuFrame",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = junhong.com.MiYouProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2507,6 +2564,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MiYouProject/CommonFiles/Common/Resource/FrameWork/iOS-WebP",
+					"$(PROJECT_DIR)/MiYouProject/Myframework/ZhiFuFrame",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MiYouProject/MyPrefixHeader.pch";
@@ -2515,6 +2574,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MiYouProject/CommonFiles/Common/zhou/paymentcontrol/libs",
+					"$(PROJECT_DIR)/MiYouProject/Myframework/ZhiFuFrame",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = junhong.com.MiYouProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
