@@ -20,6 +20,8 @@
 
 @end
 
+static int jd;
+
 @implementation FourViewController
 
 - (void)viewDidLoad {
@@ -37,7 +39,7 @@
     }];
 }
 - (void)viewWillAppear:(BOOL)animated{
-    
+    jd = 1;//加载会员图片 时判断
     [super viewDidAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
     [self startAFNetworking];
@@ -55,18 +57,21 @@
      “group”:0,
      }
      */
-
+    __weak typeof(self) weakSelf = self;
     NSString * urlstring = [NSString stringWithFormat:@"%@&action=memberCenter&id=%@",URL_Common_ios,self.userInfoModel.id];
     NSLog(@"用户中心请求的链接为：%@",urlstring);
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:urlstring parameters:nil success:^(id responseObject) {
         NSDictionary *  dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSLog(@"用户中心请求的数据为：%@",dic);
         if ([dic[@"result"] isEqualToString:@"success"]) {
-            self.userMessageModel = [MTLJSONAdapter modelOfClass:[UserMessageMTLModel class] fromJSONDictionary:dic error:nil];
+            weakSelf.userMessageModel = [MTLJSONAdapter modelOfClass:[UserMessageMTLModel class] fromJSONDictionary:dic error:nil];
             [[NSUserDefaults standardUserDefaults] setObject:[dic objectForKey:@"points"] forKey:MEMBER_POINTS_NUM];
             [[NSUserDefaults standardUserDefaults] setObject:[dic objectForKey:@"vip"] forKey:MEMBER_VIP_LEVEL];
         }
-        [self.tableView reloadData];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+           [weakSelf.tableView reloadData];
+        });
         [MBManager hideAlert];
     } failure:^(NSError *error){
         [MBManager hideAlert];
@@ -172,18 +177,42 @@
         else{
             zonButNum = vipListARR.count;
         }
+        
         for (int i = 0; i<zonButNum; i++) {
             NSString * stringURL = vipListARR[i];
             UIButton * btn = (UIButton *)fcell.VIPButtonARR[i];
             btn.hidden = NO;
             NSLog(@"会员图标的链接：%@--%p",stringURL,btn);
             //[btn sd_setBackgroundImageWithURL:[NSURL URLWithString:stringURL] forState:UIControlStateNormal];
-            [btn sd_setBackgroundImageWithURL:[NSURL URLWithString:stringURL] forState:UIControlStateNormal placeholderImage:PLACEHOLDER_IMAGE];
-            //[btn sd_setBackgroundImageWithURL:[NSURL URLWithString:@"http://img2.cache.netease.com/photo/0005/2014-12-11/AD5A6INS5GUO0005.jpg"] forState:UIControlStateNormal placeholderImage:PLACEHOLDER_IMAGE options:SDWebImageLowPriority];
-//            [btn sd_setBackgroundImageWithURL:[NSURL URLWithString:@"http://api4.cn360du.com:88/index.php?m=api-ios&action=index&cate=999"] forState:UIControlStateNormal completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            //[btn sd_setBackgroundImageWithURL:[NSURL URLWithString:stringURL] forState:UIControlStateNormal placeholderImage:PLACEHOLDER_IMAGE];
+            //"https://www.baidu.com/img/bdlogo.png"
+            [btn sd_setBackgroundImageWithURL:[NSURL URLWithString:stringURL] forState:UIControlStateNormal placeholderImage:PLACEHOLDER_IMAGE options:SDWebImageRetryFailed];
+            //[btn sd_setImageWithURL:[NSURL URLWithString:stringURL] forState:UIControlStateNormal placeholderImage:PLACEHOLDER_IMAGE options:SDWebImageLowPriority];
+            //[btn sd_setImageWithURL:[NSURL URLWithString:stringURL] forState:UIControlStateNormal placeholderImage:PLACEHOLDER_IMAGE];
+//            [btn sd_setBackgroundImageWithURL:[NSURL URLWithString:stringURL] forState:UIControlStateNormal completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
 //                NSLog(@"会员图片设置完成！");
+////                if (i == zonButNum-1) {
+////                    //[self.tableView reloadData];
+////                    NSLog(@"jd的值为：%d",jd);
+////                    if (jd == 1) {
+////                        [self.tableView reloadData];
+////                        jd++;
+////                    }
+////                }
+//                
 //            }];
+            
+            if (i == zonButNum-1) {
+                                    //[self.tableView reloadData];
+                                    NSLog(@"jd的值为：%d",jd);
+                                    if (jd == 1) {
+                                        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                                        jd++;
+                                    }
+            }
+            //[btn setNeedsDisplay];
         }
+        //[fcell setNeedsDisplay];
         cell = fcell;
     }
     else if (indexPath.row == 3){

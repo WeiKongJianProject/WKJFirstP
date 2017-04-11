@@ -355,12 +355,11 @@
     NSString * timeString = [NSString stringWithFormat:@"%d:%d",m,s];
     cell.timeLabel.text = timeString;
     
-    
+    //https://www.baidu.com/img/bdlogo.png
+    //vModel.pic
     [cell.minImageView sd_setImageWithURL:[NSURL URLWithString:vModel.pic] placeholderImage:[UIImage imageNamed:@"icon_default2"]];
     return cell;
-    
-    
-    
+
 }
 
 #pragma end mark
