@@ -2534,6 +2534,7 @@
 			baseConfigurationReference = C96CAE7EF2E4E9477C04B021 /* Pods-MiYouProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 39QNYYYY23;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2544,6 +2545,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MiYouProject/MyPrefixHeader.pch";
 				INFOPLIST_FILE = MiYouProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2560,6 +2562,7 @@
 			baseConfigurationReference = D188F06DE47739FC8A709CA1 /* Pods-MiYouProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 39QNYYYY23;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2570,6 +2573,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MiYouProject/MyPrefixHeader.pch";
 				INFOPLIST_FILE = MiYouProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
