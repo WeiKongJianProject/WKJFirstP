@@ -82,6 +82,8 @@
 		73485C481E9CCDC900A6691A /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C471E9CCDC900A6691A /* libz.1.2.5.tbd */; };
 		73485C501E9CD87600A6691A /* AppDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 732BC86B1E6FD17400B8B1BD /* AppDelegate.h */; };
 		73485C511E9CD87E00A6691A /* ChongZhiViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 730D387B1E790F1C00EE4692 /* ChongZhiViewController.h */; };
+		73485C5B1E9E0AAC00A6691A /* BanBenUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73485C5A1E9E0AAC00A6691A /* BanBenUIView.m */; };
+		73485C5D1E9E0ABD00A6691A /* BanBenUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73485C5C1E9E0ABD00A6691A /* BanBenUIView.xib */; };
 		736557361E728F5800284C11 /* ReMenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736557351E728F5800284C11 /* ReMenView.xib */; };
 		7365573A1E729C4B00284C11 /* DianYingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */; };
 		7365573B1E729C4B00284C11 /* DianYingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736557391E729C4B00284C11 /* DianYingCollectionViewCell.xib */; };
@@ -408,6 +410,9 @@
 		73485C471E9CCDC900A6691A /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
 		73485C491E9CD37D00A6691A /* BmobPaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BmobPaySDK.framework; path = MiYouProject/Myframework/ZhiFuFrame/BmobPaySDK.framework; sourceTree = "<group>"; };
 		73485C4E1E9CD74C00A6691A /* BmobPaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BmobPaySDK.framework; sourceTree = "<group>"; };
+		73485C591E9E0AAC00A6691A /* BanBenUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BanBenUIView.h; sourceTree = "<group>"; };
+		73485C5A1E9E0AAC00A6691A /* BanBenUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BanBenUIView.m; sourceTree = "<group>"; };
+		73485C5C1E9E0ABD00A6691A /* BanBenUIView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BanBenUIView.xib; sourceTree = "<group>"; };
 		736557351E728F5800284C11 /* ReMenView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReMenView.xib; sourceTree = "<group>"; };
 		736557371E729C4B00284C11 /* DianYingCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianYingCollectionViewCell.h; sourceTree = "<group>"; };
 		736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianYingCollectionViewCell.m; sourceTree = "<group>"; };
@@ -1286,6 +1291,9 @@
 				73E7DA8A1E7FBEC100371E33 /* DianYingSubCollectionViewCell.h */,
 				73E7DA8B1E7FBEC100371E33 /* DianYingSubCollectionViewCell.m */,
 				73E7DA8C1E7FBEC100371E33 /* DianYingSubCollectionViewCell.xib */,
+				73485C591E9E0AAC00A6691A /* BanBenUIView.h */,
+				73485C5A1E9E0AAC00A6691A /* BanBenUIView.m */,
+				73485C5C1E9E0ABD00A6691A /* BanBenUIView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1993,6 +2001,7 @@
 				73A3B60D1E8A808B00407957 /* MianZeViewController.xib in Resources */,
 				73EB3F9E1E6FDEE400CA8B5D /* 0006.png in Resources */,
 				73A3B62E1E8CF2BD00407957 /* SiFangPlayController.xib in Resources */,
+				73485C5D1E9E0ABD00A6691A /* BanBenUIView.xib in Resources */,
 				732DFC7A1E94BCD100D024F8 /* WMPlayer.bundle in Resources */,
 				73EB3FA11E6FDEE400CA8B5D /* zhoululu.webp in Resources */,
 				73EB3FB21E6FDEE400CA8B5D /* Loading003.png in Resources */,
@@ -2374,6 +2383,7 @@
 				73E7DA641E7B78A800371E33 /* NSFileManagerZL.m in Sources */,
 				73EB3ED81E6FD7DB00CA8B5D /* KSNavigationController.m in Sources */,
 				732DFC721E94BCD100D024F8 /* DataManager.m in Sources */,
+				73485C5B1E9E0AAC00A6691A /* BanBenUIView.m in Sources */,
 				73E7DA7C1E7F778900371E33 /* UIScrollView+WHC_PullRefresh.m in Sources */,
 				73C3472F1E84E96600BBBDBE /* AutoFitLabelView.m in Sources */,
 				73C347201E824AE300BBBDBE /* VideoListMTLModel.m in Sources */,

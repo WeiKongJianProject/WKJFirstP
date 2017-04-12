@@ -33,6 +33,8 @@
 
 #import "ChongZhiViewController.h"
 
+#import "BanBenUIView.h"
+
 @interface FirstViewController : ViewPagerController<ViewPagerDataSource,ViewPagerDelegate,FirstSubViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray * itemsTitlesARR;

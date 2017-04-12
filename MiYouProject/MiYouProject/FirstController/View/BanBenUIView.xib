@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BanBenUIView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banben" translatesAutoresizingMaskIntoConstraints="NO" id="nQe-46-KVT">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="720-ao-6or" customClass="UIControl">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="nQe-46-KVT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="IYd-Qw-ZZ4"/>
+                <constraint firstItem="720-ao-6or" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="IZq-Vg-UfN"/>
+                <constraint firstAttribute="trailing" secondItem="nQe-46-KVT" secondAttribute="trailing" id="Ihw-ee-j5b"/>
+                <constraint firstItem="nQe-46-KVT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="KWy-qA-mZD"/>
+                <constraint firstAttribute="trailing" secondItem="720-ao-6or" secondAttribute="trailing" id="X1l-Zu-Veg"/>
+                <constraint firstAttribute="bottom" secondItem="nQe-46-KVT" secondAttribute="bottom" id="aRZ-T0-9O6"/>
+                <constraint firstItem="720-ao-6or" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="g8z-XD-Oaa"/>
+                <constraint firstAttribute="bottom" secondItem="720-ao-6or" secondAttribute="bottom" id="xhS-Uf-zE5"/>
+            </constraints>
+            <connections>
+                <outlet property="buttonControl" destination="720-ao-6or" id="oa5-mE-fR9"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="banben" width="375" height="667"/>
+    </resources>
+</document>

@@ -18,7 +18,7 @@
     [super viewDidLoad];
    
     
-    
+    [self startBanBenInfo];//请求版本信息
     self.labelARR = [[NSMutableArray alloc]init];
     self.bannerARR = [[NSMutableArray alloc]init];
     self.listARR = [[NSMutableArray alloc]init];
@@ -110,6 +110,57 @@
     }];
 
 }
+#pragma mark 版本信息 START
+- (void)startBanBenInfo{
+
+    __weak typeof(self) weakSelf = self;
+    NSString * url = [NSString stringWithFormat:@"%@&action=version",URL_Common_ios];
+    NSLog(@"版本信息URL：%@",url);
+    [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
+        NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"版本信息：%@",dic);
+        if ([dic[@"result"] isEqualToString:@"success"]) {
+            NSString * versionStr = dic[@"version"];
+            if (![kAppVersion isEqualToString:versionStr]) {
+              [weakSelf loadDownView];
+            }
+            //[weakSelf loadDownView];
+        }
+        else{
+        
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+    
+
+}
+//加载 新版本下载页面
+- (void)loadDownView{
+    BanBenUIView * banView =(BanBenUIView *)[[NSBundle mainBundle]loadNibNamed:@"BanBenUIView" owner:self options:nil][0];
+    [banView setFrame:CGRectMake(0, 0, SIZE_WIDTH, SIZE_HEIGHT)];
+    // 当前顶层窗口
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    // 添加到窗口
+    [window addSubview:banView];
+    
+    [banView.buttonControl addTarget:self action:@selector(newBanBenButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    //[self.view addSubview:banView];
+}
+- (void)newBanBenButtonAction:(UIControl *)sender{
+
+    NSString * strIdentifier = NewBanBen_URL;
+    BOOL isExsit = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strIdentifier]];
+        if(isExsit) {
+                    //NSLog(@"App %@ installed", strIdentifier);
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:strIdentifier]];
+        }
+}
+
+
+#pragma end mark
+
+
 //网络请求  数据 标题
 - (void)getShuJuFromAFNetworking{
     //[MBManager showLoadingInView:self.view];
@@ -207,9 +258,8 @@
 }
 - (void)caiDanBtnButtonAction:(UIButton *)sender{
     NSLog(@"点击了菜单按钮");
-    
+    //[self startBanBenInfo];//请求版本信息
     DianShiQiangViewController * dianshiVC = [[DianShiQiangViewController alloc]init];
-    
     [self.navigationController pushViewController:dianshiVC animated:YES];
    
 }
