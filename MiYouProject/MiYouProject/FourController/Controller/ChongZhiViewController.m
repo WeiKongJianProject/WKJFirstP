@@ -8,14 +8,19 @@
 
 #import "ChongZhiViewController.h"
 
+
+#define ZHIFU_NOTIFICATION_RESUALT @"ZHIFU_NOTIFICATION_RESUALT"
+
 @interface ChongZhiViewController (){
 
 
     int _currentJINE;
-    
+    NSString * _currentOrderNUM;
 }
 
 @end
+
+
 
 @implementation ChongZhiViewController
 
@@ -129,6 +134,12 @@
     } completion:nil];
     //滚动动画
     [NSTimer scheduledTimerWithTimeInterval:19.0f target:self selector:@selector(addAnimationScrollview) userInfo:nil repeats:YES];
+    
+    
+    [self xw_addNotificationForName:ZHIFU_NOTIFICATION_RESUALT block:^(NSNotification * _Nonnull notification) {
+        [weakSelf zhifushibaiAction];
+    }];
+    
 }
 //滚动动画
 - (void)addAnimationScrollview{
@@ -549,22 +560,109 @@
     NSLog(@"微信支付，金额为：%d",_currentJINE);
     
     
-    
+    [self zhifuButtonWithType:@"wechat"];
     
 }
 //支付宝支付
 - (void)zhifuBaoButtonAction:(UIButton *)sender{
+
+    //[self alipayPostWithUID:UID withJinE:_currentJINE];
+    [self zhifuButtonWithType:@"alipay"];
+}
+- (void)zhifuButtonWithType:(NSString *)type{
     //用户信息
     NSDictionary * userDic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
     NSString * UID = userDic[@"id"];
     NSLog(@"生成订单：用户的ID：%@,支付宝支付:金额为：%d",UID,_currentJINE);
     
-//    [BmobPay payWithPayType:BmobAlipay price:@0.01 orderName:@"测试订单" describe:@"测试订单详情" result:^(BOOL isSuccessful, NSError *error) {
-//        NSLog(@"订单支付回调接口");
-//    }];
-    
-    //[self alipayPostWithUID:UID withJinE:_currentJINE];
+    __weak typeof(self) weakSelf = self;
+    //wechat
+    NSString * url = [NSString stringWithFormat:@"%@&action=doRecharge&id=%@&money=%d&type=%@",URL_Common_ios,UID,_currentJINE,type];
+    NSLog(@"支付宝充值VIP页面链接：%@",url);
+    [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
+        
+        // 1.判断当前对象是否能够转换成JSON数据.
+        // YES if obj can be converted to JSON data, otherwise NO
+        //BOOL isYes = [NSJSONSerialization isValidJSONObject:responseObject];
+        //NSString *str = [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        //NSData* xmlData = [str dataUsingEncoding:NSUTF8StringEncoding];
+        NSMutableDictionary * dic = (NSMutableDictionary *)[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        // BOOL isYes = [NSJSONSerialization isValidJSONObject:responseObject];
+        NSLog(@"支付宝充值VIP页面请求返回的数据为：%@----是否可以解析：",dic);
+        
+        
+        if (!zlDictIsEmpty(dic)) {
+            NSString * result = dic[@"result"];
+            if ([result isEqualToString:@"success"]) {
+                _currentOrderNUM = dic[@"orderNo"];
+                //@"https://qr.alipay.com/bax00225fwvaxotgyqcj602a"
+                NSString * strIdentifier = dic[@"url"];
+                BOOL isExsit = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strIdentifier]];
+                if(isExsit) {
+                    //NSLog(@"App %@ installed", strIdentifier);
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:strIdentifier]];
+                                AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
+                                alertZL.titleName = @"支付结果";
+                                alertZL.cancelBtnTitle = @"支付失败";
+                                alertZL.okBtnTitle = @"支付完成";
+                                [alertZL cancelBlockAction:^(BOOL success) {
+                                    [alertZL hideCustomeAlertView];
+                                    [weakSelf xw_postNotificationWithName:ZHIFU_NOTIFICATION_RESUALT userInfo:nil];
+                                }];
+                                [alertZL okButtonBlockAction:^(BOOL success) {
+                                    [alertZL hideCustomeAlertView];
+                                    [weakSelf.navigationController popViewControllerAnimated:YES];
+                                    NSLog(@"点击了去支付按钮");
+                                }];
+                                [alertZL showCustomAlertView];
+                }
+            }
+            else{
+                [MBManager showBriefAlert:@"生成订单失败"];
+            }
+        }else{
+            [MBManager showBriefAlert:@"生成订单失败"];
+        }
+    } failure:^(NSError *error) {
+        [MBManager showBriefAlert:@"生成订单失败"];
+    }];
+
 }
+- (void)zhifushibaiAction{
+    __weak typeof(self) weakSelf = self;
+    //wechat
+    NSString * url = [NSString stringWithFormat:@"%@&action=doRecharge&orderNo=%@",URL_Common_ios,_currentOrderNUM];
+    //NSLog(@"获取充值结果URL：%@",url);
+    [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
+        
+        // 1.判断当前对象是否能够转换成JSON数据.
+        // YES if obj can be converted to JSON data, otherwise NO
+        //BOOL isYes = [NSJSONSerialization isValidJSONObject:responseObject];
+        //NSString *str = [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        //NSData* xmlData = [str dataUsingEncoding:NSUTF8StringEncoding];
+        NSMutableDictionary * dic = (NSMutableDictionary *)[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        // BOOL isYes = [NSJSONSerialization isValidJSONObject:responseObject];
+        //NSLog(@"支付宝充值VIP页面请求返回的数据为：%@----是否可以解析：",dic);
+        
+        
+        if (!zlDictIsEmpty(dic)) {
+            NSString * result = dic[@"result"];
+            if ([result isEqualToString:@"success"]) {
+                [MBManager showBriefAlert:@"支付成功"];
+                [weakSelf.navigationController popViewControllerAnimated:YES];
+            }
+            else{
+                [MBManager showBriefAlert:@"支付失败"];
+            }
+        }else{
+            [MBManager showBriefAlert:@"支付失败"];
+        }
+    } failure:^(NSError *error) {
+        [MBManager showBriefAlert:@"服务器连接失败"];
+    }];
+
+}
+#pragma end mark  支付结束
 -(void)alipayPostWithUID:(NSString *)UIDS withJinE:(int)jinE
 {
     NSString *totalpay;

@@ -33,7 +33,7 @@
 		730D38751E78D8B800EE4692 /* XiaoXiTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730D38731E78D8B800EE4692 /* XiaoXiTableViewCell.xib */; };
 		730D38791E78DF0B00EE4692 /* XiaoXiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 730D38771E78DF0B00EE4692 /* XiaoXiViewController.m */; };
 		730D387A1E78DF0B00EE4692 /* XiaoXiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730D38781E78DF0B00EE4692 /* XiaoXiViewController.xib */; };
-		730D387E1E790F1C00EE4692 /* ChongZhiViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 730D387C1E790F1C00EE4692 /* ChongZhiViewController.mm */; };
+		730D387E1E790F1C00EE4692 /* ChongZhiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 730D387C1E790F1C00EE4692 /* ChongZhiViewController.m */; };
 		730D387F1E790F1C00EE4692 /* ChongZhiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730D387D1E790F1C00EE4692 /* ChongZhiViewController.xib */; };
 		730D38821E79243A00EE4692 /* UBChongZhiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 730D38811E79243A00EE4692 /* UBChongZhiView.m */; };
 		730D38851E79244C00EE4692 /* VIPChongZhiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 730D38841E79244C00EE4692 /* VIPChongZhiView.m */; };
@@ -335,7 +335,7 @@
 		730D38771E78DF0B00EE4692 /* XiaoXiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XiaoXiViewController.m; sourceTree = "<group>"; };
 		730D38781E78DF0B00EE4692 /* XiaoXiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XiaoXiViewController.xib; sourceTree = "<group>"; };
 		730D387B1E790F1C00EE4692 /* ChongZhiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChongZhiViewController.h; sourceTree = "<group>"; };
-		730D387C1E790F1C00EE4692 /* ChongZhiViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ChongZhiViewController.mm; sourceTree = "<group>"; };
+		730D387C1E790F1C00EE4692 /* ChongZhiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChongZhiViewController.m; sourceTree = "<group>"; };
 		730D387D1E790F1C00EE4692 /* ChongZhiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChongZhiViewController.xib; sourceTree = "<group>"; };
 		730D38801E79243A00EE4692 /* UBChongZhiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBChongZhiView.h; path = MiYouProject/FourController/Controller/UBChongZhiView.h; sourceTree = SOURCE_ROOT; };
 		730D38811E79243A00EE4692 /* UBChongZhiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBChongZhiView.m; path = MiYouProject/FourController/Controller/UBChongZhiView.m; sourceTree = SOURCE_ROOT; };
@@ -1358,7 +1358,7 @@
 				730D38771E78DF0B00EE4692 /* XiaoXiViewController.m */,
 				730D38781E78DF0B00EE4692 /* XiaoXiViewController.xib */,
 				730D387B1E790F1C00EE4692 /* ChongZhiViewController.h */,
-				730D387C1E790F1C00EE4692 /* ChongZhiViewController.mm */,
+				730D387C1E790F1C00EE4692 /* ChongZhiViewController.m */,
 				730D387D1E790F1C00EE4692 /* ChongZhiViewController.xib */,
 				73E7DA4F1E7A78A200371E33 /* HuanCunCenterViewController.h */,
 				73E7DA501E7A78A200371E33 /* HuanCunCenterViewController.m */,
@@ -2316,7 +2316,7 @@
 				73E7DA7D1E7F778900371E33 /* UIView+WHC_Loading.m in Sources */,
 				73C347391E84FC5A00BBBDBE /* SearchResultModel.m in Sources */,
 				73A3B63E1E8DF77F00407957 /* PingLunMTLModel.m in Sources */,
-				730D387E1E790F1C00EE4692 /* ChongZhiViewController.mm in Sources */,
+				730D387E1E790F1C00EE4692 /* ChongZhiViewController.m in Sources */,
 				73EB3F951E6FDEE400CA8B5D /* UIImage+WebP.m in Sources */,
 				73EB3FB91E6FDEE400CA8B5D /* MLAnimationViewController.m in Sources */,
 				73EB3FD31E6FDEE400CA8B5D /* ZhengZePanDuan.m in Sources */,
