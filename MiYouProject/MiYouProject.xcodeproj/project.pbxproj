@@ -48,6 +48,7 @@
 		732BC87B1E6FD17400B8B1BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 732BC8791E6FD17400B8B1BD /* LaunchScreen.storyboard */; };
 		732BC8861E6FD17500B8B1BD /* MiYouProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC8851E6FD17500B8B1BD /* MiYouProjectTests.m */; };
 		732BC8911E6FD17500B8B1BD /* MiYouProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC8901E6FD17500B8B1BD /* MiYouProjectUITests.m */; };
+		732D90881EA057D900FA49A4 /* VIPPriceMTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 732D90871EA057D900FA49A4 /* VIPPriceMTLModel.m */; };
 		732DFC701E94BCD100D024F8 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732DFC551E94BCD100D024F8 /* BaseViewController.m */; };
 		732DFC711E94BCD100D024F8 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732DFC571E94BCD100D024F8 /* DetailViewController.m */; };
 		732DFC721E94BCD100D024F8 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 732DFC5B1E94BCD100D024F8 /* DataManager.m */; };
@@ -360,6 +361,8 @@
 		732BC88C1E6FD17500B8B1BD /* MiYouProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiYouProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		732BC8901E6FD17500B8B1BD /* MiYouProjectUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiYouProjectUITests.m; sourceTree = "<group>"; };
 		732BC8921E6FD17500B8B1BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		732D90861EA057D900FA49A4 /* VIPPriceMTLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPPriceMTLModel.h; sourceTree = "<group>"; };
+		732D90871EA057D900FA49A4 /* VIPPriceMTLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPPriceMTLModel.m; sourceTree = "<group>"; };
 		732DFC541E94BCD100D024F8 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		732DFC551E94BCD100D024F8 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		732DFC561E94BCD100D024F8 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
@@ -1049,6 +1052,8 @@
 				73A3B5FD1E89FA0E00407957 /* UserMessageMTLModel.m */,
 				73485C401E9CB07A00A6691A /* OrderZLModel.h */,
 				73485C411E9CB07A00A6691A /* OrderZLModel.m */,
+				732D90861EA057D900FA49A4 /* VIPPriceMTLModel.h */,
+				732D90871EA057D900FA49A4 /* VIPPriceMTLModel.m */,
 			);
 			path = Model02;
 			sourceTree = "<group>";
@@ -2388,6 +2393,7 @@
 				73C3472F1E84E96600BBBDBE /* AutoFitLabelView.m in Sources */,
 				73C347201E824AE300BBBDBE /* VideoListMTLModel.m in Sources */,
 				73EB3F861E6FDEE400CA8B5D /* UIBarButtonItem+Badge.m in Sources */,
+				732D90881EA057D900FA49A4 /* VIPPriceMTLModel.m in Sources */,
 				732BC8761E6FD17400B8B1BD /* MiYouProject.xcdatamodeld in Sources */,
 				73E7DA7F1E7F778900371E33 /* UIView+WHC_ViewProperty.m in Sources */,
 				73EB3F841E6FDEE400CA8B5D /* NSString+GONMarkup.m in Sources */,
@@ -2562,7 +2568,7 @@
 					"$(PROJECT_DIR)/MiYouProject/CommonFiles/Common/zhou/paymentcontrol/libs",
 					"$(PROJECT_DIR)/MiYouProject/Myframework/ZhiFuFrame",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = junhong.com.MiYouProject;
+				PRODUCT_BUNDLE_IDENTIFIER = miyou.com.MiYouProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -2590,7 +2596,7 @@
 					"$(PROJECT_DIR)/MiYouProject/CommonFiles/Common/zhou/paymentcontrol/libs",
 					"$(PROJECT_DIR)/MiYouProject/Myframework/ZhiFuFrame",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = junhong.com.MiYouProject;
+				PRODUCT_BUNDLE_IDENTIFIER = miyou.com.MiYouProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

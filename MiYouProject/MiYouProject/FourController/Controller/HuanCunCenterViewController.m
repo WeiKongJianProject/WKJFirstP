@@ -35,13 +35,13 @@
     [self.view addSubview:self.tableview];
     
     self.footView = [[NSBundle mainBundle] loadNibNamed:@"HuanCunFooterView" owner:self options:nil][0];
-    [self.footView setFrame:CGRectMake(0, SIZE_HEIGHT-32.0, SIZE_WIDTH, 32.0f)];
+    //[self.footView setFrame:CGRectMake(0, SIZE_HEIGHT-32.0, SIZE_WIDTH, 32.0f)];
     
     [self.view addSubview:self.footView];
     self.footView.hidden = YES;
     [self.footView.quanXuanButton addTarget:self action:@selector(quanXuanButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.footView.deleteButton addTarget:self action:@selector(deleButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    
+    NSLog(@"第一次加载缓存视图中：self.footView.frame.size=x-y-w-h,%g=%g=%g=%g",self.footView.frame.origin.x,self.footView.frame.origin.y,self.footView.frame.size.width,self.footView.frame.size.height);
 }
 //获取缓存视频
 - (void)huoquHuanCunVideoARR{
@@ -94,8 +94,17 @@
                                                       target:self action:@selector(bianjiButtonAction:)];
     self.rightButton.tintColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = self.rightButton;
-    
+    NSLog(@"第二次加载缓存视图中：self.footView.frame.size=x-y-w-h,%g=%g=%g=%g",self.footView.frame.origin.x,self.footView.frame.origin.y,self.footView.frame.size.width,self.footView.frame.size.height);
 }
+
+
+
+//- (void)viewDidAppear:(BOOL)animated{
+//    [super viewDidAppear:animated];
+//    [self.footView setFrame:CGRectMake(0, SIZE_HEIGHT-32.0, SIZE_WIDTH, 32.0f)];
+//    NSLog(@"第三次加载缓存视图中：self.footView.frame.size=x-y-w-h,%g=%g=%g=%g",self.footView.frame.origin.x,self.footView.frame.origin.y,self.footView.frame.size.width,self.footView.frame.size.height);
+//}
+
 - (NSMutableArray *)videoARR{
     
     if(!_videoARR){
@@ -121,6 +130,8 @@
         //[self.tableview setFrame:CGRectMake(0, 0, SIZE_WIDTH, SIZE_HEIGHT-64.0)];
         [self.rightButton setTitle:@"完成"];
         self.footView.hidden = NO;
+        
+        NSLog(@"缓存视图中：self.footView.frame.size=x-y-w-h,%g=%g=%g=%g",self.footView.frame.origin.x,self.footView.frame.origin.y,self.footView.frame.size.width,self.footView.frame.size.height);
         _isEditing = YES;
         [self.tableview setEditing:YES animated:YES];
         

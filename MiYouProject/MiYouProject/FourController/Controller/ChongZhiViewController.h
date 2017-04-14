@@ -15,6 +15,7 @@
 #import "ZhiFuButtonVIew.h"
 #import "OrderZLModel.h"
 //#import <BmobPaySDK/Bmob.h>
+#import "VIPPriceMTLModel.h"
 
 typedef NS_ENUM(NSUInteger,UBorVIP) {
     UB_ChongZhi = 0,
@@ -33,6 +34,9 @@ typedef NS_ENUM(NSUInteger,UBorVIP) {
 @property (strong, nonatomic) MemberMTLModel * memMTLModel;
 @property (strong, nonatomic) NSMutableArray * ubButtonARR;
 @property (strong, nonatomic) NSMutableArray * vipButtonARR;
+@property (strong, nonatomic) NSMutableArray * vipPriceModelARR;
+@property (strong, nonatomic) VIPPriceMTLModel * currentPriceModel;
+
 
 @property (strong, nonatomic) ZhiFuButtonVIew * zhiFuView;
 

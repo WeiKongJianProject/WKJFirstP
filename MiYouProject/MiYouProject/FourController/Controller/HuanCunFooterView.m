@@ -17,5 +17,16 @@
     // Drawing code
 }
 */
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    NSLog(@"HuanCunFooterView执行了awakeFromNib");
+}
+
+
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    NSLog(@"HuanCunFooterView执行了layoutSubviews");
+    [self setFrame:CGRectMake(0, SIZE_HEIGHT-32.0, SIZE_WIDTH, 32.0f)];
+}
 
 @end

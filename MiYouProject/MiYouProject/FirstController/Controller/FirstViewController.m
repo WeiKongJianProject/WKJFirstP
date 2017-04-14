@@ -93,9 +93,14 @@
         }else if ([useString isEqualToString:@"3"]){
             [weakSelf.tabBarController setSelectedIndex:2];
         }else if ([useString isEqualToString:@"5"]){
-            [weakSelf setActiveTabIndex:4];
+            if (self.itemsTitlesARR.count >= 5) {
+                [weakSelf setActiveTabIndex:4];
+            }
+            
         }else if ([useString isEqualToString:@"6"]){
-            [weakSelf setActiveTabIndex:5];
+            if (self.itemsTitlesARR.count >= 6) {
+                [weakSelf setActiveTabIndex:5];
+            }
         }
         
         
@@ -168,7 +173,7 @@
     
     NSString * url = nil;
     if ([self isFirstOpen] == YES) {
-        url = [NSString stringWithFormat:@"%@&action=index&cate=999&page=1&fresh=1",URL_Common_ios];
+        url = [NSString stringWithFormat:@"%@&action=index&cate=999&page=1&fresh=1&channel=%@",URL_Common_ios,CHANNEL_ID];
     }
     else{
         url = [NSString stringWithFormat:@"%@&action=index&cate=999",URL_Common_ios];

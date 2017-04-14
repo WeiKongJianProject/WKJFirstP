@@ -16,6 +16,7 @@
 #define HEAD_IMAGEVIEW_UPDATA_NOTIFICATION @"head_imageView_updata_notification"
 
 #define KAITONG_VIP_NOTIFICATION @"kaitong_vip_notification"
+#define CHANNEL_ID @"789456123"
 
 //友盟APPID 58db47df07fe657cca0001b1
 #define YOUMENG_APP_ID_ZL @"58db47df07fe657cca0001b1"

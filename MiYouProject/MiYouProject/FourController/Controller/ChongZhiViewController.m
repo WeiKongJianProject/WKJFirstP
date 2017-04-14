@@ -12,8 +12,8 @@
 #define ZHIFU_NOTIFICATION_RESUALT @"ZHIFU_NOTIFICATION_RESUALT"
 
 @interface ChongZhiViewController (){
-
-
+    
+    
     int _currentJINE;
     NSString * _currentOrderNUM;
 }
@@ -80,11 +80,11 @@
     [self.ubButtonARR addObjectsFromArray:@[self.UBView.button01,self.UBView.button02,self.UBView.button03,self.UBView.button04,self.UBView.button05,self.UBView.button06,self.VIPView.button01,self.VIPView.button02,self.VIPView.button03,self.VIPView.button04,self.VIPView.button05,self.VIPView.button06]];
     
     [self.UBView.button01 setBackgroundImage:[UIImage imageNamed:@"10yuanxuanzhong"] forState:UIControlStateSelected];
-     [self.UBView.button02 setBackgroundImage:[UIImage imageNamed:@"20yuanxuanzhong"] forState:UIControlStateSelected];
-     [self.UBView.button03 setBackgroundImage:[UIImage imageNamed:@"30yuanxuanzhong"] forState:UIControlStateSelected];
-     [self.UBView.button04 setBackgroundImage:[UIImage imageNamed:@"50yuanxuanzhong"] forState:UIControlStateSelected];
-     [self.UBView.button05 setBackgroundImage:[UIImage imageNamed:@"100yuanxuanzhong"] forState:UIControlStateSelected];
-     [self.UBView.button06 setBackgroundImage:[UIImage imageNamed:@"500yuanxuanzhong"] forState:UIControlStateSelected];
+    [self.UBView.button02 setBackgroundImage:[UIImage imageNamed:@"20yuanxuanzhong"] forState:UIControlStateSelected];
+    [self.UBView.button03 setBackgroundImage:[UIImage imageNamed:@"30yuanxuanzhong"] forState:UIControlStateSelected];
+    [self.UBView.button04 setBackgroundImage:[UIImage imageNamed:@"50yuanxuanzhong"] forState:UIControlStateSelected];
+    [self.UBView.button05 setBackgroundImage:[UIImage imageNamed:@"100yuanxuanzhong"] forState:UIControlStateSelected];
+    [self.UBView.button06 setBackgroundImage:[UIImage imageNamed:@"500yuanxuanzhong"] forState:UIControlStateSelected];
     [self.VIPView.button01 setBackgroundImage:[UIImage imageNamed:@"qingtongxuanzhong"] forState:UIControlStateSelected];
     [self.VIPView.button02 setBackgroundImage:[UIImage imageNamed:@"heijinvip"] forState:UIControlStateSelected];
     [self.VIPView.button03 setBackgroundImage:[UIImage imageNamed:@"huangjinxuanzhong"] forState:UIControlStateSelected];
@@ -126,30 +126,31 @@
     }
     //切割每次动画滚动距离
     
-    [UIView animateWithDuration:19.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+    [UIView animateWithDuration:59.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         weakSelf.UBView.scrollView.contentOffset = CGPointMake(weakSelf.UBView.scrollView.contentOffset.x, weakSelf.UBView.scrollView.contentOffset.y+offSet);
     } completion:nil];
-    [UIView animateWithDuration:19.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+    [UIView animateWithDuration:59.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         weakSelf.VIPView.scrollView.contentOffset = CGPointMake(weakSelf.VIPView.scrollView.contentOffset.x, weakSelf.VIPView.scrollView.contentOffset.y+offSet);
     } completion:nil];
     //滚动动画
-    [NSTimer scheduledTimerWithTimeInterval:19.0f target:self selector:@selector(addAnimationScrollview) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:59.0f target:self selector:@selector(addAnimationScrollview) userInfo:nil repeats:YES];
     
     
     [self xw_addNotificationForName:ZHIFU_NOTIFICATION_RESUALT block:^(NSNotification * _Nonnull notification) {
-        [weakSelf zhifushibaiAction];
+        NSString * type = notification.userInfo[@"type"];
+        [weakSelf zhifushibaiActionWithType:type];
     }];
     
 }
 //滚动动画
 - (void)addAnimationScrollview{
     __weak typeof(self) weakSelf = self;
-//    [UIView animateWithDuration:19.0f animations:^{
-//        [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 300)];
-//        
-//    } completion:^(BOOL finished) {
-//         [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 0)];
-//    }];
+    //    [UIView animateWithDuration:19.0f animations:^{
+    //        [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 300)];
+    //
+    //    } completion:^(BOOL finished) {
+    //         [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 0)];
+    //    }];
     //滚动速度
     CGFloat offSet=300.0;
     
@@ -165,10 +166,10 @@
     
     //切割每次动画滚动距离
     
-    [UIView animateWithDuration:19.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+    [UIView animateWithDuration:59.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         weakSelf.UBView.scrollView.contentOffset = CGPointMake(weakSelf.UBView.scrollView.contentOffset.x, weakSelf.UBView.scrollView.contentOffset.y+offSet);
     } completion:nil];
-    [UIView animateWithDuration:19.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+    [UIView animateWithDuration:59.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         weakSelf.VIPView.scrollView.contentOffset = CGPointMake(weakSelf.VIPView.scrollView.contentOffset.x, weakSelf.VIPView.scrollView.contentOffset.y+offSet);
     } completion:nil];
 }
@@ -185,37 +186,57 @@
             //make.height.mas_equalTo(160.0f);
         }];
     }];
-
+    
 }
 //支付按钮
 - (void)tanChuZhiFuView{
     
-    if (_currentJINE > 0) {
-        __weak typeof(self) weakSelf = self;
-        [UIView animateWithDuration:0.3 animations:^{
-            [weakSelf.zhiFuView mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.left.mas_equalTo(self.view.mas_left);
-                make.right.mas_equalTo(self.view.mas_right);
-                make.top.mas_equalTo(self.view.mas_bottom).offset(-160.0f);
-                make.bottom.mas_equalTo(self.view.mas_bottom);
-                //make.height.mas_equalTo(160.0f);
+    if (self.UB_or_VIP == UB_ChongZhi) {
+        if (_currentJINE > 0) {
+            __weak typeof(self) weakSelf = self;
+            [UIView animateWithDuration:0.3 animations:^{
+                [weakSelf.zhiFuView mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.left.mas_equalTo(self.view.mas_left);
+                    make.right.mas_equalTo(self.view.mas_right);
+                    make.top.mas_equalTo(self.view.mas_bottom).offset(-160.0f);
+                    make.bottom.mas_equalTo(self.view.mas_bottom);
+                    //make.height.mas_equalTo(160.0f);
+                }];
+                
             }];
+        }
+        else{
             
-        }];
+            [MBManager showBriefAlert:@"请选择充值类型"];
+        }
     }
     else{
-    
-        [MBManager showBriefAlert:@"请选择充值类型"];
+        if (self.currentPriceModel != nil) {
+            __weak typeof(self) weakSelf = self;
+            [UIView animateWithDuration:0.3 animations:^{
+                [weakSelf.zhiFuView mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.left.mas_equalTo(self.view.mas_left);
+                    make.right.mas_equalTo(self.view.mas_right);
+                    make.top.mas_equalTo(self.view.mas_bottom).offset(-160.0f);
+                    make.bottom.mas_equalTo(self.view.mas_bottom);
+                    //make.height.mas_equalTo(160.0f);
+                }];
+                
+            }];
+        }
+        else{
+            
+            [MBManager showBriefAlert:@"请选择充值类型"];
+        }
+        
     }
-
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-//    self.navigationController.navigationBar.translucent = NO;
-//    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-//    self.navigationController.navigationBar.clipsToBounds = YES;
+    //    self.navigationController.navigationBar.translucent = NO;
+    //    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    //    self.navigationController.navigationBar.clipsToBounds = YES;
     
     //[self updateControlCounts];
     
@@ -223,8 +244,6 @@
         self.VIPView.hidden = YES;
         self.UBView.hidden = NO;
         self.UB_or_VIP = UB_ChongZhi;
-        
-        
     }
     else{
         self.UB_or_VIP = VIP_ChongZhi;
@@ -245,10 +264,10 @@
         NSString * result = dic[@"result"];
         if ([result isEqualToString:@"success"]) {
             if (!zlObjectIsEmpty(dic[@"points"])) {
-              weakSelf.UBView.yuELabel.text = [NSString stringWithFormat:@"账户余额:%d",[dic[@"points"] intValue]];
+                weakSelf.UBView.yuELabel.text = [NSString stringWithFormat:@"账户余额:%d",[dic[@"points"] intValue]];
             }
             if (!zlObjectIsEmpty(dic[@"exchange"])) {
-                 weakSelf.UBView.duiHuanLabel.text = [NSString stringWithFormat:@"充值数量:%dU币=1元",[dic[@"exchange"] intValue]];
+                weakSelf.UBView.duiHuanLabel.text = [NSString stringWithFormat:@"充值数量:%dU币=1元",[dic[@"exchange"] intValue]];
             }
             NSArray * arrGift = dic[@"gift"];
             if (!zlArrayIsEmpty(arrGift)) {
@@ -269,10 +288,10 @@
                     NSString * name = dic00[@"name"];
                     NSString * con = dic00[@"content"];
                     NSString * str = [NSString stringWithFormat:@"%@ %@\n",name,con];
-                    NSLog(@"解析已充值的用户：%@",str);
+                    //NSLog(@"解析已充值的用户：%@",str);
                     string = [string stringByAppendingString:str];
                 }
-                NSLog(@"已充值的UB的用户：%@",string);
+                //NSLog(@"已充值的UB的用户：%@",string);
                 UILabel * label = [[UILabel alloc]init];
                 label.numberOfLines = 0;
                 label.font = [UIFont systemFontOfSize:12.0f];
@@ -293,7 +312,7 @@
     
 }
 - (void)startAFNetworkingVIP{
-
+    
     __weak typeof(self) weakSelf = self;
     NSString * url = [NSString stringWithFormat:@"%@&action=buyVip&id=%@",URL_Common_ios,self.memMTLModel.id];
     NSLog(@"充值VIP页面链接：%@",url);
@@ -320,10 +339,10 @@
                     NSString * name = dic00[@"name"];
                     NSString * con = dic00[@"content"];
                     NSString * str = [NSString stringWithFormat:@"%@ %@\n",name,con];
-                    NSLog(@"解析VIP已充值的用户：%@",str);
+                    //NSLog(@"解析VIP已充值的用户：%@",str);
                     string = [string stringByAppendingString:str];
                 }
-                NSLog(@"已充值的VIP的用户：%@",string);
+                //NSLog(@"已充值的VIP的用户：%@",string);
                 UILabel * label = [[UILabel alloc]init];
                 label.numberOfLines = 0;
                 label.font = [UIFont systemFontOfSize:12.0f];
@@ -336,30 +355,33 @@
                 }];
                 
             }
-
-            
+            NSArray * arrPriceARR = dic[@"grouplist"];
+            if (!zlArrayIsEmpty(arrPriceARR)) {
+                self.vipPriceModelARR = (NSMutableArray *)[MTLJSONAdapter modelsOfClass:[VIPPriceMTLModel class] fromJSONArray:arrPriceARR error:nil];
+            }
+            NSLog(@"会员等级数组列表个数：%ld",self.vipPriceModelARR.count);
         }
         
     } failure:^(NSError *error) {
-        
+        [MBManager showBriefAlert:@"服务器连接失败"];
     }];
-
+    
 }
 
 //+ (void)initialize
 //{
 //#if DEBUG_APPERANCE
-//    
+//
 //    [[DZNSegmentedControl appearance] setBackgroundColor:kBakgroundColor];
 //    [[DZNSegmentedControl appearance] setTintColor:kTintColor];
 //    [[DZNSegmentedControl appearance] setHairlineColor:kHairlineColor];
-//    
+//
 //    [[DZNSegmentedControl appearance] setFont:[UIFont fontWithName:@"EuphemiaUCAS" size:15.0]];
 //    [[DZNSegmentedControl appearance] setSelectionIndicatorHeight:2.5];
 //    [[DZNSegmentedControl appearance] setAnimationDuration:0.125];
-//    
+//
 //    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor darkGrayColor], NSFontAttributeName: [UIFont systemFontOfSize:18.0]}];
-//    
+//
 //#endif
 //}
 //金额按钮执行方法
@@ -376,9 +398,12 @@
                 _currentJINE = 10;
             }
             else{
-                _currentJINE = 18;
+                if (self.vipPriceModelARR.count > 0) {
+                    self.currentPriceModel = self.vipPriceModelARR[0];
+                }
+                // _currentJINE = 18;
             }
-        
+            
         }
             break;
         case 2:
@@ -386,7 +411,10 @@
                 _currentJINE = 20;
             }
             else{
-                _currentJINE = 28;
+                if (self.vipPriceModelARR.count > 1) {
+                    self.currentPriceModel = self.vipPriceModelARR[0];
+                }
+                //_currentJINE = 28;
             }
             break;
         case 3:
@@ -394,7 +422,10 @@
                 _currentJINE = 30;
             }
             else{
-                _currentJINE = 38;
+                if (self.vipPriceModelARR.count > 2) {
+                    self.currentPriceModel = self.vipPriceModelARR[0];
+                }
+                // _currentJINE = 38;
             }
             break;
         case 4:
@@ -402,7 +433,10 @@
                 _currentJINE = 50;
             }
             else{
-                _currentJINE = 58;
+                if (self.vipPriceModelARR.count > 3) {
+                    self.currentPriceModel = self.vipPriceModelARR[0];
+                }
+                //_currentJINE = 58;
             }
             break;
         case 5:
@@ -410,7 +444,10 @@
                 _currentJINE = 100;
             }
             else{
-                _currentJINE = 98;
+                if (self.vipPriceModelARR.count > 4) {
+                    self.currentPriceModel = self.vipPriceModelARR[0];
+                }
+                //_currentJINE = 98;
             }
             break;
         case 6:
@@ -418,7 +455,10 @@
                 _currentJINE = 500;
             }
             else{
-                _currentJINE = 198;
+                if (self.vipPriceModelARR.count > 5) {
+                    self.currentPriceModel = self.vipPriceModelARR[0];
+                }
+                //_currentJINE = 198;
             }
             break;
             
@@ -455,10 +495,10 @@
         //                _control.width = 300.0f;
         //                _control.showsGroupingSeparators = YES;
         //                _control.inverseTitles = YES;
-                        _control.backgroundColor = [UIColor clearColor];
-                        _control.tintColor = [UIColor whiteColor];
+        _control.backgroundColor = [UIColor clearColor];
+        _control.tintColor = [UIColor whiteColor];
         //                _control.hairlineColor = [UIColor purpleColor];
-                        _control.showsCount = NO;
+        _control.showsCount = NO;
         //                _control.autoAdjustSelectionIndicatorWidth = NO;
         //                _control.selectionIndicatorHeight = 4.0;
         //                _control.adjustsFontSizeToFitWidth = YES;
@@ -473,12 +513,12 @@
 {
     NSUInteger newSegment = self.control.numberOfSegments;
     
-//#if DEBUG_IMAGE
-//    [self.control setImage:[UIImage imageNamed:@"icn_clock"] forSegmentAtIndex:newSegment];
-//#else
+    //#if DEBUG_IMAGE
+    //    [self.control setImage:[UIImage imageNamed:@"icn_clock"] forSegmentAtIndex:newSegment];
+    //#else
     [self.control setTitle:[@"Favorites" uppercaseString] forSegmentAtIndex:newSegment];
     //[self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:newSegment];
-//#endif
+    //#endif
 }
 - (void)refreshSegments:(id)sender
 {
@@ -500,27 +540,31 @@
 
 - (void)updateControlCounts
 {
-//    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:0];
-//    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:1];
-//    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:2];
+    //    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:0];
+    //    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:1];
+    //    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:2];
     
-//#if DEBUG_APPERANCE
-//    [self.control setTitleColor:kHairlineColor forState:UIControlStateNormal];
-//#endif
+    //#if DEBUG_APPERANCE
+    //    [self.control setTitleColor:kHairlineColor forState:UIControlStateNormal];
+    //#endif
 }
 
 - (void)didChangeSegment:(DZNSegmentedControl *)control
 {
-    
+    [self closeButtonAction:nil];
     if (control.selectedSegmentIndex == 0) {
         self.VIPView.hidden = YES;
         self.UBView.hidden = NO;
         self.UB_or_VIP = UB_ChongZhi;
+        _currentJINE = 0;
+        self.currentPriceModel = nil;
     }
     else{
         self.UB_or_VIP = VIP_ChongZhi;
         self.UBView.hidden = YES;
         self.VIPView.hidden = NO;
+        _currentJINE = 0;
+        self.currentPriceModel = nil;
     }
     
 }
@@ -565,7 +609,7 @@
 }
 //支付宝支付
 - (void)zhifuBaoButtonAction:(UIButton *)sender{
-
+    
     //[self alipayPostWithUID:UID withJinE:_currentJINE];
     [self zhifuButtonWithType:@"alipay"];
 }
@@ -576,8 +620,16 @@
     NSLog(@"生成订单：用户的ID：%@,支付宝支付:金额为：%d",UID,_currentJINE);
     
     __weak typeof(self) weakSelf = self;
-    //wechat
-    NSString * url = [NSString stringWithFormat:@"%@&action=doRecharge&id=%@&money=%d&type=%@",URL_Common_ios,UID,_currentJINE,type];
+    NSString * url = nil;
+    if (self.UB_or_VIP == UB_ChongZhi) {
+        //wechat
+        url = [NSString stringWithFormat:@"%@&action=doRecharge&id=%@&money=%d&type=%@&channel=%@",URL_Common_ios,UID,_currentJINE,type,CHANNEL_ID];
+    }
+    else{
+        url = [NSString stringWithFormat:@"%@&action=doBuyVip&id=%@&vip=%d&type=%@&channel=%@",URL_Common_ios,UID,[self.currentPriceModel.id intValue],type,CHANNEL_ID];
+    }
+    
+    
     NSLog(@"支付宝充值VIP页面链接：%@",url);
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
         
@@ -589,50 +641,106 @@
         NSMutableDictionary * dic = (NSMutableDictionary *)[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         // BOOL isYes = [NSJSONSerialization isValidJSONObject:responseObject];
         NSLog(@"支付宝充值VIP页面请求返回的数据为：%@----是否可以解析：",dic);
-        
-        
         if (!zlDictIsEmpty(dic)) {
             NSString * result = dic[@"result"];
             if ([result isEqualToString:@"success"]) {
-                _currentOrderNUM = dic[@"orderNo"];
-                //@"https://qr.alipay.com/bax00225fwvaxotgyqcj602a"
-                NSString * strIdentifier = dic[@"url"];
-                BOOL isExsit = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strIdentifier]];
-                if(isExsit) {
-                    //NSLog(@"App %@ installed", strIdentifier);
-                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:strIdentifier]];
-                                AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
-                                alertZL.titleName = @"支付结果";
-                                alertZL.cancelBtnTitle = @"支付失败";
-                                alertZL.okBtnTitle = @"支付完成";
-                                [alertZL cancelBlockAction:^(BOOL success) {
-                                    [alertZL hideCustomeAlertView];
-                                    [weakSelf xw_postNotificationWithName:ZHIFU_NOTIFICATION_RESUALT userInfo:nil];
-                                }];
-                                [alertZL okButtonBlockAction:^(BOOL success) {
-                                    [alertZL hideCustomeAlertView];
-                                    [weakSelf.navigationController popViewControllerAnimated:YES];
-                                    NSLog(@"点击了去支付按钮");
-                                }];
-                                [alertZL showCustomAlertView];
+                
+                if (self.UB_or_VIP == UB_ChongZhi) {
+                    //UB充值
+                    if ([type isEqualToString:@"alipay"]) {
+                        _currentOrderNUM = dic[@"orderNo"];
+                        //@"https://qr.alipay.com/bax00225fwvaxotgyqcj602a"
+                        NSString * strIdentifier = dic[@"url"];
+                        BOOL isExsit = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strIdentifier]];
+                        if(isExsit) {
+                            //NSLog(@"App %@ installed", strIdentifier);
+                            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:strIdentifier]];
+                            AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
+                            alertZL.titleName = @"支付结果";
+                            alertZL.cancelBtnTitle = @"支付失败";
+                            alertZL.okBtnTitle = @"支付完成";
+                            [alertZL cancelBlockAction:^(BOOL success) {
+                                [alertZL hideCustomeAlertView];
+                                [weakSelf xw_postNotificationWithName:ZHIFU_NOTIFICATION_RESUALT userInfo:@{@"type":@"UB"}];
+                            }];
+                            [alertZL okButtonBlockAction:^(BOOL success) {
+                                [alertZL hideCustomeAlertView];
+                                [weakSelf.navigationController popViewControllerAnimated:YES];
+                                NSLog(@"点击了去支付按钮");
+                            }];
+                            [alertZL showCustomAlertView];
+                        }
+                    }
+                    else{
+                        [MBManager showBriefAlert:@"生成订单失败"];
+                    }
+                    
                 }
+                else{
+                    //VIP会员购买
+                    if ([type isEqualToString:@"alipay"]) {
+                        _currentOrderNUM = dic[@"orderNo"];
+                        NSLog(@"当前的订单号为：%@",_currentOrderNUM);
+                        //@"https://qr.alipay.com/bax00225fwvaxotgyqcj602a"
+                        NSString * strIdentifier = dic[@"url"];
+                        BOOL isExsit = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strIdentifier]];
+                        if(isExsit) {
+                            //NSLog(@"App %@ installed", strIdentifier);
+                            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:strIdentifier]];
+                            AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
+                            alertZL.titleName = @"支付结果";
+                            alertZL.cancelBtnTitle = @"支付失败";
+                            alertZL.okBtnTitle = @"支付完成";
+                            [alertZL cancelBlockAction:^(BOOL success) {
+                                [alertZL hideCustomeAlertView];
+                                [weakSelf xw_postNotificationWithName:ZHIFU_NOTIFICATION_RESUALT userInfo:@{@"type":@"VIP"}];
+                            }];
+                            [alertZL okButtonBlockAction:^(BOOL success) {
+                                [alertZL hideCustomeAlertView];
+                                [weakSelf.navigationController popViewControllerAnimated:YES];
+                                NSLog(@"点击了去支付按钮");
+                            }];
+                            [alertZL showCustomAlertView];
+                        }
+                        
+                    }
+                    else{
+                        
+                        [MBManager showBriefAlert:@"生成订单失败"];
+                    }
+                    
+                    
+                }
+                
+                
             }
             else{
                 [MBManager showBriefAlert:@"生成订单失败"];
             }
+            
         }else{
             [MBManager showBriefAlert:@"生成订单失败"];
         }
     } failure:^(NSError *error) {
         [MBManager showBriefAlert:@"生成订单失败"];
     }];
-
+    
 }
-- (void)zhifushibaiAction{
+- (void)zhifushibaiActionWithType:(NSString *)type{
     __weak typeof(self) weakSelf = self;
     //wechat
-    NSString * url = [NSString stringWithFormat:@"%@&action=doRecharge&orderNo=%@",URL_Common_ios,_currentOrderNUM];
-    //NSLog(@"获取充值结果URL：%@",url);
+    NSString * url  = nil;
+    
+    if ([type isEqualToString:@"VIP"]) {
+        
+        url = [NSString stringWithFormat:@"%@&action=doBuyVip&orderNo=%@",URL_Common_ios,_currentOrderNUM];
+    }else{
+        
+        url = [NSString stringWithFormat:@"%@&action=doRecharge&orderNo=%@",URL_Common_ios,_currentOrderNUM];
+    }
+    
+    
+    NSLog(@"获取充值结果URL：%@",url);
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
         
         // 1.判断当前对象是否能够转换成JSON数据.
@@ -660,7 +768,7 @@
     } failure:^(NSError *error) {
         [MBManager showBriefAlert:@"服务器连接失败"];
     }];
-
+    
 }
 #pragma end mark  支付结束
 -(void)alipayPostWithUID:(NSString *)UIDS withJinE:(int)jinE
@@ -671,118 +779,118 @@
     totalpay = [NSString stringWithFormat:@"%d.00",_currentJINE];
     int orderNum = 123456 + arc4random()%99999999;
     outtradenum = [NSString stringWithFormat:@"%d",orderNum];
-//    if (_paramDic) {
-//        totalpay = _paramDic[@"totalFee"];
-//        outtradenum = _paramDic[@"order_trade_no"];
-//    }
-//    else
-//    {
-//        totalpay=[NSString stringWithFormat:@"%.2f",_orderDetail.DDJE];
-//        outtradenum =_orderDetail.JLBH?:@"";
-//    }
+    //    if (_paramDic) {
+    //        totalpay = _paramDic[@"totalFee"];
+    //        outtradenum = _paramDic[@"order_trade_no"];
+    //    }
+    //    else
+    //    {
+    //        totalpay=[NSString stringWithFormat:@"%.2f",_orderDetail.DDJE];
+    //        outtradenum =_orderDetail.JLBH?:@"";
+    //    }
     
     
     NSDictionary * ret = @{@"order_id":outtradenum,@"payment_type":@"alipay"};
     /*
-    [MLHttpManager post:ZhiFu_LIUSHUI_URLString params:ret m:@"product" s:@"pay" success:^(id responseObject) {
-        NSDictionary * results = (NSDictionary *)responseObject;
-        //        NSLog(@"请求订单流水：%@",results);
-        if ([results[@"code"] isEqual:@0]) {
-            NSDictionary *dic = @{@"out_trade_no":self.order_id,
-                                  @"subject":@"美罗全球精品购",
-                                  @"body":@"美罗全球精品购",
-                                  @"total_fee":[NSString stringWithFormat:@"%.2f",self.order_sum]
-                                  };
-            [[HFSServiceClient sharedPayClient] POST:ALIPAY_SERVICE_URL parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                
-                NSDictionary *result = (NSDictionary *)responseObject;
-                NSLog(@"支付宝支付result %@",result);
-                
-                [self hideFengHuoLun];
-                if (result) {
-                    AliPayOrder *order = [[AliPayOrder alloc] init];
-                    order.partner = result[@"partner"];
-                    order.seller = result[@"seller_id"];
-                    order.tradeNO = result[@"out_trade_no"];
-                    order.productName = result[@"subject"];
-                    order.productDescription = result[@"body"];
-                    order.amount = result[@"total_fee"];
-                    order.notifyURL = result[@"notify_url"];
-                    order.service = result[@"service"];
-                    order.paymentType = result[@"payment_type"];
-                    order.inputCharset = result[@"_input_charset"];
-                    order.itBPay = result[@"it_b_pay"];
-                    
-                    //将商品信息拼接成字符串
-                    NSString *orderSpec = [order description];
-                    NSString *signedString =result[@"sign"];
-                    //将签名成功字符串格式化为订单字符串,请严格按照该格式
-                    NSString *orderString = nil;
-                    NSString *appScheme = @"Matro";
-                    if (signedString != nil) {
-                        signedString = [signedString gtm_stringByEscapingForURLArgument];
-                        
-                        orderString = [NSString stringWithFormat:@"%@&sign=\"%@\"&sign_type=\"%@\"",
-                                       orderSpec, signedString, @"RSA"];
-                        NSLog(@"支付宝支付签名%@",orderString);
-                        [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
-                            
-                            if ([resultDic[@"resultStatus"] intValue]==9000) {
-                                [_hud show:YES];
-                                _hud.mode = MBProgressHUDModeText;
-                                _hud.labelText = resultDic[@"memo"];
-                                [_hud hide:YES afterDelay:2];
-                                MLPayresultViewController * payResultVC = [[MLPayresultViewController alloc]init];
-                                payResultVC.hidesBottomBarWhenPushed = YES;
-                                payResultVC.isSuccess = YES;
-                                payResultVC.order_id = self.order_id;
-                                [self.navigationController pushViewController:payResultVC animated:YES];
-                                
-                            }
-                            else{
-                                NSString *resultMes = resultDic[@"memo"];
-                                resultMes = (resultMes.length<=0?@"支付失败":resultMes);
-                                MLPayShiBaiViewController * shiBaiVC = [[MLPayShiBaiViewController alloc]init];
-                                shiBaiVC.hidesBottomBarWhenPushed = YES;
-                                
-                                [self.navigationController pushViewController:shiBaiVC animated:YES];
-                            }
-                            NSLog(@"支付宝支付结果reslut = %@",resultDic);
-                        }];
-                    }
-                }
-                
-                
-                
-            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                [self hideFengHuoLun];
-                [_hud show:YES];
-                NSLog(@"error kkkk %@",error);
-                _hud.mode = MBProgressHUDModeText;
-                _hud.labelText = REQUEST_ERROR_ZL;
-                [_hud hide:YES afterDelay:2];
-            }];
-            
-            
-        }
-        
-    } failure:^(NSError *error) {
-        [self hideFengHuoLun];
-        [_hud show:YES];
-        NSLog(@"error kkkk %@",error);
-        _hud.mode = MBProgressHUDModeText;
-        _hud.labelText = REQUEST_ERROR_ZL;
-        [_hud hide:YES afterDelay:2];
-    }];
-    
-    */
+     [MLHttpManager post:ZhiFu_LIUSHUI_URLString params:ret m:@"product" s:@"pay" success:^(id responseObject) {
+     NSDictionary * results = (NSDictionary *)responseObject;
+     //        NSLog(@"请求订单流水：%@",results);
+     if ([results[@"code"] isEqual:@0]) {
+     NSDictionary *dic = @{@"out_trade_no":self.order_id,
+     @"subject":@"美罗全球精品购",
+     @"body":@"美罗全球精品购",
+     @"total_fee":[NSString stringWithFormat:@"%.2f",self.order_sum]
+     };
+     [[HFSServiceClient sharedPayClient] POST:ALIPAY_SERVICE_URL parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+     
+     NSDictionary *result = (NSDictionary *)responseObject;
+     NSLog(@"支付宝支付result %@",result);
+     
+     [self hideFengHuoLun];
+     if (result) {
+     AliPayOrder *order = [[AliPayOrder alloc] init];
+     order.partner = result[@"partner"];
+     order.seller = result[@"seller_id"];
+     order.tradeNO = result[@"out_trade_no"];
+     order.productName = result[@"subject"];
+     order.productDescription = result[@"body"];
+     order.amount = result[@"total_fee"];
+     order.notifyURL = result[@"notify_url"];
+     order.service = result[@"service"];
+     order.paymentType = result[@"payment_type"];
+     order.inputCharset = result[@"_input_charset"];
+     order.itBPay = result[@"it_b_pay"];
+     
+     //将商品信息拼接成字符串
+     NSString *orderSpec = [order description];
+     NSString *signedString =result[@"sign"];
+     //将签名成功字符串格式化为订单字符串,请严格按照该格式
+     NSString *orderString = nil;
+     NSString *appScheme = @"Matro";
+     if (signedString != nil) {
+     signedString = [signedString gtm_stringByEscapingForURLArgument];
+     
+     orderString = [NSString stringWithFormat:@"%@&sign=\"%@\"&sign_type=\"%@\"",
+     orderSpec, signedString, @"RSA"];
+     NSLog(@"支付宝支付签名%@",orderString);
+     [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+     
+     if ([resultDic[@"resultStatus"] intValue]==9000) {
+     [_hud show:YES];
+     _hud.mode = MBProgressHUDModeText;
+     _hud.labelText = resultDic[@"memo"];
+     [_hud hide:YES afterDelay:2];
+     MLPayresultViewController * payResultVC = [[MLPayresultViewController alloc]init];
+     payResultVC.hidesBottomBarWhenPushed = YES;
+     payResultVC.isSuccess = YES;
+     payResultVC.order_id = self.order_id;
+     [self.navigationController pushViewController:payResultVC animated:YES];
+     
+     }
+     else{
+     NSString *resultMes = resultDic[@"memo"];
+     resultMes = (resultMes.length<=0?@"支付失败":resultMes);
+     MLPayShiBaiViewController * shiBaiVC = [[MLPayShiBaiViewController alloc]init];
+     shiBaiVC.hidesBottomBarWhenPushed = YES;
+     
+     [self.navigationController pushViewController:shiBaiVC animated:YES];
+     }
+     NSLog(@"支付宝支付结果reslut = %@",resultDic);
+     }];
+     }
+     }
+     
+     
+     
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+     [self hideFengHuoLun];
+     [_hud show:YES];
+     NSLog(@"error kkkk %@",error);
+     _hud.mode = MBProgressHUDModeText;
+     _hud.labelText = REQUEST_ERROR_ZL;
+     [_hud hide:YES afterDelay:2];
+     }];
+     
+     
+     }
+     
+     } failure:^(NSError *error) {
+     [self hideFengHuoLun];
+     [_hud show:YES];
+     NSLog(@"error kkkk %@",error);
+     _hud.mode = MBProgressHUDModeText;
+     _hud.labelText = REQUEST_ERROR_ZL;
+     [_hud hide:YES afterDelay:2];
+     }];
+     
+     */
 }
 
 #pragma mark 支付宝  微信支付  接口调用  END
 
 
 - (NSMutableArray *)UBMiaoShuARR{
-
+    
     if (!_UBMiaoShuARR) {
         _UBMiaoShuARR = [[NSMutableArray alloc]init];
     }
@@ -793,17 +901,17 @@
         _VIPMiaoShuARR = [[NSMutableArray alloc]init];
     }
     return _VIPMiaoShuARR;
-
+    
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
