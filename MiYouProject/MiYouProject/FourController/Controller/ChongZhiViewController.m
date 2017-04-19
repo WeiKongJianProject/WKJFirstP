@@ -12,8 +12,6 @@
 #define ZHIFU_NOTIFICATION_RESUALT @"ZHIFU_NOTIFICATION_RESUALT"
 
 @interface ChongZhiViewController (){
-    
-    
     int _currentJINE;
     NSString * _currentOrderNUM;
 }
@@ -31,9 +29,7 @@
     
     NSDictionary * dic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
     self.memMTLModel = [MTLJSONAdapter modelOfClass:[MemberMTLModel class] fromJSONDictionary:dic error:nil];
-    
-    
-    
+
     self.navigationItem.titleView = self.control;
     
     if (self.UB_or_VIP == UB_ChongZhi) {
@@ -114,21 +110,36 @@
     __weak typeof(self) weakSelf = self;
     //滚动速度
     CGFloat offSet=300.0;
-    
-    //若果字幕滚动到第二部分重复的部分则把偏移置0，设为第一部分,实现无限循环
-    if (weakSelf.UBView.scrollView.contentOffset.y>=weakSelf.UBView.scrollView.contentSize.height / 2) {
+//    
+//    //若果字幕滚动到第二部分重复的部分则把偏移置0，设为第一部分,实现无限循环
+//    if (weakSelf.UBView.scrollView.contentOffset.y>=weakSelf.UBView.scrollView.contentSize.height / 2) {
+//        
+//        weakSelf.UBView.scrollView.contentOffset=CGPointMake(0, -90);
+//    }
+//    if (weakSelf.VIPView.scrollView.contentOffset.y>=weakSelf.VIPView.scrollView.contentSize.height / 2) {
+//        
+//        weakSelf.VIPView.scrollView.contentOffset=CGPointMake(0, -90);
+//    }
+    //[weakSelf.UBView.scrollView setBackgroundColor:[UIColor grayColor]];
+        //[weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 300)];
+        NSLog(@"UBView.contentOffset的值为：=%g----=%g",self.UBView.scrollView.contentOffset.x,self.UBView.scrollView.contentOffset.y);
+//        [UIView animateWithDuration:59.0f animations:^{
+//            [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 300)];
+//            NSLog(@"UBView.contentOffset的值为：=%g----=%g",self.UBView.scrollView.contentOffset.x,self.UBView.scrollView.contentOffset.y);
+//        } completion:^(BOOL finished) {
+//             [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 0)];
+//        }];
+    [UIView animateWithDuration:29.0 delay:0 options:UIViewAnimationOptionRepeat animations:^{
+        NSLog(@"执行了动画方法");
         
-        weakSelf.UBView.scrollView.contentOffset=CGPointMake(0, -90);
-    }
-    if (weakSelf.VIPView.scrollView.contentOffset.y>=weakSelf.VIPView.scrollView.contentSize.height / 2) {
-        
-        weakSelf.VIPView.scrollView.contentOffset=CGPointMake(0, -90);
-    }
-    //切割每次动画滚动距离
-    
-    [UIView animateWithDuration:59.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
-        weakSelf.UBView.scrollView.contentOffset = CGPointMake(weakSelf.UBView.scrollView.contentOffset.x, weakSelf.UBView.scrollView.contentOffset.y+offSet);
+        //weakSelf.UBView.scrollView.contentOffset = CGPointMake(weakSelf.UBView.scrollView.contentOffset.x, weakSelf.UBView.scrollView.contentOffset.y+offSet);
+        [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 90)];
     } completion:nil];
+    [UIView animateWithDuration:10.0 animations:^{
+        
+    } completion:^(BOOL finished) {
+        
+    }];
     [UIView animateWithDuration:59.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         weakSelf.VIPView.scrollView.contentOffset = CGPointMake(weakSelf.VIPView.scrollView.contentOffset.x, weakSelf.VIPView.scrollView.contentOffset.y+offSet);
     } completion:nil];
@@ -145,12 +156,8 @@
 //滚动动画
 - (void)addAnimationScrollview{
     __weak typeof(self) weakSelf = self;
-    //    [UIView animateWithDuration:19.0f animations:^{
-    //        [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 300)];
-    //
-    //    } completion:^(BOOL finished) {
-    //         [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 0)];
-    //    }];
+
+    
     //滚动速度
     CGFloat offSet=300.0;
     
@@ -163,8 +170,8 @@
         
         weakSelf.VIPView.scrollView.contentOffset=CGPointMake(0, -90);
     }
-    
     //切割每次动画滚动距离
+    NSLog(@"UBView.contentOffset的值为：=%g----=%g",self.UBView.scrollView.contentOffset.x,self.UBView.scrollView.contentOffset.y);
     
     [UIView animateWithDuration:59.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         weakSelf.UBView.scrollView.contentOffset = CGPointMake(weakSelf.UBView.scrollView.contentOffset.x, weakSelf.UBView.scrollView.contentOffset.y+offSet);
@@ -352,6 +359,7 @@
                 label.font = [UIFont systemFontOfSize:12.0f];
                 label.textColor = [UIColor blackColor];
                 label.text = string;
+                //label.backgroundColor = [UIColor grayColor];
                 [weakSelf.VIPView.scrollView addSubview:label];
                 [label mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.top.with.bottom.mas_equalTo(weakSelf.VIPView.scrollView);

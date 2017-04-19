@@ -127,7 +127,34 @@ static int jd;
             hcell = (PersonHederTableViewCell *)[[NSBundle mainBundle] loadNibNamed:@"PersonHederTableViewCell" owner:self options:nil][0];
         }
         hcell.userNameLabel.text = self.userInfoModel.nickname;
-        hcell.huiYuanDengJiLabel.text = self.userInfoModel.vipName;
+        
+        int vipNum = [self.userMessageModel.vip intValue];
+        switch (vipNum) {
+            case 1:
+                hcell.huiYuanDengJiLabel.text = @"青铜会员";
+                break;
+            case 2:
+                hcell.huiYuanDengJiLabel.text = @"黑金会员";
+                break;
+            case 3:
+                hcell.huiYuanDengJiLabel.text = @"黄金会员";
+                break;
+            case 4:
+                hcell.huiYuanDengJiLabel.text = @"白金会员";
+                break;
+            case 5:
+                hcell.huiYuanDengJiLabel.text = @"钻石会员";
+                break;
+            case 6:
+                hcell.huiYuanDengJiLabel.text = @"王者会员";
+                break;
+            case 0:
+                hcell.huiYuanDengJiLabel.text = @"普通会员";
+                break;
+            default:
+                hcell.huiYuanDengJiLabel.text = @"普通会员";
+                break;
+        }
         hcell.UBiNumLabel.text = [NSString stringWithFormat:@"%d",[self.userMessageModel.points intValue]];
         UIImage * image = [self readHeadImageFromUserDefault];
         if (!zlObjectIsEmpty(image)) {
@@ -186,31 +213,51 @@ static int jd;
             //[btn sd_setBackgroundImageWithURL:[NSURL URLWithString:stringURL] forState:UIControlStateNormal];
             //[btn sd_setBackgroundImageWithURL:[NSURL URLWithString:stringURL] forState:UIControlStateNormal placeholderImage:PLACEHOLDER_IMAGE];
             //"https://www.baidu.com/img/bdlogo.png"
-            [btn sd_setBackgroundImageWithURL:[NSURL URLWithString:stringURL] forState:UIControlStateNormal placeholderImage:PLACEHOLDER_IMAGE options:SDWebImageRetryFailed];
-            //[btn sd_setImageWithURL:[NSURL URLWithString:stringURL] forState:UIControlStateNormal placeholderImage:PLACEHOLDER_IMAGE options:SDWebImageLowPriority];
-            //[btn sd_setImageWithURL:[NSURL URLWithString:stringURL] forState:UIControlStateNormal placeholderImage:PLACEHOLDER_IMAGE];
-//            [btn sd_setBackgroundImageWithURL:[NSURL URLWithString:stringURL] forState:UIControlStateNormal completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-//                NSLog(@"会员图片设置完成！");
-////                if (i == zonButNum-1) {
-////                    //[self.tableView reloadData];
-////                    NSLog(@"jd的值为：%d",jd);
-////                    if (jd == 1) {
-////                        [self.tableView reloadData];
-////                        jd++;
-////                    }
-////                }
-//                
-//            }];
+            //[btn sd_setBackgroundImageWithURL:[NSURL URLWithString:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1492600713933&di=071583350ea309949966c1d874c41fba&imgtype=0&src=http%3A%2F%2Fk1.jsqq.net%2Fuploads%2Fallimg%2F1612%2F140F5A32-6.jpg"] forState:UIControlStateNormal placeholderImage:PLACEHOLDER_IMAGE options:SDWebImageRefreshCached];
             
-            if (i == zonButNum-1) {
-                                    //[self.tableView reloadData];
-                                    NSLog(@"jd的值为：%d",jd);
-                                    if (jd == 1) {
-                                        //[self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-                                        jd++;
-                                    }
+            //检测缓存中是否存在图片
+            UIImage *myCachedImage = [[SDImageCache sharedImageCache] imageFromCacheForKey:stringURL];
+            /*
+             SDWebImageManager *manager = [SDWebImageManager sharedManager];
+             // 取消正在下载的操作
+             //[manager cancelAll];
+             // 清除内存缓存
+             [manager.imageCache clearMemory];
+             //释放磁盘的缓存
+             [manager.imageCache clearDiskOnCompletion:^{
+             
+             }];
+             */
+            if (myCachedImage) {
+                NSLog(@"缓存中有图片");
+                [btn sd_setBackgroundImageWithURL:[NSURL URLWithString:stringURL] forState:UIControlStateNormal placeholderImage:PLACEHOLDER_IMAGE options:SDWebImageRefreshCached];
             }
-            //[btn setNeedsDisplay];
+            else{
+                NSLog(@"缓存中没有图片时执行方法");
+                [[SDWebImageManager sharedManager].imageDownloader downloadImageWithURL:[NSURL URLWithString:stringURL] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+                    NSLog(@"处理下载进度");
+                } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
+                    if (error) {
+                        NSLog(@"下载有错误");
+                    }
+                    if (image) {
+                        NSLog(@"下载图片完成");
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            // switch back to the main thread to update your UI
+                            [btn setBackgroundImage:image forState:UIControlStateNormal];
+                            //[fcell layoutSubviews];
+                        });
+                        
+                        
+                        [[SDImageCache sharedImageCache] storeImage:image forKey:stringURL toDisk:YES completion:^{
+                            //NSLog(@"保存到磁盘中。。。。。。");
+                        }];
+                        //图片下载完成  在这里进行相关操作，如加到数组里 或者显示在imageView上
+                    }
+                }];
+                
+            }
+
         }
         //[fcell setNeedsDisplay];
         cell = fcell;
