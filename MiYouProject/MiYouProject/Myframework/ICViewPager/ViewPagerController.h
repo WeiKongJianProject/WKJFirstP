@@ -35,7 +35,7 @@ typedef NS_ENUM(NSUInteger, ViewPagerComponent) {
 @property UIScrollView *tabsView;
 
 /*
- *zl修改 20170331
+ *zl修改 20170331 start
  */
 @property (assign, nonatomic) BOOL isSecondVC;
 

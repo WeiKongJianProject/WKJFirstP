@@ -278,7 +278,9 @@
                 weakSelf.UBView.renShuLabel.text = [NSString stringWithFormat:@"%d",[dic[@"total"] intValue]];
             }
             if (!zlObjectIsEmpty(dic[@"desc"])) {
-                weakSelf.UBView.jieShaoLabel.text = dic[@"desc"];
+                //dic[@"desc"]
+                 NSString * removeStr = [self removeHTML:dic[@"desc"]];
+                weakSelf.UBView.jieShaoLabel.text = removeStr;
             }
             
             NSArray * arr00 = dic[@"rechargeList"];
@@ -330,7 +332,9 @@
                 weakSelf.VIPView.renShuLabel.text = [NSString stringWithFormat:@"%d",[dic[@"total"] intValue]];
             }
             if (!zlObjectIsEmpty(dic[@"desc"])) {
-                weakSelf.VIPView.jieshaoLabel.text = dic[@"desc"];
+                NSString * removeStr = [self removeHTML:dic[@"desc"]];
+               //NSMutableAttributedString * attrStr = [[NSMutableAttributedString alloc] initWithData:[(NSString *)dic[@"desc"] dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+                weakSelf.VIPView.jieshaoLabel.text = removeStr;
             }
             NSArray * arr00 = dic[@"buyVipList"];
             if (!zlArrayIsEmpty(arr00)) {
@@ -903,7 +907,48 @@
     return _VIPMiaoShuARR;
     
 }
-
+// 过滤HTML的标签
+- (NSString *)removeHTML:(NSString *)html {
+    
+//    NSScanner *theScanner = [NSScanner scannerWithString:html];
+//    
+//    NSString *text = nil;
+//    
+//    while ([theScanner isAtEnd] == NO) {
+//        
+//        // 找到标签的起始位置
+//        
+//        [theScanner scanUpToString:@"<" intoString:nil] ;
+//        
+//        // 找到标签的结束位置
+//        
+//        [theScanner scanUpToString:@">" intoString:&text] ;
+//        
+//        // 替换字符
+//        
+//        //(you can filter multi-spaces out later if you wish)
+//        
+//        html = [html stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@>", text] withString:@" "];
+//    }
+    /*
+     iOS中对字符串进行UTF-8编码：输出str字符串的UTF-8格式
+     [str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+     
+     解码：把str字符串以UTF-8规则进行解码
+     [str stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+     */
+    
+    //html stringByReplacingOccurrencesOfString:<#(nonnull NSString *)#> withString:<#(nonnull NSString *)#>
+    //NSString * testStr = @"<html><body><p>充值描述</p>充值描述充值描述充值描述</body></html>";
+    NSMutableAttributedString * attrStr = [[NSMutableAttributedString alloc] initWithData:[(NSString *)html dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];html = [html stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    //NSLog(@"去掉HTML之前的字符串：%@----%@",attrStr,attrStr.string);
+    NSString * CustomString = nil;
+    CustomString = [attrStr.string stringByReplacingOccurrencesOfString:@"<p>" withString:@"·"];
+    CustomString = [CustomString stringByReplacingOccurrencesOfString:@"</p>" withString:@"\n"];
+    //NSLog(@"去掉HTML字符串：%@",CustomString);
+    return CustomString;
+    
+}
 /*
  #pragma mark - Navigation
  

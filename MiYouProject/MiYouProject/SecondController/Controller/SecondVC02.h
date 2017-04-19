@@ -29,4 +29,6 @@
 
 @property (strong, nonatomic) NSDictionary * currentMemInfoDic;
 
+@property (assign, nonatomic) BOOL isFromFirstVCButton;
+
 @end

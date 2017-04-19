@@ -19,7 +19,7 @@
 #import "SearchViewController.h"
 #import "DianShiQiangViewController.h"
 #import "FirstSubViewViewController.h"
-
+#import "SecondVC02.h"
 #import "DianYingSubViewController.h"
 #import "ShaiXuanViewController.h"
 
@@ -35,7 +35,7 @@
 
 #import "BanBenUIView.h"
 
-@interface FirstViewController : ViewPagerController<ViewPagerDataSource,ViewPagerDelegate,FirstSubViewDelegate>
+@interface FirstViewController : ViewPagerController<ViewPagerDataSource,ViewPagerDelegate,FirstSubViewDelegate,SecondVC02Delegate>
 
 @property (strong, nonatomic) NSMutableArray * itemsTitlesARR;
 @property (strong, nonatomic) NSMutableArray * bannerARR;

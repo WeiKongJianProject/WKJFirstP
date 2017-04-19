@@ -365,20 +365,29 @@
 }
 //每个Tab对应的控制器
 - (UIViewController *)viewPager:(ViewPagerController *)viewPager contentViewControllerForTabAtIndex:(NSUInteger)index{
-    FirstSubViewViewController *vCtrl = [[FirstSubViewViewController alloc]init];
-    vCtrl.view.backgroundColor = [UIColor whiteColor];
-    vCtrl.delegate = self;
-    //[vCtrl setPViewCtrl:self];
     if (index == 0) {
-        vCtrl.dianYingCollectionARR = self.listARR;
-        //NSLog(@"电影列表的个数dianYingCollectionARR.count:%ld",vCtrl.dianYingCollectionARR.count);
-        vCtrl.lunXianImageARR = self.bannerARR;
-        
+        FirstSubViewViewController *vCtrl = [[FirstSubViewViewController alloc]init];
+        vCtrl.view.backgroundColor = [UIColor whiteColor];
+        vCtrl.delegate = self;
+        //[vCtrl setPViewCtrl:self];
+        if (index == 0) {
+            vCtrl.dianYingCollectionARR = self.listARR;
+            //NSLog(@"电影列表的个数dianYingCollectionARR.count:%ld",vCtrl.dianYingCollectionARR.count);
+            vCtrl.lunXianImageARR = self.bannerARR;
+            
+        }
+        CateListMTLModel *itemModel = [self.itemsTitlesARR objectAtIndex:index];
+        vCtrl.id = [itemModel.id intValue];
+        vCtrl.name = itemModel.name;
+        return vCtrl;
     }
-    CateListMTLModel *itemModel = [self.itemsTitlesARR objectAtIndex:index];
-    vCtrl.id = [itemModel.id intValue];
-    vCtrl.name = itemModel.name;
-    return vCtrl;
+    else{
+        SecondVC02 * vc02 = [[SecondVC02 alloc]init];
+        vc02.isFromFirstVCButton = YES;
+        vc02.delegate = self;
+        
+        return vc02;
+    }
 
 }
 //代理实现方法
@@ -516,7 +525,48 @@
     return isFirst;
 }
 #pragma end mark
+#pragma mark SecondSubDelegate 代理方法
+- (void)secondVC02:(SecondVC02 *)viewController withType:(int)typeInd withName:(NSString *)name withKey:(NSString *)keyId withIsShiKan:(BOOL)isShiKan{
+    switch (typeInd) {
+        case 0:{
+            DianYingSubViewController * vc = [[DianYingSubViewController alloc]init];
+            vc.title = @"电影";
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case 1:{
+            ShaiXuanViewController * vc = [[ShaiXuanViewController alloc]init];
+            vc.title = name;
+            vc.id = [keyId intValue];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case 2:{
+            if (isShiKan == YES) {
+                WMPlayZLViewController * vc = [[WMPlayZLViewController alloc]init];
+                vc.id = keyId;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            else{
+                PlayerZLViewController * vc = [[PlayerZLViewController alloc]init];
+                vc.name = name;
+                //NSURL * url = [NSURL URLWithString:key];
+                //vc.url = url;
+                vc.id = keyId;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            
+            
+        }
+            break;
+        default:
+            break;
+    }
+    
+}
 
+
+#pragma end mark
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

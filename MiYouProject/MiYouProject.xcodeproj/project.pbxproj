@@ -79,7 +79,6 @@
 		73485C3D1E9CAD9C00A6691A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C3C1E9CAD9C00A6691A /* CFNetwork.framework */; };
 		73485C3F1E9CADAB00A6691A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C3E1E9CADAB00A6691A /* CoreMotion.framework */; };
 		73485C421E9CB07A00A6691A /* OrderZLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73485C411E9CB07A00A6691A /* OrderZLModel.m */; };
-		73485C461E9CCD2B00A6691A /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C451E9CCD2B00A6691A /* libWeChatSDK.a */; };
 		73485C481E9CCDC900A6691A /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C471E9CCDC900A6691A /* libz.1.2.5.tbd */; };
 		73485C501E9CD87600A6691A /* AppDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 732BC86B1E6FD17400B8B1BD /* AppDelegate.h */; };
 		73485C511E9CD87E00A6691A /* ChongZhiViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 730D387B1E790F1C00EE4692 /* ChongZhiViewController.h */; };
@@ -409,7 +408,6 @@
 		73485C3E1E9CADAB00A6691A /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		73485C401E9CB07A00A6691A /* OrderZLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderZLModel.h; sourceTree = "<group>"; };
 		73485C411E9CB07A00A6691A /* OrderZLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderZLModel.m; sourceTree = "<group>"; };
-		73485C451E9CCD2B00A6691A /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		73485C471E9CCDC900A6691A /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
 		73485C491E9CD37D00A6691A /* BmobPaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BmobPaySDK.framework; path = MiYouProject/Myframework/ZhiFuFrame/BmobPaySDK.framework; sourceTree = "<group>"; };
 		73485C4E1E9CD74C00A6691A /* BmobPaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BmobPaySDK.framework; sourceTree = "<group>"; };
@@ -753,7 +751,6 @@
 				73485C3B1E9CAD8B00A6691A /* UIKit.framework in Frameworks */,
 				73485C391E9CAD7B00A6691A /* CoreGraphics.framework in Frameworks */,
 				73485C371E9CAD6E00A6691A /* CoreText.framework in Frameworks */,
-				73485C461E9CCD2B00A6691A /* libWeChatSDK.a in Frameworks */,
 				73485C351E9CAD6300A6691A /* QuartzCore.framework in Frameworks */,
 				73485C331E9CAD5600A6691A /* CoreTelephony.framework in Frameworks */,
 				73485C311E9CAD4B00A6691A /* SystemConfiguration.framework in Frameworks */,
@@ -1028,7 +1025,6 @@
 		73485C271E9CAD0300A6691A /* ZhiFuFrame */ = {
 			isa = PBXGroup;
 			children = (
-				73485C451E9CCD2B00A6691A /* libWeChatSDK.a */,
 			);
 			path = ZhiFuFrame;
 			sourceTree = "<group>";

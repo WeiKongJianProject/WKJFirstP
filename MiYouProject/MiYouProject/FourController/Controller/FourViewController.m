@@ -206,7 +206,7 @@ static int jd;
                                     //[self.tableView reloadData];
                                     NSLog(@"jd的值为：%d",jd);
                                     if (jd == 1) {
-                                        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                                        //[self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
                                         jd++;
                                     }
             }
@@ -238,7 +238,7 @@ static int jd;
             fcell = (ThirdTeQuanTableViewCell *)[[NSBundle mainBundle] loadNibNamed:@"ThirdTeQuanTableViewCell" owner:self options:nil][0];
         }
         fcell.nameLabel.text = @"离线中心";
-        [fcell.leftImageView setImage:[UIImage imageNamed:@"wodeqianbao"]];
+        [fcell.leftImageView setImage:[UIImage imageNamed:@"lixianzhongxing"]];
         fcell.aiQiYiButton.hidden = YES;
         fcell.youKuButton.hidden = YES;
         fcell.leShiButton.hidden = YES;
@@ -254,7 +254,7 @@ static int jd;
             fcell = (ThirdTeQuanTableViewCell *)[[NSBundle mainBundle] loadNibNamed:@"ThirdTeQuanTableViewCell" owner:self options:nil][0];
         }
         fcell.nameLabel.text = @"设置";
-        [fcell.leftImageView setImage:[UIImage imageNamed:@"wodeqianbao"]];
+        [fcell.leftImageView setImage:[UIImage imageNamed:@"shezhi"]];
         fcell.aiQiYiButton.hidden = YES;
         fcell.youKuButton.hidden = YES;
         fcell.leShiButton.hidden = YES;

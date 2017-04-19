@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -210,9 +209,12 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rcL-uj-RVU">
                     <rect key="frame" x="0.0" y="244.5" width="375" height="98.5"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sifangUbi" translatesAutoresizingMaskIntoConstraints="NO" id="shb-gP-t2A">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sifangUbi" translatesAutoresizingMaskIntoConstraints="NO" id="shb-gP-t2A">
                             <rect key="frame" x="16" y="8" width="26" height="26"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="26" id="Cpv-GL-ZXh"/>
+                                <constraint firstAttribute="width" constant="26" id="ldz-R5-SNf"/>
+                            </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="U币的作用和介绍" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkT-qz-RRy">
                             <rect key="frame" x="52" y="11" width="142" height="21"/>
@@ -221,9 +223,8 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFr-Yr-eys">
-                            <rect key="frame" x="20" y="35" width="156" height="51"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="LFr-Yr-eys">
+                            <rect key="frame" x="20" y="39" width="335" height="54.5"/>
                             <string key="text">· 兑换比例1元=1000U币
 ·  U币可以看好看的视频 ·  客服QQ:574565526</string>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -233,7 +234,13 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="LFr-Yr-eys" secondAttribute="bottom" constant="5" id="31m-bm-R66"/>
+                        <constraint firstItem="LFr-Yr-eys" firstAttribute="top" secondItem="shb-gP-t2A" secondAttribute="bottom" constant="5" id="GWs-4s-Xkw"/>
+                        <constraint firstItem="shb-gP-t2A" firstAttribute="top" secondItem="rcL-uj-RVU" secondAttribute="top" constant="8" id="KnG-8V-gNJ"/>
+                        <constraint firstAttribute="trailing" secondItem="LFr-Yr-eys" secondAttribute="trailing" constant="20" id="dv5-XJ-lsE"/>
+                        <constraint firstItem="LFr-Yr-eys" firstAttribute="leading" secondItem="rcL-uj-RVU" secondAttribute="leading" constant="20" id="jrd-op-zVF"/>
                         <constraint firstAttribute="width" secondItem="rcL-uj-RVU" secondAttribute="height" multiplier="377:99" id="n4J-O6-UzC"/>
+                        <constraint firstItem="shb-gP-t2A" firstAttribute="leading" secondItem="rcL-uj-RVU" secondAttribute="leading" constant="16" id="v6q-gn-3Nb"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fV6-x6-OSF">
@@ -519,9 +526,12 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="89C-5e-5Fn">
                     <rect key="frame" x="0.0" y="245" width="375" height="98.5"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sifangUbi" translatesAutoresizingMaskIntoConstraints="NO" id="Wue-Op-l6X">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sifangUbi" translatesAutoresizingMaskIntoConstraints="NO" id="Wue-Op-l6X">
                             <rect key="frame" x="16" y="8" width="26" height="26"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="26" id="GTX-6C-VCi"/>
+                                <constraint firstAttribute="width" constant="26" id="LAs-gc-8lB"/>
+                            </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VIP的作用和介绍" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="si4-Il-7wa">
                             <rect key="frame" x="52" y="11" width="142" height="21"/>
@@ -530,9 +540,8 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bk3-UK-RXb">
-                            <rect key="frame" x="20" y="35" width="156" height="51"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Bk3-UK-RXb">
+                            <rect key="frame" x="20" y="39" width="335" height="54.5"/>
                             <string key="text">· 兑换比例1元=1000U币
 ·  U币可以看好看的视频 ·  客服QQ:574565526</string>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -542,7 +551,13 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Bk3-UK-RXb" secondAttribute="bottom" constant="5" id="Czl-PE-zcM"/>
+                        <constraint firstItem="Wue-Op-l6X" firstAttribute="leading" secondItem="89C-5e-5Fn" secondAttribute="leading" constant="16" id="IBk-SS-W3X"/>
                         <constraint firstAttribute="width" secondItem="89C-5e-5Fn" secondAttribute="height" multiplier="377:99" id="Jsf-3h-BDZ"/>
+                        <constraint firstItem="Bk3-UK-RXb" firstAttribute="leading" secondItem="89C-5e-5Fn" secondAttribute="leading" constant="20" id="OGl-j6-Sth"/>
+                        <constraint firstItem="Wue-Op-l6X" firstAttribute="top" secondItem="89C-5e-5Fn" secondAttribute="top" constant="8" id="rYi-eN-drt"/>
+                        <constraint firstItem="Bk3-UK-RXb" firstAttribute="top" secondItem="Wue-Op-l6X" secondAttribute="bottom" constant="5" id="ssS-iR-BNl"/>
+                        <constraint firstAttribute="trailing" secondItem="Bk3-UK-RXb" secondAttribute="trailing" constant="20" id="syW-L0-wN8"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZZA-gd-NUp">

@@ -19,4 +19,5 @@
 @property (strong, nonatomic) NSNumber * vip;
 @property (strong, nonatomic) NSString * vipName;
 @property (strong, nonatomic) NSNumber * points;
+@property (strong, nonatomic) NSString * version;
 @end

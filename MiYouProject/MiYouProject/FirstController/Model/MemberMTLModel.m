@@ -21,7 +21,8 @@
              @"sex":@"sex",
              @"vip":@"vip",
              @"vipName":@"vipName",
-             @"points":@"points"
+             @"points":@"points",
+             @"version":@"version"
              };
 }
 

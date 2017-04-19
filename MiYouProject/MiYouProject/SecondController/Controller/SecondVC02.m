@@ -31,6 +31,9 @@ static int _currentPage;
     self.numLabel.text = num;
     NSLog(@"secondVC02数组个数：%ld",self.collectionViewARR.count);
     [self setZLCollectionView:self.collectionVIew];
+    if (self.isFromFirstVCButton == YES) {
+        [self.collectionVIew.mj_header beginRefreshing];
+    }
 }
 //网络请求  数据 标题
 - (void)getShuJuFromAFNetworkingWithPage:(int)page{
@@ -70,7 +73,8 @@ static int _currentPage;
                 [weakSelf.collectionVIew reloadData];
             }
             _totalNum = dic[@"total"];
-            
+            NSString * num = [NSString stringWithFormat:@"片库约为%@部",_totalNum];
+            weakSelf.numLabel.text = num;
             
             [self.collectionVIew.mj_header endRefreshing];
             [self.collectionVIew.mj_footer endRefreshing];
