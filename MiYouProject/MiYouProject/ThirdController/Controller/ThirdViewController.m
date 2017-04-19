@@ -157,7 +157,57 @@ static int _is_first;
     
     SiFangMTLModel * model = [self.collectioinViewARR objectAtIndex:indexPath.row];
     cell.nameLabel.text = model.name;
-    [cell.headerImageVIew sd_setImageWithURL:[NSURL URLWithString:model.avator] placeholderImage:PLACEHOLDER_IMAGE];
+    //[cell.headerImageVIew sd_setImageWithURL:[NSURL URLWithString:model.avator] placeholderImage:PLACEHOLDER_IMAGE];
+    //检测缓存中是否已存在图片
+    UIImage *myCachedImage = [[SDImageCache sharedImageCache] imageFromCacheForKey:model.avator];
+    /*
+     SDWebImageManager *manager = [SDWebImageManager sharedManager];
+     // 取消正在下载的操作
+     //[manager cancelAll];
+     // 清除内存缓存
+     [manager.imageCache clearMemory];
+     //释放磁盘的缓存
+     [manager.imageCache clearDiskOnCompletion:^{
+     
+     }];
+     */
+    
+    if (myCachedImage) {
+        NSLog(@"缓存中有图片");
+        [cell.headerImageVIew sd_setImageWithURL:[NSURL URLWithString:model.avator] placeholderImage:[UIImage imageNamed:@"icon_default2"] options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+            
+        } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            
+        }];
+    }
+    else{
+        NSLog(@"缓存中没有图片时执行方法");
+        [[SDWebImageManager sharedManager].imageDownloader downloadImageWithURL:[NSURL URLWithString:model.avator] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+            NSLog(@"处理下载进度");
+        } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
+            if (error) {
+                NSLog(@"下载有错误");
+            }
+            if (image) {
+                NSLog(@"下载图片完成");
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    // switch back to the main thread to update your UI
+                    [cell.headerImageVIew setImage:image];
+                    //[cell layoutSubviews];
+                });
+                
+                
+                [[SDImageCache sharedImageCache] storeImage:image forKey:model.avator toDisk:NO completion:^{
+                    //NSLog(@"保存到磁盘中。。。。。。");
+                }];
+                //图片下载完成  在这里进行相关操作，如加到数组里 或者显示在imageView上
+            }
+        }];
+        
+    }
+
+    
+    
     //时间 时间戳设置
     NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:[model.time longValue]];
     //NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[confromTimesp timeIntervalSince1970]];
@@ -170,7 +220,59 @@ static int _is_first;
     //formatter.dateFormat = @"MM-dd-yyyy HH-mm-ss";
     NSString *res = [formatter stringFromDate:confromTimesp];
     cell.timeLabel.text = res;
-    [cell.videoImageView sd_setImageWithURL:[NSURL URLWithString:model.pic] placeholderImage:[UIImage imageNamed:@"sifang_default"]];
+    //[cell.videoImageView sd_setImageWithURL:[NSURL URLWithString:model.pic] placeholderImage:[UIImage imageNamed:@"sifang_default"]];
+    
+    //检测缓存中是否已存在图片
+    UIImage *myCachedImage02 = [[SDImageCache sharedImageCache] imageFromCacheForKey:model.pic];
+    /*
+     SDWebImageManager *manager = [SDWebImageManager sharedManager];
+     // 取消正在下载的操作
+     //[manager cancelAll];
+     // 清除内存缓存
+     [manager.imageCache clearMemory];
+     //释放磁盘的缓存
+     [manager.imageCache clearDiskOnCompletion:^{
+     
+     }];
+     */
+    
+    if (myCachedImage) {
+        NSLog(@"缓存中有图片");
+        [cell.videoImageView sd_setImageWithURL:[NSURL URLWithString:model.pic] placeholderImage:[UIImage imageNamed:@"icon_default2"] options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+            
+        } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            
+        }];
+    }
+    else{
+        NSLog(@"缓存中没有图片时执行方法");
+        [[SDWebImageManager sharedManager].imageDownloader downloadImageWithURL:[NSURL URLWithString:model.pic] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+            NSLog(@"处理下载进度");
+        } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
+            if (error) {
+                NSLog(@"下载有错误");
+            }
+            if (image) {
+                NSLog(@"下载图片完成");
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    // switch back to the main thread to update your UI
+                    [cell.videoImageView setImage:image];
+                    //[cell layoutSubviews];
+                });
+                
+                
+                [[SDImageCache sharedImageCache] storeImage:image forKey:model.pic toDisk:NO completion:^{
+                    //NSLog(@"保存到磁盘中。。。。。。");
+                }];
+                //图片下载完成  在这里进行相关操作，如加到数组里 或者显示在imageView上
+            }
+        }];
+        
+    }
+
+    
+    
+    
     cell.priceLabel.text = [NSString stringWithFormat:@"%d",[model.price intValue]];
     cell.pingLunLabel.text = [NSString stringWithFormat:@"%d",[model.commentNum intValue]];
     

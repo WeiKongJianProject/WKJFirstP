@@ -360,7 +360,55 @@ static BOOL _isCanPlay;
     VIP03VideoMTLModel03 * model = [self.collectionARR objectAtIndex:indexPath.row];
     cell.nameLabel.text = model.name;
     cell.subNameLabel.text = model.actor;
-    [cell.smallImageVIew sd_setImageWithURL:[NSURL URLWithString:model.pic] placeholderImage:PLACEHOLDER_IMAGE];
+    //[cell.smallImageVIew sd_setImageWithURL:[NSURL URLWithString:model.pic] placeholderImage:PLACEHOLDER_IMAGE];
+    
+    //检测缓存中  是否存在图片
+    UIImage *myCachedImage = [[SDImageCache sharedImageCache] imageFromCacheForKey:model.pic];
+    /*
+     SDWebImageManager *manager = [SDWebImageManager sharedManager];
+     // 取消正在下载的操作
+     //[manager cancelAll];
+     // 清除内存缓存
+     [manager.imageCache clearMemory];
+     //释放磁盘的缓存
+     [manager.imageCache clearDiskOnCompletion:^{
+     
+     }];
+     */
+    if (myCachedImage) {
+        NSLog(@"缓存中有图片");
+        [cell.smallImageVIew sd_setImageWithURL:[NSURL URLWithString:model.pic] placeholderImage:[UIImage imageNamed:@"icon_default"] options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+            
+        } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            
+        }];
+    }
+    else{
+        NSLog(@"缓存中没有图片时执行方法");
+        [[SDWebImageManager sharedManager].imageDownloader downloadImageWithURL:[NSURL URLWithString:model.pic] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+            NSLog(@"处理下载进度");
+        } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
+            if (error) {
+                NSLog(@"下载有错误");
+            }
+            if (image) {
+                NSLog(@"下载图片完成");
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    // switch back to the main thread to update your UI
+                    [cell.smallImageVIew setImage:image];
+                    //[cell layoutSubviews];
+                });
+                
+                
+                [[SDImageCache sharedImageCache] storeImage:image forKey:model.pic toDisk:NO completion:^{
+                    //NSLog(@"保存到磁盘中。。。。。。");
+                }];
+                //图片下载完成  在这里进行相关操作，如加到数组里 或者显示在imageView上
+            }
+        }];
+        
+    }
+
     /*
      UIImage * JHimage = self.dataSourceArray[indexPath.row];
      //    UIImage * JHImage = [UIImage imageNamed:imageNamed];
