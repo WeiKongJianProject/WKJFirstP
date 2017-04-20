@@ -129,22 +129,28 @@
 //        } completion:^(BOOL finished) {
 //             [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 0)];
 //        }];
-    [UIView animateWithDuration:29.0 delay:0 options:UIViewAnimationOptionRepeat animations:^{
-        NSLog(@"执行了动画方法");
-        
-        //weakSelf.UBView.scrollView.contentOffset = CGPointMake(weakSelf.UBView.scrollView.contentOffset.x, weakSelf.UBView.scrollView.contentOffset.y+offSet);
+    
+//    [UIView animateWithDuration:29.0 delay:0 options:UIViewAnimationOptionRepeat animations:^{
+//        NSLog(@"执行了动画方法");
+//        
+//        //weakSelf.UBView.scrollView.contentOffset = CGPointMake(weakSelf.UBView.scrollView.contentOffset.x, weakSelf.UBView.scrollView.contentOffset.y+offSet);
+//        [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 90)];
+//    } completion:nil];
+     [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 0)];
+    [UIView animateWithDuration:29.0 animations:^{
         [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 90)];
-    } completion:nil];
-    [UIView animateWithDuration:10.0 animations:^{
-        
     } completion:^(BOOL finished) {
-        
+        [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 0)];
     }];
-    [UIView animateWithDuration:59.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
-        weakSelf.VIPView.scrollView.contentOffset = CGPointMake(weakSelf.VIPView.scrollView.contentOffset.x, weakSelf.VIPView.scrollView.contentOffset.y+offSet);
-    } completion:nil];
+    [UIView animateWithDuration:29.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+       // weakSelf.VIPView.scrollView.contentOffset = CGPointMake(weakSelf.VIPView.scrollView.contentOffset.x, weakSelf.VIPView.scrollView.contentOffset.y+offSet);
+        [weakSelf.VIPView.scrollView setContentOffset:CGPointMake(0, 90)];
+    } completion:^(BOOL finished){
+        [weakSelf.VIPView.scrollView setContentOffset:CGPointMake(0, 0)];
+    
+    }];
     //滚动动画
-    [NSTimer scheduledTimerWithTimeInterval:59.0f target:self selector:@selector(addAnimationScrollview) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:30.0f target:self selector:@selector(addAnimationScrollview) userInfo:nil repeats:YES];
     
     
     [self xw_addNotificationForName:ZHIFU_NOTIFICATION_RESUALT block:^(NSNotification * _Nonnull notification) {
@@ -159,7 +165,7 @@
 
     
     //滚动速度
-    CGFloat offSet=300.0;
+    CGFloat offSet=90;
     
     //若果字幕滚动到第二部分重复的部分则把偏移置0，设为第一部分,实现无限循环
     if (weakSelf.UBView.scrollView.contentOffset.y>=weakSelf.UBView.scrollView.contentSize.height / 2) {
@@ -173,10 +179,10 @@
     //切割每次动画滚动距离
     NSLog(@"UBView.contentOffset的值为：=%g----=%g",self.UBView.scrollView.contentOffset.x,self.UBView.scrollView.contentOffset.y);
     
-    [UIView animateWithDuration:59.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+    [UIView animateWithDuration:29.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         weakSelf.UBView.scrollView.contentOffset = CGPointMake(weakSelf.UBView.scrollView.contentOffset.x, weakSelf.UBView.scrollView.contentOffset.y+offSet);
     } completion:nil];
-    [UIView animateWithDuration:59.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+    [UIView animateWithDuration:29.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         weakSelf.VIPView.scrollView.contentOffset = CGPointMake(weakSelf.VIPView.scrollView.contentOffset.x, weakSelf.VIPView.scrollView.contentOffset.y+offSet);
     } completion:nil];
 }
