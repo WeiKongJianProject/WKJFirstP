@@ -129,21 +129,26 @@
 //        } completion:^(BOOL finished) {
 //             [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 0)];
 //        }];
-    [UIView animateWithDuration:29.0 delay:0 options:UIViewAnimationOptionRepeat animations:^{
-        NSLog(@"执行了动画方法");
-        
-        //weakSelf.UBView.scrollView.contentOffset = CGPointMake(weakSelf.UBView.scrollView.contentOffset.x, weakSelf.UBView.scrollView.contentOffset.y+offSet);
+    
+//    [UIView animateWithDuration:29.0 delay:0 options:UIViewAnimationOptionRepeat animations:^{
+//        NSLog(@"执行了动画方法");
+//        
+//        //weakSelf.UBView.scrollView.contentOffset = CGPointMake(weakSelf.UBView.scrollView.contentOffset.x, weakSelf.UBView.scrollView.contentOffset.y+offSet);
+//        [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 90)];
+//    } completion:nil];
+     [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 0)];
+    [UIView animateWithDuration:29.0 animations:^{
         [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 90)];
-    } completion:nil];
-    [UIView animateWithDuration:10.0 animations:^{
-        
     } completion:^(BOOL finished) {
-        
+        [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 0)];
     }];
     [UIView animateWithDuration:29.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
        // weakSelf.VIPView.scrollView.contentOffset = CGPointMake(weakSelf.VIPView.scrollView.contentOffset.x, weakSelf.VIPView.scrollView.contentOffset.y+offSet);
-        [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 90)];
-    } completion:nil];
+        [weakSelf.VIPView.scrollView setContentOffset:CGPointMake(0, 90)];
+    } completion:^(BOOL finished){
+        [weakSelf.VIPView.scrollView setContentOffset:CGPointMake(0, 0)];
+    
+    }];
     //滚动动画
     [NSTimer scheduledTimerWithTimeInterval:30.0f target:self selector:@selector(addAnimationScrollview) userInfo:nil repeats:YES];
     

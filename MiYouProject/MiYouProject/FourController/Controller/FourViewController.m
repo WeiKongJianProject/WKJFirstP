@@ -73,6 +73,8 @@ static int jd;
            [weakSelf.tableView reloadData];
         });
         [MBManager hideAlert];
+        [MBManager hideAlert];
+        [MBManager hideAlert];
     } failure:^(NSError *error){
         [MBManager hideAlert];
          [MBManager showBriefAlert:@"加载失败"];
