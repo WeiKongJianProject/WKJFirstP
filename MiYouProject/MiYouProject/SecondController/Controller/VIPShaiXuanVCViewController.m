@@ -481,7 +481,7 @@ static BOOL _isCanPlay;
         NSString * isSuccess = [NSString stringWithFormat:@"%@",[dic objectForKey:@"result"]];
         if ([isSuccess isEqualToString:@"success"]) {
             
-            if ([dic[@"access"] intValue] == 0) {
+            if ([dic[@"access"] intValue] != 0) {
                 
                 if ([type isEqualToString:@"1"]) {
                     if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(vipShaiXuanVC:withType:withName:withKey:withJuJIARR:withVid:withSourceNmae:)]) {
