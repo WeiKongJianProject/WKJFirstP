@@ -227,7 +227,7 @@
 //创建 搜索 和菜单按钮
 - (void)createSearchButton{
     
-    UIView * shadowView = [[UIView alloc]initWithFrame:CGRectMake(SIZE_WIDTH-80, 20, 1,40 )];
+    UIView * shadowView = [[UIView alloc]initWithFrame:CGRectMake(SIZE_WIDTH - 40, 20, 1,40 )];
     shadowView.backgroundColor = [UIColor colorWithhex16stringToColor:Main_BackgroundColor alpha:0.2];
     
     CALayer * layer = [shadowView layer];
@@ -241,16 +241,16 @@
     
     
     UIButton * searchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [searchBtn setFrame:CGRectMake(SIZE_WIDTH-75, 20, 30, 30)];
+    [searchBtn setFrame:CGRectMake(SIZE_WIDTH - 35, 20, 30, 30)];
     [searchBtn setBackgroundImage:[UIImage imageNamed:@"shouyefangdajing"] forState:UIControlStateNormal];
     [searchBtn addTarget:self action:@selector(searchButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:searchBtn];
     
     UIButton * caiDanBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [caiDanBtn setFrame:CGRectMake(SIZE_WIDTH-40, 20, 30, 30)];
+    [caiDanBtn setFrame:CGRectMake(SIZE_WIDTH - 40, 20, 30, 30)];
     [caiDanBtn setBackgroundImage:[UIImage imageNamed:@"shouyecaidanlan"] forState:UIControlStateNormal];
     [caiDanBtn addTarget:self action:@selector(caiDanBtnButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:caiDanBtn];
+    //[self.view addSubview:caiDanBtn];
 
     
 }

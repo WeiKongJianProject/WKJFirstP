@@ -163,7 +163,7 @@
     /*
      *zl修改 20170331 start
      */
-    int customeWeight = self.isSecondVC?0:80;
+    int customeWeight = self.isSecondVC?0:40;
     /*
      *zl修改 20170331 end
      */

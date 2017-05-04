@@ -621,7 +621,7 @@
     //微信支付
     NSLog(@"微信支付，金额为：%d",_currentJINE);
     
-    
+    //[self start:@"" withType:@"1"];
     [self zhifuButtonWithType:@"wechat"];
     
 }
@@ -666,7 +666,7 @@
                 if (self.UB_or_VIP == UB_ChongZhi) {
                     //UB充值
                     if ([type isEqualToString:@"alipay"]) {
-                        _currentOrderNUM = dic[@"orderNo"];
+                        _currentOrderNUM = dic[@"payid"];
                         //@"https://qr.alipay.com/bax00225fwvaxotgyqcj602a"
                         NSString * strIdentifier = dic[@"url"];
                         BOOL isExsit = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strIdentifier]];
@@ -963,6 +963,55 @@
     return CustomString;
     
 }
+
+#pragma mark聚宝云 支付集成START
+
+// 启动支付
+- (void)start:(NSString *)price withType:(NSString *)type
+{
+    
+    /*
+     *接口说明
+     controller 视图控制器
+     params 支付参数
+     type 支付通道类型代码 1微信支付，2支付宝支付，3点卡支付，4银联支付，5QQ支付，6百度支付，7京东支付
+     delegate 支付回调对象
+     */
+    // 必须
+    // 支付 start
+    FWParam *param = [[FWParam alloc] init];
+    // playerid：用户在第三方平台上的用户名
+    param.playerid  = @"some player";
+    // goodsname：购买商品名称
+    param.goodsname = @"100金币";
+    // amount：购买商品价格，单位是元
+    param.amount    = @"0.01";
+    // payid：第三方平台上的订单号，请传真实订单号，方便后续对账，例子里采用随机数，
+    param.payid  =  @"123456963";//[self demoOrderId];
+    
+    [FWInterface start:self withParams:param withType:1 withDelegate:self];
+    // 支付 end
+}
+
+// 支付结果通知：
+- (void)receiveResult:(NSString*)payid result:(BOOL)success message:(NSString*)message
+{
+    if ( success == YES )
+    {
+        UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"支付成功" message:message preferredStyle:UIAlertControllerStyleAlert];
+        [controller addAction:[UIAlertAction actionWithTitle:@"知道啦" style:UIAlertActionStyleCancel handler:nil]];
+        [self presentViewController:controller animated:true completion:nil];
+    }
+    else
+    {
+        UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"支付失败" message:message preferredStyle:UIAlertControllerStyleAlert];
+        [controller addAction:[UIAlertAction actionWithTitle:@"知道啦" style:UIAlertActionStyleCancel handler:nil]];
+        [self presentViewController:controller animated:true completion:nil];
+    }
+}
+
+#pragma END MARK 聚宝云集成END
+
 /*
  #pragma mark - Navigation
  
