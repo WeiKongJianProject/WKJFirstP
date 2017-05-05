@@ -684,35 +684,35 @@
                         // 支付 start
                         FWParam *param = [[FWParam alloc] init];
                         // playerid：用户在第三方平台上的用户名
-                        param.playerid  = @"some player";
+                        param.playerid  = UID;
                         // goodsname：购买商品名称
-                        param.goodsname = @"100金币";
+                        param.goodsname = [NSString stringWithFormat:@"%d",_currentJINE];
                         // amount：购买商品价格，单位是元
-                        param.amount    = @"0.01";
+                        param.amount = [NSString stringWithFormat:@"%d",_currentJINE];
                         // payid：第三方平台上的订单号，请传真实订单号，方便后续对账，例子里采用随机数，
-                        param.payid  =  @"123456963";//[self demoOrderId];
-                        
-                        [FWInterface start:self withParams:param withType:2 withDelegate:self];
+                        param.payid  =  _currentOrderNUM;//[self demoOrderId];
+                        [FWInterface start:self withParams:param withDelegate:self];
+                        //[FWInterface start:self withParams:param withType:2 withDelegate:self];
                         // 支付 end
                         
-                            //NSLog(@"App %@ installed", strIdentifier);
-                            //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:strIdentifier]];
+                        //NSLog(@"App %@ installed", strIdentifier);
+                        //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:strIdentifier]];
                         /*
-                            AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
-                            alertZL.titleName = @"支付结果";
-                            alertZL.cancelBtnTitle = @"支付失败";
-                            alertZL.okBtnTitle = @"支付完成";
-                            [alertZL cancelBlockAction:^(BOOL success) {
-                                [alertZL hideCustomeAlertView];
-                                [weakSelf xw_postNotificationWithName:ZHIFU_NOTIFICATION_RESUALT userInfo:@{@"type":@"UB"}];
-                            }];
-                            [alertZL okButtonBlockAction:^(BOOL success) {
-                                [alertZL hideCustomeAlertView];
-                                [weakSelf.navigationController popViewControllerAnimated:YES];
-                                NSLog(@"点击了去支付按钮");
-                            }];
-                            [alertZL showCustomAlertView];
-                        */
+                         AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
+                         alertZL.titleName = @"支付结果";
+                         alertZL.cancelBtnTitle = @"支付失败";
+                         alertZL.okBtnTitle = @"支付完成";
+                         [alertZL cancelBlockAction:^(BOOL success) {
+                         [alertZL hideCustomeAlertView];
+                         [weakSelf xw_postNotificationWithName:ZHIFU_NOTIFICATION_RESUALT userInfo:@{@"type":@"UB"}];
+                         }];
+                         [alertZL okButtonBlockAction:^(BOOL success) {
+                         [alertZL hideCustomeAlertView];
+                         [weakSelf.navigationController popViewControllerAnimated:YES];
+                         NSLog(@"点击了去支付按钮");
+                         }];
+                         [alertZL showCustomAlertView];
+                         */
                     }
                     else{
                         _currentOrderNUM = dic[@"payid"];
@@ -729,34 +729,34 @@
                         // 支付 start
                         FWParam *param = [[FWParam alloc] init];
                         // playerid：用户在第三方平台上的用户名
-                        param.playerid  = @"some player";
+                        param.playerid  = UID;
                         // goodsname：购买商品名称
-                        param.goodsname = @"100金币";
+                        param.goodsname = [NSString stringWithFormat:@"%d",_currentJINE];
                         // amount：购买商品价格，单位是元
-                        param.amount    = @"0.01";
+                        param.amount    = [NSString stringWithFormat:@"%d",_currentJINE];
                         // payid：第三方平台上的订单号，请传真实订单号，方便后续对账，例子里采用随机数，
-                        param.payid  =  @"1234569630";//[self demoOrderId];
+                        param.payid  =  _currentOrderNUM;//[self demoOrderId];
                         
-                        [FWInterface start:self withParams:param withType:1 withDelegate:self];
+                        [FWInterface start:self withParams:param withDelegate:self];
                         // 支付 end
                         
                         //NSLog(@"App %@ installed", strIdentifier);
                         //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:strIdentifier]];
                         /*
-                        AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
-                        alertZL.titleName = @"支付结果";
-                        alertZL.cancelBtnTitle = @"支付失败";
-                        alertZL.okBtnTitle = @"支付完成";
-                        [alertZL cancelBlockAction:^(BOOL success) {
-                            [alertZL hideCustomeAlertView];
-                            [weakSelf xw_postNotificationWithName:ZHIFU_NOTIFICATION_RESUALT userInfo:@{@"type":@"UB"}];
-                        }];
-                        [alertZL okButtonBlockAction:^(BOOL success) {
-                            [alertZL hideCustomeAlertView];
-                            [weakSelf.navigationController popViewControllerAnimated:YES];
-                            NSLog(@"点击了去支付按钮");
-                        }];
-                        [alertZL showCustomAlertView];
+                         AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
+                         alertZL.titleName = @"支付结果";
+                         alertZL.cancelBtnTitle = @"支付失败";
+                         alertZL.okBtnTitle = @"支付完成";
+                         [alertZL cancelBlockAction:^(BOOL success) {
+                         [alertZL hideCustomeAlertView];
+                         [weakSelf xw_postNotificationWithName:ZHIFU_NOTIFICATION_RESUALT userInfo:@{@"type":@"UB"}];
+                         }];
+                         [alertZL okButtonBlockAction:^(BOOL success) {
+                         [alertZL hideCustomeAlertView];
+                         [weakSelf.navigationController popViewControllerAnimated:YES];
+                         NSLog(@"点击了去支付按钮");
+                         }];
+                         [alertZL showCustomAlertView];
                          */
                     }
                     
@@ -764,34 +764,50 @@
                 else{
                     //VIP会员购买
                     if ([type isEqualToString:@"alipay"]) {
+                        //支付宝支付
                         _currentOrderNUM = dic[@"orderNo"];
                         NSLog(@"当前的订单号为：%@",_currentOrderNUM);
                         //@"https://qr.alipay.com/bax00225fwvaxotgyqcj602a"
+                        /*
                         NSString * strIdentifier = dic[@"url"];
                         BOOL isExsit = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strIdentifier]];
                         if(isExsit) {
                             //NSLog(@"App %@ installed", strIdentifier);
                             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:strIdentifier]];
-                            AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
-                            alertZL.titleName = @"支付结果";
-                            alertZL.cancelBtnTitle = @"支付失败";
-                            alertZL.okBtnTitle = @"支付完成";
-                            [alertZL cancelBlockAction:^(BOOL success) {
-                                [alertZL hideCustomeAlertView];
-                                [weakSelf xw_postNotificationWithName:ZHIFU_NOTIFICATION_RESUALT userInfo:@{@"type":@"VIP"}];
-                            }];
-                            [alertZL okButtonBlockAction:^(BOOL success) {
-                                [alertZL hideCustomeAlertView];
-                                [weakSelf.navigationController popViewControllerAnimated:YES];
-                                NSLog(@"点击了去支付按钮");
-                            }];
-                            [alertZL showCustomAlertView];
+                            
                         }
+                         */
+                        // 必须
+                        // 支付 start
+                        FWParam *param = [[FWParam alloc] init];
+                        // playerid：用户在第三方平台上的用户名
+                        param.playerid  = UID;
+                        // goodsname：购买商品名称
+                        param.goodsname = [NSString stringWithFormat:@"%d",_currentJINE];
+                        // amount：购买商品价格，单位是元
+                        param.amount    = [NSString stringWithFormat:@"%d",_currentJINE];
+                        // payid：第三方平台上的订单号，请传真实订单号，方便后续对账，例子里采用随机数，
+                        param.payid  =  _currentOrderNUM;//[self demoOrderId];
+                        
+                         [FWInterface start:self withParams:param withDelegate:self];
                         
                     }
                     else{
+                        //微信支付
+                        // 必须
+                        // 支付 start
+                        FWParam *param = [[FWParam alloc] init];
+                        // playerid：用户在第三方平台上的用户名
+                        param.playerid  = UID;
+                        // goodsname：购买商品名称
+                        param.goodsname = [NSString stringWithFormat:@"%d",_currentJINE];
+                        // amount：购买商品价格，单位是元
+                        param.amount    = [NSString stringWithFormat:@"%d",_currentJINE];
+                        // payid：第三方平台上的订单号，请传真实订单号，方便后续对账，例子里采用随机数，
+                        param.payid  =  _currentOrderNUM;//[self demoOrderId];
                         
-                        [MBManager showBriefAlert:@"生成订单失败"];
+                         [FWInterface start:self withParams:param withDelegate:self];
+                       
                     }
                     
                     
@@ -1153,17 +1169,48 @@
 // 支付结果通知：
 - (void)receiveResult:(NSString*)payid result:(BOOL)success message:(NSString*)message
 {
+    NSLog(@"支付回调信息：%@----%d",message,success);
     if ( success == YES )
     {
-        UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"支付成功" message:message preferredStyle:UIAlertControllerStyleAlert];
-        [controller addAction:[UIAlertAction actionWithTitle:@"知道啦" style:UIAlertActionStyleCancel handler:nil]];
-        [self presentViewController:controller animated:true completion:nil];
+//        UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"支付成功" message:message preferredStyle:UIAlertControllerStyleAlert];
+//        [controller addAction:[UIAlertAction actionWithTitle:@"知道啦" style:UIAlertActionStyleCancel handler:nil]];
+//        [self presentViewController:controller animated:true completion:nil];
+        __weak typeof(self) weakSelf = self;
+        AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
+        alertZL.titleName = @"支付成功";
+        alertZL.cancelBtnTitle = @"取消";
+        alertZL.okBtnTitle = @"确定";
+        [alertZL cancelBlockAction:^(BOOL success) {
+            [alertZL hideCustomeAlertView];
+            //[weakSelf xw_postNotificationWithName:ZHIFU_NOTIFICATION_RESUALT userInfo:@{@"type":@"VIP"}];
+        }];
+        [alertZL okButtonBlockAction:^(BOOL success) {
+            [alertZL hideCustomeAlertView];
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+            NSLog(@"点击了去支付按钮");
+        }];
+        [alertZL showCustomAlertView];
     }
     else
     {
-        UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"支付失败" message:message preferredStyle:UIAlertControllerStyleAlert];
-        [controller addAction:[UIAlertAction actionWithTitle:@"知道啦" style:UIAlertActionStyleCancel handler:nil]];
-        [self presentViewController:controller animated:true completion:nil];
+//        UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"支付失败" message:message preferredStyle:UIAlertControllerStyleAlert];
+//        [controller addAction:[UIAlertAction actionWithTitle:@"知道啦" style:UIAlertActionStyleCancel handler:nil]];
+//        [self presentViewController:controller animated:true completion:nil];
+        __weak typeof(self) weakSelf = self;
+        AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
+        alertZL.titleName = @"支付失败";
+        alertZL.cancelBtnTitle = @"取消";
+        alertZL.okBtnTitle = @"再试一次";
+        [alertZL cancelBlockAction:^(BOOL success) {
+            [alertZL hideCustomeAlertView];
+            //[weakSelf xw_postNotificationWithName:ZHIFU_NOTIFICATION_RESUALT userInfo:@{@"type":@"VIP"}];
+        }];
+        [alertZL okButtonBlockAction:^(BOOL success) {
+            [alertZL hideCustomeAlertView];
+            //[weakSelf.navigationController popViewControllerAnimated:YES];
+            NSLog(@"点击了去支付按钮");
+        }];
+        [alertZL showCustomAlertView];
     }
 }
 

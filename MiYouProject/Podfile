@@ -44,4 +44,6 @@ target 'MiYouProject' do
   pod 'KYVedioPlayer', '~> 0.0'
   pod 'UMengAnalytics', '~> 4.2'
   pod 'Bugly', '~> 2.4'
+
+  
 end
