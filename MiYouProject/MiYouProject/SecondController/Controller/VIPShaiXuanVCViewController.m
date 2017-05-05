@@ -200,7 +200,7 @@ static BOOL _isCanPlay;
                 break;
         }
         //[weakSelf.collectionARR removeAllObjects];
-        [weakSelf startAFNetworkingWith:weakSelf.sourceID withURL:_currentURL withType:weakSelf.type withIsNexg:NO];
+        [weakSelf startAFNetworkingWith:weakSelf.sourceID withURL:nil withType:weakSelf.type withIsNexg:NO];
     }];
     [self.sgControl01 addTarget:self action:@selector(segmentCtrlValuechange:) forControlEvents:UIControlEventValueChanged];
     //第二个
@@ -376,7 +376,7 @@ static BOOL _isCanPlay;
      }];
      */
     if (myCachedImage) {
-        NSLog(@"缓存中有图片");
+        //NSLog(@"缓存中有图片");
         [cell.smallImageVIew sd_setImageWithURL:[NSURL URLWithString:model.pic] placeholderImage:[UIImage imageNamed:@"icon_default"] options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
             
         } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
@@ -386,13 +386,13 @@ static BOOL _isCanPlay;
     else{
         NSLog(@"缓存中没有图片时执行方法");
         [[SDWebImageManager sharedManager].imageDownloader downloadImageWithURL:[NSURL URLWithString:model.pic] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
-            NSLog(@"处理下载进度");
+           // NSLog(@"处理下载进度");
         } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
             if (error) {
                 NSLog(@"下载有错误");
             }
             if (image) {
-                NSLog(@"下载图片完成");
+                //NSLog(@"下载图片完成");
                 dispatch_async(dispatch_get_main_queue(), ^{
                     // switch back to the main thread to update your UI
                     [cell.smallImageVIew setImage:image];

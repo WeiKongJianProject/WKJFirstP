@@ -115,7 +115,7 @@
     //聚宝云 支付介入
     // 必须
     // FW code start
-    [FWInterface init:@"29660012" useAPI:YES withWXAppId:@"wx1cb7e61eb868bea3"]; // 35656972是appId
+    [FWInterface init:@"35656972" useAPI:YES withWXAppId:nil]; // 35656972是appId
     // FW code end
     
     return YES;
