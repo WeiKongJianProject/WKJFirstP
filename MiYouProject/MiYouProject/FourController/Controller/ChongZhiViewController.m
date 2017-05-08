@@ -620,14 +620,14 @@
 - (void)weixinZhiFuButtonAction:(UIButton *)sender{
     //微信支付
     NSLog(@"微信支付，金额为：%d",_currentJINE);
-    
+    [self closeButtonAction:nil];
     //[self start:@"" withType:@"1"];
     //[self zhifuButtonWithType:@"wechat"];
     [self juBaoYunZhiFuWithType:@"wechat"];
 }
 //支付宝支付
 - (void)zhifuBaoButtonAction:(UIButton *)sender{
-    
+    [self closeButtonAction:nil];
     //[self alipayPostWithUID:UID withJinE:_currentJINE];
     //[self zhifuButtonWithType:@"alipay"];
     [self juBaoYunZhiFuWithType:@"alipay"];
@@ -667,7 +667,7 @@
             NSString * result = dic[@"result"];
             if ([result isEqualToString:@"success"]) {
                 
-                if (self.UB_or_VIP == UB_ChongZhi) {
+                if (weakSelf.UB_or_VIP == UB_ChongZhi) {
                     //UB充值
                     if ([type isEqualToString:@"alipay"]) {
                         _currentOrderNUM = dic[@"payid"];
@@ -691,7 +691,7 @@
                         param.amount = [NSString stringWithFormat:@"%d",_currentJINE];
                         // payid：第三方平台上的订单号，请传真实订单号，方便后续对账，例子里采用随机数，
                         param.payid  =  _currentOrderNUM;//[self demoOrderId];
-                        [FWInterface start:self withParams:param withDelegate:self];
+                        [FWInterface start:weakSelf withParams:param withDelegate:weakSelf];
                         //[FWInterface start:self withParams:param withType:2 withDelegate:self];
                         // 支付 end
                         
@@ -733,11 +733,11 @@
                         // goodsname：购买商品名称
                         param.goodsname = [NSString stringWithFormat:@"%d",_currentJINE];
                         // amount：购买商品价格，单位是元
-                        param.amount    = [NSString stringWithFormat:@"%d",_currentJINE];
+                        param.amount  = [NSString stringWithFormat:@"%d",_currentJINE];
                         // payid：第三方平台上的订单号，请传真实订单号，方便后续对账，例子里采用随机数，
                         param.payid  =  _currentOrderNUM;//[self demoOrderId];
                         
-                        [FWInterface start:self withParams:param withDelegate:self];
+                        [FWInterface start:weakSelf withParams:param withDelegate:weakSelf];
                         // 支付 end
                         
                         //NSLog(@"App %@ installed", strIdentifier);
@@ -765,7 +765,8 @@
                     //VIP会员购买
                     if ([type isEqualToString:@"alipay"]) {
                         //支付宝支付
-                        _currentOrderNUM = dic[@"orderNo"];
+                        _currentOrderNUM = dic[@"payid"];
+                        NSString * jiaGeStr = dic[@"price"];
                         NSLog(@"当前的订单号为：%@",_currentOrderNUM);
                         //@"https://qr.alipay.com/bax00225fwvaxotgyqcj602a"
                         /*
@@ -785,14 +786,18 @@
                         // goodsname：购买商品名称
                         param.goodsname = [NSString stringWithFormat:@"%d",_currentJINE];
                         // amount：购买商品价格，单位是元
-                        param.amount    = [NSString stringWithFormat:@"%d",_currentJINE];
+                        param.amount  =  jiaGeStr;//[NSString stringWithFormat:@"%d",_currentJINE];
                         // payid：第三方平台上的订单号，请传真实订单号，方便后续对账，例子里采用随机数，
                         param.payid  =  _currentOrderNUM;//[self demoOrderId];
                         
-                         [FWInterface start:self withParams:param withDelegate:self];
+                         [FWInterface start:weakSelf withParams:param withDelegate:weakSelf];
                         
                     }
                     else{
+
+                        _currentOrderNUM = dic[@"payid"];
+                        NSString * jiaGeStr = dic[@"price"];
+                        NSLog(@"当前的订单号为：%@",_currentOrderNUM);
                         //微信支付
                         // 必须
                         // 支付 start
@@ -802,11 +807,11 @@
                         // goodsname：购买商品名称
                         param.goodsname = [NSString stringWithFormat:@"%d",_currentJINE];
                         // amount：购买商品价格，单位是元
-                        param.amount    = [NSString stringWithFormat:@"%d",_currentJINE];
+                        param.amount  = jiaGeStr;//[NSString stringWithFormat:@"%d",_currentJINE];
                         // payid：第三方平台上的订单号，请传真实订单号，方便后续对账，例子里采用随机数，
                         param.payid  =  _currentOrderNUM;//[self demoOrderId];
                         
-                         [FWInterface start:self withParams:param withDelegate:self];
+                         [FWInterface start:weakSelf withParams:param withDelegate:weakSelf];
                        
                     }
                     
