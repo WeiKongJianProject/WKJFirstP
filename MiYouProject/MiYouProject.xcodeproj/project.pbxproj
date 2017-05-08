@@ -68,6 +68,13 @@
 		732DFC891E94EF1E00D024F8 /* KYVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 732DFC881E94EF1E00D024F8 /* KYVideo.m */; };
 		732DFC8D1E977CC100D024F8 /* SanVIPPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732DFC8B1E977CC100D024F8 /* SanVIPPlayViewController.m */; };
 		732DFC8E1E977CC100D024F8 /* SanVIPPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732DFC8C1E977CC100D024F8 /* SanVIPPlayViewController.xib */; };
+		7339CB241EBABAA400E5E600 /* libUMessage_Sdk_1.5.0a.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7339CB221EBABAA400E5E600 /* libUMessage_Sdk_1.5.0a.a */; };
+		7339CB261EBABABF00E5E600 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7339CB251EBABABF00E5E600 /* UserNotifications.framework */; };
+		7339CB3D1EBB120000E5E600 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7339CB3C1EBB120000E5E600 /* Security.framework */; };
+		7339CB4F1EBC542100E5E600 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7339CB451EBC542100E5E600 /* libWeChatSDK.a */; };
+		7339CB501EBC542100E5E600 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7339CB461EBC542100E5E600 /* README.txt */; };
+		7339CB511EBC542100E5E600 /* FWResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7339CB4A1EBC542100E5E600 /* FWResource.bundle */; };
+		7339CB521EBC542100E5E600 /* libFWSdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7339CB4E1EBC542100E5E600 /* libFWSdk.a */; };
 		73485C2D1E9CAD3600A6691A /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C2C1E9CAD3600A6691A /* libc++.tbd */; };
 		73485C2F1E9CAD3F00A6691A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C2E1E9CAD3F00A6691A /* libz.tbd */; };
 		73485C311E9CAD4B00A6691A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C301E9CAD4B00A6691A /* SystemConfiguration.framework */; };
@@ -396,6 +403,19 @@
 		732DFC8A1E977CC100D024F8 /* SanVIPPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SanVIPPlayViewController.h; sourceTree = "<group>"; };
 		732DFC8B1E977CC100D024F8 /* SanVIPPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SanVIPPlayViewController.m; sourceTree = "<group>"; };
 		732DFC8C1E977CC100D024F8 /* SanVIPPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SanVIPPlayViewController.xib; sourceTree = "<group>"; };
+		7339CB221EBABAA400E5E600 /* libUMessage_Sdk_1.5.0a.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.5.0a.a; sourceTree = "<group>"; };
+		7339CB231EBABAA400E5E600 /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
+		7339CB251EBABABF00E5E600 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		7339CB3C1EBB120000E5E600 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		7339CB451EBC542100E5E600 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		7339CB461EBC542100E5E600 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		7339CB471EBC542100E5E600 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		7339CB481EBC542100E5E600 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		7339CB491EBC542100E5E600 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		7339CB4A1EBC542100E5E600 /* FWResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FWResource.bundle; sourceTree = "<group>"; };
+		7339CB4C1EBC542100E5E600 /* FWInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWInterface.h; sourceTree = "<group>"; };
+		7339CB4D1EBC542100E5E600 /* FWParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWParam.h; sourceTree = "<group>"; };
+		7339CB4E1EBC542100E5E600 /* libFWSdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFWSdk.a; sourceTree = "<group>"; };
 		73485C2C1E9CAD3600A6691A /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		73485C2E1E9CAD3F00A6691A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		73485C301E9CAD4B00A6691A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -745,6 +765,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7339CB3D1EBB120000E5E600 /* Security.framework in Frameworks */,
+				7339CB261EBABABF00E5E600 /* UserNotifications.framework in Frameworks */,
 				73485C481E9CCDC900A6691A /* libz.1.2.5.tbd in Frameworks */,
 				73485C3F1E9CADAB00A6691A /* CoreMotion.framework in Frameworks */,
 				73485C3D1E9CAD9C00A6691A /* CFNetwork.framework in Frameworks */,
@@ -752,15 +774,18 @@
 				73485C391E9CAD7B00A6691A /* CoreGraphics.framework in Frameworks */,
 				73485C371E9CAD6E00A6691A /* CoreText.framework in Frameworks */,
 				73485C351E9CAD6300A6691A /* QuartzCore.framework in Frameworks */,
+				7339CB241EBABAA400E5E600 /* libUMessage_Sdk_1.5.0a.a in Frameworks */,
 				73485C331E9CAD5600A6691A /* CoreTelephony.framework in Frameworks */,
 				73485C311E9CAD4B00A6691A /* SystemConfiguration.framework in Frameworks */,
 				73485C2F1E9CAD3F00A6691A /* libz.tbd in Frameworks */,
+				7339CB521EBC542100E5E600 /* libFWSdk.a in Frameworks */,
 				73485C2D1E9CAD3600A6691A /* libc++.tbd in Frameworks */,
 				73A3B6081E8A7B5600407957 /* AVKit.framework in Frameworks */,
 				73A3B6061E8A789F00407957 /* CoreMedia.framework in Frameworks */,
 				73E7DA4E1E7A6C3A00371E33 /* Foundation.framework in Frameworks */,
 				73E7DA4C1E7A6C3000371E33 /* AVFoundation.framework in Frameworks */,
 				73E7DA4A1E7A6C2700371E33 /* MobileCoreServices.framework in Frameworks */,
+				7339CB4F1EBC542100E5E600 /* libWeChatSDK.a in Frameworks */,
 				73EB3F961E6FDEE400CA8B5D /* WebP.framework in Frameworks */,
 				73EB3FCF1E6FDEE400CA8B5D /* libPaymentControl.a in Frameworks */,
 				73EB3E9B1E6FD48200CA8B5D /* libsqlite3.tbd in Frameworks */,
@@ -826,6 +851,10 @@
 		1D3354C620478839F6FED82A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7339CB421EBC542100E5E600 /* 对接包 */,
+				7339CB3C1EBB120000E5E600 /* Security.framework */,
+				7339CB251EBABABF00E5E600 /* UserNotifications.framework */,
+				7339CB211EBABAA400E5E600 /* UMessage_Sdk_1.5.0a */,
 				73485C4E1E9CD74C00A6691A /* BmobPaySDK.framework */,
 				73485C491E9CD37D00A6691A /* BmobPaySDK.framework */,
 				73485C471E9CCDC900A6691A /* libz.1.2.5.tbd */,
@@ -1020,6 +1049,55 @@
 				732DFC6C1E94BCD100D024F8 /* WMLightView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7339CB211EBABAA400E5E600 /* UMessage_Sdk_1.5.0a */ = {
+			isa = PBXGroup;
+			children = (
+				7339CB221EBABAA400E5E600 /* libUMessage_Sdk_1.5.0a.a */,
+				7339CB231EBABAA400E5E600 /* UMessage.h */,
+			);
+			path = UMessage_Sdk_1.5.0a;
+			sourceTree = "<group>";
+		};
+		7339CB421EBC542100E5E600 /* 对接包 */ = {
+			isa = PBXGroup;
+			children = (
+				7339CB431EBC542100E5E600 /* FWDepends */,
+				7339CB4A1EBC542100E5E600 /* FWResource.bundle */,
+				7339CB4B1EBC542100E5E600 /* lib */,
+			);
+			path = "对接包";
+			sourceTree = "<group>";
+		};
+		7339CB431EBC542100E5E600 /* FWDepends */ = {
+			isa = PBXGroup;
+			children = (
+				7339CB441EBC542100E5E600 /* wx */,
+			);
+			path = FWDepends;
+			sourceTree = "<group>";
+		};
+		7339CB441EBC542100E5E600 /* wx */ = {
+			isa = PBXGroup;
+			children = (
+				7339CB451EBC542100E5E600 /* libWeChatSDK.a */,
+				7339CB461EBC542100E5E600 /* README.txt */,
+				7339CB471EBC542100E5E600 /* WechatAuthSDK.h */,
+				7339CB481EBC542100E5E600 /* WXApi.h */,
+				7339CB491EBC542100E5E600 /* WXApiObject.h */,
+			);
+			path = wx;
+			sourceTree = "<group>";
+		};
+		7339CB4B1EBC542100E5E600 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				7339CB4C1EBC542100E5E600 /* FWInterface.h */,
+				7339CB4D1EBC542100E5E600 /* FWParam.h */,
+				7339CB4E1EBC542100E5E600 /* libFWSdk.a */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 		73485C271E9CAD0300A6691A /* ZhiFuFrame */ = {
@@ -2032,6 +2110,7 @@
 				73E7DA6C1E7BE08D00371E33 /* PlayerZLViewController.xib in Resources */,
 				730D38701E78C4F000EE4692 /* PersonTableViewCell.xib in Resources */,
 				73E7DA931E80BF7C00371E33 /* PlayVideoTableViewCell.xib in Resources */,
+				7339CB511EBC542100E5E600 /* FWResource.bundle in Resources */,
 				73E7DA601E7B6F2200371E33 /* HuanCunFooterView.xib in Resources */,
 				73EB3FCC1E6FDEE400CA8B5D /* page.png in Resources */,
 				73EB3FA01E6FDEE400CA8B5D /* zhoulu.gif in Resources */,
@@ -2063,6 +2142,7 @@
 				730D384D1E7697A600EE4692 /* PersonHederTableViewCell.xib in Resources */,
 				73E7DA581E7A7C7F00371E33 /* HuanCunZLTableViewCell.xib in Resources */,
 				73EB43211E727E6F00CA8B5D /* FirstSubViewViewController.xib in Resources */,
+				7339CB501EBC542100E5E600 /* README.txt in Resources */,
 				730D38891E79247E00EE4692 /* VIPChongZhiView.xib in Resources */,
 				73A3B6241E8CA9DD00407957 /* SiFangCollectionViewCell.xib in Resources */,
 				73EB3FB61E6FDEE400CA8B5D /* Loading007.png in Resources */,
@@ -2563,6 +2643,79 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MiYouProject/CommonFiles/Common/zhou/paymentcontrol/libs",
 					"$(PROJECT_DIR)/MiYouProject/Myframework/ZhiFuFrame",
+					"$(PROJECT_DIR)/UMessage_Sdk_1.5.0a",
+					"$(PROJECT_DIR)/对接包/FWDepends/wx",
+					"$(PROJECT_DIR)/对接包/lib",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"BSUIKit\"",
+					"-l\"Base64nl\"",
+					"-l\"CustomIOSAlertView\"",
+					"-l\"DZNSegmentedControl\"",
+					"-l\"FBRetainCycleDetector\"",
+					"-l\"FMDB\"",
+					"-l\"GONMarkupParser\"",
+					"-l\"IQKeyboardManager\"",
+					"-l\"KYVedioPlayer\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MGSwipeTableCell\"",
+					"-l\"MJExtension\"",
+					"-l\"MJRefresh\"",
+					"-l\"MLeaksFinder\"",
+					"-l\"Mantle\"",
+					"-l\"Masonry\"",
+					"-l\"NSString+Color\"",
+					"-l\"SDWebImage\"",
+					"-l\"VOSegmentedControl\"",
+					"-l\"WHCNetWorkKit\"",
+					"-l\"WMPageController\"",
+					"-l\"YYKit\"",
+					"-l\"ZFPlayer\"",
+					"-l\"c++\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"AssetsLibrary\"",
+					"-framework",
+					"\"Bugly\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreImage\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"UMMobClick\"",
+					"-framework",
+					"\"WebP\"",
+					"-all_load",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = miyou.com.MiYouProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2591,6 +2744,79 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MiYouProject/CommonFiles/Common/zhou/paymentcontrol/libs",
 					"$(PROJECT_DIR)/MiYouProject/Myframework/ZhiFuFrame",
+					"$(PROJECT_DIR)/UMessage_Sdk_1.5.0a",
+					"$(PROJECT_DIR)/对接包/FWDepends/wx",
+					"$(PROJECT_DIR)/对接包/lib",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"BSUIKit\"",
+					"-l\"Base64nl\"",
+					"-l\"CustomIOSAlertView\"",
+					"-l\"DZNSegmentedControl\"",
+					"-l\"FBRetainCycleDetector\"",
+					"-l\"FMDB\"",
+					"-l\"GONMarkupParser\"",
+					"-l\"IQKeyboardManager\"",
+					"-l\"KYVedioPlayer\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MGSwipeTableCell\"",
+					"-l\"MJExtension\"",
+					"-l\"MJRefresh\"",
+					"-l\"MLeaksFinder\"",
+					"-l\"Mantle\"",
+					"-l\"Masonry\"",
+					"-l\"NSString+Color\"",
+					"-l\"SDWebImage\"",
+					"-l\"VOSegmentedControl\"",
+					"-l\"WHCNetWorkKit\"",
+					"-l\"WMPageController\"",
+					"-l\"YYKit\"",
+					"-l\"ZFPlayer\"",
+					"-l\"c++\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"AssetsLibrary\"",
+					"-framework",
+					"\"Bugly\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreImage\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"UMMobClick\"",
+					"-framework",
+					"\"WebP\"",
+					"-all_load",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = miyou.com.MiYouProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";

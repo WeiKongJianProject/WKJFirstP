@@ -95,6 +95,7 @@
             }];
             [alertZL showCustomAlertView];
         }
+        _currentPage--;
     }
     else{
         [self startAFnetWorkingWithCateID:self.id withPage:_currentPage];

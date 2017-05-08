@@ -12,6 +12,7 @@
 
     NSString * _totalNum;
     
+    
 }
 
 @end

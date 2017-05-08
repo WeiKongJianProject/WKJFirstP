@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "UMMobClick/MobClick.h"
 #import <Bugly/Bugly.h>
+#import "FWInterface.h"
 //#import <AlipaySDK/AlipaySDK.h>
 //#import <BmobPaySDK/Bmob.h>
 
@@ -27,6 +28,33 @@
     [MobClick startWithConfigure:UMConfigInstance];//配置以上参数后调用此方法初始化SDK！
     NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     [MobClick setAppVersion:version];
+    
+    
+    
+    /*
+     *推送消息
+     */
+    //初始化方法,也可以使用(void)startWithAppkey:(NSString *)appKey launchOptions:(NSDictionary * )launchOptions httpsenable:(BOOL)value;这个方法，方便设置https请求。
+    [UMessage startWithAppkey:YOUMENG_APP_ID_ZL launchOptions:launchOptions];
+    //注册通知，如果要使用category的自定义策略，可以参考demo中的代码。
+    [UMessage registerForRemoteNotifications];
+    
+    //iOS10必须加下面这段代码。
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    center.delegate=self;
+    UNAuthorizationOptions types10=UNAuthorizationOptionBadge|  UNAuthorizationOptionAlert|UNAuthorizationOptionSound;
+    [center requestAuthorizationWithOptions:types10     completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        if (granted) {
+            //点击允许
+            //这里可以添加一些自己的逻辑
+        } else {
+            //点击不允许
+            //这里可以添加一些自己的逻辑
+        }
+    }];
+    
+    //打开日志，方便调试
+    [UMessage setLogEnabled:YES];
     
     //bugly异常统计
     [Bugly startWithAppId:@"4126a8935b"];
@@ -84,9 +112,24 @@
         
     }
     
+    //聚宝云 支付介入
+    // 必须
+    // FW code start //测试  35656972  //正式 29660012
+    [FWInterface init:@"29660012" useAPI:NO withWXAppId:nil]; // 35656972是appId
+    // FW code end
     
     return YES;
 }
+
+- (void)applicationWillEnterForeground:(UIApplication *)application{
+    // 必须
+    // FW code start
+    [FWInterface applicationWillEnterForeground:application];
+    // FW code end
+
+}
+
+
 #pragma mark 支付调用接口
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
     if ([url.host isEqualToString:@"safepay"]) {
@@ -148,9 +191,7 @@
 }
 
 
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-}
+
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -213,5 +254,66 @@
 +(AppDelegate *)shareAppDelegate{
     return (AppDelegate *) [UIApplication sharedApplication].delegate;
 }
+
+
+#if  __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
+// iOS SDK 7.0 以后版本的处理
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler{
+    NSDictionary * userInfo = response.notification.request.content.userInfo;
+    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        //应用处于后台时的远程推送接受
+        //必须加这句代码
+        [UMessage didReceiveRemoteNotification:userInfo];
+        
+    }else{
+        //应用处于后台时的本地推送接受
+    }
+}
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler{
+    NSDictionary * userInfo = notification.request.content.userInfo;
+    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        //应用处于前台时的远程推送接受
+        //关闭U-Push自带的弹出框
+        [UMessage setAutoAlert:NO];
+        //必须加这句代码
+        [UMessage didReceiveRemoteNotification:userInfo];
+        
+    }else{
+        //应用处于前台时的本地推送接受
+    }
+    //当应用处于前台时提示设置，需要哪个可以设置哪一个
+    completionHandler(UNNotificationPresentationOptionSound|UNNotificationPresentationOptionBadge|UNNotificationPresentationOptionAlert);
+    
+    
+}
+
+#else
+
+// iOS SDK 7.0 之前版本的处理
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    
+    [UMessage didReceiveRemoteNotification:userInfo];
+    
+    //    self.userInfo = userInfo;
+    //    //定制自定的的弹出框
+    //    if([UIApplication sharedApplication].applicationState == UIApplicationStateActive)
+    //    {
+    //        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"标题"
+    //                                                            message:@"Test On ApplicationStateActive"
+    //                                                           delegate:self
+    //                                                  cancelButtonTitle:@"确定"
+    //                                                  otherButtonTitles:nil];
+    //
+    //        [alertView show];
+    //
+    //    }
+}
+
+
+
+#endif
+
 
 @end

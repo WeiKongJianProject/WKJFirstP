@@ -258,7 +258,37 @@ static int _currentPage;
 
 - (void)shanglaShuaXin{
     _currentPage++;
-    [self getShuJuFromAFNetworkingWithPage:_currentPage];
+    NSString * vipLevel = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_VIP_LEVEL];
+    int vipLevelNum = [vipLevel intValue];
+    if (_currentPage >=3) {
+        if (vipLevelNum >0) {
+             [self getShuJuFromAFNetworkingWithPage:_currentPage];
+        }
+        else{
+            __weak typeof(self) weakSelf = self;
+            AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
+            alertZL.titleName = @"需要开通VIP才能观看更多";
+            alertZL.cancelBtnTitle = @"取消";
+            alertZL.okBtnTitle = @"开通";
+            [alertZL cancelBlockAction:^(BOOL success) {
+                [alertZL hideCustomeAlertView];
+                [weakSelf.collectionVIew.mj_footer endRefreshing];
+            }];
+            [alertZL okButtonBlockAction:^(BOOL success) {
+                [alertZL hideCustomeAlertView];
+                [weakSelf.collectionVIew.mj_footer endRefreshing];
+                [weakSelf xw_postNotificationWithName:KAITONG_VIP_NOTIFICATION userInfo:nil];
+            }];
+            [alertZL showCustomAlertView];
+        }
+        _currentPage--;
+    }
+    else{
+         [self getShuJuFromAFNetworkingWithPage:_currentPage];
+        
+    }
+    
+   
     //[self startAFNetworkingWith:self.id withPage:_currentPage withJuQing:_currentStory withYear:_currentYear withType:_currentType withOrder:_currentOrder];
 }
 - (void)headShuaXin{
