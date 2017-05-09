@@ -472,12 +472,15 @@ static int _is_first;
 {
     //[self.collectionView reloadData];
     if (control.selectedSegmentIndex == 0) {
-        
+        [self.collectionView reloadData];
     }
     else{
         if (_is_first == 1) {
             [self startAFNetworkingwithPage:_currentPage_HOT withOrder:@"hot"];
             _is_first++;
+        }
+        else{
+            [self.collectionView reloadData];
         }
         
     }
