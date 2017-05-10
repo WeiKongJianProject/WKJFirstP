@@ -19,6 +19,8 @@
     self.title = @"关于我们";
     // Do any additional setup after loading the view from its nib.
 }
+- (IBAction)backButtonAction:(UIButton *)sender {
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -75,6 +75,8 @@
 		7339CB501EBC542100E5E600 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7339CB461EBC542100E5E600 /* README.txt */; };
 		7339CB511EBC542100E5E600 /* FWResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7339CB4A1EBC542100E5E600 /* FWResource.bundle */; };
 		7339CB521EBC542100E5E600 /* libFWSdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7339CB4E1EBC542100E5E600 /* libFWSdk.a */; };
+		7339CBB01EC2FEBA00E5E600 /* MianZeViewController02.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CBAE1EC2FEBA00E5E600 /* MianZeViewController02.m */; };
+		7339CBB11EC2FEBA00E5E600 /* MianZeViewController02.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7339CBAF1EC2FEBA00E5E600 /* MianZeViewController02.xib */; };
 		73485C2D1E9CAD3600A6691A /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C2C1E9CAD3600A6691A /* libc++.tbd */; };
 		73485C2F1E9CAD3F00A6691A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C2E1E9CAD3F00A6691A /* libz.tbd */; };
 		73485C311E9CAD4B00A6691A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C301E9CAD4B00A6691A /* SystemConfiguration.framework */; };
@@ -416,6 +418,9 @@
 		7339CB4C1EBC542100E5E600 /* FWInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWInterface.h; sourceTree = "<group>"; };
 		7339CB4D1EBC542100E5E600 /* FWParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWParam.h; sourceTree = "<group>"; };
 		7339CB4E1EBC542100E5E600 /* libFWSdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFWSdk.a; sourceTree = "<group>"; };
+		7339CBAD1EC2FEBA00E5E600 /* MianZeViewController02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MianZeViewController02.h; sourceTree = "<group>"; };
+		7339CBAE1EC2FEBA00E5E600 /* MianZeViewController02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MianZeViewController02.m; sourceTree = "<group>"; };
+		7339CBAF1EC2FEBA00E5E600 /* MianZeViewController02.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MianZeViewController02.xib; sourceTree = "<group>"; };
 		73485C2C1E9CAD3600A6691A /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		73485C2E1E9CAD3F00A6691A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		73485C301E9CAD4B00A6691A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -931,6 +936,9 @@
 				732BC86C1E6FD17400B8B1BD /* AppDelegate.m */,
 				732BC86E1E6FD17400B8B1BD /* ViewController.h */,
 				732BC86F1E6FD17400B8B1BD /* ViewController.m */,
+				7339CBAD1EC2FEBA00E5E600 /* MianZeViewController02.h */,
+				7339CBAE1EC2FEBA00E5E600 /* MianZeViewController02.m */,
+				7339CBAF1EC2FEBA00E5E600 /* MianZeViewController02.xib */,
 				732BC8711E6FD17400B8B1BD /* Main.storyboard */,
 				732BC8771E6FD17400B8B1BD /* Assets.xcassets */,
 				732BC8791E6FD17400B8B1BD /* LaunchScreen.storyboard */,
@@ -2122,6 +2130,7 @@
 				732BC8781E6FD17400B8B1BD /* Assets.xcassets in Resources */,
 				73A3B6361E8DEE6B00407957 /* PingLunViewController.xib in Resources */,
 				73EB3FAC1E6FDEE400CA8B5D /* Loading0016.png in Resources */,
+				7339CBB11EC2FEBA00E5E600 /* MianZeViewController02.xib in Resources */,
 				73EB3FB81E6FDEE400CA8B5D /* Loading009.png in Resources */,
 				73A3B61F1E8BE15600407957 /* ZhiFuButtonView.xib in Resources */,
 				73EB3FBC1E6FDEE400CA8B5D /* app_bg.jpg in Resources */,
@@ -2340,6 +2349,7 @@
 				732DFC891E94EF1E00D024F8 /* KYVideo.m in Sources */,
 				73EB3FC01E6FDEE400CA8B5D /* NewFeatureModel.m in Sources */,
 				73E7DA921E80BF7C00371E33 /* PlayVideoTableViewCell.m in Sources */,
+				7339CBB01EC2FEBA00E5E600 /* MianZeViewController02.m in Sources */,
 				73C347331E84E96600BBBDBE /* MSSAutoresizeLabelFlowLayout.m in Sources */,
 				73C3471D1E8249E200BBBDBE /* MemberMTLModel.m in Sources */,
 				73EB3FC61E6FDEE400CA8B5D /* GCDGroup.m in Sources */,

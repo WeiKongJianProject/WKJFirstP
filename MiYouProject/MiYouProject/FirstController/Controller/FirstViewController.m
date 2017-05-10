@@ -8,7 +8,10 @@
 
 #import "FirstViewController.h"
 
-@interface FirstViewController ()
+@interface FirstViewController (){
+    NSString * _newVersionURL;
+
+}
 
 @end
 
@@ -127,6 +130,7 @@
         if ([dic[@"result"] isEqualToString:@"success"]) {
             NSString * versionStr = dic[@"version"];
             if (![kAppVersion isEqualToString:versionStr]) {
+                _newVersionURL = dic[@"url"];
               [weakSelf loadDownView];
             }
             //[weakSelf loadDownView];
@@ -154,7 +158,7 @@
 }
 - (void)newBanBenButtonAction:(UIControl *)sender{
 
-    NSString * strIdentifier = NewBanBen_URL;
+    NSString * strIdentifier = _newVersionURL;
     BOOL isExsit = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strIdentifier]];
         if(isExsit) {
                     //NSLog(@"App %@ installed", strIdentifier);

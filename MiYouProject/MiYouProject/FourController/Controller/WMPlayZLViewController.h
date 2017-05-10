@@ -13,6 +13,7 @@
 #import "PlayMemberMTLModel.h"
 #import "PingLunTableViewCell.h"
 #import "PingLunMTLModel.h"
+#import "ChongZhiViewController.h"
 
 @interface WMPlayZLViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 

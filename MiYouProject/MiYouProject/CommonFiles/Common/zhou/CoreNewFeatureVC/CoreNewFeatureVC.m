@@ -15,7 +15,10 @@
 
 NSString *const NewFeatureVersionKey = @"NewFeatureVersionKey";
 
-@interface CoreNewFeatureVC ()
+@interface CoreNewFeatureVC (){
+
+    UIButton * _mianZeButton;
+}
 
 
 /** 模型数组 */
@@ -117,16 +120,56 @@ NSString *const NewFeatureVersionKey = @"NewFeatureVersionKey";
             imageV.userInteractionEnabled = YES;
             
             //添加手势
-            [imageV addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestureAction:)]];
+            //[imageV addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestureAction:)]];
             /*
              zhoulu修改 start
             */
-            UILabel * label = [[UILabel alloc]initWithFrame:CGRectMake(0, [[UIScreen mainScreen] bounds].size.height-200, [[UIScreen mainScreen] bounds].size.width, 30)];
-            label.text = @"立即体验";
-            label.textColor = [UIColor whiteColor];
-            label.textAlignment = NSTextAlignmentCenter;
-            //[imageV addSubview:label];
+            _mianZeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            _mianZeButton.centerX = [[UIScreen mainScreen] bounds].size.width/2.0-45;
+            _mianZeButton.width = 15;
+            _mianZeButton.height = 15;
+            _mianZeButton.bottom = [[UIScreen mainScreen] bounds].size.height-200;
+            [_mianZeButton setBackgroundImage:[UIImage imageNamed:@"weixuanzhongmianze"] forState:UIControlStateNormal];
+            [_mianZeButton setBackgroundImage:[UIImage imageNamed:@"xuanzhongmianze"] forState:UIControlStateSelected];
+            _mianZeButton.selected = YES;
+            [_mianZeButton addTarget:self action:@selector(buttonSelectedOrNO:) forControlEvents:UIControlEventTouchUpInside];
+            [imageV addSubview:_mianZeButton];
+            NSMutableAttributedString * one = [[NSMutableAttributedString alloc] initWithString:@"免责声明"];
+            one.font = [UIFont systemFontOfSize:13.0];
+            one.underlineStyle = NSUnderlineStyleSingle;
             
+            [one setTextHighlightRange:one.rangeOfAll color:[UIColor whiteColor] backgroundColor:[UIColor colorWithWhite:0.0 alpha:0.22] tapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
+                NSLog(@"点击了免责声明");
+                
+                MianZeViewController02 * vc = [[MianZeViewController02 alloc]init];
+                
+                [self presentViewController:vc animated:YES completion:^{
+                    
+                }];
+                
+            }];
+            
+            YYLabel * labelyy = [YYLabel new];
+            labelyy.attributedText = one;
+            labelyy.centerX = [[UIScreen mainScreen] bounds].size.width/2.0-30;
+            labelyy.width = 70;
+            labelyy.height = 15;
+            labelyy.bottom = [[UIScreen mainScreen] bounds].size.height-200;
+            labelyy.textAlignment = NSTextAlignmentCenter;
+            labelyy.numberOfLines = 0;
+            labelyy.backgroundColor = [UIColor clearColor];
+            [imageV addSubview:labelyy];
+//            labelyy.highlightTapAction = ^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
+//                NSLog(@"再次点击");
+//            };
+            
+            UIButton * buttonStart = [UIButton buttonWithType:UIButtonTypeCustom];
+            buttonStart.width = SIZE_WIDTH;
+            buttonStart.height = 50;
+            buttonStart.bottom = SIZE_HEIGHT-70;
+            buttonStart.backgroundColor = [UIColor clearColor];
+            [buttonStart addTarget:self action:@selector(startButtonAction) forControlEvents:UIControlEventTouchUpInside];
+            [imageV addSubview:buttonStart];
             /*
              zhoulu修改 end
             */
@@ -138,16 +181,44 @@ NSString *const NewFeatureVersionKey = @"NewFeatureVersionKey";
     }];
 }
 
+//zhoulu修改 start
+- (void)buttonSelectedOrNO:(UIButton *)sender{
+
+    if (sender.isSelected == YES) {
+        sender.selected = NO;
+    }
+    else{
+        sender.selected = YES;
+    }
+
+}
+
+- (void)startButtonAction{
+    
+    if (_mianZeButton.selected == YES) {
+        NSLog(@"点击了进入按钮");
+        [self dismiss];
+    }
+    else{
+    
+    }
+    
+
+}
+
+//zhoulu修改  end
 
 
 -(void)gestureAction:(UITapGestureRecognizer *)tap{
     
-    UIView *tapView = tap.view;
-    
-    //禁用
-    tapView.userInteractionEnabled = NO;
-    
-    if(UIGestureRecognizerStateEnded == tap.state) [self dismiss];
+//    UIView *tapView = tap.view;
+//    
+//    //禁用
+//    tapView.userInteractionEnabled = NO;
+//    
+//    if(UIGestureRecognizerStateEnded == tap.state) {
+//        [self dismiss];
+//    }
 }
 
 -(void)dismiss{

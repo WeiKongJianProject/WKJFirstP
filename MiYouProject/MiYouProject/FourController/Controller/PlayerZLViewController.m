@@ -528,6 +528,12 @@ static int _currentPage;
     }
     return _tableViewARR;
 }
+//升级VIP
+- (IBAction)shengJiVIPButtonAction:(UIButton *)sender {
+    ChongZhiViewController * vc = [[ChongZhiViewController alloc]init];
+    vc.UB_or_VIP = VIP_ChongZhi;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 /*
  #pragma mark - Navigation

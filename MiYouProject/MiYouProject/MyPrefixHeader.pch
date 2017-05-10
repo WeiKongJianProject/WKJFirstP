@@ -28,6 +28,12 @@
 #import "UIButton+ZLWebPSetImage.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SDWebImage/UIButton+WebCache.h>
+#import <YYKit.h>
 
+//内敛函数
+UIKIT_STATIC_INLINE id weak_self(id sender){
+    __weak typeof(sender) weakSelf = sender;
+    return weakSelf;
+}
 
 #endif /* MyPrefixHeader_pch */

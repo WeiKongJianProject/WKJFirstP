@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -75,9 +74,24 @@
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oey-0c-bI4">
+                            <rect key="frame" x="296" y="2" width="64" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="BLf-Fn-6vm"/>
+                                <constraint firstAttribute="width" constant="64" id="nAL-aB-31X"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <state key="normal" title="开通VIP">
+                                <color key="titleColor" red="1" green="0.74901960779999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="kaiTongVIPButtongAction:" destination="-1" eventType="touchUpInside" id="leP-sH-oxq"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="oey-0c-bI4" secondAttribute="trailing" constant="15" id="1m6-q3-vZ7"/>
                         <constraint firstItem="cjO-sk-Jso" firstAttribute="leading" secondItem="N9S-Qd-Hr6" secondAttribute="trailing" constant="8" id="8qB-89-G1L"/>
                         <constraint firstAttribute="bottom" secondItem="OjU-XX-nq5" secondAttribute="bottom" priority="999" id="8ua-zj-DBu"/>
                         <constraint firstItem="cjO-sk-Jso" firstAttribute="centerY" secondItem="N9S-Qd-Hr6" secondAttribute="centerY" id="DHY-PY-71p"/>
@@ -87,6 +101,7 @@
                         <constraint firstItem="N9S-Qd-Hr6" firstAttribute="leading" secondItem="Qee-dI-1wx" secondAttribute="leading" constant="10" id="INS-fA-VTt"/>
                         <constraint firstAttribute="height" priority="999" constant="20" id="ZjC-Ma-qg0"/>
                         <constraint firstItem="OjU-XX-nq5" firstAttribute="top" secondItem="Qee-dI-1wx" secondAttribute="top" id="dmr-nW-cke"/>
+                        <constraint firstItem="oey-0c-bI4" firstAttribute="top" secondItem="Qee-dI-1wx" secondAttribute="top" constant="2" id="lSx-Ef-Upy"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评论" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOh-G4-5I5">
