@@ -293,7 +293,7 @@
             if (!zlObjectIsEmpty(dic[@"desc"])) {
                 //dic[@"desc"]
                  NSString * removeStr = [self removeHTML:dic[@"desc"]];
-                weakSelf.UBView.jieShaoLabel.text = removeStr;
+                weakSelf.UBView.jieShaoLabel.text = dic[@"desc"];
             }
             
             NSArray * arr00 = dic[@"rechargeList"];
@@ -345,9 +345,9 @@
                 weakSelf.VIPView.renShuLabel.text = [NSString stringWithFormat:@"%d",[dic[@"total"] intValue]];
             }
             if (!zlObjectIsEmpty(dic[@"desc"])) {
-                NSString * removeStr = [self removeHTML:dic[@"desc"]];
+                //NSString * removeStr = [self removeHTML:dic[@"desc"]];
                //NSMutableAttributedString * attrStr = [[NSMutableAttributedString alloc] initWithData:[(NSString *)dic[@"desc"] dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
-                weakSelf.VIPView.jieshaoLabel.text = removeStr;
+                weakSelf.VIPView.jieshaoLabel.text = dic[@"desc"];
             }
             NSArray * arr00 = dic[@"buyVipList"];
             if (!zlArrayIsEmpty(arr00)) {
@@ -766,7 +766,7 @@
                     if ([type isEqualToString:@"alipay"]) {
                         //支付宝支付
                         _currentOrderNUM = dic[@"payid"];
-                        NSString * jiaGeStr = dic[@"price"];
+                        float jiaGeStr = [dic[@"price"] floatValue];
                         NSLog(@"当前的订单号为：%@",_currentOrderNUM);
                         //@"https://qr.alipay.com/bax00225fwvaxotgyqcj602a"
                         /*
@@ -786,7 +786,7 @@
                         // goodsname：购买商品名称
                         param.goodsname = [NSString stringWithFormat:@"%d",_currentJINE];
                         // amount：购买商品价格，单位是元
-                        param.amount  =  jiaGeStr;//[NSString stringWithFormat:@"%d",_currentJINE];
+                        param.amount  =  [NSString stringWithFormat:@"%.2f",jiaGeStr];
                         // payid：第三方平台上的订单号，请传真实订单号，方便后续对账，例子里采用随机数，
                         param.payid  =  _currentOrderNUM;//[self demoOrderId];
                         
@@ -796,7 +796,7 @@
                     else{
 
                         _currentOrderNUM = dic[@"payid"];
-                        NSString * jiaGeStr = dic[@"price"];
+                        float jiaGeStr = [dic[@"price"] floatValue];
                         NSLog(@"当前的订单号为：%@",_currentOrderNUM);
                         //微信支付
                         // 必须
@@ -807,7 +807,7 @@
                         // goodsname：购买商品名称
                         param.goodsname = [NSString stringWithFormat:@"%d",_currentJINE];
                         // amount：购买商品价格，单位是元
-                        param.amount  = jiaGeStr;//[NSString stringWithFormat:@"%d",_currentJINE];
+                        param.amount  = [NSString stringWithFormat:@"%.2f",jiaGeStr];
                         // payid：第三方平台上的订单号，请传真实订单号，方便后续对账，例子里采用随机数，
                         param.payid  =  _currentOrderNUM;//[self demoOrderId];
                         
@@ -1153,7 +1153,8 @@
     
     //html stringByReplacingOccurrencesOfString:<#(nonnull NSString *)#> withString:<#(nonnull NSString *)#>
     //NSString * testStr = @"<html><body><p>充值描述</p>充值描述充值描述充值描述</body></html>";
-    NSMutableAttributedString * attrStr = [[NSMutableAttributedString alloc] initWithData:[(NSString *)html dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];html = [html stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSMutableAttributedString * attrStr = [[NSMutableAttributedString alloc] initWithData:[(NSString *)html dataUsingEncoding:NSUnicodeStringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+    html = [html stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     //NSLog(@"去掉HTML之前的字符串：%@----%@",attrStr,attrStr.string);
     NSString * CustomString = nil;
     CustomString = [attrStr.string stringByReplacingOccurrencesOfString:@"<p>" withString:@"·"];
