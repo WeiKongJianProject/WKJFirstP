@@ -430,7 +430,7 @@
             }
             else{
                 if (self.vipPriceModelARR.count > 1) {
-                    self.currentPriceModel = self.vipPriceModelARR[0];
+                    self.currentPriceModel = self.vipPriceModelARR[1];
                 }
                 //_currentJINE = 28;
             }
@@ -441,7 +441,7 @@
             }
             else{
                 if (self.vipPriceModelARR.count > 2) {
-                    self.currentPriceModel = self.vipPriceModelARR[0];
+                    self.currentPriceModel = self.vipPriceModelARR[2];
                 }
                 // _currentJINE = 38;
             }
@@ -452,7 +452,7 @@
             }
             else{
                 if (self.vipPriceModelARR.count > 3) {
-                    self.currentPriceModel = self.vipPriceModelARR[0];
+                    self.currentPriceModel = self.vipPriceModelARR[3];
                 }
                 //_currentJINE = 58;
             }
@@ -463,7 +463,7 @@
             }
             else{
                 if (self.vipPriceModelARR.count > 4) {
-                    self.currentPriceModel = self.vipPriceModelARR[0];
+                    self.currentPriceModel = self.vipPriceModelARR[4];
                 }
                 //_currentJINE = 98;
             }
@@ -474,7 +474,7 @@
             }
             else{
                 if (self.vipPriceModelARR.count > 5) {
-                    self.currentPriceModel = self.vipPriceModelARR[0];
+                    self.currentPriceModel = self.vipPriceModelARR[5];
                 }
                 //_currentJINE = 198;
             }

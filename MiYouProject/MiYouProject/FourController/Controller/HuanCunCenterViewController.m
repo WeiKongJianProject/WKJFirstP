@@ -340,12 +340,14 @@
             }
             
             NSIndexPath * indexPath = [NSIndexPath indexPathForRow:[num integerValue] inSection:0];
-            
-            [self.videoARR removeObjectAtIndex:[num integerValue]];
             [self.tableview deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
+            
             //[self tableView:self.tableview commitEditingStyle:UITableViewCellEditingStyleDelete forRowAtIndexPath:indexPath];
             //[self.selectButtonARR removeObject:num];
         }
+        //[self.videoARR removeObjectAtIndex:[num integerValue]];
+        [self.videoARR removeAllObjects];
+        [self huoquHuanCunVideoARR];
         
         [self.selectButtonARR removeAllObjects];
         [self.tableview reloadData];

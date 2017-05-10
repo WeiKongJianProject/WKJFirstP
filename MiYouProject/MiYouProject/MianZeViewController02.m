@@ -33,8 +33,10 @@
         if ([dic[@"result"] isEqualToString:@"success"]) {
             NSString * string = dic[@"content"];
             
-            NSString * htmlstr = [NSString stringWithFormat:@"<html><body>%@</body></html>",string];
-            [self.webView loadHTMLString:htmlstr baseURL:nil];
+            //NSString * htmlstr = [NSString stringWithFormat:@"<html><body>%@</body></html>",string];
+            
+            //[self.webView loadHTMLString:htmlstr baseURL:nil];
+            self.label.text = string;
         }
         
         NSLog(@"免责声明结果：%@",dic);

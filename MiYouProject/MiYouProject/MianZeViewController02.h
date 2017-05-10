@@ -10,5 +10,6 @@
 #import "ZLSecondAFNetworking.h"
 @interface MianZeViewController02 : UIViewController
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
+@property (strong, nonatomic) IBOutlet UILabel *label;
 
 @end
