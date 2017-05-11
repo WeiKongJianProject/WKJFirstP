@@ -29,6 +29,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SDWebImage/UIButton+WebCache.h>
 #import <YYKit.h>
+#import "GCD.h"
 
 //内敛函数
 UIKIT_STATIC_INLINE id weak_self(id sender){

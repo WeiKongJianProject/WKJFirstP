@@ -84,21 +84,65 @@
     //canShow = YES;
     
     if(canShow){
-        
-        NewFeatureModel *m1 = [NewFeatureModel model:[UIImage imageNamed:@"kj01.jpg"]];
-        
-        NewFeatureModel *m2 = [NewFeatureModel model:[UIImage imageNamed:@"kj02.jpg"]];
-        
-        NewFeatureModel *m3 = [NewFeatureModel model:[UIImage imageNamed:@"kj03.jpg"]];
 
-        self.window.rootViewController = [CoreNewFeatureVC newFeatureVCWithModels:@[m1,m2,m3] enterBlock:^{
+        NSURL * url01 = [NSURL URLWithString:@"http://img.miyouad.com:8088/html/img/ioskj1.jpg"];
+        NSURL * url02 = [NSURL URLWithString:@"http://img.miyouad.com:8088/html/img/ioskj2.jpg"];
+        NSURL * url03 = [NSURL URLWithString:@"http://img.miyouad.com:8088/html/img/ioskj3.jpg"];
+
+        __block NewFeatureModel *m1 = [NewFeatureModel new];//[NewFeatureModel model:[UIImage imageWithColor:[UIColor whiteColor]]];
+        
+       __block NewFeatureModel *m2 = [NewFeatureModel new];//[NewFeatureModel model:[UIImage imageWithColor:[UIColor whiteColor]]];
+        
+        __block NewFeatureModel *m3 = [NewFeatureModel new];//[NewFeatureModel model:[UIImage imageWithColor:[UIColor whiteColor]]];
+        
+        NSArray * urlARR = @[url01,url02,url03];
+
+        
+        for (int i = 0; i<3; i++) {
+            //创建请求对象
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:urlARR[i]];
+            //NSLog(@"当前的图片链接为：%@",urlARR[i]);
+            //2.1创建请求方式(默认是get,这一步可以不写)
+            [request setHTTPMethod:@"get"];
             
-            NSLog(@"进入主页面");
+            //创建响应对象(有时会出错)
+            NSURLResponse *response = nil;
+            //创建连接对象
+            NSError *error = nil;
+            NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+            // = [UIImage imageWithData:data];
+            UIImage * image01 = [UIImage imageWithData:data];
+            NSURLSession * session = [NSURLSession sharedSession];
             
-            self.window.rootViewController = rootVC;
-            //[self autoLogin];
+            //model = [NewFeatureModel model:image01];
+            switch (i) {
+                case 0:
+                    m1 = [NewFeatureModel model:image01];
+                    break;
+                case 1:
+                    m2 = [NewFeatureModel model:image01];
+                    break;
+                case 2:
+                    m3 = [NewFeatureModel model:image01];
+                    break;
+                default:
+                    break;
+            }
             
-        }];
+        }
+
+            self.window.rootViewController = [CoreNewFeatureVC newFeatureVCWithModels:@[m1,m2,m3] enterBlock:^{
+                
+                NSLog(@"进入主页面");
+                
+                self.window.rootViewController = rootVC;
+                //[self autoLogin];
+                
+            }];
+
+        
+        
+        
     }else{
         
         

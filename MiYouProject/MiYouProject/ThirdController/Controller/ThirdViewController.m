@@ -274,7 +274,7 @@ static int _is_first;
     
     
     
-    cell.priceLabel.text = [NSString stringWithFormat:@"%d",[model.price intValue]];
+    cell.priceLabel.text = [NSString stringWithFormat:@"%d",[model.hits intValue]];
     cell.pingLunLabel.text = [NSString stringWithFormat:@"%d",[model.commentNum intValue]];
     
     cell.playButton.tag = [model.id intValue];

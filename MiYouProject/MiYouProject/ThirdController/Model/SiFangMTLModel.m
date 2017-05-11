@@ -22,7 +22,8 @@
       @"time":@"time",
       @"price":@"price",
       @"commentNum":@"commentNum",
-      @"isBuy":@"isBuy"
+      @"isBuy":@"isBuy",
+      @"hits":@"hits"
       };
 
 }

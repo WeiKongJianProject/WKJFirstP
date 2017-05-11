@@ -84,7 +84,7 @@
         }
             break;
         case 2:{
-            MianZeViewController * vc = [[MianZeViewController alloc]init];
+            GuanYuUSViewController * vc = [[GuanYuUSViewController alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
         }
             

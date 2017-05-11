@@ -122,7 +122,7 @@
 - (void)startBanBenInfo{
 
     __weak typeof(self) weakSelf = self;
-    NSString * url = [NSString stringWithFormat:@"%@&action=version",URL_Common_ios];
+    NSString * url = [NSString stringWithFormat:@"%@&action=version&channel=%@",URL_Common_ios,CHANNEL_ID];
     NSLog(@"版本信息URL：%@",url);
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
@@ -147,6 +147,7 @@
 //加载 新版本下载页面
 - (void)loadDownView{
     BanBenUIView * banView =(BanBenUIView *)[[NSBundle mainBundle]loadNibNamed:@"BanBenUIView" owner:self options:nil][0];
+    [banView.imageView setImageURL:[NSURL URLWithString:XinBanBenImage]];
     [banView setFrame:CGRectMake(0, 0, SIZE_WIDTH, SIZE_HEIGHT)];
     // 当前顶层窗口
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
@@ -194,7 +195,7 @@
         NSDictionary * memberDic = [dic objectForKey:@"member"];
         NSArray * listARR = [dic objectForKey:@"list"];
         NSString * result = [dic objectForKey:@"result"];
-        NSLog(@"首页第一次加载---结果：%@++++++%@++++",result,dic);
+        //NSLog(@"首页第一次加载---结果：%@++++++%@++++",result,dic);
         if ([result isEqualToString:@"success"]) {
             NSArray * arr1 = [MTLJSONAdapter modelsOfClass:[CateListMTLModel class] fromJSONArray:cateListARR error:nil];
             //self.itemsTitlesARR = arr1;
@@ -206,7 +207,7 @@
             [weakSelf.bannerARR addObjectsFromArray:arr2];
             
             NSArray * arr3 = [MTLJSONAdapter modelsOfClass:[VideoListMTLModel class] fromJSONArray:listARR error:nil];
-            NSLog(@"加载电影列表的个数：%ld",arr3.count);
+            //NSLog(@"加载电影列表的个数：%ld",arr3.count);
             [weakSelf.listARR removeAllObjects];
             [weakSelf.listARR addObjectsFromArray:arr3];
             

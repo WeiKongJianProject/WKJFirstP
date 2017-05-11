@@ -10,9 +10,10 @@
 #import "SettingTableViewCell.h"
 
 #import "RenZhengViewController.h"
-#import "MianZeViewController.h"
+#import "GuanYuUSViewController.h"
 #import "AboutUSViewController.h"
 #import "YiJianViewController.h"
+
 @interface SettingViewController : ZLBaseViewController<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong, nonatomic) UITableView * tableView;

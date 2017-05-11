@@ -12,5 +12,6 @@
 
 @property (strong, nonatomic) IBOutlet UIControl *buttonControl;
 
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
