@@ -339,12 +339,18 @@
                 NSLog(@"删除失败");
             }
             
-            NSIndexPath * indexPath = [NSIndexPath indexPathForRow:[num integerValue] inSection:0];
-            [self.tableview deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
+            
             
             //[self tableView:self.tableview commitEditingStyle:UITableViewCellEditingStyleDelete forRowAtIndexPath:indexPath];
             //[self.selectButtonARR removeObject:num];
         }
+//        NSMutableArray * indexARR = [[NSMutableArray alloc]init];
+//        for (int i =0 ; i<self.selectButtonARR.count; i++) {
+//            NSNumber * num = self.selectButtonARR[i];
+//            NSIndexPath * indexPath = [NSIndexPath indexPathForRow:[num integerValue] inSection:0];
+//            [indexARR addObject:indexPath];
+//        }
+//        [self.tableview deleteRowsAtIndexPaths:indexARR withRowAnimation:UITableViewRowAnimationRight];
         //[self.videoARR removeObjectAtIndex:[num integerValue]];
         [self.videoARR removeAllObjects];
         [self huoquHuanCunVideoARR];
