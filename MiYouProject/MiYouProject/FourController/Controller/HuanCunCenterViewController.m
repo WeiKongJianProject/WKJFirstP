@@ -329,7 +329,7 @@
         for (int i = 0; i < self.selectButtonARR.count; i++) {
             NSNumber * num = self.selectButtonARR[i];
             VideoModelZL * model = self.videoARR[[num integerValue]];
-            NSLog(@"选择的按钮的总数为：%ld,视频的总数为：%ld,索要删除的行数为：%ld",self.selectButtonARR.count,self.videoARR.count,[num integerValue]);
+            //NSLog(@"选择的按钮的总数为：%ld,视频的总数为：%ld,索要删除的行数为：%d",self.selectButtonARR.count,self.videoARR.count,[num integerValue]);
             if ([NSFileManagerZL deleteFileWithFileName:model.videoName]) {
                 NSLog(@"删除成功");
                 
@@ -338,9 +338,7 @@
             else{
                 NSLog(@"删除失败");
             }
-            
-            
-            
+
             //[self tableView:self.tableview commitEditingStyle:UITableViewCellEditingStyleDelete forRowAtIndexPath:indexPath];
             //[self.selectButtonARR removeObject:num];
         }

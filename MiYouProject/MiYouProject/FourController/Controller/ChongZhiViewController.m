@@ -948,6 +948,7 @@
     }];
     
 }
+
 - (void)zhifushibaiActionWithType:(NSString *)type{
     __weak typeof(self) weakSelf = self;
     //wechat
@@ -1164,8 +1165,13 @@
     
 }
 
-#pragma mark聚宝云 支付集成START
 
+
+#pragma mark 支付接口 1  网页跳转 START
+
+#pragma end mark 支付接口 1  网页跳转 END
+
+#pragma mark 支付接口 2 聚宝云 START
 // 启动支付
 - (void)start:(NSString *)price withType:(NSString *)type
 {
@@ -1178,9 +1184,9 @@
     NSLog(@"支付回调信息：%@----%d",message,success);
     if ( success == YES )
     {
-//        UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"支付成功" message:message preferredStyle:UIAlertControllerStyleAlert];
-//        [controller addAction:[UIAlertAction actionWithTitle:@"知道啦" style:UIAlertActionStyleCancel handler:nil]];
-//        [self presentViewController:controller animated:true completion:nil];
+        //        UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"支付成功" message:message preferredStyle:UIAlertControllerStyleAlert];
+        //        [controller addAction:[UIAlertAction actionWithTitle:@"知道啦" style:UIAlertActionStyleCancel handler:nil]];
+        //        [self presentViewController:controller animated:true completion:nil];
         __weak typeof(self) weakSelf = self;
         AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
         alertZL.titleName = @"支付成功";
@@ -1199,9 +1205,9 @@
     }
     else
     {
-//        UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"支付失败" message:message preferredStyle:UIAlertControllerStyleAlert];
-//        [controller addAction:[UIAlertAction actionWithTitle:@"知道啦" style:UIAlertActionStyleCancel handler:nil]];
-//        [self presentViewController:controller animated:true completion:nil];
+        //        UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"支付失败" message:message preferredStyle:UIAlertControllerStyleAlert];
+        //        [controller addAction:[UIAlertAction actionWithTitle:@"知道啦" style:UIAlertActionStyleCancel handler:nil]];
+        //        [self presentViewController:controller animated:true completion:nil];
         __weak typeof(self) weakSelf = self;
         AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
         alertZL.titleName = @"支付失败";
@@ -1220,7 +1226,10 @@
     }
 }
 
-#pragma END MARK 聚宝云集成END
+#pragma END MARK 支付接口 2 聚宝云集成 END
+#pragma mark 支付接口 3 START
+
+#pragma end mark  支付接口 3 END
 
 /*
  #pragma mark - Navigation
