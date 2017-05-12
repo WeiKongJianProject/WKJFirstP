@@ -8,6 +8,8 @@
 
 #import "HuanCunCenterViewController.h"
 
+
+
 @interface HuanCunCenterViewController (){
     
     BOOL _isEditing;
@@ -24,9 +26,7 @@
     _isAllSelected = NO;
     //[self.videoARR addObjectsFromArray:@[@"1",@"3",@"2",@"4",@"5"]];
     [self huoquHuanCunVideoARR];
-    
-    
-    
+
     self.selectButtonARR  = [[NSMutableArray alloc]init];
     self.buttonsZongARR = [[NSMutableArray alloc]init];
     self.tableview  = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SIZE_WIDTH, SIZE_HEIGHT-32.0) style:UITableViewStylePlain];

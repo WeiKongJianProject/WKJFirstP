@@ -1082,13 +1082,6 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
-		73485C271E9CAD0300A6691A /* ZhiFuFrame */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ZhiFuFrame;
-			sourceTree = "<group>";
-		};
 		73A3B5F71E89F78C00407957 /* Model02 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1437,7 +1430,6 @@
 		73EB3EB31E6FD7DB00CA8B5D /* Myframework */ = {
 			isa = PBXGroup;
 			children = (
-				73485C271E9CAD0300A6691A /* ZhiFuFrame */,
 				73C347241E84E96600BBBDBE /* AutoFitLabel */,
 				73E7DA611E7B787E00371E33 /* ZLNSFileManager */,
 				18AEC44F1E7593FA004BD503 /* ZLCollectionViewGird */,
