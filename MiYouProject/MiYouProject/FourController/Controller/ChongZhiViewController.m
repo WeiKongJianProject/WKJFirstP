@@ -781,6 +781,7 @@ typedef NS_ENUM(NSInteger,PAYJIEKOU_Type) {
                 }];
                 [alertZL okButtonBlockAction:^(BOOL success) {
                     [alertZL hideCustomeAlertView];
+                    [weakSelf xw_postNotificationWithName:ZHIFU_NOTIFICATION_RESUALT userInfo:@{@"type":@"UB"}];
                     [weakSelf.navigationController popViewControllerAnimated:YES];
                     NSLog(@"点击了去支付按钮");
                 }];
@@ -813,6 +814,7 @@ typedef NS_ENUM(NSInteger,PAYJIEKOU_Type) {
                 }];
                 [alertZL okButtonBlockAction:^(BOOL success) {
                     [alertZL hideCustomeAlertView];
+                    [weakSelf xw_postNotificationWithName:ZHIFU_NOTIFICATION_RESUALT userInfo:@{@"type":@"VIP"}];
                     [weakSelf.navigationController popViewControllerAnimated:YES];
                     NSLog(@"点击了去支付按钮");
                 }];
@@ -873,6 +875,11 @@ typedef NS_ENUM(NSInteger,PAYJIEKOU_Type) {
     } failure:^(NSError *error) {
         [MBManager showBriefAlert:@"服务器连接失败"];
     }];
+    
+    [GlobalQueue executeAsyncTask:^{
+        [self reloadMemberInfoAFNetworking];
+    }];
+    
 }
 
 
@@ -1001,6 +1008,12 @@ typedef NS_ENUM(NSInteger,PAYJIEKOU_Type) {
         //        UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"支付成功" message:message preferredStyle:UIAlertControllerStyleAlert];
         //        [controller addAction:[UIAlertAction actionWithTitle:@"知道啦" style:UIAlertActionStyleCancel handler:nil]];
         //        [self presentViewController:controller animated:true completion:nil];
+        
+        [GlobalQueue executeAsyncTask:^{
+            [self reloadMemberInfoAFNetworking];
+        }];
+        
+        
         __weak typeof(self) weakSelf = self;
         AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
         alertZL.titleName = @"支付成功";
@@ -1016,6 +1029,10 @@ typedef NS_ENUM(NSInteger,PAYJIEKOU_Type) {
             NSLog(@"点击了去支付按钮");
         }];
         [alertZL showCustomAlertView];
+        
+        
+        
+        
     }
     else
     {
@@ -1051,6 +1068,36 @@ typedef NS_ENUM(NSInteger,PAYJIEKOU_Type) {
 
 
 #pragma end mark  支付接口 3 END
+
+//支付完成后 请求用户信息 刷新
+- (void)reloadMemberInfoAFNetworking{
+    //&action=memberCenter&id=1
+    /*
+     "member":{
+     "id":1,
+     "name":"\u5f20\u4e09",
+     "password":"123456",
+     “group”:0,
+     }
+     */
+    //__weak typeof(self) weakSelf = self;
+    NSString * urlstring = [NSString stringWithFormat:@"%@&action=memberCenter&id=%@",URL_Common_ios,self.memMTLModel.id];
+    NSLog(@"用户中心请求的链接为：%@",urlstring);
+    [[ZLSecondAFNetworking sharedInstance] getWithURLString:urlstring parameters:nil success:^(id responseObject) {
+        NSDictionary *  dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"用户中心请求的数据为：%@",dic);
+        if ([dic[@"result"] isEqualToString:@"success"]) {
+            //weakSelf.userMessageModel = [MTLJSONAdapter modelOfClass:[UserMessageMTLModel class] fromJSONDictionary:dic error:nil];
+            [[NSUserDefaults standardUserDefaults] setObject:[dic objectForKey:@"points"] forKey:MEMBER_POINTS_NUM];
+            [[NSUserDefaults standardUserDefaults] setObject:[dic objectForKey:@"vip"] forKey:MEMBER_VIP_LEVEL];
+        }
+
+    } failure:^(NSError *error){
+        NSLog(@"支付完成后，请求用户信息 失败");
+    }];
+    
+}
+
 
 /*
  #pragma mark - Navigation
