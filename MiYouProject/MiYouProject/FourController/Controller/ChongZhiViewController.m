@@ -682,7 +682,9 @@ typedef NS_ENUM(NSInteger,PAYJIEKOU_Type) {
                 else if ([dic[@"pay"] isEqualToString:@"cloudpay"]){
                     [weak_self(self) thirdZhiFuAction:type withDingDanInfo:dic];
                 }
-                
+                else if ([dic[@"pay"] isEqualToString:@"stpay"]){
+                    [weak_self(self) stpayZhiFuWithType:type withOrderDic:dic];
+                }
             }
             else{
                 [MBManager showBriefAlert:@"生成订单失败"];
@@ -1097,7 +1099,133 @@ typedef NS_ENUM(NSInteger,PAYJIEKOU_Type) {
     }];
     
 }
+#pragma mark STpay 支付方法  第四 支付方法  START
 
+- (void)stpayZhiFuWithType:(NSString *)type withOrderDic:(NSDictionary *)dic{
+    __weak typeof(self) weakSelf = self;
+    if (self.UB_or_VIP == UB_ChongZhi) {
+        //UB充值
+        if ([type isEqualToString:@"alipay"]) {
+            _currentOrderNUM = dic[@"payid"];
+            //@"https://qr.alipay.com/bax00225fwvaxotgyqcj602a"
+            NSString * strIdentifier = dic[@"url"];
+            BOOL isExsit = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strIdentifier]];
+            if(isExsit) {
+                //NSLog(@"App %@ installed", strIdentifier);
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:strIdentifier]];
+                AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
+                alertZL.titleName = @"支付结果";
+                alertZL.cancelBtnTitle = @"支付失败";
+                alertZL.okBtnTitle = @"支付完成";
+                [alertZL cancelBlockAction:^(BOOL success) {
+                    [alertZL hideCustomeAlertView];
+                    [weakSelf xw_postNotificationWithName:ZHIFU_NOTIFICATION_RESUALT userInfo:@{@"type":@"UB"}];
+                }];
+                [alertZL okButtonBlockAction:^(BOOL success) {
+                    [alertZL hideCustomeAlertView];
+                    [weakSelf xw_postNotificationWithName:ZHIFU_NOTIFICATION_RESUALT userInfo:@{@"type":@"UB"}];
+                    [weakSelf.navigationController popViewControllerAnimated:YES];
+                    NSLog(@"点击了去支付按钮");
+                }];
+                [alertZL showCustomAlertView];
+            }
+        }
+        else{
+            NSLog(@"微信支付！");
+        }
+        
+    }
+    else{
+        //VIP会员购买
+        if ([type isEqualToString:@"alipay"]) {
+            _currentOrderNUM = dic[@"orderNo"];
+            NSLog(@"当前的订单号为：%@",_currentOrderNUM);
+            //@"https://qr.alipay.com/bax00225fwvaxotgyqcj602a"
+            NSString * strIdentifier = dic[@"url"];
+            BOOL isExsit = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strIdentifier]];
+            if(isExsit) {
+                //NSLog(@"App %@ installed", strIdentifier);
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:strIdentifier]];
+                AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
+                alertZL.titleName = @"支付结果";
+                alertZL.cancelBtnTitle = @"支付失败";
+                alertZL.okBtnTitle = @"支付完成";
+                [alertZL cancelBlockAction:^(BOOL success) {
+                    [alertZL hideCustomeAlertView];
+                    [weakSelf xw_postNotificationWithName:ZHIFU_NOTIFICATION_RESUALT userInfo:@{@"type":@"VIP"}];
+                }];
+                [alertZL okButtonBlockAction:^(BOOL success) {
+                    [alertZL hideCustomeAlertView];
+                    [weakSelf xw_postNotificationWithName:ZHIFU_NOTIFICATION_RESUALT userInfo:@{@"type":@"VIP"}];
+                    [weakSelf.navigationController popViewControllerAnimated:YES];
+                    NSLog(@"点击了去支付按钮");
+                }];
+                [alertZL showCustomAlertView];
+            }
+            
+        }
+        else{
+            
+            NSLog(@"微信支付！");
+        }
+        
+        
+    }
+    
+    
+    
+    
+}
+- (void)stpayZhifushibaiActionWithType:(NSString *)type{
+    __weak typeof(self) weakSelf = self;
+    
+    //wechat
+    NSString * url  = nil;
+    
+    if ([type isEqualToString:@"VIP"]) {
+        
+        url = [NSString stringWithFormat:@"%@&action=doBuyVip&orderNo=%@",URL_Common_ios,_currentOrderNUM];
+    }else{
+        
+        url = [NSString stringWithFormat:@"%@&action=doRecharge&orderNo=%@",URL_Common_ios,_currentOrderNUM];
+    }
+    
+    
+    NSLog(@"获取充值结果URL：%@",url);
+    [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
+        
+        // 1.判断当前对象是否能够转换成JSON数据.
+        // YES if obj can be converted to JSON data, otherwise NO
+        //BOOL isYes = [NSJSONSerialization isValidJSONObject:responseObject];
+        //NSString *str = [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+        //NSData* xmlData = [str dataUsingEncoding:NSUTF8StringEncoding];
+        NSMutableDictionary * dic = (NSMutableDictionary *)[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        // BOOL isYes = [NSJSONSerialization isValidJSONObject:responseObject];
+        //NSLog(@"支付宝充值VIP页面请求返回的数据为：%@----是否可以解析：",dic);
+        if (!zlDictIsEmpty(dic)) {
+            NSString * result = dic[@"result"];
+            if ([result isEqualToString:@"success"]) {
+                [MBManager showBriefAlert:@"支付成功"];
+                [weakSelf.navigationController popViewControllerAnimated:YES];
+            }
+            else{
+                [MBManager showBriefAlert:@"支付失败"];
+            }
+        }else{
+            [MBManager showBriefAlert:@"支付失败"];
+        }
+    } failure:^(NSError *error) {
+        [MBManager showBriefAlert:@"服务器连接失败"];
+    }];
+    
+    [GlobalQueue executeAsyncTask:^{
+        [self reloadMemberInfoAFNetworking];
+    }];
+    
+}
+
+
+#pragma mark STpay 支付方法  第四 支付方法  END
 
 /*
  #pragma mark - Navigation
