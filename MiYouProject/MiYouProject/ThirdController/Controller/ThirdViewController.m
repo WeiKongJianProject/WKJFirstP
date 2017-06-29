@@ -10,7 +10,7 @@
 
 
 #define Collection_item_Width SIZE_WIDTH
-#define Collection_item_Height SIZE_WIDTH * 330.0/375.0
+#define Collection_item_Height SIZE_WIDTH * 345.0/375.0
 static int _currentPage_NEW;
 static int _currentPage_HOT;
 static int _is_first;
@@ -156,7 +156,8 @@ static int _is_first;
     }
     
     SiFangMTLModel * model = [self.collectioinViewARR objectAtIndex:indexPath.row];
-    cell.nameLabel.text = model.name;
+    cell.nameLabel.text = model.member;
+    cell.subNameLabel.text = model.name;
     //[cell.headerImageVIew sd_setImageWithURL:[NSURL URLWithString:model.avator] placeholderImage:PLACEHOLDER_IMAGE];
     //检测缓存中是否已存在图片
     UIImage *myCachedImage = [[SDImageCache sharedImageCache] imageFromCacheForKey:model.avator];
@@ -173,7 +174,11 @@ static int _is_first;
      */
     
     if (myCachedImage) {
+<<<<<<< HEAD
         NSLog(@"缓存中有图片");
+=======
+        //NSLog(@"缓存中有图片");
+>>>>>>> ZL33Branch
         [cell.headerImageVIew sd_setImageWithURL:[NSURL URLWithString:model.avator] placeholderImage:[UIImage imageNamed:@"icon_default"] options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
             
         } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
@@ -181,15 +186,15 @@ static int _is_first;
         }];
     }
     else{
-        NSLog(@"缓存中没有图片时执行方法");
+        //NSLog(@"缓存中没有图片时执行方法");
         [[SDWebImageManager sharedManager].imageDownloader downloadImageWithURL:[NSURL URLWithString:model.avator] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
             NSLog(@"处理下载进度");
         } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
             if (error) {
-                NSLog(@"下载有错误");
+                //NSLog(@"下载有错误");
             }
             if (image) {
-                NSLog(@"下载图片完成");
+                //NSLog(@"下载图片完成");
                 dispatch_async(dispatch_get_main_queue(), ^{
                     // switch back to the main thread to update your UI
                     [cell.headerImageVIew setImage:image];
@@ -236,8 +241,13 @@ static int _is_first;
      }];
      */
     
+<<<<<<< HEAD
     if (myCachedImage) {
         NSLog(@"缓存中有图片");
+=======
+    if (myCachedImage02) {
+        //NSLog(@"缓存中有图片");
+>>>>>>> ZL33Branch
         [cell.videoImageView sd_setImageWithURL:[NSURL URLWithString:model.pic] placeholderImage:[UIImage imageNamed:@"sifang_default"] options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
             
         } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
@@ -245,15 +255,15 @@ static int _is_first;
         }];
     }
     else{
-        NSLog(@"缓存中没有图片时执行方法");
+        //NSLog(@"缓存中没有图片时执行方法");
         [[SDWebImageManager sharedManager].imageDownloader downloadImageWithURL:[NSURL URLWithString:model.pic] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
-            NSLog(@"处理下载进度");
+            //NSLog(@"处理下载进度");
         } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
             if (error) {
-                NSLog(@"下载有错误");
+               // NSLog(@"下载有错误");
             }
             if (image) {
-                NSLog(@"下载图片完成");
+                //NSLog(@"下载图片完成");
                 dispatch_async(dispatch_get_main_queue(), ^{
                     // switch back to the main thread to update your UI
                     [cell.videoImageView setImage:image];
@@ -273,7 +283,7 @@ static int _is_first;
     
     
     
-    cell.priceLabel.text = [NSString stringWithFormat:@"%d",[model.price intValue]];
+    cell.priceLabel.text = [NSString stringWithFormat:@"%d",[model.hits intValue]];
     cell.pingLunLabel.text = [NSString stringWithFormat:@"%d",[model.commentNum intValue]];
     
     cell.playButton.tag = [model.id intValue];
@@ -472,12 +482,15 @@ static int _is_first;
 {
     //[self.collectionView reloadData];
     if (control.selectedSegmentIndex == 0) {
-        
+        [self.collectionView reloadData];
     }
     else{
         if (_is_first == 1) {
             [self startAFNetworkingwithPage:_currentPage_HOT withOrder:@"hot"];
             _is_first++;
+        }
+        else{
+            [self.collectionView reloadData];
         }
         
     }

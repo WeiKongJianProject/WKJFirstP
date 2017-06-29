@@ -35,13 +35,14 @@
 
 - (void)getSIDArrayWithURLString:(NSString *)URLString success:(onSuccess)success failed:(onFailed)failed{
     dispatch_queue_t global_t = dispatch_get_global_queue(0, 0);
+    dispatch_queue_t main_t = dispatch_get_main_queue();
     dispatch_async(global_t, ^{
         NSURL *url = [NSURL URLWithString:URLString];
         NSMutableArray *sidArray = [NSMutableArray array];
         NSMutableArray *videoArray = [NSMutableArray array];
         
         
-        [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:url] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * response, NSData *  data, NSError *  connectionError) {
+        [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:url] queue:main_t completionHandler:^(NSURLResponse * response, NSData *  data, NSError *  connectionError) {
             if (connectionError) {
                 NSLog(@"错误%@",connectionError);
                 failed(connectionError);
@@ -74,10 +75,11 @@
 
 - (void)getVideoListWithURLString:(NSString *)URLString ListID:(NSString *)ID success:(onSuccess)success failed:(onFailed)failed{
     dispatch_queue_t global_t = dispatch_get_global_queue(0, 0);
+    dispatch_queue_t main_t = dispatch_get_main_queue();
     dispatch_async(global_t, ^{
         NSURL *url = [NSURL URLWithString:URLString];
         NSMutableArray *listArray = [NSMutableArray array];
-        [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:url] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * response, NSData *  data, NSError *  connectionError) {
+        [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:url] queue:main_t completionHandler:^(NSURLResponse * response, NSData *  data, NSError *  connectionError) {
             if (connectionError) {
                 NSLog(@"错误%@",connectionError);
                 failed(connectionError);

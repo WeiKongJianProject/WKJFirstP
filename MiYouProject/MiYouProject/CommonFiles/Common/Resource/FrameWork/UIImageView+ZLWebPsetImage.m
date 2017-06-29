@@ -56,7 +56,7 @@
 
 }
 - (void)changeImage:(NSData *)data{
-    [self setImage:[UIImage imageWithWebPData:data]];
+    //[self setImage:[UIImage imageWithWebPData:data]];
 }
 
 

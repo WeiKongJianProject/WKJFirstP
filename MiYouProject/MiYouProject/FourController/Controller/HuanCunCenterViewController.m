@@ -8,6 +8,8 @@
 
 #import "HuanCunCenterViewController.h"
 
+
+
 @interface HuanCunCenterViewController (){
     
     BOOL _isEditing;
@@ -24,9 +26,7 @@
     _isAllSelected = NO;
     //[self.videoARR addObjectsFromArray:@[@"1",@"3",@"2",@"4",@"5"]];
     [self huoquHuanCunVideoARR];
-    
-    
-    
+
     self.selectButtonARR  = [[NSMutableArray alloc]init];
     self.buttonsZongARR = [[NSMutableArray alloc]init];
     self.tableview  = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SIZE_WIDTH, SIZE_HEIGHT-32.0) style:UITableViewStylePlain];
@@ -329,7 +329,7 @@
         for (int i = 0; i < self.selectButtonARR.count; i++) {
             NSNumber * num = self.selectButtonARR[i];
             VideoModelZL * model = self.videoARR[[num integerValue]];
-            NSLog(@"选择的按钮的总数为：%ld,视频的总数为：%ld,索要删除的行数为：%ld",self.selectButtonARR.count,self.videoARR.count,[num integerValue]);
+            //NSLog(@"选择的按钮的总数为：%ld,视频的总数为：%ld,索要删除的行数为：%d",self.selectButtonARR.count,self.videoARR.count,[num integerValue]);
             if ([NSFileManagerZL deleteFileWithFileName:model.videoName]) {
                 NSLog(@"删除成功");
                 
@@ -338,14 +338,20 @@
             else{
                 NSLog(@"删除失败");
             }
-            
-            NSIndexPath * indexPath = [NSIndexPath indexPathForRow:[num integerValue] inSection:0];
-            
-            [self.videoARR removeObjectAtIndex:[num integerValue]];
-            [self.tableview deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
+
             //[self tableView:self.tableview commitEditingStyle:UITableViewCellEditingStyleDelete forRowAtIndexPath:indexPath];
             //[self.selectButtonARR removeObject:num];
         }
+//        NSMutableArray * indexARR = [[NSMutableArray alloc]init];
+//        for (int i =0 ; i<self.selectButtonARR.count; i++) {
+//            NSNumber * num = self.selectButtonARR[i];
+//            NSIndexPath * indexPath = [NSIndexPath indexPathForRow:[num integerValue] inSection:0];
+//            [indexARR addObject:indexPath];
+//        }
+//        [self.tableview deleteRowsAtIndexPaths:indexARR withRowAnimation:UITableViewRowAnimationRight];
+        //[self.videoARR removeObjectAtIndex:[num integerValue]];
+        [self.videoARR removeAllObjects];
+        [self huoquHuanCunVideoARR];
         
         [self.selectButtonARR removeAllObjects];
         [self.tableview reloadData];

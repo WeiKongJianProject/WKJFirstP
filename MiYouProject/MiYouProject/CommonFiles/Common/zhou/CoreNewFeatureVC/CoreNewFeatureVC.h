@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NewFeatureModel.h"
-
+#import "MianZeViewController02.h"
 
 @interface CoreNewFeatureVC : UIViewController
 

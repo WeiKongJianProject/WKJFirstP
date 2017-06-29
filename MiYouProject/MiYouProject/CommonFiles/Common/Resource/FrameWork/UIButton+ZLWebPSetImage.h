@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SDwebImage/UIimage+MultiFormat.h>
-#import "UIImage+WebP.h"
+
 #import "UIButton+WebCache.h"
 @interface UIButton (ZLWebPSetImage)
 - (void)setZLWebPButton_ImageWithURLStr:(NSString *)urlStr withPlaceHolderImage:(UIImage *)placeImage;

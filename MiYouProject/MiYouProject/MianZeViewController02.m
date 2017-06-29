@@ -1,25 +1,28 @@
 //
-//  AboutUSViewController.m
+//  MianZeViewController.m
 //  MiYouProject
 //
-//  Created by wkj on 2017/3/28.
+//  Created by wkj on 2017/5/10.
 //  Copyright © 2017年 junhong. All rights reserved.
 //
 
-#import "AboutUSViewController.h"
+#import "MianZeViewController02.h"
 
-@interface AboutUSViewController ()
+@interface MianZeViewController02 ()
 
 @end
 
-@implementation AboutUSViewController
+@implementation MianZeViewController02
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"免责声明";
+    self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view from its nib.
     [self startAFnetWorking];
+    
+    
 }
+
 - (void)startAFnetWorking{
     
     NSString * url = [NSString stringWithFormat:@"%@&action=statement",URL_Common_ios];
@@ -40,7 +43,14 @@
     } failure:^(NSError *error) {
         
     }];
+
+}
+
+- (IBAction)backButtonAction:(UIButton *)sender {
     
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

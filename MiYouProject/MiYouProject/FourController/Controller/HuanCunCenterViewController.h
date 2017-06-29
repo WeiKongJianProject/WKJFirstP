@@ -24,4 +24,5 @@
 @property (strong, nonatomic) UITableView * tableview;
 @property (strong, nonatomic) HuanCunFooterView * footView;
 @property (strong, nonatomic) UIBarButtonItem * rightButton;
+
 @end

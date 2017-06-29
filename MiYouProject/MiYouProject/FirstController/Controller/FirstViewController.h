@@ -29,7 +29,7 @@
 #import "VideoListMTLModel.h"
 
 #import "WMPlayZLViewController.h"
-#import "KYLocalVideoPlayVC.h"
+
 
 #import "ChongZhiViewController.h"
 

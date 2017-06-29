@@ -434,7 +434,7 @@
     //https://www.baidu.com/img/bdlogo.png
     //vModel.pic
     //[cell.minImageView sd_setImageWithURL:[NSURL URLWithString:vModel.pic] placeholderImage:[UIImage imageNamed:@"icon_default2"]];
-    NSLog(@"图片链接：%@",vModel.pic);
+    //NSLog(@"图片链接：%@",vModel.pic);
 //    NSArray * benARR = @[@"http://api4.cn360du.com:88/upload/vod/2017-04/14917942023.jpg",@"http://api4.cn360du.com:88/upload/vod/2017-04/149179419818.jpg",@"http://api4.cn360du.com:88/upload/vod/2017-04/149179419815.jpg",@"http://api4.cn360du.com:88/upload/vod/2017-04/149179419810.jpg",@"http://api4.cn360du.com:88/upload/vod/2017-04/149179419813.jpg",@"http://api4.cn360du.com:88/upload/vod/2017-04/149179419811.jpg",@"http://api4.cn360du.com:88/upload/vod/2017-04/14917941977.jpg"];
 //    NSArray * zaiARR = @[@"http://img3.redocn.com/tupian/20150318/chanraodehuawenbiankuangxiangkuang_4020940.jpg",@"http://pic.58pic.com/58pic/13/59/88/32W58PICQpk_1024.jpg",@"http://pic.58pic.com/58pic/13/60/91/42P58PIChDU_1024.jpg",@"http://www.zhlzw.com/UploadFiles/Article_UploadFiles/201204/20120412123927207.jpg",@"http://d.5857.com/xgs_150428/desk_005.jpg",@"http://d.5857.com/weimei_140707/004.jpg",@"http://d.5857.com/xgmn_150416/desk_007.jpg"];
 //    int arInt = arc4random()%7;
@@ -479,7 +479,7 @@
     }];
     */
     if (myCachedImage) {
-        NSLog(@"缓存中有图片");
+        //NSLog(@"缓存中有图片");
         [cell.minImageView sd_setImageWithURL:[NSURL URLWithString:vModel.pic] placeholderImage:[UIImage imageNamed:@"icon_default2"] options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
             
         } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
@@ -487,15 +487,15 @@
         }];
     }
     else{
-        NSLog(@"缓存中没有图片时执行方法");
+        //NSLog(@"缓存中没有图片时执行方法");
         [[SDWebImageManager sharedManager].imageDownloader downloadImageWithURL:[NSURL URLWithString:vModel.pic] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
-            NSLog(@"处理下载进度");
+            //NSLog(@"处理下载进度");
         } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
             if (error) {
-                NSLog(@"下载有错误");
+                //NSLog(@"下载有错误");
             }
             if (image) {
-                NSLog(@"下载图片完成");
+                //NSLog(@"下载图片完成");
                 dispatch_async(dispatch_get_main_queue(), ^{
                     // switch back to the main thread to update your UI
                     [cell.minImageView setImage:image];
@@ -577,6 +577,7 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     __weak typeof(self) weakSelf = self;
+    
     VideoListMTLModel * model = [self.dianYingCollectionARR objectAtIndex:indexPath.row];
     NSString * modelVIP = [NSString stringWithFormat:@"%d",[model.vip intValue]];
     //NSString * isMemberVIP = [[NSUserDefaults standardUserDefaults] objectForKey:IS_MEMBER_VIP];
@@ -597,16 +598,16 @@
 //        }];
 //        [alertZL showCustomAlertView];
         
-        if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:withIsShiKan:)]) {
+        if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:withIsShiKan:)]) {
             NSString * keyID = [NSString stringWithFormat:@"%@",model.id];
-            [self.delegate firstSubVC:self withType:2 withName:model.name withKey:keyID withIsShiKan:YES];
+            [weakSelf.delegate firstSubVC:self withType:2 withName:model.name withKey:keyID withIsShiKan:YES];
         }
         
     }
     else{
-        if (self.delegate && [self.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:withIsShiKan:)]) {
+        if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(firstSubVC:withType:withName:withKey:withIsShiKan:)]) {
             NSString * keyID = [NSString stringWithFormat:@"%@",model.id];
-            [self.delegate firstSubVC:self withType:2 withName:model.name withKey:keyID withIsShiKan:NO];
+            [weakSelf.delegate firstSubVC:self withType:2 withName:model.name withKey:keyID withIsShiKan:NO];
         }
     }
 

@@ -17,6 +17,8 @@
 #import "PlayMemberMTLModel.h"
 #import "PingLunTableViewCell.h"
 #import "PingLunMTLModel.h"
+#import "ChongZhiViewController.h"
+
 
 @interface PlayerZLViewController : UIViewController<ZFPlayerDelegate,ZFPlayerControlViewDelagate,UITableViewDelegate,UITableViewDataSource>
 

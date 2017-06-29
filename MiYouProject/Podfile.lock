@@ -23,7 +23,11 @@ PODS:
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
+<<<<<<< HEAD
   - GONMarkupParser (0.7.3):
+=======
+  - GONMarkupParser (0.7.4):
+>>>>>>> ZL33Branch
     - NSString+Color
   - IQKeyboardManager (4.0.9)
   - KYVedioPlayer (0.0.5):
@@ -100,7 +104,11 @@ SPEC CHECKSUMS:
   DZNSegmentedControl: ecc2f31c5581cce10c4d766ea4bd2d0781814c1f
   FBRetainCycleDetector: f0c7b290bf48ae77f6ae060843ce34ae341781eb
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+<<<<<<< HEAD
   GONMarkupParser: f65959a6771c7be6d56907f213ed74a215d3dce1
+=======
+  GONMarkupParser: 2455e05924918f133942575ff48822b123cc160c
+>>>>>>> ZL33Branch
   IQKeyboardManager: 322c7405df3eb5f7e50dede32ea937bf3d4364e0
   KYVedioPlayer: 22514bca35913053adcfc9a150d74ec90218f4d4
   Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
@@ -119,6 +127,10 @@ SPEC CHECKSUMS:
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   ZFPlayer: 8dc82b4508fbba4ee59d0304c52e30f8b3390244
 
+<<<<<<< HEAD
 PODFILE CHECKSUM: 8f64f04af9a09390722d9314bebe7c0f5ab7b664
+=======
+PODFILE CHECKSUM: afd7df88e63ecc1a90590461cb10fc4d1807726d
+>>>>>>> ZL33Branch
 
 COCOAPODS: 1.2.0

@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pingLunLabel;
 @property (weak, nonatomic) IBOutlet UIButton *pingLunButton;
+@property (strong, nonatomic) IBOutlet UILabel *subNameLabel;
 
 
 

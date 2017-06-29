@@ -20,4 +20,8 @@
 @property (strong, nonatomic) NSNumber * price;
 @property (strong, nonatomic) NSNumber * commentNum;
 @property (strong, nonatomic) NSNumber * isBuy;
+@property (strong, nonatomic) NSNumber * hits;
+
+
+
 @end

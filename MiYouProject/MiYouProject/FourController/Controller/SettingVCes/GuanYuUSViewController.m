@@ -1,29 +1,31 @@
 //
-//  AboutUSViewController.m
+//  GuanYuUSViewController.m
 //  MiYouProject
 //
-//  Created by wkj on 2017/3/28.
+//  Created by wkj on 2017/5/11.
 //  Copyright © 2017年 junhong. All rights reserved.
 //
 
-#import "AboutUSViewController.h"
+#import "GuanYuUSViewController.h"
 
-@interface AboutUSViewController ()
+@interface GuanYuUSViewController ()
 
 @end
 
-@implementation AboutUSViewController
+@implementation GuanYuUSViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"免责声明";
-    // Do any additional setup after loading the view from its nib.
+    self.view.backgroundColor = [UIColor whiteColor];
     [self startAFnetWorking];
+    
+    self.versionLabel.text = [NSString stringWithFormat:@"V%@",kAppVersion];
+    // Do any additional setup after loading the view from its nib.
 }
 - (void)startAFnetWorking{
     
-    NSString * url = [NSString stringWithFormat:@"%@&action=statement",URL_Common_ios];
-    NSLog(@"免责声明：链接：%@",url);
+    NSString * url = [NSString stringWithFormat:@"%@&action=aboutUs",URL_Common_ios];
+    NSLog(@"关于我们：链接：%@",url);
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         
@@ -36,13 +38,12 @@
             self.label.text = string;
         }
         
-        NSLog(@"免责声明结果：%@",dic);
+        NSLog(@"关于我们结果：%@",dic);
     } failure:^(NSError *error) {
         
     }];
     
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

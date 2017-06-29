@@ -198,7 +198,7 @@ static int jd;
             btn.hidden = YES;
         }
         NSArray * vipListARR = [self.userMessageModel.viplist mutableCopy];
-        NSLog(@"请求的用户VIP特权为：%ld,cell.ButtonARR的个数为：%ld",vipListARR.count,fcell.VIPButtonARR.count);
+        //NSLog(@"请求的用户VIP特权为：%ld,cell.ButtonARR的个数为：%ld",vipListARR.count,fcell.VIPButtonARR.count);
         NSInteger zonButNum;
         if (vipListARR.count > fcell.VIPButtonARR.count) {
             zonButNum = fcell.VIPButtonARR.count;
@@ -211,7 +211,7 @@ static int jd;
             NSString * stringURL = vipListARR[i];
             UIButton * btn = (UIButton *)fcell.VIPButtonARR[i];
             btn.hidden = NO;
-            NSLog(@"会员图标的链接：%@--%p",stringURL,btn);
+            //NSLog(@"会员图标的链接：%@--%p",stringURL,btn);
             //[btn sd_setBackgroundImageWithURL:[NSURL URLWithString:stringURL] forState:UIControlStateNormal];
             //[btn sd_setBackgroundImageWithURL:[NSURL URLWithString:stringURL] forState:UIControlStateNormal placeholderImage:PLACEHOLDER_IMAGE];
             //"https://www.baidu.com/img/bdlogo.png"
@@ -231,11 +231,11 @@ static int jd;
              }];
              */
             if (myCachedImage) {
-                NSLog(@"缓存中有图片");
+                //NSLog(@"缓存中有图片");
                 [btn sd_setBackgroundImageWithURL:[NSURL URLWithString:stringURL] forState:UIControlStateNormal placeholderImage:PLACEHOLDER_IMAGE options:SDWebImageRefreshCached];
             }
             else{
-                NSLog(@"缓存中没有图片时执行方法");
+                //NSLog(@"缓存中没有图片时执行方法");
                 [[SDWebImageManager sharedManager].imageDownloader downloadImageWithURL:[NSURL URLWithString:stringURL] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
                     NSLog(@"处理下载进度");
                 } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {

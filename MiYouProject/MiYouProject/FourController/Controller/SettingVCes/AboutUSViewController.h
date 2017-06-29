@@ -9,5 +9,6 @@
 #import "ZLBaseViewController.h"
 
 @interface AboutUSViewController : ZLBaseViewController
+@property (strong, nonatomic) IBOutlet UILabel *label;
 
 @end

@@ -79,7 +79,11 @@
         prefix = [self unorderedListItemPrefixForIndentation:indentation position:position listConfiguration:listConfiguration context:context];
 
     // Force new line
+<<<<<<< HEAD
     if (position != 0)
+=======
+    if (position > 1)
+>>>>>>> ZL33Branch
         prefix = [@"\n" stringByAppendingString:prefix];
     
     return [[NSAttributedString alloc] initWithString:prefix attributes:stringAttributes];

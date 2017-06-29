@@ -37,7 +37,11 @@
 			<string>weixin</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
+<<<<<<< HEAD
 				<string>wx1cb7e61eb868bea3</string>
+=======
+				<string>wx8d3fea2cda5193a8</string>
+>>>>>>> ZL33Branch
 			</array>
 		</dict>
 		<dict>

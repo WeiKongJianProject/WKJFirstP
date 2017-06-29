@@ -25,6 +25,6 @@
 
 #define URL_Common_ios @"http://api4.cn360du.com:88/index.php?m=api-ios"
 #define NewBanBen_URL  @"http://www.baidu.com"
-
+#define XinBanBenImage @"http://img.miyouad.com:8088/html/img/iosupdate.jpg"
 
 #endif /* URLZLHeader_h */

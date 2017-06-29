@@ -508,6 +508,17 @@ static int _currentPage;
     }];
     [self.view addSubview:alert];
 }
+
+//开通VIP按钮执行方法
+- (IBAction)kaiTongVIPButtongAction:(UIButton *)sender {
+    
+    ChongZhiViewController * vc = [[ChongZhiViewController alloc]init];
+    vc.UB_or_VIP = UB_ChongZhi;
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
+
+
 /*
  #pragma mark - Navigation
  
